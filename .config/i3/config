@@ -70,7 +70,7 @@ bindsym $mod+Shift+Right move right
 bindsym $mod+backslash split h
 
 # split in vertical orientation
-bindsym $mod+v split v
+bindsym $mod+BackSpace split v
 
 # enter fullscreen mode for the focused container
 bindsym $mod+f fullscreen toggle
@@ -182,5 +182,11 @@ exec --no-startup-id wal -i "$(< "${HOME}/.cache/wal/wal")"
 # Launch polybar at startup
 exec --no-startup-id ${HOME}/.config/polybar/launch.sh
 
+# Restore wallpaper setup
 exec --no-startup-id nitrogen --restore
-exec --no-startup-id enpass
+
+# Start enpass silently
+exec --no-startup-id enpass -silent %U
+
+# Merge .Xresources setting
+exec --no-startup-id xrdb -merge ${HOME}/.Xresources

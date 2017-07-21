@@ -1,3 +1,6 @@
 open_with an
 shell dfas
 open_with ofi
+open_with l
+open_with 
+open_with vim

@@ -1,3 +1,7 @@
-! Disable scrollbar in URxvt
-URxvt.scrollBar: false
+URxvt.font: xft:lucy tewi:size=9
+URxvt*urlLauncher:         firefox  
+URxvt*scrollBar:        false
+URxvt*scrollBar_right:        true
+URxvt*scrollColor:        #000000
+URxvt*dynamicColors: on
 
