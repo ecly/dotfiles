@@ -3,6 +3,8 @@ plugins=(git)
 
 PROMPT='[%F{1}%n%f@%F{5}%m%f%F{3}%f]%F{6}~%f '
 
+bindkey -v
+
 vim_ins_mode="%F{2}[INS]%f"
 vim_cmd_mode="%F{1}[CMD]%f"
 vim_mode=${vim_ins_mode}

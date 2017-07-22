@@ -8,3 +8,5 @@ set colorscheme jungle
 set colorscheme solarized
 set colorscheme snow
 set colorscheme default
+shell 
+shell make
