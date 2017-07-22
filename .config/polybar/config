@@ -52,13 +52,55 @@ modules-left = i3index
 modules-center = current-song
 modules-right = date
 
-
+tray-detached = false
 tray-position = right
+tray-offset-x = 0
+tray-offset-y = 0
+tray-maxsize = 16
+tray-padding = 0
+tray-scale = 1
 
-tray-background = ${colors.background}
-tray-underline = ${colors.foreground-alt}
-tray-padding-left = 0
-tray-padding-right = 2
+
+! Same as primary with no tray
+[bar/secondary]
+monitor = ${env:MONITOR}
+width = 100%
+height = 20
+;offset-x = 1%
+offset-y = 1%
+radius = 0.0
+fixed-center = true
+
+background = ${colors.background}
+foreground = ${colors.foreground}
+
+line-size = 2
+line-color = #f00
+
+;border-bottom = 0
+;border-top = 15
+;border-right = 25
+;border-left = 25
+border-size = 0
+border-color = #00000000
+
+padding-left = 0
+padding-right = 2
+
+module-margin-left = 1
+module-margin-right = 1
+
+font-0 = "lucy tewi:size=10;0"
+font-1 = "lucy tewi:size=10;0"  
+font-2 = "lucy tewi:size=10;0"
+font-3 = "Noto Sans:size=12;0"
+font-4 = "Misc Fixed:size=8;0"
+
+modules-left = i3index
+modules-center = current-song
+modules-right = date
+
+tray-position = 
 
 [settings]
 screenchange-reload = true

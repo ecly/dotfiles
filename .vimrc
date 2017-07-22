@@ -1,5 +1,5 @@
 syntax on
-set clipboard=unnamed,autoselect
+set clipboard=unnamed
 set nocompatible              " be iMproved, required
 set laststatus=2
 set background=dark
