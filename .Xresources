@@ -1,4 +1,4 @@
-URxvt.font: xft:lucy tewi:size=14
+URxvt.font: xft:lucy tewi:size=18
 URxvt*urlLauncher: firefox  
 URxvt*scrollBar: false
 URxvt*scrollBar_right: true
