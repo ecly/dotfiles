@@ -42,6 +42,8 @@ Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'tpope/vim-surround'
 Plugin 'fsharp/vim-fsharp'
 Plugin 'ervandew/supertab'
+Plugin 'chrisbra/Colorizer'
+
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
