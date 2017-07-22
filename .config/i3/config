@@ -141,9 +141,9 @@ mode "resize" {
 }
 
 
-# # # # # # # # # # # # 
-# Launch Applications #
-# # # # # # # # # # # #
+# # # # # # # # # # # # # # #
+# Launch Applications Binds #
+# # # # # # # # # # # # # # #
 bindsym $sup+e exec urxvt -name ranger -e ranger
 bindsym $sup+p exec pavucontrol
 
@@ -189,12 +189,16 @@ exec --no-startup-id setxkbmap -option caps:escape
 # Setup NetworkManager
 exec --no-startup-id nm-applet
 
-# Start enpass silently
-exec --no-startup-id enpass
-
 # Restore wallpaper setup
 exec --no-startup-id nitrogen --restore
 
 # Launch polybar at startup
 exec --no-startup-id sh ${HOME}/.config/polybar/launch.sh
 
+# # # # # # # # # # # # # # # # #
+# Launch Applications At Start  #
+# # # # # # # # # # # # # # # # #
+
+# Start enpass and kill to system tray
+exec --no-startup-id enpass; [class="(?i)enpass"] kill
+exec --no-startup-id dropbox

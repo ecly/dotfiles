@@ -2,7 +2,6 @@ open_with an
 shell dfas
 open_with ofi
 open_with l
-open_with 
 open_with vim
 set colorscheme jungle
 set colorscheme solarized
@@ -10,3 +9,4 @@ set colorscheme snow
 set colorscheme default
 shell 
 shell make
+open_with 
