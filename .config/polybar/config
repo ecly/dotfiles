@@ -49,19 +49,16 @@ font-3 = "Noto Sans:size=12;0"
 font-4 = "Misc Fixed:size=8;0"
 
 modules-left = i3index
-modules-center = xwindow
-modules-right = current-song date
+modules-center = current-song
+modules-right = date
 
 
 tray-position = right
-tray-padding = 9
-tray-transparent = false
-tray-offset-y = 0%
-tray-offset-x = 0%
-tray-maxsize = 18
-tray-detached = false
+
 tray-background = ${colors.background}
-#tray-underline = ${colors.foreground-alt}
+tray-underline = ${colors.foreground-alt}
+tray-padding-left = 0
+tray-padding-right = 2
 
 [settings]
 screenchange-reload = true
@@ -131,7 +128,6 @@ time-alt = %H:%M:%S
 
 ;format-prefix =  
 format-prefix-foreground = ${colors.foreground}
-;format-underline = #0a6cf5
 
 label = %date% %time%
 

@@ -173,10 +173,10 @@ gaps outer 10
 
 # Rofi keybinds 
 bindsym $mod+m exec "rofi -show run"
-bindsym $mod+n exec "rofi -show window"
+bindsym $mod+Shift+m exec "rofi -show window"
 
 # Setup triple monitor setup
-exec --no-startup-id xrandr --output DVI-I-1 --mode 1920x1080 --rate 144 --auto --output HDMI-0 --left-of DVI-I-1 --auto --output DP-0 --right-of DVI-I-1 --rotate right
+exec --no-startup-id xrandr --auto --output DVI-I-1 --mode 1920x1080 --rate 144 --auto --output HDMI-0 --left-of DVI-I-1 --auto --output DP-0 --right-of DVI-I-1 --rotate right
 
 # Setup workspaces 
 workspace 1 output HDMI-0
@@ -184,22 +184,17 @@ workspace 2 output DVI-I-1
 workspace 3 output DP-0
 
 # Map Caps Lock to Esc
-exec --no-startup-id setxkbmap -option caps:escape &
+exec --no-startup-id setxkbmap -option caps:escape
 
 # Setup NetworkManager
 exec --no-startup-id nm-applet
 
-# Setup wal persistance
-exec --no-startup-id wal -i "$(< "${HOME}/.cache/wal/wal")"
-
-# Launch polybar at startup
-exec --no-startup-id ${HOME}/.config/polybar/launch.sh
+# Start enpass silently
+exec --no-startup-id enpass
 
 # Restore wallpaper setup
-exec nitrogen --restore
+exec --no-startup-id nitrogen --restore
 
-# Start enpass silently
-exec --no-startup-id enpass -silent %U
+# Launch polybar at startup
+exec --no-startup-id sh ${HOME}/.config/polybar/launch.sh
 
-# Merge .Xresources setting
-exec  xrdb -merge ${HOME}/.Xresources

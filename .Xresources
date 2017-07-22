@@ -1,8 +1,24 @@
-URxvt.font: xft:lucy tewi:size=10
+URxvt.font: xft:lucy tewi:size=14
 URxvt*urlLauncher: firefox  
 URxvt*scrollBar: false
 URxvt*scrollBar_right: true
 URxvt*scrollColor: #000000
 URxvt*dynamicColors: on
 
-rofi.bw: 10
+
+! Rofi setup
+rofi.color-enabled: true
+!                  bg       border   separator
+!rofi.color-window: #282828, #a89984, #a89984
+rofi.separator-style: solid
+rofi.font: lucy tewi 12
+rofi.bw: 2
+rofi.columns: 1
+rofi.padding: 4
+
+rofi.yoffset: 0
+rofi.fake-transparency: false
+rofi.location: 0
+rofi.width: 50
+rofi.lines: 10
+rofi.fixed-num-lines: true
