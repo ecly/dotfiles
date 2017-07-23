@@ -155,6 +155,13 @@ bindsym $sup+Right exec "dbus-send --print-reply --dest=org.mpris.MediaPlayer2.s
 bindsym $sup+Up exec --no-startup-id pactl set-sink-volume 0 -- +10%
 bindsym $sup+Down exec --no-startup-id pactl set-sink-volume 0 -- -10% 
 
+# # # # # # # # # # # # #
+# Command Keybindings   #
+# # # # # # # # # # # # #
+
+# Screenshot region and uniquely identify in picture folder
+bindsym $mod+q exec maim -s ~/Pictures/$(date +%s).png
+
 
 bindsym $mod+r mode "resize"
 

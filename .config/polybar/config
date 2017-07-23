@@ -59,6 +59,7 @@ tray-offset-y = 0
 tray-maxsize = 16
 tray-padding = 0
 tray-scale = 1
+tray-background = ${colors.background}
 
 
 ! Same as primary with no tray

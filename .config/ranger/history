@@ -10,3 +10,4 @@ set colorscheme default
 shell 
 shell make
 open_with 
+open_with
