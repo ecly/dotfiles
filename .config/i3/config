@@ -149,6 +149,9 @@ bindsym $mod+Down exec --no-startup-id pamixer --allow-boost -d 5
 bindsym $mod+Delete exec --no-startup-id pamixer --allow-boost -t
 bindsym $mod+i exec --no-startup-id sh ~/Scripts/movesinks.sh 1
 bindsym $mod+Shift+i exec --no-startup-id sh ~/Scripts/movesinks.sh 0
+bindsym $mod+Right exec --no-startup-id mpc next
+bindsym $mod+Left exec --no-startup-id mpc prev
+bindsym $mod+p exec --no-startup-id mpc toggle 
 
 # # # # # # # # # # # # #
 # Command Keybindings   #
