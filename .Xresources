@@ -1,10 +1,11 @@
-URxvt.font: xft:lucy tewi:pixelsize=18
-URxvt*urlLauncher: firefox  
-URxvt*scrollBar: false
-URxvt*scrollBar_right: true
-URxvt*scrollColor: #444444
-URxvt*dynamicColors: on
-
+URxvt*perl-ext-common:  resize-font
+URxvt*font:             xft:iosevka:size=12:antialias=true:hinting=true
+URxvt*boldFont:         xft:iosevka:bold:size=12:antialias=true:hinting=true
+URxvt*urlLauncher:      firefox  
+URxvt*scrollBar:        false
+URxvt*scrollBar_right:  true
+URxvt*scrollColor:      #444444
+URxvt*dynamicColors:    on
 
 ! Rofi setup
 rofi.color-enabled: true
@@ -16,16 +17,16 @@ rofi.color-enabled: true
 !rofi.color-urgent:      argb:00333333, #ffffff, argb:00333333, argb:00333333, argb:ffefa211
 !rofi.color-active:      argb:00333333, #ffffff, argb:00333333, argb:00333333, argb:ffefa211
 
-rofi.separator-style: solid
-rofi.font: lucy tewi 13
-rofi.bw: 2
-rofi.columns: 1
-rofi.yoffset: 0
-rofi.fake-transparency: false
-rofi.hide-scrollbar: true
-rofi.opacity: 90
+rofi.separator-style:       solid
+rofi.font:                  iosevka 14
+rofi.bw:                    2
+rofi.columns:               1
+rofi.yoffset:               0
+rofi.fake-transparency:     false
+rofi.hide-scrollbar:        true
+rofi.opacity:               90
 
-rofi.location: 0
-rofi.width: 30
-rofi.lines: 10
-rofi.fixed-num-lines: true
+rofi.location:              0
+rofi.width:                 30
+rofi.lines:                 10
+rofi.fixed-num-lines:       true

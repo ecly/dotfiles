@@ -45,12 +45,6 @@ bindsym $mod+j focus down
 bindsym $mod+k focus up
 bindsym $mod+l focus right
 
-# alternatively, you can use the cursor keys:
-bindsym $mod+Left focus left
-bindsym $mod+Down focus down
-bindsym $mod+Up focus up
-bindsym $mod+Right focus right
-
 # move focused window - vim style
 bindsym $mod+Shift+h move left
 bindsym $mod+Shift+j move down
@@ -145,15 +139,16 @@ mode "resize" {
 # Launch Applications Binds #
 # # # # # # # # # # # # # # #
 bindsym $sup+e exec urxvt -name ranger -e ranger
-bindsym $sup+p exec pavucontrol
+bindsym $sup+m exec urxvt -name ncmpcpp -e ncmpcpp
 
 # # # # # # # # # # # # 
 # Music Keybindings   #
 # # # # # # # # # # # #
-bindsym $sup+Left exec "dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Previous"
-bindsym $sup+Right exec "dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Next"
-bindsym $sup+Up exec --no-startup-id pactl set-sink-volume 0 -- +10%
-bindsym $sup+Down exec --no-startup-id pactl set-sink-volume 0 -- -10% 
+bindsym $mod+Up exec --no-startup-id pamixer --allow-boost -i 5
+bindsym $mod+Down exec --no-startup-id pamixer --allow-boost -d 5
+bindsym $mod+Delete exec --no-startup-id pamixer --allow-boost -t
+bindsym $mod+i exec --no-startup-id sh ~/Scripts/movesinks.sh 1
+bindsym $mod+Shift+i exec --no-startup-id sh ~/Scripts/movesinks.sh 0
 
 # # # # # # # # # # # # #
 # Command Keybindings   #
@@ -183,7 +178,8 @@ bindsym $mod+m exec "rofi -show run"
 bindsym $mod+Shift+m exec "rofi -show window"
 
 # Setup triple monitor setup
-exec --no-startup-id xrandr --auto --output DVI-I-1 --mode 1920x1080 --rate 144 --auto --output HDMI-0 --left-of DVI-I-1 --auto --output DP-0 --right-of DVI-I-1 --rotate right
+#exec --no-startup-id xrandr --auto --output DVI-I-1 --mode 1920x1080 --rate 144 --auto --output HDMI-0 --left-of DVI-I-1 --auto --output DP-0 --right-of DVI-I-1 --rotate right
+exec --no-startup-id xrandr --auto --output DVI-I-1 --mode 1920x1080 --rate 144 --auto --output HDMI-0 --mode 1920x1080 --rate 60 --left-of DVI-I-1 --auto --output DP-0 --mode 1920x1080 --rate 60 --right-of DVI-I-1 --rotate right
 
 # Setup workspaces 
 workspace 1 output HDMI-0
@@ -196,6 +192,9 @@ exec --no-startup-id setxkbmap -option caps:escape
 # Setup NetworkManager
 exec --no-startup-id nm-applet
 
+# Start Mopidy Server
+exec --no-startup-id mopidy
+
 # Restore wallpaper setup
 exec --no-startup-id nitrogen --restore
 
@@ -207,5 +206,5 @@ exec --no-startup-id sh ${HOME}/.config/polybar/launch.sh
 # # # # # # # # # # # # # # # # #
 
 # Start enpass and kill to system tray
-exec --no-startup-id enpass; [class="(?i)enpass"] kill
+exec --no-startup-id enpass; killall enpass
 exec --no-startup-id dropbox
