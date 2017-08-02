@@ -19,7 +19,7 @@ monitor = ${env:MONITOR}
 width = 100%
 height = 20
 ;offset-x = 1%
-offset-y = 1%
+offset-y = 0%
 radius = 0.0
 fixed-center = true
 
@@ -51,6 +51,9 @@ font-4 = "Misc Fixed:size=8;0"
 modules-left = i3index
 modules-center = current-song
 modules-right = date
+
+;fix tray position
+;override-redirect = true
 
 tray-detached = false
 tray-position = right
