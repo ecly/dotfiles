@@ -49,7 +49,7 @@ font-3 = "Noto Sans:size=12;0"
 font-4 = "Misc Fixed:size=8;0"
 
 modules-left = i3index
-modules-center = current-song
+modules-center = mpd
 modules-right = date
 
 ;fix tray position
@@ -101,7 +101,7 @@ font-3 = "Noto Sans:size=12;0"
 font-4 = "Misc Fixed:size=8;0"
 
 modules-left = i3index
-modules-center = current-song
+modules-center = mpd
 modules-right = date
 
 tray-position = 
@@ -177,7 +177,19 @@ format-prefix-foreground = ${colors.foreground}
 
 label = %date% %time%
 
-[module/current-song]
+[module/mpd]
+type = internal/mpd
+
+host = 127.0.0.1
+port = 6600
+
+; Seconds to sleep between progressbar/song timer sync, Default: 1
+interval = 1
+
+label-song = 𝄞 %artist% - %title%
+label-offline = 🎜 mpd is offline
+
+[module/current-song-spotify]
 type = custom/script
 exec = ~/.config/polybar/spotify.sh %artist% - %title%
 tail = true
