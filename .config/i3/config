@@ -146,8 +146,6 @@ exec --no-startup-id setxkbmap -option caps:escape
 exec --no-startup-id setxkbmap -option grp:switch,grp:alt_space_toggle,grp_led:scroll us,dk
 
 ###--- Launch Applications/Daemons At Start ---###
-# Start enpass and kill to system tray
-exec --no-startup-id enpass 
 exec --no-startup-id dropbox
 
 # Setup NetworkManager
@@ -158,3 +156,20 @@ exec --no-startup-id mopidy
 
 # Launch polybar at startup
 exec --no-startup-id sh ${HOME}/.config/polybar/launch.sh
+
+###--- Scratchpad terminal setup ---###
+for_window [instance="scratch"] floating enable
+for_window [instance="scratch"] resize set 625 400
+for_window [instance="scratch"] move position center
+for_window [instance="scratch"] move scratchpad
+exec --no-startup-id urxvt -name scratch
+
+bindsym $mod+u [instance="scratch"] scratchpad show; move position center
+
+for_window [instance="password"] floating enable
+for_window [instance="password"] resize set 1366 768
+for_window [instance="password"] move position center
+for_window [instance="password"] move scratchpad
+exec --no-startup-id enpass -name password
+
+bindsym $mod+Shift+u [instance="password"] scratchpad show; move position center
