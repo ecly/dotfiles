@@ -52,7 +52,7 @@ font-4 = "Misc Fixed:size=8;0"
 
 modules-left = i3index
 modules-center = mpd
-modules-right = volume date 
+modules-right = volume keyboard date 
 
 ;fix tray position
 ;override-redirect = true
@@ -63,7 +63,7 @@ tray-offset-x = 0
 tray-offset-y = 0
 tray-maxsize = 16
 tray-padding = 0
-tray-scale = 0.95
+tray-scale = 1
 tray-background = ${colors.background}
 
 
@@ -104,7 +104,7 @@ font-4 = "Misc Fixed:size=8;0"
 
 modules-left = i3index
 modules-center = mpd
-modules-right = volume date
+modules-right = volume keyboard date
 
 tray-position = 
 
@@ -224,3 +224,11 @@ bar-volume-fill-font = 2
 bar-volume-empty = ─
 bar-volume-empty-font = 2
 bar-volume-empty-foreground = ${colors.foreground-alt}
+
+[module/keyboard]
+type = internal/xkeyboard
+
+format = <label-layout>
+label = layout = %name%
+label-layout-background = ${colors.background}
+label-layout-foreground = ${colors.foreground}
