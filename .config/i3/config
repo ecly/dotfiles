@@ -142,6 +142,7 @@ exec --no-startup-id nitrogen --restore
 
 # Map Caps Lock to Esc
 exec --no-startup-id setxkbmap -option caps:escape
+
 # Allow keyboard toggling using alt + space
 exec --no-startup-id setxkbmap -option grp:switch,grp:alt_space_toggle,grp_led:scroll us,dk
 
@@ -153,6 +154,7 @@ exec --no-startup-id nm-applet
 
 # Start Mopidy Server
 exec --no-startup-id mopidy
+exec --no-startup-id while :; do socat -d -d -T 1 -u UDP4-LISTEN:5555 OPEN:/tmp/mpd.fifo; done
 
 # Launch polybar at startup
 exec --no-startup-id sh ${HOME}/.config/polybar/launch.sh
