@@ -1,3 +1,4 @@
+! urvxt setup
 URxvt*perl-ext-common:  resize-font
 URxvt*font:             xft:iosevka:size=12:antialias=true:hinting=true
 URxvt*boldFont:         xft:iosevka:size=12:style=Bold:antialias=true:hinting=true
@@ -8,7 +9,7 @@ URxvt*scrollBar_right:  true
 URxvt*scrollColor:      #444444
 URxvt*dynamicColors:    on
 
-! Rofi setup
+! rofi setup
 rofi.color-enabled: true
 !                  bg       border   separator
 !rofi.color-window: ,        #ff0000, 
