@@ -130,6 +130,9 @@ bindsym Control+q kill
 bindsym $mod+m exec "rofi -show run"
 bindsym $mod+Shift+m exec "rofi -show window"
 
+# Lock screen
+bindsym $sup+l exec sh ~/Scripts/lock.sh
+
 ###--- Scripts ran at start ---###
 # Setup triple monitor setup
 exec --no-startup-id xrandr --auto --output DVI-I-1 --mode 1920x1080 --rate 144 --auto --output HDMI-0 --mode 1920x1080 --rate 60 --left-of DVI-I-1 --auto --output DP-0 --mode 1920x1080 --rate 60 --right-of DVI-I-1 --rotate right
