@@ -42,7 +42,6 @@ source "${HOME}/.cache/wal/colors.sh"
 export HISTCONTROL=ignoredups
 
 # ALIASES
-
 alias ls="ls-i --color=auto"
 alias dir="dir-i --color=auto"
 alias vdir="vdir-i --color=auto"
@@ -52,6 +51,8 @@ alias shutdown="systemctl poweroff"
 alias pacyy="sudo pacman -Syy"
 alias pacyu="sudo pacman -Syu"
 alias vim="vim"
+alias i3c="vim ~/.config/i3/config"
+alias pdf="zathura"
 
 # Import colorscheme from 'wal'
 [[ -z "$VTE_VERSION" ]] && (wal -r &)
