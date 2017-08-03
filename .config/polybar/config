@@ -14,6 +14,17 @@ foreground = ${xrdb:color15:#222}
 foreground-alt =  ${xrdb:color2:#555}
 highlight = ${xrdb:color4}
 
+[settings]
+screenchange-reload = true
+;compositing-background = xor
+;compositing-background = screen
+;compositing-foreground = source
+;compositing-border = over
+
+[global/wm]
+margin-top = 5
+margin-bottom = 5
+
 [bar/main]
 monitor = ${env:MONITOR}
 width = 100%
@@ -44,9 +55,9 @@ padding bottom = 2
 module-margin-left = 1
 module-margin-right = 1
 
-font-0 = "iosevka:size=10;0"
-font-1 = "iosevka:size=10;0"  
-font-2 = "iosevka:size=10;0"
+font-0 = "iosevka medium:size=10;0"
+font-1 = "iosevka medium:size=10;0"  
+font-2 = "iosevka medium:size=10;0"
 font-3 = "Noto Sans:size=12;0"
 font-4 = "Misc Fixed:size=8;0"
 
@@ -66,9 +77,8 @@ tray-padding = 0
 tray-scale = 1
 tray-background = ${colors.background}
 
-
-! Same as primary with no tray
 [bar/secondary]
+! Same as primary with no tray
 monitor = ${env:MONITOR}
 width = 100%
 height = 20
@@ -107,17 +117,6 @@ modules-center = mpd
 modules-right = volume keyboard date
 
 tray-position = 
-
-[settings]
-screenchange-reload = true
-;compositing-background = xor
-;compositing-background = screen
-;compositing-foreground = source
-;compositing-border = over
-
-[global/wm]
-margin-top = 5
-margin-bottom = 5
 
 [module/xwindow]
 type = internal/xwindow

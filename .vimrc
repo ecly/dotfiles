@@ -13,6 +13,10 @@ let $PATH = $PATH . ':' . expand('~/.local/bin')
 
 filetype plugin indent on     " reequired
 
+" Autoloads and saves folds
+autocmd BufWrite * mkview
+autocmd BufRead * silent loadview
+
 " syntactic recommended settings
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}

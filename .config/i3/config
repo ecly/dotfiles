@@ -6,6 +6,9 @@
 set $mod Mod1
 set $sup Mod4
 
+# Use Mouse+$mod to drag floating windows to their wanted position
+floating_modifier $mod
+
 ###--- Settings---###
 # Do not follow the mouse
 focus_follows_mouse no
@@ -17,13 +20,7 @@ new_window pixel 2
 gaps inner 10
 gaps outer 10
 
-
-# Use Mouse+$mod to drag floating windows to their wanted position
-floating_modifier $mod
-
-# start a terminal
-bindsym $mod+Return exec i3-sensible-terminal
-
+###--- i3 navigation binds ---###
 # kill focused window
 bindsym $mod+Shift+q kill
 
@@ -65,6 +62,22 @@ bindsym $mod+Shift+space floating toggle
 # change focus between tiling / floating windows
 bindsym $mod+space focus mode_toggle
 
+###--- Launch Applications Binds ---###
+bindsym $sup+e exec urxvt -name ranger -e ranger
+bindsym $sup+m exec urxvt -name ncmpcpp -e ncmpcpp
+bindsym $mod+Return exec i3-sensible-terminal
+
+###--- Music Keybindings ---###
+bindsym $mod+Up exec --no-startup-id pamixer --allow-boost -i 5
+bindsym $mod+Down exec --no-startup-id pamixer --allow-boost -d 5
+bindsym $mod+Delete exec --no-startup-id pamixer --allow-boost -t
+bindsym $mod+i exec --no-startup-id sh ~/Scripts/movesinks.sh 1
+bindsym $mod+Shift+i exec --no-startup-id sh ~/Scripts/movesinks.sh 0
+bindsym $mod+Right exec --no-startup-id mpc next
+bindsym $mod+Left exec --no-startup-id mpc prev
+bindsym $mod+p exec --no-startup-id mpc toggle 
+
+###--- Command Keybindings ---###
 # focus the parent container
 bindsym $mod+a focus parent
 
@@ -99,27 +112,6 @@ bindsym $mod+Shift+r restart
 # exit i3 (logs you out of your X session)
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
 
-# # # # # # # # # # # # # # #
-# Launch Applications Binds #
-# # # # # # # # # # # # # # #
-bindsym $sup+e exec urxvt -name ranger -e ranger
-bindsym $sup+m exec urxvt -name ncmpcpp -e ncmpcpp
-
-# # # # # # # # # # # # 
-# Music Keybindings   #
-# # # # # # # # # # # #
-bindsym $mod+Up exec --no-startup-id pamixer --allow-boost -i 5
-bindsym $mod+Down exec --no-startup-id pamixer --allow-boost -d 5
-bindsym $mod+Delete exec --no-startup-id pamixer --allow-boost -t
-bindsym $mod+i exec --no-startup-id sh ~/Scripts/movesinks.sh 1
-bindsym $mod+Shift+i exec --no-startup-id sh ~/Scripts/movesinks.sh 0
-bindsym $mod+Right exec --no-startup-id mpc next
-bindsym $mod+Left exec --no-startup-id mpc prev
-bindsym $mod+p exec --no-startup-id mpc toggle 
-
-# # # # # # # # # # # # #
-# Command Keybindings   #
-# # # # # # # # # # # # #
 # Screenshot region and uniquely identify in picture folder
 bindsym $mod+q exec maim -s ~/Pictures/$(date +%s).png
 
@@ -136,8 +128,8 @@ bindsym Control+q kill
 bindsym $mod+m exec "rofi -show run"
 bindsym $mod+Shift+m exec "rofi -show window"
 
+###--- Scripts ran at start ---###
 # Setup triple monitor setup
-#exec --no-startup-id xrandr --auto --output DVI-I-1 --mode 1920x1080 --rate 144 --auto --output HDMI-0 --left-of DVI-I-1 --auto --output DP-0 --right-of DVI-I-1 --rotate right
 exec --no-startup-id xrandr --auto --output DVI-I-1 --mode 1920x1080 --rate 144 --auto --output HDMI-0 --mode 1920x1080 --rate 60 --left-of DVI-I-1 --auto --output DP-0 --mode 1920x1080 --rate 60 --right-of DVI-I-1 --rotate right
 
 # Setup workspaces 
@@ -145,6 +137,18 @@ workspace 1 output HDMI-0
 workspace 2 output DVI-I-1
 workspace 3 output DP-0
 
+# Restore wallpaper setup
+exec --no-startup-id nitrogen --restore
+
+# Map Caps Lock to Esc
+exec --no-startup-id setxkbmap -option caps:escape
+# Allow keyboard toggling using alt + space
+exec --no-startup-id setxkbmap -option grp:switch,grp:alt_space_toggle,grp_led:scroll us,dk
+
+###--- Launch Applications/Daemons At Start ---###
+# Start enpass and kill to system tray
+exec --no-startup-id enpass 
+exec --no-startup-id dropbox
 
 # Setup NetworkManager
 exec --no-startup-id nm-applet
@@ -152,21 +156,5 @@ exec --no-startup-id nm-applet
 # Start Mopidy Server
 exec --no-startup-id mopidy
 
-# Restore wallpaper setup
-exec --no-startup-id nitrogen --restore
-
 # Launch polybar at startup
 exec --no-startup-id sh ${HOME}/.config/polybar/launch.sh
-
-# Map Caps Lock to Esc
-exec --no-startup-id setxkbmap -option caps:escape
-# Allow keyboard toggling using alt + space
-exec --no-startup-id setxkbmap -option grp:switch,grp:alt_space_toggle,grp_led:scroll us,dk
-
-# # # # # # # # # # # # # # # # #
-# Launch Applications At Start  #
-# # # # # # # # # # # # # # # # #
-
-# Start enpass and kill to system tray
-exec --no-startup-id enpass 
-exec --no-startup-id dropbox
