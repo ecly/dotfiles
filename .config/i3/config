@@ -64,7 +64,7 @@ bindsym $mod+space focus mode_toggle
 
 ###--- Launch Applications Binds ---###
 bindsym $sup+e exec urxvt -name ranger -e ranger
-bindsym $sup+m exec urxvt -name ncmpcpp -e ncmpcpp
+bindsym $sup+m exec urxvt -name ncmpcpp -e ncmpcpp; exec mpc random on; exec mpc repeat on
 bindsym $mod+Return exec i3-sensible-terminal
 
 ###--- Music Keybindings ---###
@@ -140,11 +140,6 @@ workspace 3 output DP-0
 # Restore wallpaper setup
 exec --no-startup-id nitrogen --restore
 
-# Map Caps Lock to Esc
-exec --no-startup-id setxkbmap -option caps:escape
-
-# Allow keyboard toggling using alt + space
-exec --no-startup-id setxkbmap -option grp:switch,grp:alt_space_toggle,grp_led:scroll us,dk
 
 ###--- Launch Applications/Daemons At Start ---###
 exec --no-startup-id dropbox
@@ -154,10 +149,17 @@ exec --no-startup-id nm-applet
 
 # Start Mopidy Server
 exec --no-startup-id mopidy
-exec --no-startup-id while :; do socat -d -d -T 1 -u UDP4-LISTEN:5555 OPEN:/tmp/mpd.fifo; done
 
 # Launch polybar at startup
 exec --no-startup-id sh ${HOME}/.config/polybar/launch.sh
+
+###--- Input settings (mouse/keyboard) ---####
+# Reduce mouse speed by 50%
+exec --no-startup-id xinput --set-prop 9 'libinput Accel Speed' -0.5
+
+# Map Caps Lock to Esc
+# Allow keyboard toggling using alt + space
+exec --no-startup-id setxkbmap -option caps:escape; setxkbmap -option grp:switch,grp:alt_space_toggle,grp_led:scroll us,dk
 
 ###--- Scratchpad terminal setup ---###
 for_window [instance="scratch"] floating enable
