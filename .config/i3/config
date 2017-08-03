@@ -3,6 +3,8 @@
 
 # i3 config file (v4)
 # Please see http://i3wm.org/docs/userguide.html for a complete reference!
+#
+###--- Modifiers ---###
 set $mod Mod1
 set $sup Mod4
 
@@ -64,7 +66,7 @@ bindsym $mod+space focus mode_toggle
 
 ###--- Launch Applications Binds ---###
 bindsym $sup+e exec urxvt -name ranger -e ranger
-bindsym $sup+m exec urxvt -name ncmpcpp -e ncmpcpp; exec mpc random on; exec mpc repeat on
+bindsym $sup+m exec urxvt -name ncmpcpp -e ncmpcpp; exec --no-startup-id mpc random on; exec --no-startup-id mpc repeat on
 bindsym $mod+Return exec i3-sensible-terminal
 
 ###--- Music Keybindings ---###
