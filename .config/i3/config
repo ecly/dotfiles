@@ -65,9 +65,14 @@ bindsym $mod+Shift+space floating toggle
 bindsym $mod+space focus mode_toggle
 
 ###--- Launch Applications Binds ---###
+bindsym $mod+Return exec urxvt
+bindsym $mod+Shift+Return exec urxvt -e tmux
+bindsym $sup+Return exec urxvt
+bindsym $sup+Shift+Return exec urxvt -e tmux
 bindsym $sup+e exec urxvt -name ranger -e ranger
 bindsym $sup+m exec urxvt -name ncmpcpp -e ncmpcpp; exec --no-startup-id mpc random on; exec --no-startup-id mpc repeat on
-bindsym $mod+Return exec i3-sensible-terminal
+bindsym $sup+b exec firefox
+bindsym $sup+Shift+b exec firefox --private-window
 
 ###--- Music Keybindings ---###
 bindsym $mod+Up exec --no-startup-id pamixer --allow-boost -i 5

@@ -12,7 +12,7 @@ URxvt*dynamicColors:    on
 ! rofi setup
 rofi.color-enabled: true
 !                  bg       border   separator
-!rofi.color-window: ,        #ff0000, 
+!rofi.color-window: #ffffff, #ff0000, #ff0000
 !rofi.color-window:      argb:dc222222, argb:dc111111
 ! State:                'bg',          'fg',   'bgalt',       'hlbg',        'hlfg'
 !rofi.color-normal:      argb:00333333, #ffffff, argb:00333333, argb:00333333, argb:ffefa211
