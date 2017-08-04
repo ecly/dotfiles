@@ -60,8 +60,9 @@ font-1 = "iosevka medium:size=10;0"
 font-2 = "iosevka medium:size=10;0"
 font-3 = "Noto Sans:size=12;0"
 font-4 = "Misc Fixed:size=8;0"
+font-5 = "FontAwesome:size=12"
 
-modules-left = i3index
+modules-left = i3index vpncheck
 modules-center = mpd
 modules-right = volume keyboard date 
 
@@ -112,7 +113,7 @@ font-2 = "iosevka:size=10;0"
 font-3 = "Noto Sans:size=12;0"
 font-4 = "Misc Fixed:size=8;0"
 
-modules-left = i3index
+modules-left = i3index vpncheck
 modules-center = mpd
 modules-right = volume keyboard date
 
@@ -231,3 +232,11 @@ format = <label-layout>
 label = layout = %name%
 label-layout-background = ${colors.background}
 label-layout-foreground = ${colors.foreground}
+
+[module/vpncheck]
+type = custom/script
+exec = pgrep openvpn
+interval = 5
+label = vpn
+format-prefix = " "
+format-prefix-foreground = ${colors.foreground-alt}
