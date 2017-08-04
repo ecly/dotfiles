@@ -11,14 +11,6 @@ URxvt*dynamicColors:    on
 
 ! rofi setup
 rofi.color-enabled: true
-!                  bg       border   separator
-!rofi.color-window: #ffffff, #ff0000, #ff0000
-!rofi.color-window:      argb:dc222222, argb:dc111111
-! State:                'bg',          'fg',   'bgalt',       'hlbg',        'hlfg'
-!rofi.color-normal:      argb:00333333, #ffffff, argb:00333333, argb:00333333, argb:ffefa211
-!rofi.color-urgent:      argb:00333333, #ffffff, argb:00333333, argb:00333333, argb:ffefa211
-!rofi.color-active:      argb:00333333, #ffffff, argb:00333333, argb:00333333, argb:ffefa211
-
 rofi.separator-style:       solid
 rofi.font:                  iosevka 14
 rofi.bw:                    2

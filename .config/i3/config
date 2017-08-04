@@ -38,12 +38,6 @@ bindsym $mod+Shift+j move down
 bindsym $mod+Shift+k move up
 bindsym $mod+Shift+l move right
 
-# alternatively, you can use the cursor keys:
-bindsym $mod+Shift+Left move left
-bindsym $mod+Shift+Down move down
-bindsym $mod+Shift+Up move up
-bindsym $mod+Shift+Right move right
-
 # split in horizontal orientation
 bindsym $mod+backslash split h
 
@@ -74,15 +68,19 @@ bindsym $sup+m exec urxvt -name ncmpcpp -e ncmpcpp; exec --no-startup-id mpc ran
 bindsym $sup+b exec firefox
 bindsym $sup+Shift+b exec firefox --private-window
 
-###--- Music Keybindings ---###
-bindsym $mod+Up exec --no-startup-id pamixer --allow-boost -i 5
-bindsym $mod+Down exec --no-startup-id pamixer --allow-boost -d 5
-bindsym $mod+Delete exec --no-startup-id pamixer --allow-boost -t
-bindsym $mod+i exec --no-startup-id sh ~/Scripts/movesinks.sh 1
-bindsym $mod+Shift+i exec --no-startup-id sh ~/Scripts/movesinks.sh 0
+###--- Music/Sound Keybindings ---###
 bindsym $mod+Right exec --no-startup-id mpc next
 bindsym $mod+Left exec --no-startup-id mpc prev
-bindsym $mod+p exec --no-startup-id mpc toggle 
+bindsym $mod+Shift+p exec --no-startup-id mpc toggle 
+bindsym $mod+Shift+Up exec --no-startup-id mpc volume +5
+bindsym $mod+Shift+Ddown exec --no-startup-id mpc volume -5
+
+# Sound
+bindsym $mod+i exec --no-startup-id sh ~/Scripts/movesinks.sh 1
+bindsym $mod+Shift+i exec --no-startup-id sh ~/Scripts/movesinks.sh 0
+bindsym $mod+Delete exec --no-startup-id pamixer --allow-boost -t
+bindsym $mod+Up exec --no-startup-id pamixer --allow-boost -i 5
+bindsym $mod+Down exec --no-startup-id pamixer --allow-boost -d 5
 
 ###--- Command Keybindings ---###
 # focus the parent container
