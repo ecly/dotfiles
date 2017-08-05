@@ -159,7 +159,7 @@ exec --no-startup-id nm-applet
 exec --no-startup-id mopidy
 
 # Launch polybar at startup
-exec --no-startup-id sh ${HOME}/.config/polybar/launch.sh
+exec --no-startup-id sh ~/.config/polybar/launch.sh
 
 ###--- Input settings (mouse/keyboard) ---####
 # Reduce mouse speed by 50%
