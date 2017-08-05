@@ -73,7 +73,7 @@ bindsym $mod+Right exec --no-startup-id mpc next
 bindsym $mod+Left exec --no-startup-id mpc prev
 bindsym $mod+Shift+p exec --no-startup-id mpc toggle 
 bindsym $mod+Shift+Up exec --no-startup-id mpc volume +5
-bindsym $mod+Shift+Ddown exec --no-startup-id mpc volume -5
+bindsym $mod+Shift+Down exec --no-startup-id mpc volume -5
 
 # Sound
 bindsym $mod+i exec --no-startup-id sh ~/Scripts/movesinks.sh 1

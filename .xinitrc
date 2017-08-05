@@ -1,3 +1,4 @@
-wal -i "$(< "${HOME}/.cache/wal/wal")"
-[[ -f ~/.Xresources ]] && xrdb -merge ~/.Xresources
+#!/bin/sh
+sh ~/Scripts/wal.sh
+[[ -f ~/.Xresources ]] && xrdb -merge -I$HOME ~/.Xresources
 exec i3

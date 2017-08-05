@@ -112,6 +112,7 @@ font-1 = "iosevka:size=10;0"
 font-2 = "iosevka:size=10;0"
 font-3 = "Noto Sans:size=12;0"
 font-4 = "Misc Fixed:size=8;0"
+font-5 = "FontAwesome:size=12"
 
 modules-left = i3index vpncheck
 modules-center = mpd

@@ -10,7 +10,7 @@ URxvt*scrollColor:      #444444
 URxvt*dynamicColors:    on
 
 ! rofi setup
-rofi.color-enabled: true
+rofi.color-enabled:         true
 rofi.separator-style:       solid
 rofi.font:                  iosevka 14
 rofi.bw:                    2
