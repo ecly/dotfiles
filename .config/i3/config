@@ -159,8 +159,8 @@ exec --no-startup-id nm-applet
 # Start Mopidy Server
 exec --no-startup-id mopidy
 
-# Launch polybar at startup
-#exec --no-startup-id sh ~/.config/polybar/launch.sh
+# Wal, dunst and polybar combined
+exec_always --no-startup-id sh ~/Scripts/beautify.sh
 
 ###--- Input settings (mouse/keyboard) ---####
 # Reduce mouse speed by 50%
@@ -170,8 +170,7 @@ exec --no-startup-id xinput --set-prop 9 'libinput Accel Speed' -0.5
 # Allow keyboard toggling using alt + space
 exec --no-startup-id setxkbmap -option caps:escape; setxkbmap -option grp:switch,grp:alt_space_toggle,grp_led:scroll us,dk
 
-###--- Scratchpad terminal setup ---###
-for_window [instance="scratch"] floating enable
+###--- Scratchpad terminal setup ---### for_window [instance="scratch"] floating enable
 for_window [instance="scratch"] resize set 625 400
 for_window [instance="scratch"] move position center
 for_window [instance="scratch"] move scratchpad
