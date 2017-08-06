@@ -150,6 +150,8 @@ workspace 3 output DP-0
 # Restore wallpaper setup
 exec --no-startup-id nitrogen --restore
 
+# Wal, dunst and polybar combined - waiting for wal values first
+exec_always --no-startup-id sh ~/Scripts/beautify.sh
 
 ###--- Launch Applications/Daemons At Start ---###
 exec --no-startup-id dropbox
@@ -160,8 +162,6 @@ exec --no-startup-id nm-applet
 # Start Mopidy Server
 exec --no-startup-id mopidy
 
-# Wal, dunst and polybar combined
-exec_always --no-startup-id sh ~/Scripts/beautify.sh
 
 ###--- Input settings (mouse/keyboard) ---####
 # Reduce mouse speed by 50%
