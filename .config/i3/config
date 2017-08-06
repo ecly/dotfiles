@@ -66,6 +66,7 @@ bindsym $sup+Shift+Return exec urxvt -e tmux
 bindsym $sup+e exec urxvt -name ranger -e ranger
 bindsym $sup+m exec urxvt -name ncmpcpp -e ncmpcpp; exec --no-startup-id mpc random on; exec --no-startup-id mpc repeat on
 bindsym $sup+h exec urxvt -name htop -e htop
+bindsym $sup+c exec urxvt -name cava -e cava
 bindsym $sup+b exec firefox
 bindsym $sup+Shift+b exec firefox --private-window
 
@@ -170,11 +171,12 @@ exec --no-startup-id xinput --set-prop 9 'libinput Accel Speed' -0.5
 # Allow keyboard toggling using alt + space
 exec --no-startup-id setxkbmap -option caps:escape; setxkbmap -option grp:switch,grp:alt_space_toggle,grp_led:scroll us,dk
 
-###--- Scratchpad terminal setup ---### for_window [instance="scratch"] floating enable
+###--- Scratchpad terminal setup ---### 
+for_window [instance="scratch"] floating enable
 for_window [instance="scratch"] resize set 625 400
 for_window [instance="scratch"] move position center
 for_window [instance="scratch"] move scratchpad
-exec --no-startup-id urxvt -name scratch -e poly
+exec --no-startup-id urxvt -name scratch -e tmux
 
 bindsym $mod+u [instance="scratch"] scratchpad show; move position center
 
