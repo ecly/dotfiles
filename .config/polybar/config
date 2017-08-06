@@ -28,7 +28,7 @@ margin-bottom = 5
 [bar/main]
 monitor = ${env:MONITOR}
 width = 100%
-height = 25
+height = 20
 ;offset-x = 1%
 offset-y = 0%
 radius = 0.0

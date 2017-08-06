@@ -65,15 +65,16 @@ bindsym $sup+Return exec urxvt
 bindsym $sup+Shift+Return exec urxvt -e tmux
 bindsym $sup+e exec urxvt -name ranger -e ranger
 bindsym $sup+m exec urxvt -name ncmpcpp -e ncmpcpp; exec --no-startup-id mpc random on; exec --no-startup-id mpc repeat on
+bindsym $sup+h exec urxvt -name htop -e htop
 bindsym $sup+b exec firefox
 bindsym $sup+Shift+b exec firefox --private-window
 
 ###--- Music/Sound Keybindings ---###
-bindsym $mod+Right exec --no-startup-id mpc next
-bindsym $mod+Left exec --no-startup-id mpc prev
-bindsym $mod+Shift+p exec --no-startup-id mpc toggle 
-bindsym $mod+Shift+Up exec --no-startup-id mpc volume +5
-bindsym $mod+Shift+Down exec --no-startup-id mpc volume -5
+bindsym $sup+Right exec --no-startup-id mpc next
+bindsym $sup+Left exec --no-startup-id mpc prev
+bindsym $sup+p exec --no-startup-id mpc toggle 
+bindsym $sup+Up exec --no-startup-id mpc volume +5
+bindsym $sup+Down exec --no-startup-id mpc volume -5
 
 # Sound
 bindsym $mod+i exec --no-startup-id sh ~/Scripts/movesinks.sh 1
@@ -159,7 +160,7 @@ exec --no-startup-id nm-applet
 exec --no-startup-id mopidy
 
 # Launch polybar at startup
-exec --no-startup-id sh ~/.config/polybar/launch.sh
+#exec --no-startup-id sh ~/.config/polybar/launch.sh
 
 ###--- Input settings (mouse/keyboard) ---####
 # Reduce mouse speed by 50%
@@ -174,7 +175,7 @@ for_window [instance="scratch"] floating enable
 for_window [instance="scratch"] resize set 625 400
 for_window [instance="scratch"] move position center
 for_window [instance="scratch"] move scratchpad
-exec --no-startup-id urxvt -name scratch
+exec --no-startup-id urxvt -name scratch -e poly
 
 bindsym $mod+u [instance="scratch"] scratchpad show; move position center
 

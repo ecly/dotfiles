@@ -9,7 +9,9 @@ set shiftwidth=4
 set rnu
 set number                    " hybrid numbering with both rnu and number
 
-let $PATH = $PATH . ':' . expand('~/.local/bin')
+"let $PATH = $PATH . ':' . expand('~/.local/bin')
+"Needed for stack wrapper of ghc-mod
+let $PATH = $PATH . ':' . expand('~/Scripts/bin')
 
 filetype plugin indent on     " reequired
 
@@ -65,6 +67,9 @@ call vundle#end()            " required
 filetype plugin indent on    " required
 " To ignore plugin indent changes, instead use:
 "filetype plugin on
+"
+" Fix to allow ghcmod-vim to use a stack installation of ghc-mod
+let g:ghcmod_use_basedir="/home/ecly/Scripts/bin"
 "
 " Brief help
 " :PluginList       - lists configured plugins
