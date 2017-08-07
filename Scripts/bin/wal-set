@@ -18,9 +18,7 @@ reload_dunst() {
         -nf "${color15:=#000000}" \
         -lfr "${color2:=#000000}" \
         -nfr "${color2:=#000000}" \
-        -cfr "${color2:=#000000}" \
-        -fn "${DUNST_FONT:-Iosevka 8}" \
-        -geometry "${DUNST_SIZE:-300x30-10+30}" &
+        -cfr "${color2:=#000000}" &
 }
 
 main() {

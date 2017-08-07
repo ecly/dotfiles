@@ -13,7 +13,7 @@ convert "$tmpbg" -scale 10% -scale 1000% "$tmpbg"
 #convert "$tmpbg" "$icon" -gravity center -composite -matte "$tmpbg"
 mpc pause
 
-i3lock -i "$tmpbg"
+i3lock -i "$tmpbg" -n; mpc play
 
 # command that hide defaults icon
 #i3lock -u -i "$tmpbg"

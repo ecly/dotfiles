@@ -4,14 +4,17 @@
 # i3 config file (v4)
 # Please see http://i3wm.org/docs/userguide.html for a complete reference!
 
-###--- Modifiers ---###
+###--- Settings---###
 set $mod Mod1
 set $sup Mod4
+set $term = urxvt
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 
-###--- Settings---###
+# Almost solely used in case of nagbar
+font pango: Iosevka 12
+
 # Do not follow the mouse
 focus_follows_mouse no
 
@@ -54,6 +57,12 @@ bindsym $mod+Shift+space floating toggle
 
 # change focus between tiling / floating windows
 bindsym $mod+space focus mode_toggle
+
+bindsym $mod+Escape		workspace prev
+bindsym $mod+Shift+Escape exec i3-msg exit
+
+# Kill all focused windows with Control+q
+bindsym $mod+q kill
 
 ###--- Launch Applications Binds ---###
 bindsym $mod+Return exec urxvt
@@ -113,8 +122,6 @@ bindsym $mod+Shift+0 move container to workspace 10
 bindsym $mod+Shift+c reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+Shift+r restart
-# exit i3 (logs you out of your X session)
-bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
 
 # Resize keybinds
 bindsym $mod+plus resize grow width 10 px or 10 ppt
@@ -123,18 +130,15 @@ bindsym $mod+minus resize shrink width 10 px or 10 ppt
 bindsym $mod+Shift+minus resize shrink height 10 px or 10 ppt
 
 # Screenshot region/monitor and uniquely identify in picture folder
-bindsym $mod+q exec sh Scripts/screenshot_region.sh
-bindsym $mod+Shift+q exec sh Scripts/screenshot_monitor.sh
-
-# Kill all focused windows with Control+q
-bindsym Control+q kill
+bindsym $mod+z exec --no-startup-id sh Scripts/screenshot_region.sh
+bindsym $mod+Shift+z exec --no-startup-id sh Scripts/screenshot_monitor.sh
 
 # Rofi keybinds 
 bindsym $mod+m exec sh ~/Scripts/rofi.sh run
 bindsym $mod+Shift+m exec sh ~/Scripts/rofi.sh window
 
 # Lock screen
-bindsym $sup+l exec sh ~/Scripts/lock.sh
+bindsym $sup+l exec --no-startup-id sh ~/Scripts/lock.sh
 
 ###--- Scripts ran at start ---###
 # Setup triple monitor setup

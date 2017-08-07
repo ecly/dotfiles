@@ -1,5 +1,5 @@
 ! urvxt setup
-URxvt*perl-ext-common:  resize-font
+URxvt*perl-ext-common:  resize-font, clipboard
 URxvt*font:             xft:iosevka:size=12:antialias=true:hinting=true
 URxvt*boldFont:         xft:iosevka:size=12:style=Bold:antialias=true:hinting=true
 URxvt*italicFont:       xft:iosevka:size=12style=Italic:antialias=true:hinting=true
@@ -8,6 +8,12 @@ URxvt*scrollBar:        false
 URxvt*scrollBar_right:  true
 URxvt*scrollColor:      #444444
 URxvt*dynamicColors:    on
+
+! urxvt clipboard setup
+URxvt.iso14755: false
+URxvt.iso14755_52: false
+URxvt.keysym.Shift-Control-C: perl:clipboard:copy
+URxvt.keysym.Shift-Control-V: perl:clipboard:paste
 
 ! rofi setup
 rofi.color-enabled:         true
@@ -24,3 +30,12 @@ rofi.location:              0
 rofi.width:                 30
 rofi.lines:                 10
 rofi.fixed-num-lines:       true
+
+! general font setup for applications ignoring fontconfig
+! https://wiki.archlinux.org/index.php/Font_configuration#Fontconfig_configuration
+Xft.autohint: 0
+Xft.antialias: 1
+Xft.hinting: true
+Xft.hintstyle: hintslight
+Xft.rgba: rgb
+Xft.lcdfilter: lcddefault
