@@ -23,9 +23,6 @@ gaps inner 10
 gaps outer 10
 
 ###--- i3 navigation binds ---###
-# kill focused window
-bindsym $mod+Shift+q kill
-
 # change focus - vim style
 bindsym $mod+h focus left
 bindsym $mod+j focus down
@@ -124,9 +121,10 @@ bindsym $mod+plus resize grow width 10 px or 10 ppt
 bindsym $mod+Shift+plus resize grow height 10 px or 10 ppt
 bindsym $mod+minus resize shrink width 10 px or 10 ppt
 bindsym $mod+Shift+minus resize shrink height 10 px or 10 ppt
-#
-# Screenshot region and uniquely identify in picture folder
-bindsym $mod+q exec sh Scripts/screenshot.sh
+
+# Screenshot region/monitor and uniquely identify in picture folder
+bindsym $mod+q exec sh Scripts/screenshot_region.sh
+bindsym $mod+Shift+q exec sh Scripts/screenshot_monitor.sh
 
 # Kill all focused windows with Control+q
 bindsym Control+q kill
