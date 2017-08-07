@@ -59,7 +59,7 @@ bindsym $mod+Shift+space floating toggle
 bindsym $mod+space focus mode_toggle
 
 bindsym $mod+Escape		workspace prev
-bindsym $mod+Shift+Escape exec i3-msg exit
+bindsym $mod+Shift+grave exec i3-msg exit
 
 # Kill all focused windows with Control+q
 bindsym $mod+q kill
@@ -153,7 +153,7 @@ workspace 3 output DP-0
 exec --no-startup-id nitrogen --restore
 
 # Wal, dunst and polybar combined - waiting for wal values first
-exec_always --no-startup-id sh ~/Scripts/beautify.sh
+exec_always --no-startup-id nohup sh ~/Scripts/beautify.sh
 
 ###--- Launch Applications/Daemons At Start ---###
 exec --no-startup-id dropbox
