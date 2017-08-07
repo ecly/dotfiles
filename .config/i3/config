@@ -119,14 +119,14 @@ bindsym $mod+Shift+r restart
 # exit i3 (logs you out of your X session)
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
 
-# Screenshot region and uniquely identify in picture folder
-bindsym $mod+q exec maim -s ~/Pictures/$(date +%s).png
-
 # Resize keybinds
 bindsym $mod+plus resize grow width 10 px or 10 ppt
 bindsym $mod+Shift+plus resize grow height 10 px or 10 ppt
 bindsym $mod+minus resize shrink width 10 px or 10 ppt
 bindsym $mod+Shift+minus resize shrink height 10 px or 10 ppt
+#
+# Screenshot region and uniquely identify in picture folder
+bindsym $mod+q exec sh Scripts/screenshot.sh
 
 # Kill all focused windows with Control+q
 bindsym Control+q kill

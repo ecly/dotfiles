@@ -2,7 +2,7 @@
 # Waits for wal to set colors and then starts polybar and wal-set which launches dunst
 
 while true; do
-    if [[ ! $color0 ]]; then
+    if [[ ! $color15 ]]; then
         sh ~/.config/polybar/launch.sh && ~/Scripts/bin/wal-set
         break
     fi

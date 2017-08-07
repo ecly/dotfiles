@@ -23,10 +23,6 @@ reload_dunst() {
         -geometry "${DUNST_SIZE:-300x30-10+30}" &
 }
 
-#set_scss() {
-#    sassc --style expanded "${HOME}/projects/startpage/scss/style.scss" > "${HOME}/projects/startpage/style.css"
-#}
-
 main() {
     reload_dunst &
 }
