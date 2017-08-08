@@ -157,7 +157,7 @@ exec --no-startup-id nitrogen --restore
 # Currently wait a bit before executing due to a known bug
 # https://bbs.archlinux.org/viewtopic.php?id=200797
 # Modify sleep time from machine to machine
-exec_always --no-startup-id sleep 1; sh ~/Scripts/beautify.sh
+exec_always --no-startup-id sleep 2; sh ~/Scripts/beautify.sh
 
 ###--- Launch Applications/Daemons At Start ---###
 exec --no-startup-id dropbox

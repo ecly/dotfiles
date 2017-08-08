@@ -1,0 +1,44 @@
+/* Import the CSS file.
+Change 'ecly' to your username. */
+@import url('file:///home/ecly/.cache/wal/colors.css');
+@namespace xul url(http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul);
+
+/* text area coloring */
+textarea, input, select {
+    background-color: var(--background) !important;
+    color: var(--foreground) !important;
+    -moz-appearance: none !important;
+    border-color: var(--background);
+}
+
+/* url container color */
+#urlbar {
+    background-color: var(--background) !important;
+    color: var(--foreground) !important; 
+}
+
+/* tabs coloring */
+.tabbrowser-tab .tab-label { 
+    color: var(--foreground) !important; 
+    background-color: var(--background) !important; 
+}
+
+/* active tab */
+.tabbrowser-tab[selected="true"] {
+  font-weight: bold !important;
+  color: var(--color5) !important;
+  background-image: var(--background) !important;
+  background-color: var(--background) !important;
+}
+
+/* Color for firefox panel (tabs background and background behind url bar) */
+menubar, toolbar, nav-bar, #TabsToolbar > *{
+    background-color: var(--background) !important;
+    color: var(--foreground) !important; 
+}
+
+/* Back button coloring color */
+#back-button:not([disabled="true"]):not([open="true"]):not(:active) .toolbarbutton-icon {
+    background-color: var(--background) !important;
+    color: var(--foreground) !important;
+}
