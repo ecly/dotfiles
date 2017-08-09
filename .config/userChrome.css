@@ -3,12 +3,18 @@ Change 'ecly' to your username. */
 @import url('file:///home/ecly/.cache/wal/colors.css');
 @namespace xul url(http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul);
 
+:root {
+    --foreground-alt: var(--color5);
+    --font: Iosevka;
+}
+
 /* text area coloring */
 textarea, input, select {
     background-color: var(--background) !important;
     color: var(--foreground) !important;
     -moz-appearance: none !important;
     border-color: var(--background);
+    font-family: var(--font);
 }
 
 /* url container color */
@@ -19,6 +25,7 @@ textarea, input, select {
 
 /* tabs coloring */
 .tabbrowser-tab .tab-label { 
+    font-family: var(--font);
     color: var(--foreground) !important; 
     background-color: var(--background) !important; 
 }
@@ -26,16 +33,18 @@ textarea, input, select {
 /* active tab */
 .tabbrowser-tab[selected="true"] {
   font-weight: bold !important;
-  color: var(--color5) !important;
+  color: var(--foreground-alt) !important;
   background-image: var(--background) !important;
   background-color: var(--background) !important;
 }
 
 /* Color for firefox panel (tabs background and background behind url bar) */
 menubar, toolbar, nav-bar, #TabsToolbar > *{
+    font-family: var(--font);
     background-color: var(--background) !important;
     color: var(--foreground) !important; 
 }
+
 
 /* Back button coloring color */
 #back-button:not([disabled="true"]):not([open="true"]):not(:active) .toolbarbutton-icon {
