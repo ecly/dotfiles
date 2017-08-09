@@ -62,18 +62,12 @@ menubar, toolbar, nav-bar, #TabsToolbar > *{
 }
 
 /* --- Customize the context menu --- */
-#contentAreaContextMenu * {
+/* Remove all silly margins and set color/font everywhere */
+#contentAreaContextMenu *, #placesContext *, .textbox-contextmenu *, #tabContextMenu *, #toolbar-context-menu *{
     background-color: var(--background) !important;
     color: var(--foreground) !important; 
     font-family: var(--font);
     margin-left: 0px !important;
-}
-
-/* Remove icons from the context menu */
-#contentAreaContextMenu image,
-.textbox-contextmenu image,
-#placesContext image {
-    //display: none !important;
 }
 
 /* Disable some context menu buttons */
@@ -84,21 +78,19 @@ menubar, toolbar, nav-bar, #TabsToolbar > *{
 #context-bookmarkpage
 {display:none !important; }
 
-/* This affects eg. dropdowns from bookmarks folders */
+/* This affects eg. dropdowns from bookmarks folders, and context menus */
 menuitem > * {
     color: var(--foreground) !important;
     background-color: var(--background) !important;
 }
 
-/* Hide icons in for booksmarks */ 
-menuitem image {
+/* Hide icons in for booksmarks and a little side container */ 
+menuitem image, .menu-accel-container{
     display: none !important;
 }
 
-/* --- Thin tabs --- */
-#TabsToolbar {
-}
 
+/* --- Customize tabs--- */
 .tab-background-start[selected=true]::after,
 .tab-background-start[selected=true]::before,
 .tab-background-start,
@@ -113,6 +105,9 @@ min-height: 0px !important;
 /* Make sure that the text is correctly aligned. */
 -moz-box-align: none !important;
 }
+
+/* Tabs: no icons */
+.tabbrowser-tabs .tab-icon-image { display: none !important; }
 
 /* Needed to make sure that the tab bar will not grow by one pixel
  * if it overflows. */
@@ -155,16 +150,17 @@ min-height: 0px !important;
 
 /* --- Bookmarks customization --- */
 #PlacesToolbarItems > .bookmark-item {
-    /* Make sure the bookmark items can become smaller. */
     min-height: 0px !important;
-
-    /* Remove the padding from the bookmark items, needed at least for
-     * Microsoft Windows so that the bookmark items can become smaller.
-     */
-padding-bottom: 0px !important;
-padding-top: 0px !important;
+    padding-bottom: 0px !important;
+    padding-top: 0px !important;
 }
 
+/* In bookmark submenus this will be the color of folders */
+.menu-iconic.bookmark-item.subviewbutton{
+    color: var(--foreground-alt) !important;
+}
+
+/* The bookmarks panel when pressing the 'bookmarks button' */
 #bookmarksPanel, #historyPanel {
     font-weight: bold !important;
     color: var(--foreground-alt) !important;
@@ -172,23 +168,37 @@ padding-top: 0px !important;
     background-color: var(--background) !important;
 
 }
+
+/* Toolbar */
 #PersonalToolbar > * {
     /* Make sure that all items in the toolbar can become smaller. */
     min-height: 0px !important;
 }
-
-/* Tabs: no icons */
-.tabbrowser-tabs .tab-icon-image { display: none !important; }
 
 /* Bookmarks Toolbar: no icons */
 #personal-bookmarks .toolbarbutton-icon, .menu-iconic-left, .openintabs-menuitem { 
     display: none !important; 
 }
 
-/* Bookmark fonts */
+/* Bookmark items */
 .menuitem-iconic.bookmark-item.menuitem-with-favicon{
     font-family: var(--font) !important;
     color: var(--foreground) !important;
+    -moz-appearance: none !important;
+    padding-left: 5px;
+    padding-right: 5px;
+    padding-bottom: 2px;
+    padding-top: 2px;
+    border-bottom-style:solid !important;
+    border-bottom-width:1px !important;
+    border-color: var(--foreground-alt)
+}
+
+/* Bookmark items hover */
+.menuitem-iconic.bookmark-item.menuitem-with-favicon:hover{
+    font-weight: bold !important;
+    background-color: var(--background) !important;
+    -moz-appearance: none !important;
 }
 
 /* Removes all the excess padding of the container of dropdown bookmarks */
@@ -197,8 +207,14 @@ padding-top: 0px !important;
     padding: 0px !important;
     margin: 0px !important;
     border: none !important;
+}
+#contentAreaContextMenu
+#placesContext.menuitem {
+    margin: 0px !important;
+    padding: 0px !important;
+}
 
-/* --- autocomplete dropdown --- */
+/* --- Autocomplete dropdown --- */
 .autocomplete-richlistitem{
     font-family: var(--font) !important;
     color: var(--foreground) !important;
