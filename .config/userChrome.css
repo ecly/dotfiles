@@ -5,9 +5,11 @@ Change 'ecly' to your username. */
 
 :root {
     --foreground-alt: var(--color5);
+    --foreground-alt-alt: var(--color9);
     --font: 'Iosevka';
 }
 
+/* --- General coloring of header panel --- */
 /* text area coloring */
 textarea, input, select {
     background-color: var(--background) !important;
@@ -45,35 +47,6 @@ menubar, toolbar, nav-bar, #TabsToolbar > *{
     color: var(--foreground) !important; 
 }
 
-/* Customize the context menu */
-#contentAreaContextMenu * {
-    background-color: var(--background) !important;
-    color: var(--foreground) !important; 
-    font-family: var(--font);
-    margin-left: 0px !important;
-}
-
-/* Disable some context menu buttons */
-#context-back,
-#context-forward, 
-#context-reload,
-#context-stop,
-#context-bookmarkpage
-   {display:none !important; }
-
-
-/*Menu item customization eg, context menu*/
-menuitem{
-    color: var(--foreground-alt) !important;
-    background-image: var(--background) !important;
-    background-color: var(--background) !important;
-}
-
-/*Menu item customization eg, context menu*/
-menuitem:hover, menuitem:focus {
-    font-weight: bold !important;
-}
-
 /* active tab coloring */
 .tabbrowser-tab[selected="true"] {
     font-weight: bold !important;
@@ -82,6 +55,19 @@ menuitem:hover, menuitem:focus {
     background-color: var(--background) !important;
 }
 
+/* Back button coloring color */
+#back-button:not([disabled="true"]):not([open="true"]):not(:active) .toolbarbutton-icon {
+    background-color: var(--background) !important;
+    color: var(--foreground) !important;
+}
+
+/* --- Customize the context menu --- */
+#contentAreaContextMenu * {
+    background-color: var(--background) !important;
+    color: var(--foreground) !important; 
+    font-family: var(--font);
+    margin-left: 0px !important;
+}
 
 /* Remove icons from the context menu */
 #contentAreaContextMenu image,
@@ -90,19 +76,26 @@ menuitem:hover, menuitem:focus {
     //display: none !important;
 }
 
-/* Back button coloring color */
-#back-button:not([disabled="true"]):not([open="true"]):not(:active) .toolbarbutton-icon {
-    background-color: var(--background) !important;
+/* Disable some context menu buttons */
+#context-back,
+#context-forward, 
+#context-reload,
+#context-stop,
+#context-bookmarkpage
+{display:none !important; }
+
+/* This affects eg. dropdowns from bookmarks folders */
+menuitem > * {
     color: var(--foreground) !important;
+    background-color: var(--background) !important;
 }
 
-/* Tabs: no icons */
-.tabbrowser-tabs .tab-icon-image { display: none !important; }
+/* Hide icons in for booksmarks */ 
+menuitem image {
+    display: none !important;
+}
 
-/* Bookmarks Toolbar: no icons */
-#personal-bookmarks .toolbarbutton-icon { display: none !important; }
-
-/* THIN TABS */
+/* --- Thin tabs --- */
 #TabsToolbar {
 }
 
@@ -115,10 +108,10 @@ menuitem:hover, menuitem:focus {
 .tabbrowser-tabs {
     /* Force that these items do not have a minimum height. This is
      * especially needed for supporting TabMix Plus. */
-    min-height: 0px !important;
+min-height: 0px !important;
 
-    /* Make sure that the text is correctly aligned. */
-    -moz-box-align: none !important;
+/* Make sure that the text is correctly aligned. */
+-moz-box-align: none !important;
 }
 
 /* Needed to make sure that the tab bar will not grow by one pixel
@@ -160,8 +153,7 @@ menuitem:hover, menuitem:focus {
     -moz-margin-start: 0px !important;
 }
 
-/* Thin bookmarks */
-
+/* --- Bookmarks customization --- */
 #PlacesToolbarItems > .bookmark-item {
     /* Make sure the bookmark items can become smaller. */
     min-height: 0px !important;
@@ -169,13 +161,74 @@ menuitem:hover, menuitem:focus {
     /* Remove the padding from the bookmark items, needed at least for
      * Microsoft Windows so that the bookmark items can become smaller.
      */
-    padding-bottom: 0px !important;
-    padding-top: 0px !important;
+padding-bottom: 0px !important;
+padding-top: 0px !important;
 }
 
+#bookmarksPanel, #historyPanel {
+    font-weight: bold !important;
+    color: var(--foreground-alt) !important;
+    background-image: var(--background) !important;
+    background-color: var(--background) !important;
+
+}
 #PersonalToolbar > * {
     /* Make sure that all items in the toolbar can become smaller. */
     min-height: 0px !important;
 }
 
+/* Tabs: no icons */
+.tabbrowser-tabs .tab-icon-image { display: none !important; }
 
+/* Bookmarks Toolbar: no icons */
+#personal-bookmarks .toolbarbutton-icon, .menu-iconic-left, .openintabs-menuitem { 
+    display: none !important; 
+}
+
+/* Bookmark fonts */
+.menuitem-iconic.bookmark-item.menuitem-with-favicon{
+    font-family: var(--font) !important;
+    color: var(--foreground) !important;
+}
+
+/* Removes all the excess padding of the container of dropdown bookmarks */
+.box-inherit.scrollbox-innerbox{
+    background-color: var(--background) !important;
+    padding: 0px !important;
+    margin: 0px !important;
+    border: none !important;
+
+/* --- autocomplete dropdown --- */
+.autocomplete-richlistitem{
+    font-family: var(--font) !important;
+    color: var(--foreground) !important;
+    background-color: var(--background) !important;
+}
+
+/* hover effect */
+.autocomplete-richlistitem:hover{
+    font-weight: bold !important;
+}
+
+/* the bow surrounding the items */
+.autocomplete-richlistbox{
+    background-color: var(--background) !important;
+    margin: 0px important;
+}
+
+/* urls in autocomplete dropdopwn */
+.ac-url-text{
+    font-family: var(--font) !important;
+    color: var(--foreground-alt) !important;
+}
+
+/* separator between item and url for autocomplete */
+.ac-separator-text{
+    font-family: var(--font) !important;
+    color: var(--foreground-alt-alt) !important;
+}
+
+/* Hide the bottom two bars of autocomplete and bookmark indicator */
+.search-panel-one-offs, .search-one-offs, .ac-type-icon {
+    display: none !important;
+}
