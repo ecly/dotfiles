@@ -5,7 +5,7 @@ Change 'ecly' to your username. */
 
 :root {
     --foreground-alt: var(--color5);
-    --font: Iosevka;
+    --font: 'Iosevka';
 }
 
 /* text area coloring */
@@ -30,12 +30,12 @@ textarea, input, select {
     background-color: var(--background) !important; 
 }
 
-/* active tab */
+/* active tab coloring */
 .tabbrowser-tab[selected="true"] {
-  font-weight: bold !important;
-  color: var(--foreground-alt) !important;
-  background-image: var(--background) !important;
-  background-color: var(--background) !important;
+    font-weight: bold !important;
+    color: var(--foreground-alt) !important;
+    background-image: var(--background) !important;
+    background-color: var(--background) !important;
 }
 
 /* Color for firefox panel (tabs background and background behind url bar) */
@@ -45,9 +45,137 @@ menubar, toolbar, nav-bar, #TabsToolbar > *{
     color: var(--foreground) !important; 
 }
 
+/* Customize the context menu */
+#contentAreaContextMenu * {
+    background-color: var(--background) !important;
+    color: var(--foreground) !important; 
+    font-family: var(--font);
+    margin-left: 0px !important;
+}
+
+/* Disable some context menu buttons */
+#context-back,
+#context-forward, 
+#context-reload,
+#context-stop,
+#context-bookmarkpage
+   {display:none !important; }
+
+
+/*Menu item customization eg, context menu*/
+menuitem{
+    color: var(--foreground-alt) !important;
+    background-image: var(--background) !important;
+    background-color: var(--background) !important;
+}
+
+/*Menu item customization eg, context menu*/
+menuitem:hover, menuitem:focus {
+    font-weight: bold !important;
+}
+
+/* active tab coloring */
+.tabbrowser-tab[selected="true"] {
+    font-weight: bold !important;
+    color: var(--foreground-alt) !important;
+    background-image: var(--background) !important;
+    background-color: var(--background) !important;
+}
+
+
+/* Remove icons from the context menu */
+#contentAreaContextMenu image,
+.textbox-contextmenu image,
+#placesContext image {
+    //display: none !important;
+}
 
 /* Back button coloring color */
 #back-button:not([disabled="true"]):not([open="true"]):not(:active) .toolbarbutton-icon {
     background-color: var(--background) !important;
     color: var(--foreground) !important;
 }
+
+/* Tabs: no icons */
+.tabbrowser-tabs .tab-icon-image { display: none !important; }
+
+/* Bookmarks Toolbar: no icons */
+#personal-bookmarks .toolbarbutton-icon { display: none !important; }
+
+/* THIN TABS */
+#TabsToolbar {
+}
+
+.tab-background-start[selected=true]::after,
+.tab-background-start[selected=true]::before,
+.tab-background-start,
+.tab-background-end,
+.tab-background-end[selected=true]::after,
+.tab-background-end[selected=true]::before,
+.tabbrowser-tabs {
+    /* Force that these items do not have a minimum height. This is
+     * especially needed for supporting TabMix Plus. */
+    min-height: 0px !important;
+
+    /* Make sure that the text is correctly aligned. */
+    -moz-box-align: none !important;
+}
+
+/* Needed to make sure that the tab bar will not grow by one pixel
+ * if it overflows. */
+#TabsToolbar > #alltabs-button,
+#TabsToolbar > #new-tab-button,
+#tabbrowser-tabs > .tabbrowser-arrowscrollbox > * {
+    margin-bottom: 0px !important;
+}
+
+/* This is the box at the left and right of the tabs. */
+#tabbrowser-tabs > .tabbrowser-arrowscrollbox > .arrowscrollbox-scrollbox {
+    -moz-padding-end: 0px !important;
+    -moz-padding-start: 0px !important;
+}
+
+/* The image of the tabs. */
+.tab-throbber,
+.tab-icon-image {
+    display: none! !important;
+}
+
+/* The image of not pinned (normal) tabs. */
+.tab-throbber:not([pinned]),
+.tab-icon-image:not([pinned]) {
+    -moz-margin-end: 0px !important;
+}
+
+/* The contents of the tabs. */
+.tab-content:not([pinned]) {
+}
+
+/* The label which holds the site name. */
+.tab-text.tab-label:not([pinned]) {
+}
+
+/* The close button of the tab. */
+.tab-close-button:not([pinned]) {
+    -moz-margin-start: 0px !important;
+}
+
+/* Thin bookmarks */
+
+#PlacesToolbarItems > .bookmark-item {
+    /* Make sure the bookmark items can become smaller. */
+    min-height: 0px !important;
+
+    /* Remove the padding from the bookmark items, needed at least for
+     * Microsoft Windows so that the bookmark items can become smaller.
+     */
+    padding-bottom: 0px !important;
+    padding-top: 0px !important;
+}
+
+#PersonalToolbar > * {
+    /* Make sure that all items in the toolbar can become smaller. */
+    min-height: 0px !important;
+}
+
+
