@@ -64,6 +64,35 @@ menubar, toolbar, nav-bar, #TabsToolbar > *{
 /* --- Customize the context menu --- */
 /* Remove all silly margins and set color/font everywhere */
 #contentAreaContextMenu *, #placesContext *, .textbox-contextmenu *, #tabContextMenu *, #toolbar-context-menu *{
+    -moz-appearance: none !important;
+    background-color: var(--background) !important;
+    font-family: var(--font);
+    margin-left: 0px !important;
+    color: var(--foreground) !important;
+}
+
+/* General menu item specs */
+menuitem{
+    -moz-appearance: none !important;
+    font-family: var(--font) !important;
+    color: var(--foreground) !important;
+    padding-left: 5px;
+    padding-right: 5px;
+    padding-bottom: 2px;
+    padding-top: 2px;
+    border-bottom-style:solid !important;
+    border-bottom-width:1px !important;
+    border-color: var(--foreground-alt)
+}
+
+/* Fixes silly hovers for context menu items */
+menuitem:hover {
+    -moz-appearance: none !important;
+    font-weight:bold !important;
+}
+
+#contentAreaContextMenu *, #placesContext *, .textbox-contextmenu *, #tabContextMenu *, #toolbar-context-menu *{
+    -moz-appearance: none !important;
     background-color: var(--background) !important;
     color: var(--foreground) !important; 
     font-family: var(--font);
@@ -182,9 +211,9 @@ min-height: 0px !important;
 
 /* Bookmark items */
 .menuitem-iconic.bookmark-item.menuitem-with-favicon{
+    -moz-appearance: none !important;
     font-family: var(--font) !important;
     color: var(--foreground) !important;
-    -moz-appearance: none !important;
     padding-left: 5px;
     padding-right: 5px;
     padding-bottom: 2px;
@@ -196,9 +225,9 @@ min-height: 0px !important;
 
 /* Bookmark items hover */
 .menuitem-iconic.bookmark-item.menuitem-with-favicon:hover{
+    -moz-appearance: none !important;
     font-weight: bold !important;
     background-color: var(--background) !important;
-    -moz-appearance: none !important;
 }
 
 /* Removes all the excess padding of the container of dropdown bookmarks */
