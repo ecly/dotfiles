@@ -127,12 +127,18 @@ menuitem image, .menu-accel-container{
 .tab-background-end[selected=true]::after,
 .tab-background-end[selected=true]::before,
 .tabbrowser-tabs {
-    /* Force that these items do not have a minimum height. This is
-     * especially needed for supporting TabMix Plus. */
-min-height: 0px !important;
+    /* Force that these items do not have a minimum height. This is * especially needed for supporting TabMix Plus. */
+    min-height: 0px !important;
 
-/* Make sure that the text is correctly aligned. */
--moz-box-align: none !important;
+    /* Make sure that the text is correctly aligned. */
+    -moz-box-align: none !important;
+}
+
+/* hovering tabs */
+#tabbrowser-tabs:hover, .tab-label-container:hover, .tab-content:hover {
+    background-color: var(--background) !important;
+    font-weight: bold !important;
+    -moz-appearance: none !important;
 }
 
 /* Tabs: no icons */
