@@ -70,11 +70,17 @@ bindsym $mod+Shift+Return exec urxvt -e tmux
 bindsym $sup+Return exec urxvt
 bindsym $sup+Shift+Return exec urxvt -e tmux
 bindsym $sup+e exec urxvt -name ranger -e ranger
+assign [instance="ncmpcpp"] 3
+for_window [instance="ncmpcpp"] focus
 bindsym $sup+m exec urxvt -name ncmpcpp -e ncmpcpp; exec --no-startup-id mpc random on; exec --no-startup-id mpc repeat on
 bindsym $sup+h exec urxvt -name htop -e htop
+assign [instance="cava"] 3
 bindsym $sup+c exec urxvt -name cava -e cava
 bindsym $sup+b exec firefox
 bindsym $sup+Shift+b exec firefox --private-window
+
+### A command in progress ###
+bindsym $sup+Shit+M exec urxvt -name ncmpcpp -e ncmpcpp; exec --no-startup-id mpc random on; exec --no-startup-id mpc repeat on; exec urxvt -name cava -e cava; for_window [instance="ncmpcpp"] focus; resize grow height 50 px or 50 ppt
 
 ###--- Music/Sound Keybindings ---###
 bindsym $sup+Right exec --no-startup-id mpc next

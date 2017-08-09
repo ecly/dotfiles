@@ -7,6 +7,7 @@ URxvt*urlLauncher:      firefox
 URxvt*scrollBar:        false
 URxvt*scrollBar_right:  true
 URxvt*scrollColor:      #444444
+URxvt.iso14755:         False
 URxvt*dynamicColors:    on
 
 ! urxvt clipboard setup
