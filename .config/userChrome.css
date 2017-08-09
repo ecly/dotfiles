@@ -71,8 +71,22 @@ menubar, toolbar, nav-bar, #TabsToolbar > *{
     color: var(--foreground) !important;
 }
 
+/* Specs for submenus */
+menu {
+    -moz-appearance: none !important;
+    font-family: var(--font) !important;
+    color: var(--foreground-alt-alt) !important;
+    padding-left: 5px;
+    padding-right: 5px;
+    padding-bottom: 2px;
+    padding-top: 2px;
+    border-bottom-style:solid !important;
+    border-bottom-width:1px !important;
+    border-color: var(--foreground-alt)
+}
+
 /* General menu item specs */
-menuitem{
+menuitem, {
     -moz-appearance: none !important;
     font-family: var(--font) !important;
     color: var(--foreground) !important;
@@ -86,7 +100,7 @@ menuitem{
 }
 
 /* Fixes silly hovers for context menu items */
-menuitem:hover {
+menuitem:hover, menu:hover {
     -moz-appearance: none !important;
     font-weight:bold !important;
 }
@@ -262,16 +276,17 @@ menuitem image, .menu-accel-container{
 }
 
 /* the bow surrounding the items */
-.autocomplete-richlistbox{
+.autocomplete-richlistbox {
     background-color: var(--background) !important;
     margin: 0px important;
 }
 
 /* urls in autocomplete dropdopwn */
-.ac-url-text{
+.ac-url-text, .ac-action-text {
     font-family: var(--font) !important;
     color: var(--foreground-alt) !important;
 }
+
 
 /* separator between item and url for autocomplete */
 .ac-separator-text{
