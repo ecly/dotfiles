@@ -30,7 +30,9 @@ assign [instance="ncmpcpp"] 3
 for_window [instance="ncmpcpp"] focus
 assign [instance="cava"] 3
 assign [class="mpv"] 4
-assign [class="firefox"] 1
+for_window [class="mpv"] focus
+assign [class="Firefox"] 1
+for_window [class="Firefox"] focus
 
 # Setup workspaces 
 workspace 1 output HDMI-0
@@ -89,7 +91,7 @@ bindsym $sup+c exec urxvt -name cava -e cava
 bindsym $sup+b exec firefox
 bindsym $sup+Shift+b exec firefox --private-window
 
-#
+# All in one music bind 
 bindsym $sup+Shift+m exec urxvt -name cava -e cava; exec urxvt -name ncmpcpp -e ncmpcpp; exec --no-startup-id mpc random on; exec --no-startup-id mpc repeat on; [title="ncmpcpp"] focus
 
 ###--- Music/Sound Keybindings ---###
