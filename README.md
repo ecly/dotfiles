@@ -17,3 +17,7 @@ Manual firefox restart currently necessary for userChrome.css to be applied.
 **Additional dependencies:**
 - pulseaudio & pulseaudio-alsa (alsa version necessary for polybar volume output)
 - w3m (for previews in ranger)
+
+**Manual setup:**
+- Manual symlinking of [userChrome.css](.config/userChrome.css) to Firefox profile upon clone.
+- Manual clone and setup of [startpage](https://github.com/ecly/startpage) with Firefox.
