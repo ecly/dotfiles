@@ -1,5 +1,7 @@
 # Dotfiles for Arch
-Theming based on [wal](https://github.com/dylanaraps/pywal) for automated coloring of everything
+Theming based on [wal](https://github.com/dylanaraps/pywal) for automated coloring of everything.  
+In ranger use 'mkt' on image to have colorscheme generated and applied to everything. 
+Manual firefox restart currently necessary for userChrome.css to be applied.
 
 **Shell**: [zsh](https://github.com/zsh-users/zsh)  
 **Terminal emulator**: [urxvt](https://github.com/exg/rxvt-unicode)  
