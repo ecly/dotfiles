@@ -25,21 +25,6 @@ textarea, input, select {
     color: var(--foreground) !important; 
 }
 
-/* tabs coloring */
-.tabbrowser-tab .tab-label { 
-    font-family: var(--font);
-    color: var(--foreground) !important; 
-    background-color: var(--background) !important; 
-}
-
-/* active tab coloring */
-.tabbrowser-tab[selected="true"] {
-    font-weight: bold !important;
-    color: var(--foreground-alt) !important;
-    background-image: var(--background) !important;
-    background-color: var(--background) !important;
-}
-
 /* Color for firefox panel (tabs background and background behind url bar) */
 menubar, toolbar, nav-bar, #TabsToolbar > *{
     font-family: var(--font);
@@ -148,8 +133,22 @@ menuitem image, .menu-accel-container{
     -moz-box-align: none !important;
 }
 
+/* tabs coloring */
+.tabbrowser-tab .tab-label { 
+    font-family: var(--font);
+    color: var(--foreground) !important; 
+    background-color: var(--background) !important; 
+}
+
+/* active tab coloring */
+.tabbrowser-tab[selected="true"], .tab-text.tab-label[selected="true"]{
+    font-weight: bold !important;
+    color: var(--foreground-alt-alt) !important;
+    background-color: var(--) !important;
+}
+
 /* hovering tabs */
-#tabbrowser-tabs:hover, .tab-label-container:hover, .tab-content:hover {
+.tabbrowser-tab:hover{
     background-color: var(--background) !important;
     font-weight: bold !important;
     -moz-appearance: none !important;
