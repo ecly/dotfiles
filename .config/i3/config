@@ -25,6 +25,19 @@ new_window pixel 2
 gaps inner 10
 gaps outer 10
 
+###--- window bindings / focus ---###
+assign [instance="ncmpcpp"] 3
+for_window [instance="ncmpcpp"] focus
+assign [instance="cava"] 3
+assign [class="mpv"] 4
+assign [class="firefox"] 1
+
+# Setup workspaces 
+workspace 1 output HDMI-0
+workspace 2 output DVI-I-1
+workspace 3 output DP-0
+workspace 4 output HDMI-0
+
 ###--- i3 navigation binds ---###
 # change focus - vim style
 bindsym $mod+h focus left
@@ -70,16 +83,13 @@ bindsym $mod+Shift+Return exec urxvt -e tmux
 bindsym $sup+Return exec urxvt
 bindsym $sup+Shift+Return exec urxvt -e tmux
 bindsym $sup+e exec urxvt -name ranger -e ranger
-assign [instance="ncmpcpp"] 3
-for_window [instance="ncmpcpp"] focus
 bindsym $sup+m exec urxvt -name ncmpcpp -e ncmpcpp; exec --no-startup-id mpc random on; exec --no-startup-id mpc repeat on
 bindsym $sup+h exec urxvt -name htop -e htop
-assign [instance="cava"] 3
 bindsym $sup+c exec urxvt -name cava -e cava
 bindsym $sup+b exec firefox
 bindsym $sup+Shift+b exec firefox --private-window
 
-### A command in progress ###
+#
 bindsym $sup+Shift+m exec urxvt -name cava -e cava; exec urxvt -name ncmpcpp -e ncmpcpp; exec --no-startup-id mpc random on; exec --no-startup-id mpc repeat on; [title="ncmpcpp"] focus
 
 ###--- Music/Sound Keybindings ---###
@@ -150,14 +160,8 @@ bindsym $sup+l exec --no-startup-id sh ~/Scripts/lock.sh
 # Setup triple monitor setup
 exec --no-startup-id xrandr --auto --output DVI-I-1 --mode 1920x1080 --rate 144 --auto --output HDMI-0 --mode 1920x1080 --rate 60 --left-of DVI-I-1 --auto --output DP-0 --mode 1920x1080 --rate 60 --right-of DVI-I-1 --rotate right
 
-# Setup workspaces 
-workspace 1 output HDMI-0
-workspace 2 output DVI-I-1
-workspace 3 output DP-0
-
 # Restore wallpaper setup
 exec --no-startup-id nitrogen --restore
-
 
 # Wal, dunst and polybar combined - waiting for wal values first
 # Currently wait a bit before executing due to a known bug
