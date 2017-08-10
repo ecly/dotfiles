@@ -263,7 +263,7 @@ menuitem image, .menu-accel-container{
 }
 
 /* --- Autocomplete dropdown --- */
-.autocomplete-richlistitem{
+.autocomplete-richlistitem {
     font-family: var(--font) !important;
     color: var(--foreground) !important;
     background-color: var(--background) !important;
@@ -278,6 +278,10 @@ menuitem image, .menu-accel-container{
 .autocomplete-richlistbox {
     background-color: var(--background) !important;
     margin: 0px important;
+}
+
+.autocomplete-richlistitem:focused{
+    font-weight:bold !important;
 }
 
 /* urls in autocomplete dropdopwn */
