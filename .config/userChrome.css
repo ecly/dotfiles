@@ -85,7 +85,7 @@ menuitem {
 }
 
 /* Fixes silly hovers for context menu items */
-menuitem:hover, menu:hover {
+menuitem:focus, menu:focus,#PlacesToolbarItems > toolbarbutton:hover {
     -moz-appearance: none !important;
     font-weight:bold !important;
 }
