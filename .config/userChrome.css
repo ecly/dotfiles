@@ -71,7 +71,7 @@ menu {
 }
 
 /* General menu item specs */
-menuitem, {
+menuitem {
     -moz-appearance: none !important;
     font-family: var(--font) !important;
     color: var(--foreground) !important;
