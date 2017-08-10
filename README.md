@@ -22,8 +22,9 @@ Manual firefox restart currently necessary for [userChrome.css](.config/userChro
 **Startpage:** [startpage](https://github.com/ecly/startpage)
 
 **Additional dependencies:**
-- pulseaudio & pulseaudio-alsa (alsa version necessary for polybar volume output)
-- w3m (for previews in ranger)
+- [pulseaudio](https://www.archlinux.org/packages/?name=pulseaudio) & [pulseaudio-alsa](https://www.archlinux.org/packages/extra/any/pulseaudio-alsa/), alsa version is necessary for polybar volume.
+- [w3m](http://w3m.sourceforge.net/), for previews in ranger.
+- [Iosevka](https://github.com/be5invis/Iosevka), font used for basically everything.
 
 **Manual setup:**
 - Manual symlinking of [userChrome.css](.config/userChrome.css) to Firefox profile upon clone.
