@@ -80,7 +80,7 @@ bindsym $sup+b exec firefox
 bindsym $sup+Shift+b exec firefox --private-window
 
 ### A command in progress ###
-bindsym $sup+Shit+m exec urxvt -name ncmpcpp -e ncmpcpp; exec --no-startup-id mpc random on; exec --no-startup-id mpc repeat on; exec urxvt -name cava -e cava; for_window [instance="ncmpcpp"] focus; resize grow height 50 px or 50 ppt
+bindsym $sup+Shift+m exec urxvt -name cava -e cava; exec urxvt -name ncmpcpp -e ncmpcpp; exec --no-startup-id mpc random on; exec --no-startup-id mpc repeat on; [title="ncmpcpp"] focus
 
 ###--- Music/Sound Keybindings ---###
 bindsym $sup+Right exec --no-startup-id mpc next

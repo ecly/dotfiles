@@ -18,6 +18,7 @@ Manual firefox restart currently necessary for [userChrome.css](.config/userChro
 **System info:** [neofetch](https://github.com/dylanaraps/neofetch)  
 **Screenlocker:** [i3lock](https://github.com/i3/i3lock)  
 **Screenshot utility:** [maim](https://github.com/naelstrof/maim)  
+**Background manager:** [nitrogen](https://github.com/l3ib/nitrogen)  
 **Browser:** Firefox  
 **Startpage:** [startpage](https://github.com/ecly/startpage)
 
