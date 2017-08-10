@@ -7,7 +7,7 @@ Manual firefox restart currently necessary for userChrome.css to be applied.
 **Terminal emulator**: [urxvt](https://github.com/exg/rxvt-unicode)  
 **WM**: [i3-gaps](https://github.com/Airblader/i3)  
 **Bar**: [polybar](https://github.com/jaagr/polybar)  
-**Text editor**: vim
+**Text editor**: [vim](https://github.com/vim/vim)  
 **Notifications**: [dunst](https://github.com/dunst-project/dunst)  
 **File manager**: [ranger](https://github.com/ranger/ranger)  
 **Music**: [mopidy](https://github.com/mopidy/mopidy) with [mopidy-spotify](https://github.com/mopidy/mopidy-spotify) and [ncmpcpp](https://github.com/arybczak/ncmpcpp)  
