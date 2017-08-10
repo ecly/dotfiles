@@ -26,8 +26,11 @@ Manual firefox restart currently necessary for [userChrome.css](.config/userChro
 - [pulseaudio](https://www.archlinux.org/packages/?name=pulseaudio) & [pulseaudio-alsa](https://www.archlinux.org/packages/extra/any/pulseaudio-alsa/), alsa version is necessary for polybar volume.
 - [w3m](http://w3m.sourceforge.net/), for previews in ranger.
 - [Iosevka](https://github.com/be5invis/Iosevka), font used for basically everything.
+- Networkmanager and nm-applet (potentialially also network-manager-openvpn for gui like management)  
+- [htop](https://github.com/hishamhm/htop)  
 
 **Manual setup:**
 - Manual symlinking of [userChrome.css](.config/userChrome.css) to Firefox profile upon clone.
 - Manual clone and setup of [startpage](https://github.com/ecly/startpage) with Firefox.
-- Mopidy spotify authorization configuration & renaming of config file.
+- Mopidy spotify authorization configuration & renaming of config file.  
+- OpenVPN manual VPN setup. Automatic 'running' check by polybar.  
