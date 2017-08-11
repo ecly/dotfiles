@@ -1,5 +1,5 @@
 ! urvxt setup
-URxvt*perl-ext-common:  resize-font
+URxvt*perl-ext-common:  resize-font,selection-to-clipboard
 URxvt*font:             xft:iosevka:size=12:antialias=true:hinting=true
 URxvt*boldFont:         xft:iosevka:size=12:style=Bold:antialias=true:hinting=true
 URxvt*italicFont:       xft:iosevka:size=12style=Italic:antialias=true:hinting=true

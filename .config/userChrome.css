@@ -269,6 +269,12 @@ menuitem image, .menu-accel-container{
     background-color: var(--background) !important;
 }
 
+/* selected item using arrow keys */
+.autocomplete-richlistitem[selected],
+treechildren.searchbar-treebody::-moz-tree-row(selected) {
+  background-color: var(--foreground-alt-alt) !important;
+}
+
 /* hover effect */
 .autocomplete-richlistitem:hover{
     font-weight: bold !important;
@@ -279,10 +285,10 @@ menuitem image, .menu-accel-container{
     background-color: var(--background) !important;
     margin: 0px important;
 }
-
+/*
 .autocomplete-richlistitem:focused{
     font-weight:bold !important;
-}
+}*/
 
 /* urls in autocomplete dropdopwn */
 .ac-url-text, .ac-action-text {

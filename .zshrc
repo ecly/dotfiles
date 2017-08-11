@@ -56,6 +56,8 @@ alias i3c="vim ~/.config/i3/config"
 alias pdf="zathura"
 alias poly="sh ~/.config/polybar/launch.sh"
 alias rm="rm -I"
+alias gsync="grive -p ~/GoogleDrive"
+
 
 # Import colorscheme from 'wal'
 [[ -z "$VTE_VERSION" ]] && (wal -r &)
