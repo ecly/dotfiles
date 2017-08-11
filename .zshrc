@@ -55,6 +55,7 @@ alias vim="vim"
 alias i3c="vim ~/.config/i3/config"
 alias pdf="zathura"
 alias poly="sh ~/.config/polybar/launch.sh"
+alias rm="rm -I"
 
 # Import colorscheme from 'wal'
 [[ -z "$VTE_VERSION" ]] && (wal -r &)
