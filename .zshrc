@@ -57,7 +57,9 @@ alias pdf="zathura"
 alias poly="sh ~/.config/polybar/launch.sh"
 alias rm="rm -I"
 alias gsync="grive -p ~/GoogleDrive"
-
+#Basically an ls replacement for tree
+alias tree="ls -R | grep ":$" | sed -e 's/:$//' -e 's/[^-][^\/]*\//--/g' -e 's/^/   /' -e 's/-/|/'"
+alias ftree="find | sed 's|[^/]*/|- |g'"
 
 # Import colorscheme from 'wal'
 [[ -z "$VTE_VERSION" ]] && (wal -r &)

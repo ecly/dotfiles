@@ -1,6 +1,6 @@
 # Dotfiles for Arch
 Theming based on [wal](https://github.com/dylanaraps/pywal) for automated coloring of everything.  
-In ranger use 'mkt' on image to have colorscheme generated and applied to everything. 
+In ranger use 'mkt' on image to have colorscheme generated and applied to everything.  
 Manual firefox restart currently necessary for [userChrome.css](.config/userChrome.css) to be applied.
 
 **Shell:** [zsh](https://github.com/zsh-users/zsh)  
@@ -20,17 +20,18 @@ Manual firefox restart currently necessary for [userChrome.css](.config/userChro
 **Screenshot utility:** [maim](https://github.com/naelstrof/maim)  
 **Background manager:** [nitrogen](https://github.com/l3ib/nitrogen)  
 **Browser:** Firefox  
-**Startpage:** [startpage](https://github.com/ecly/startpage)
+**Startpage:** [startpage](https://github.com/ecly/startpage)  
 
 **Additional dependencies:**
 - [pulseaudio](https://www.archlinux.org/packages/?name=pulseaudio) & [pulseaudio-alsa](https://www.archlinux.org/packages/extra/any/pulseaudio-alsa/), alsa version is necessary for polybar volume.
 - [w3m](http://w3m.sourceforge.net/), for previews in ranger.
 - [Iosevka](https://github.com/be5invis/Iosevka), font used for basically everything.
-- Networkmanager and nm-applet (potentialially also network-manager-openvpn for gui like management)  
-- [htop](https://github.com/hishamhm/htop)  
+- Networkmanager and nm-applet (potentialially also network-manager-openvpn for gui like management)
+- [htop](https://github.com/hishamhm/htop)
+- [pamixer](https://github.com/cdemoulins/pamixer) for volume control binds
 
 **Manual setup:**
 - Manual symlinking of [userChrome.css](.config/userChrome.css) to Firefox profile upon clone.
 - Manual clone and setup of [startpage](https://github.com/ecly/startpage) with Firefox.
-- Mopidy spotify authorization configuration & renaming of config file.  
-- OpenVPN manual VPN setup. Automatic 'running' check by polybar.  
+- Mopidy spotify authorization configuration & renaming of config file.
+- OpenVPN manual VPN setup. Automatic 'running' check by polybar.

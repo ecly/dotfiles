@@ -9,7 +9,6 @@ set shiftwidth=4
 set rnu
 set number                    " hybrid numbering with both rnu and number
 
-"let $PATH = $PATH . ':' . expand('~/.local/bin')
 "Needed for stack wrapper of ghc-mod
 let $PATH = $PATH . ':' . expand('~/Scripts/bin')
 
@@ -41,10 +40,7 @@ let g:fsharp_map_fsisendsel = 'cp'
 
 " set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
-"call vundle#begin()
-" alternatively, pass a path where Vundle should install plugins
 call vundle#begin('~/.vim/bundle')
-
 " let Vundle manage Vundle, required
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'vim-airline/vim-airline'
@@ -61,6 +57,8 @@ Plugin 'Shougo/neocomplete'
 Plugin 'eagletmt/neco-ghc'
 Plugin 'shiena/ghcmod-vim'
 Plugin 'Shougo/vimproc'
+Plugin 'godlygeek/tabular'
+Plugin 'plasticboy/vim-markdown'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -76,11 +74,7 @@ let g:ghcmod_use_basedir="/home/ecly/Scripts/bin"
 " :PluginInstall    - installs plugins; append `!` to update or just :PluginUpdate
 " :PluginSearch foo - searches for foo; append `!` to refresh local cache
 " :PluginClean      - confirms removal of unused plugins; append `!` to auto-approve removal
-"
-" see :h vundle for more details or wiki for FAQ
 
-
-"Note: This option must be set in .vimrc(_vimrc).  NOT IN .gvimrc(_gvimrc)!
 " Disable AutoComplPop.
 let g:acp_enableAtStartup = 0
 " Use neocomplete.
@@ -125,11 +119,6 @@ inoremap <expr><BS> neocomplete#smart_close_popup()."\<C-h>"
 
 " AutoComplPop like behavior.
 "let g:neocomplete#enable_auto_select = 1
-
-" Shell like behavior(not recommended).
-"set completeopt+=longest
-"let g:neocomplete#enable_auto_select = 1
-"let g:neocomplete#disable_auto_complete = 1
 
 " Enable omni completion.
 autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
