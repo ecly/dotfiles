@@ -52,7 +52,6 @@ alias shutdown="systemctl poweroff"
 alias pacyy="sudo pacman -Syy"
 alias pacyu="sudo pacman -Syu"
 alias vim="vim"
-alias i3c="vim ~/.config/i3/config"
 alias pdf="zathura"
 alias poly="sh ~/.config/polybar/launch.sh"
 alias rm="rm -I"
@@ -60,6 +59,14 @@ alias gsync="grive -p ~/GoogleDrive"
 #Basically an ls replacement for tree
 alias tree="ls -R | grep ":$" | sed -e 's/:$//' -e 's/[^-][^\/]*\//--/g' -e 's/^/   /' -e 's/-/|/'"
 alias ftree="find | sed 's|[^/]*/|- |g'"
+
+# Config editing binds
+alias cfv="vim ~/.vimrc"
+alias cfi="vim ~/.config/i3/config"
+alias cfr="vim ~/.config/ranger/rc.conf"
+alias cfm="vim ~/.muttrc"
+alias cfp="vim ~/.config/polybar/config"
+alias cfd="vim ~/.config/dunst/dunstrc"
 
 # Import colorscheme from 'wal'
 [[ -z "$VTE_VERSION" ]] && (wal -r &)
