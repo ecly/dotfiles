@@ -15,6 +15,7 @@ Manual firefox restart currently necessary for [userChrome.css](.config/userChro
 **Media player:** [mpv](https://github.com/mpv-player/mpv)  
 **Music:** [mopidy](https://github.com/mopidy/mopidy) with [mopidy-spotify](https://github.com/mopidy/mopidy-spotify) and [ncmpcpp](https://github.com/arybczak/ncmpcpp)  
 **Visualizer:** [cava](https://github.com/karlstav/cava)  
+**Mail client:** [neomutt](https://github.com/neomutt/neomutt)  
 **System info:** [neofetch](https://github.com/dylanaraps/neofetch)  
 **Screenlocker:** [i3lock](https://github.com/i3/i3lock)  
 **Screenshot utility:** [maim](https://github.com/naelstrof/maim)  
@@ -27,11 +28,16 @@ Manual firefox restart currently necessary for [userChrome.css](.config/userChro
 - [w3m](http://w3m.sourceforge.net/), for previews in ranger.
 - [Iosevka](https://github.com/be5invis/Iosevka), font used for basically everything.
 - Networkmanager and nm-applet (potentialially also network-manager-openvpn for gui like management)
-- [htop](https://github.com/hishamhm/htop)
-- [pamixer](https://github.com/cdemoulins/pamixer) for volume control binds
+- [htop](https://github.com/hishamhm/htop).
+- [pamixer](https://github.com/cdemoulins/pamixer) for volume control binds.
+- [w3m](http://w3m.sourceforge.net/) for ranger previews and html in mutt.
+- [urlview](https://github.com/sigpipe/urlview) extract urls in mutt.
+- [vundle](https://github.com/VundleVim/Vundle.vim) vim plugin manager.
+- Probably a couple more things found out the hard way.
 
 **Manual setup:**
 - Manual symlinking of [userChrome.css](.config/userChrome.css) to Firefox profile upon clone.
 - Manual clone and setup of [startpage](https://github.com/ecly/startpage) with Firefox.
 - Mopidy spotify authorization configuration & renaming of config file.
 - OpenVPN manual VPN setup. Automatic 'running' check by polybar.
+- Mutt cache folders, alises and .personal containing mail info.
