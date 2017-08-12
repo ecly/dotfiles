@@ -59,6 +59,7 @@ Plugin 'shiena/ghcmod-vim'
 Plugin 'Shougo/vimproc'
 Plugin 'godlygeek/tabular'
 Plugin 'plasticboy/vim-markdown'
+Plugin 'elixir-lang/vim-elixir'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required

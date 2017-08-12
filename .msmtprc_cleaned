@@ -1,0 +1,14 @@
+# vim: filetype=config
+account personal
+protocol smtp
+host smtp-mail.outlook.com
+port 587
+auth on
+user mail@domain.com 
+from mail@domain.com
+password password
+#tls_nocertcheck
+tls on
+tls_trust_file ~/.config/mutt/Personal/certificates
+tls_starttls on
+logfile ~/.msmtp.log

@@ -1,0 +1,38 @@
+# vim: filetype=muttrc
+set ssl_force_tls = yes
+
+source "~/.config/mutt/.personal"
+
+set realname = $my_realname
+
+set edit_headers= yes
+set folder = "imaps://imap-mail.outlook.com:993"
+set imap_user= "$my_username@$my_domain"
+set imap_pass= $my_password
+set from = "$my_username@$my_domain"
+set use_from = "yes"
+set sendmail = "/usr/bin/msmtp -a personal"
+set envelope_from = "yes"
+
+set spoolfile = +inbox
+set record=+sent
+set postponed=+drafts
+set trash = +deleted
+mailboxes 
+
+set imap_check_subscribed="yes"
+set imap_list_subscribed="yes"
+set imap_idle
+
+set header_cache = ~/.config/mutt/Personal/cache/headers
+set message_cachedir = ~/.config/mutt/Personal/cache/bodies
+set certificate_file = ~/.config/mutt/Personal/certificates
+
+bind index g noop
+bind index G last-entry
+bind index gg first-entry
+macro index gi "<change-folder>=inbox<enter>" "Go to inbox"
+macro index gs "<change-folder>=sent<enter>" "Go to sent"
+macro index gd "<change-folder>=drafts<enter>" "Go to drafts"
+macro index gj "<change-folder>=junk<enter>" "Go to junk"
+macro index gt "<change-folder>=trash<enter>" "Go to trash"

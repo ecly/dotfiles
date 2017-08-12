@@ -1,0 +1,60 @@
+# Important config for live account
+source "~/.config/mutt/personalrc"
+source "~/.config/mutt/aliases"
+
+# Other settings
+set editor = vim
+set timeout = "20"
+set mail_check = "10"
+set mailcap_path = ~/.config/mutt/mailcap
+set date_format="%m/%d %I:%M"
+set index_format="%2C %Z %d %-15.15F %s (%-4.4c)"
+set new_mail_command="notify-send 'New Email' '%n new messages, %u unread.' &"
+
+auto_view text/html
+alternative_order text/plain text/enriched text/html
+auto_view application/pdf
+
+###--- Mutt sorting ---###
+set sort=threads
+set sort_browser=date
+set sort_aux=reverse-last-date-received
+
+###--- Coloring ---###
+mono bold bold
+mono underline underline
+mono indicator reverse
+color index yellow default '.*'
+color index_author red default '.*'
+color index_number blue default
+color index_subject cyan default '.s'
+color index_size green default
+color normal default default
+color body brightred default [\-\.+_a-zA-Z0-9]+@[\-\.a-zA-Z0-9]+
+color body brightblue default (https?|ftp)://[\-\.,/%~_:?&=\#a-zA-Z0-9]+
+
+
+###--- Bindings ---###
+# Mailbox navigation
+# --- Sourced --- #
+
+# Use w3m for url view
+macro pager \cb |urlview 'call urlview to extract URLs out of a message'
+
+# Index navigation
+bind    editor  <space>     noop
+bind    index   d           half-down
+bind    index   u           half-up
+bind    index   D           delete-message
+bind    index   U           undelete-message
+bind    index   F           search 
+bind    index   R           group-reply
+bind    index   <up>        previous-entry
+bind    index   <down>      next-entry
+bind    index   <delete>    delete-message
+bind    index   n           next-entry
+bind    index   p           previous-entry
+macro   index   Q           ":set quit=yes\nq" "Quit mutt without asking"
+bind    index   C           noop
+bind    index   -           collapse-thread
+bind    index   _           collapse-all
