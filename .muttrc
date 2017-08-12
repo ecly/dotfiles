@@ -1,6 +1,7 @@
 # Important config for live account
 source "~/.config/mutt/personalrc"
 source "~/.config/mutt/aliases"
+source "~/.config/mutt/muttcol"
 
 # Other settings
 set editor = vim
@@ -9,8 +10,9 @@ set mail_check = "10"
 set mailcap_path = ~/.config/mutt/mailcap
 set date_format="%m/%d %I:%M"
 set index_format="%2C %Z %d %-15.15F %s (%-4.4c)"
-set new_mail_command="notify-send 'New Email' '%n new messages, %u unread.' &"
+set new_mail_command="sh ~/Scripts/mailnotify.sh %n %u&"
 set wait_key = no
+set edit_headers= yes
 
 auto_view text/html
 alternative_order text/plain text/enriched text/html

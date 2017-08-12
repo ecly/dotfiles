@@ -1,38 +1,36 @@
 # vim: filetype=muttrc
-set ssl_force_tls = yes
-
+unmailboxes *
 source "~/.config/mutt/.personal"
 
-set realname = $my_realname
-
-set edit_headers= yes
+set imap_user = "$my_email"
+set imap_pass = "$my_password"
+set smtp_url = "smtp://$my_email@smtp.live.com:587/"
+set smtp_pass = "$my_password"
+set from = "$my_email"
+set realname = "$my_name"
 set folder = "imaps://imap-mail.outlook.com:993"
-set imap_user= "$my_username@$my_domain"
-set imap_pass= $my_password
-set from = "$my_username@$my_domain"
-set use_from = "yes"
-set sendmail = "/usr/bin/msmtp -a personal"
-set envelope_from = "yes"
-
-set spoolfile = +inbox
-set record=+sent
-set postponed=+drafts
-set trash = +deleted
-mailboxes 
+set spoolfile = "+INBOX"
+set postponed = "+Drafts"
+set trash = "+Deleted"
+set record = "+Sent"
+set header_cache = ~/.config/mutt/Personal/cache/headers
+set message_cachedir = ~/.config/mutt/Personal/cache/bodies
+set header_cache = ~/.config/mutt/Personal/cache/headers
+set certificate_file = ~/.config/mutt/certificates
+set ssl_force_tls = yes
+#set sendmail = "/usr/bin/msmtp -a personal"
 
 set imap_check_subscribed="yes"
 set imap_list_subscribed="yes"
 set imap_idle
 
-set header_cache = ~/.config/mutt/Personal/cache/headers
-set message_cachedir = ~/.config/mutt/Personal/cache/bodies
-set certificate_file = ~/.config/mutt/Personal/certificates
+set status_format = "$from -%r-Mutt: %f [Msgs:%?M?%M/?%m%?n? New:%n?%?o? Old:%o?%?d? Del:%d?%?F? Flag:%F?%?t? Tag:%t?%?p? Post:%p?%?b? Inc:%b?%?l? %l?]---(%s/%S)-%>-(%P)---"
 
 bind index g noop
 bind index G last-entry
 bind index gg first-entry
-macro index gi "<change-folder>=inbox<enter>" "Go to inbox"
-macro index gs "<change-folder>=sent<enter>" "Go to sent"
-macro index gd "<change-folder>=drafts<enter>" "Go to drafts"
-macro index gj "<change-folder>=junk<enter>" "Go to junk"
-macro index gt "<change-folder>=trash<enter>" "Go to trash"
+macro index gi "<change-folder>=Inbox<enter>" "Go to inbox"
+macro index gs "<change-folder>=Sent<enter>" "Go to sent"
+macro index gd "<change-folder>=Drafts<enter>" "Go to drafts"
+macro index gj "<change-folder>=Junk<enter>" "Go to junk"
+macro index gt "<change-folder>=Deleted<enter>" "Go to trash"
