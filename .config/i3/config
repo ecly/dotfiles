@@ -13,7 +13,7 @@ set $term = urxvt
 floating_modifier $mod
 
 # Almost solely used in case of nagbar
-font pango: Iosevka 12
+font pango: Iosevka 10
 
 # Do not follow the mouse
 focus_follows_mouse no
@@ -173,7 +173,7 @@ exec --no-startup-id nitrogen --restore
 # Currently wait a bit before executing due to a known bug
 # https://bbs.archlinux.org/viewtopic.php?id=200797
 # Modify sleep time from machine to machine
-exec_always --no-startup-id sleep 2; sh ~/Scripts/beautify.sh
+exec --no-startup-id sleep 2; sh ~/Scripts/beautify.sh
 
 ###--- Launch Applications/Daemons At Start ---###
 exec --no-startup-id dropbox
@@ -183,7 +183,6 @@ exec --no-startup-id nm-applet
 
 # Start Mopidy Server
 exec --no-startup-id mopidy
-
 
 ###--- Input settings (mouse/keyboard) ---####
 # Reduce mouse speed by 50%

@@ -17,6 +17,7 @@ set header_cache = ~/.config/mutt/Personal/cache/headers
 set message_cachedir = ~/.config/mutt/Personal/cache/bodies
 set header_cache = ~/.config/mutt/Personal/cache/headers
 set certificate_file = ~/.config/mutt/certificates
+set ssl_starttls=yes 
 set ssl_force_tls = yes
 #set sendmail = "/usr/bin/msmtp -a personal"
 
