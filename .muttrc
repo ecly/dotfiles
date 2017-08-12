@@ -10,6 +10,7 @@ set mailcap_path = ~/.config/mutt/mailcap
 set date_format="%m/%d %I:%M"
 set index_format="%2C %Z %d %-15.15F %s (%-4.4c)"
 set new_mail_command="notify-send 'New Email' '%n new messages, %u unread.' &"
+set wait_key = no
 
 auto_view text/html
 alternative_order text/plain text/enriched text/html
@@ -39,7 +40,7 @@ color body brightblue default (https?|ftp)://[\-\.,/%~_:?&=\#a-zA-Z0-9]+
 # --- Sourced --- #
 
 # Use w3m for url view
-macro pager \cb |urlview 'call urlview to extract URLs out of a message'
+macro pager \cb |urlview\n
 
 # Index navigation
 bind    editor  <space>     noop
