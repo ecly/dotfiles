@@ -17,8 +17,8 @@ set header_cache = ~/.config/mutt/Personal/cache/headers
 set message_cachedir = ~/.config/mutt/Personal/cache/bodies
 set header_cache = ~/.config/mutt/Personal/cache/headers
 set certificate_file = ~/.config/mutt/certificates
-set ssl_starttls=yes 
 set ssl_force_tls = yes
+set ssl_starttls=yes
 #set sendmail = "/usr/bin/msmtp -a personal"
 
 set imap_check_subscribed="yes"
@@ -30,6 +30,7 @@ set status_format = "$from -%r-Mutt: %f [Msgs:%?M?%M/?%m%?n? New:%n?%?o? Old:%o?
 bind index g noop
 bind index G last-entry
 bind index gg first-entry
+bind index gf imap-fetch-mail
 macro index gi "<change-folder>=Inbox<enter>" "Go to inbox"
 macro index gs "<change-folder>=Sent<enter>" "Go to sent"
 macro index gd "<change-folder>=Drafts<enter>" "Go to drafts"

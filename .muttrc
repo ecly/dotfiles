@@ -5,7 +5,7 @@ source "~/.config/mutt/muttcol"
 
 # Other settings
 set editor = vim
-set timeout = "20"
+set timeout = "10"
 set mail_check = "10"
 set mailcap_path = ~/.config/mutt/mailcap
 set date_format="%m/%d %I:%M"
