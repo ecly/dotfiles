@@ -46,6 +46,9 @@ client.background       $bg-alt
 ###--- window bindings / focus ---###
 assign [instance="ncmpcpp"] 3
 for_window [instance="ncmpcpp"] focus
+assign [instance="dance"] 3
+for_window [instance="dance"] focus
+assign [instance="cava"] 3
 assign [instance="cava"] 3
 assign [class="mpv"] 4
 for_window [class="mpv"] focus
@@ -116,7 +119,7 @@ bindsym $sup+q exec qbittorrent
 bindsym $sup+m exec urxvt -name mutt -e mutt
 
 # All in one music bind -> d for dance
-bindsym $sup+d exec urxvt -name cava -e cava; exec urxvt -name ncmpcpp -e ncmpcpp; exec --no-startup-id mpc random on; exec --no-startup-id mpc repeat on; [title="ncmpcpp"] focus
+bindsym $sup+d exec urxvt -name dance -e sh ~/Scripts/music_mux.sh
 
 ###--- Music/Sound Keybindings ---###
 bindsym $sup+Right exec --no-startup-id mpc next
