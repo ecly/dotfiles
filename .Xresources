@@ -1,18 +1,24 @@
 ! urvxt setup
 URxvt*perl-ext-common:  resize-font,selection-to-clipboard
-URxvt*font:             xft:iosevka:size=12:antialias=true:hinting=true
-URxvt*boldFont:         xft:iosevka:size=12:style=Bold:antialias=true:hinting=true
-URxvt*italicFont:       xft:iosevka:size=12style=Italic:antialias=true:hinting=true
+URxvt*font:             xft:Misc Tamsyn:size=14:style:Regularantialias=false
+URxvt*boldFont:         xft:Misc Tamsyn:size=14:style:Bold:antialias=false
+!URxvt*font:             xft:iosevka:size=12:antialias=true
+!URxvt*boldFont:         xft:iosevka:size=12:style=Bold:antialias=true
+!URxvt*italicFont:       xft:iosevka:size=12style=Italic:antialias=true
 URxvt*urlLauncher:      firefox  
 URxvt*scrollBar:        false
 URxvt*scrollBar_right:  true
 URxvt.iso14755:         False
 URxvt*dynamicColors:    on
 URxvt.internalBorder:   10
+URxvt.urlLauncher:      /usr/bin/firefox
+URxvt.underlineURLs:    true
+URxvt.urlButton:        1
+URxvt.copyCommand:      xclip -i -selection clipboard
+URxvt.pasteCommand:     xclip -o -selection clipboard
 
 ! urxvt clipboard setup and avoid printing eg. ^A to terminal 
 URxvt.iso14755: false
-URxvt.iso14755_52: false
 !URxvt.keysym.Shift-Control-C: perl:clipboard:copy
 !URxvt.keysym.Shift-Control-V: perl:clipboard:paste
 
@@ -23,7 +29,7 @@ URxvt.keysym.Shift-Down: command:\033]721;10\007
 ! rofi setup
 rofi.color-enabled:         true
 rofi.separator-style:       solid
-rofi.font:                  iosevka 14
+rofi.font:                  Misc Tamsyn 14
 rofi.bw:                    2
 rofi.columns:               1
 rofi.yoffset:               0
@@ -41,6 +47,6 @@ rofi.fixed-num-lines:       true
 Xft.autohint: 0
 Xft.antialias: 1
 Xft.hinting: true
-Xft.hintstyle: hintslight
+Xft.hintstyle: hintfull
 Xft.rgba: rgb
 Xft.lcdfilter: lcddefault

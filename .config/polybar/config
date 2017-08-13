@@ -55,12 +55,10 @@ padding bottom = 2
 module-margin-left = 1
 module-margin-right = 1
 
-font-0 = "iosevka medium:size=10;0"
-font-1 = "iosevka medium:size=10;0"  
-font-2 = "iosevka medium:size=10;0"
-font-3 = "Noto Sans:size=12;0"
-font-4 = "Misc Fixed:size=8;0"
-font-5 = "FontAwesome:size=12"
+font-0 = "Misc Tamsyn:size=14;0"
+font-1 = "Noto Sans:size=12;0"
+font-2 = "Misc Fixed:size=8;0"
+font-3 = "FontAwesome:size=12"
 
 modules-left = i3index vpncheck
 modules-center = mpd
@@ -107,12 +105,10 @@ padding-right = 2
 module-margin-left = 1
 module-margin-right = 1
 
-font-0 = "iosevka:size=10;0"
-font-1 = "iosevka:size=10;0"  
-font-2 = "iosevka:size=10;0"
-font-3 = "Noto Sans:size=12;0"
-font-4 = "Misc Fixed:size=8;0"
-font-5 = "FontAwesome:size=12"
+font-0 = "Misc Tamsyn:size=14;0"
+font-1 = "Noto Sans:size=12;0"
+font-2 = "Misc Fixed:size=8;0"
+font-3 = "FontAwesome:size=12"
 
 modules-left = i3index vpncheck
 modules-center = mpd
