@@ -33,6 +33,7 @@ Manual firefox restart currently necessary for [userChrome.css](.config/userChro
 - [w3m](http://w3m.sourceforge.net/) for ranger previews and html in mutt.
 - [urlview](https://github.com/sigpipe/urlview) extract urls in mutt.
 - [vundle](https://github.com/VundleVim/Vundle.vim) vim plugin manager.
+- [xclip](https://github.com/astrand/xclip) for copying url to clipboard with imgur script.
 - Probably a couple more things found out the hard way.
 
 **Manual setup:**
