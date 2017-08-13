@@ -6,6 +6,8 @@ alias poly="sh ~/.config/polybar/launch.sh"
 alias rm="rm -I" # ask when deleting multiple
 alias gsync="grive -p ~/GoogleDrive"
 alias imgur"sh ~/Scripts/imgur.sh"
+alias xm="xrdb -merge ~/.Xresources"
+alias xr="xrdb ~/.Xresources"
 
 #Basically an ls replacement for tree
 alias tree="ls -R | grep ":$" | sed -e 's/:$//' -e 's/[^-][^\/]*\//--/g' -e 's/^/   /' -e 's/-/|/'"

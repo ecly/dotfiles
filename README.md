@@ -26,7 +26,7 @@ Manual firefox restart currently necessary for [userChrome.css](.config/userChro
 **Additional dependencies:**
 - [pulseaudio](https://www.archlinux.org/packages/?name=pulseaudio) & [pulseaudio-alsa](https://www.archlinux.org/packages/extra/any/pulseaudio-alsa/), alsa version is necessary for polybar volume.
 - [w3m](http://w3m.sourceforge.net/), for previews in ranger.
-- [Iosevka](https://github.com/be5invis/Iosevka), font used for basically everything.
+- [Tamsyn](https://www.archlinux.org/packages/community/any/tamsyn-font/), font used for basically everything.
 - Networkmanager and nm-applet (potentialially also network-manager-openvpn for gui like management)
 - [htop](https://github.com/hishamhm/htop).
 - [pamixer](https://github.com/cdemoulins/pamixer) for volume control binds.
