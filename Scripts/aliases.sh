@@ -1,10 +1,11 @@
 # ALIASES
 alias shutdown="systemctl poweroff"
-alias vim="vim"
+alias vi="vim"
 alias pdf="zathura"
 alias poly="sh ~/.config/polybar/launch.sh"
 alias rm="rm -I" # ask when deleting multiple
 alias gsync="grive -p ~/GoogleDrive"
+alias imgur"sh ~/Scripts/imgur.sh"
 
 #Basically an ls replacement for tree
 alias tree="ls -R | grep ":$" | sed -e 's/:$//' -e 's/[^-][^\/]*\//--/g' -e 's/^/   /' -e 's/-/|/'"

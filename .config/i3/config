@@ -25,7 +25,6 @@ new_window pixel 4
 gaps inner 10
 gaps outer 10
  
-
 ###--- i3 coloring ---###
 # Make it clear when failed using red - otherwise set i3 colors with wal from xresources
 set_from_resource $bg           i3wm.color2 #ff0000
@@ -36,7 +35,7 @@ set_from_resource $fg-alt-alt   i3wm.color9 #ff0000
 
 # class                 border  backgr. text indicator      child_border
 client.focused          $fg-alt $bg     $fg  $fg-alt        $fg-alt-alt
-client.focused_inactive $bg-alt $bg-alt $fg  $bg            $fg
+client.focused_inactive $bg-alt $bg-alt $fg  $bg            $bg
 client.unfocused        $bg-alt $bg-alt $fg  $bg            $bg
 client.urgent           $bg-alt $bg-alt $fg  $bg            $bg
 client.placeholder      $bg-alt $bg-alt $fg  $bg            $bg
@@ -107,15 +106,16 @@ bindsym $sup+Return exec urxvt
 bindsym $sup+Shift+Return exec urxvt -e tmux
 bindsym $sup+e exec urxvt -name ranger -e ranger
 bindsym $sup+Shift+e exec claws-mail
-bindsym $sup+m exec urxvt -name ncmpcpp -e ncmpcpp; exec --no-startup-id mpc random on; exec --no-startup-id mpc repeat on
+bindsym $sup+n exec urxvt -name ncmpcpp -e ncmpcpp; exec --no-startup-id mpc random on; exec --no-startup-id mpc repeat on
 bindsym $sup+h exec urxvt -name htop -e htop
 bindsym $sup+c exec urxvt -name cava -e cava
 bindsym $sup+b exec firefox
 bindsym $sup+Shift+b exec firefox --private-window
 bindsym $sup+q exec qbittorrent
+bindsym $sup+m exec urxvt -name mutt -e mutt
 
-# All in one music bind 
-bindsym $sup+Shift+m exec urxvt -name cava -e cava; exec urxvt -name ncmpcpp -e ncmpcpp; exec --no-startup-id mpc random on; exec --no-startup-id mpc repeat on; [title="ncmpcpp"] focus
+# All in one music bind -> d for dance
+bindsym $sup+d exec urxvt -name cava -e cava; exec urxvt -name ncmpcpp -e ncmpcpp; exec --no-startup-id mpc random on; exec --no-startup-id mpc repeat on; [title="ncmpcpp"] focus
 
 ###--- Music/Sound Keybindings ---###
 bindsym $sup+Right exec --no-startup-id mpc next
