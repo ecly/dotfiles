@@ -2,7 +2,7 @@
 alias shutdown="systemctl poweroff"
 alias vi="vim"
 alias pdf="zathura"
-alias poly="sh ~/.config/polybar/launch.sh"
+alias poly="nohup sh ~/.config/polybar/launch.sh >\dev\null2>&1 &"
 alias rm="rm -I" # ask when deleting multiple
 alias gsync="grive -p ~/GoogleDrive"
 alias imgur"sh ~/Scripts/imgur.sh"

@@ -8,6 +8,7 @@ set tabstop=4
 set shiftwidth=4
 set rnu
 set number                    " hybrid numbering with both rnu and number
+filetype plugin indent on     " reequired
 
 "Needed for stack wrapper of ghc-mod
 let $PATH = $PATH . ':' . expand('~/Scripts/bin')
@@ -15,7 +16,9 @@ let $PATH = $PATH . ':' . expand('~/Scripts/bin')
 " Use comma as leader
 let mapleader = ","
 
-filetype plugin indent on     " reequired
+" Set dosini syntax highlighting for config files
+autocmd BufRead,BufNewFile config setf dosini
+
 
 " Autoloads and saves folds
 autocmd BufWrite * mkview
@@ -65,6 +68,7 @@ Plugin 'plasticboy/vim-markdown'
 Plugin 'elixir-lang/vim-elixir'
 Plugin 'lervag/vimtex'
 Plugin 'xuhdev/vim-latex-live-preview'
+Plugin 'PotatoesMaster/i3-vim-syntax'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
