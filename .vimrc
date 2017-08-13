@@ -12,6 +12,9 @@ set number                    " hybrid numbering with both rnu and number
 "Needed for stack wrapper of ghc-mod
 let $PATH = $PATH . ':' . expand('~/Scripts/bin')
 
+" Use comma as leader
+let mapleader = ","
+
 filetype plugin indent on     " reequired
 
 " Autoloads and saves folds
@@ -60,6 +63,8 @@ Plugin 'Shougo/vimproc'
 Plugin 'godlygeek/tabular'
 Plugin 'plasticboy/vim-markdown'
 Plugin 'elixir-lang/vim-elixir'
+Plugin 'lervag/vimtex'
+Plugin 'xuhdev/vim-latex-live-preview'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -75,6 +80,10 @@ let g:ghcmod_use_basedir="/home/ecly/Scripts/bin"
 " :PluginInstall    - installs plugins; append `!` to update or just :PluginUpdate
 " :PluginSearch foo - searches for foo; append `!` to refresh local cache
 " :PluginClean      - confirms removal of unused plugins; append `!` to auto-approve removal
+
+" Use zathura for previewing latex
+let g:livepreview_previewer = 'zathura'
+" let g:livepreview_engine = 'pdflatex' . 'args'
 
 " Disable AutoComplPop.
 let g:acp_enableAtStartup = 0
