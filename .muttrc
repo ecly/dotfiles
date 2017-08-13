@@ -16,7 +16,7 @@ set wait_key = no
 # Settings inspired by https://gist.github.com/bnagy/8914f712f689cc01c267
 set hidden_host
 set fast_reply                              # skip initial prompts when replying
-set charset=iso-8859-1                      # One of those days in England...
+#set charset=iso-8859-1                      # One of those days in England...
 set noallow_8bit                            # 8bit isn't safe via Demon.
 set ascii_chars=yes                         # use ascii characters when displaying trees
 set edit_headers= yes                       # Include headers in message for easy change
@@ -65,13 +65,52 @@ color body brightblue default (https?|ftp)://[\-\.,/%~_:?&=\#a-zA-Z0-9]+
 # --- Sourced --- #
 
 # Use w3m for url view
-macro pager \cb |urlview\n
+macro pager \cv |urlview\n
+
+# Unbinds
+bind generic,compose,attach,pager g noop 
+bind generic,compose,attach,pager,index d noop 
+#bind attach,browser,pager g   noop
+#bind attach,browser,index,pager d   noop
+
+# Editor
+bind editor                     ^T complete
+bind editor                     <tab> complete-query
+bind editor                     <space> noop
+bind attach                     <space> view-mailcap
+
+# Moving around
+bind attach,browser,index       gg  first-entry
+bind attach,browser,index       G   last-entry
+bind pager                      gg  top
+bind pager                      G   bottom
+bind pager                      k   previous-line
+bind pager                      j   next-line
+
+# Scrolling
+bind attach,browser,pager,index \CF next-page
+bind attach,browser,pager,index \CB previous-page
+bind attach,browser,pager,index \Cu half-up
+bind attach,browser,pager,index \Cd half-down
+bind browser,pager              \Ce next-line
+bind browser,pager              \Cy previous-line
+bind index                      \Ce next-line
+bind index                      \Cy previous-line
+
+# Threads
+bind browser,pager,index        N   search-opposite
+bind pager,index                dT  delete-thread
+bind pager,index                dt  delete-subthread
+bind pager,index                gt  next-thread
+bind pager,index                gT  previous-thread
+bind index                      za  collapse-thread
+bind index                      zA  collapse-all # Missing :folddisable/foldenabl
 
 # Index navigation
 bind    editor  <space>     noop
-bind    index   d           half-down
-bind    index   u           half-up
-bind    index   D           delete-message
+bind    index   \cd         half-down
+bind    index   \cu         half-up
+bind    index   dd          delete-message
 bind    index   U           undelete-message
 bind    index   F           search 
 bind    index   R           group-reply
@@ -85,3 +124,6 @@ bind    index   C           noop
 bind    index   -           collapse-thread
 bind    index   _           collapse-all
 macro   index   \cr         "T~N<enter>;WNT~O<enter>;WO\CT~T<enter>" "mark all messages read"
+
+# Refreshing
+bind index gf imap-fetch-mail
