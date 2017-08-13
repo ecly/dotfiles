@@ -6,7 +6,6 @@ URxvt*italicFont:       xft:iosevka:size=12style=Italic:antialias=true:hinting=t
 URxvt*urlLauncher:      firefox  
 URxvt*scrollBar:        false
 URxvt*scrollBar_right:  true
-URxvt*scrollColor:      #444444
 URxvt.iso14755:         False
 URxvt*dynamicColors:    on
 

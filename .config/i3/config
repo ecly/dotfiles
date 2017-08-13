@@ -24,6 +24,24 @@ new_window pixel 4
 # Setup gaps
 gaps inner 10
 gaps outer 10
+ 
+
+###--- i3 coloring ---###
+# Make it clear when failed using red - otherwise set i3 colors with wal from xresources
+set_from_resource $bg           i3wm.color2 #ff0000
+set_from_resource $bg-alt       i3wm.color0 #ff0000
+set_from_resource $fg           i3wm.color7 #ff0000
+set_from_resource $fg-alt       i3wm.color5 #ff0000
+set_from_resource $fg-alt-alt   i3wm.color9 #ff0000
+
+# class                 border  backgr. text indicator      child_border
+client.focused          $fg-alt $bg     $fg  $fg-alt        $fg-alt-alt
+client.focused_inactive $bg-alt $bg-alt $fg  $bg            $fg
+client.unfocused        $bg-alt $bg-alt $fg  $bg            $bg
+client.urgent           $bg-alt $bg-alt $fg  $bg            $bg
+client.placeholder      $bg-alt $bg-alt $fg  $bg            $bg
+
+client.background       $bg-alt
 
 ###--- window bindings / focus ---###
 assign [instance="ncmpcpp"] 3
