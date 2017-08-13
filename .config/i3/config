@@ -112,6 +112,7 @@ bindsym $sup+h exec urxvt -name htop -e htop
 bindsym $sup+c exec urxvt -name cava -e cava
 bindsym $sup+b exec firefox
 bindsym $sup+Shift+b exec firefox --private-window
+bindsym $sup+q exec qbittorrent
 
 # All in one music bind 
 bindsym $sup+Shift+m exec urxvt -name cava -e cava; exec urxvt -name ncmpcpp -e ncmpcpp; exec --no-startup-id mpc random on; exec --no-startup-id mpc repeat on; [title="ncmpcpp"] focus
