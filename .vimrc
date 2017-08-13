@@ -64,8 +64,8 @@ let g:ctrlp_prompt_mappings = {
 
 " Nerdtree binds to make it behave more like ranger
 map <C-n> :NERDTreeToggle<CR>
-let NERDTreeMapOpenSplit='\'
-let NERDTreeMapOpenVSplit='<BS>'
+let NERDTreeMapOpenSplit='<BS>'
+let NERDTreeMapOpenVSplit='\'
 let NERDTreeMapActivateNode='l'
 let NERDTreeMapCloseDir='h'
 

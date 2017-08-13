@@ -65,7 +65,7 @@ color body brightblue default (https?|ftp)://[\-\.,/%~_:?&=\#a-zA-Z0-9]+
 # --- Sourced --- #
 
 # Use w3m for url view
-macro pager \cv |urlview\n
+macro index,pager \cv |urlview\n
 
 # Unbinds
 bind generic,compose,attach,pager g noop 
