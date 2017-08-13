@@ -12,11 +12,34 @@ set date_format="%m/%d %I:%M"
 set index_format="%2C %Z %d %-15.15F %s (%-4.4c)"
 set new_mail_command="sh ~/Scripts/mailnotify.sh %n %u&"
 set wait_key = no
-set edit_headers= yes
+
+# Settings inspired by https://gist.github.com/bnagy/8914f712f689cc01c267
+set hidden_host
+set fast_reply                              # skip initial prompts when replying
+set charset=iso-8859-1                      # One of those days in England...
+set noallow_8bit                            # 8bit isn't safe via Demon.
+set ascii_chars=yes                         # use ascii characters when displaying trees
+set edit_headers= yes                       # Include headers in message for easy change
+set nomark_old                              # Don't mark unread new msgs as old.
+set nobeep                                  # We don't need no beeping software.
+set nostrict_threads                        # Lets have some fuzzy threading.
+# don't save local copies of sent mail >:(
+unset record
 
 auto_view text/html
 alternative_order text/plain text/enriched text/html
 auto_view application/pdf
+
+###-- General security settings---###
+set ssl_force_tls=yes
+set ssl_starttls=yes
+set ssl_use_sslv2=no
+set ssl_use_sslv3=no
+set ssl_use_tlsv1=no
+set ssl_use_tlsv1_1=no
+set ssl_use_tlsv1_2=yes
+set ssl_verify_dates=yes
+set ssl_verify_host=yes
 
 ###--- Mutt sorting ---###
 set sort=threads
@@ -61,3 +84,4 @@ macro   index   Q           ":set quit=yes\nq" "Quit mutt without asking"
 bind    index   C           noop
 bind    index   -           collapse-thread
 bind    index   _           collapse-all
+macro   index   \cr         "T~N<enter>;WNT~O<enter>;WO\CT~T<enter>" "mark all messages read"
