@@ -10,6 +10,9 @@ set $mod Mod1
 set $sup Mod4
 set $term = urxvt
 
+set $innergap 10
+set $outergap 10
+
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 
@@ -23,8 +26,8 @@ focus_follows_mouse no
 new_window pixel 4
 
 # Setup gaps
-gaps inner 10
-gaps outer 10
+gaps inner $innergap
+gaps outer $outergap
  
 ###--- i3 coloring ---###
 # Make it clear when failed using red - otherwise set i3 colors with wal from xresources
@@ -36,10 +39,10 @@ set_from_resource $fg-alt-alt   i3wm.color9 #ff0000
 
 # class                 border  backgr. text indicator      child_border
 client.focused          $fg-alt $bg     $fg  $fg-alt        $fg-alt-alt
-client.focused_inactive $bg-alt $bg-alt $fg  $bg            $bg
-client.unfocused        $bg $bg-alt $fg  $bg                $bg
-client.urgent           $bg $bg-alt $fg  $bg                $bg
-client.placeholder      $bg $bg-alt $fg  $bg                $bg
+client.focused_inactive $bg     $bg-alt $fg  $bg            $bg
+client.unfocused        $bg     $bg-alt $fg  $bg                $bg
+client.urgent           $bg     $bg-alt $fg  $bg                $bg
+client.placeholder      $bg     $bg-alt $fg  $bg                $bg
 
 client.background       $bg
 
@@ -91,6 +94,12 @@ bindsym $mod+e layout toggle split
 
 # toggle tiling / floating
 bindsym $mod+t floating toggle
+
+# toggle / untoggle gaps
+# see https://www.reddit.com/r/i3wm/comments/5e593j/script_to_toggle_gaps_on_and_off/
+# to make this into a single command
+bindsym $mod+g gaps inner current set 0; gaps outer current set 0
+bindsym $mod+Shift+g gaps inner current set $innergap; gaps outer current set $outergap
 
 # open an empty container
 bindsym $mod+o open
