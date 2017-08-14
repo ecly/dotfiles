@@ -37,9 +37,9 @@ set_from_resource $fg-alt-alt   i3wm.color9 #ff0000
 # class                 border  backgr. text indicator      child_border
 client.focused          $fg-alt $bg     $fg  $fg-alt        $fg-alt-alt
 client.focused_inactive $bg-alt $bg-alt $fg  $bg            $bg
-client.unfocused        $bg-alt $bg-alt $fg  $bg            $bg
-client.urgent           $bg-alt $bg-alt $fg  $bg            $bg
-client.placeholder      $bg-alt $bg-alt $fg  $bg            $bg
+client.unfocused        $bg $bg-alt $fg  $bg                $bg
+client.urgent           $bg $bg-alt $fg  $bg                $bg
+client.placeholder      $bg $bg-alt $fg  $bg                $bg
 
 client.background       $bg
 
@@ -118,6 +118,7 @@ bindsym $sup+b exec firefox
 bindsym $sup+Shift+b exec firefox --private-window
 bindsym $sup+q exec qbittorrent
 bindsym $sup+m exec urxvt -name mutt -e mutt
+bindsym $sup+s exec slack
 
 # All in one music bind -> d for dance
 bindsym $sup+d exec urxvt -name dance -e sh ~/Scripts/music_mux.sh
