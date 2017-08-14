@@ -16,8 +16,8 @@ URxvt.internalBorder:   10
 URxvt.urlLauncher:      /usr/bin/firefox
 URxvt.underlineURLs:    true
 URxvt.urlButton:        1
-URxvt.copyCommand:      xclip -i -selection clipboard
-URxvt.pasteCommand:     xclip -o -selection clipboard
+!URxvt.copyCommand:      xclip -i -selection clipboard
+!URxvt.pasteCommand:     xclip -o -selection clipboard
 
 ! urxvt scrolling setup - up and down 10 lines
 URxvt.keysym.Shift-Up: command:\033]720;10\007

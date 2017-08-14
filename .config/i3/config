@@ -14,7 +14,7 @@ set $term = urxvt
 floating_modifier $mod
 
 # Almost solely used in case of nagbar
-font pango: Misc Tamsyn 10
+font pango: Misc Tamsyn 12
 
 # Do not follow the mouse
 focus_follows_mouse no
@@ -41,7 +41,7 @@ client.unfocused        $bg-alt $bg-alt $fg  $bg            $bg
 client.urgent           $bg-alt $bg-alt $fg  $bg            $bg
 client.placeholder      $bg-alt $bg-alt $fg  $bg            $bg
 
-client.background       $bg-alt
+client.background       $bg
 
 ###--- window bindings / focus ---###
 assign [instance="ncmpcpp"] 3
@@ -200,7 +200,7 @@ exec --no-startup-id nitrogen --restore
 exec --no-startup-id sleep 2; sh ~/Scripts/beautify.sh
 
 ###--- Launch Applications/Daemons At Start ---###
-exec --no-startup-id dropbox
+exec --no-startup-id sleep 2; dropbox
 
 # Setup NetworkManager
 exec --no-startup-id nm-applet

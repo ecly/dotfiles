@@ -30,6 +30,7 @@ autocmd BufEnter *.eex :setlocal filetype=html
 " Autoloads and saves folds
 autocmd BufWrite * mkview
 autocmd BufRead * silent loadview
+autocmd BufNewFile * start " new files start in insert
 
 " Intuitive split directions
 set splitbelow
@@ -118,4 +119,5 @@ let NERDTreeMapCloseDir='h'
 
 " Use zathura for previewing latex
 let g:livepreview_previewer = 'zathura'
-" let g:livepreview_engine = 'pdflatex' . 'args'
+"let g:livepreview_engine = 'pdflatex' . 'args'
+"let g:livepreview_engine = 'latexmk -pdf'
