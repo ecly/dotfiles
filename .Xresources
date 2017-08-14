@@ -1,9 +1,9 @@
 ! urvxt setup
 URxvt*perl-ext-common:  resize-font,selection-to-clipboard
-URxvt*font:             xft:Misc Tamsyn:pixelsize=16:style:Regularantialias=false, \
-                        xft:Inconsolata:pixelsize=16:style:Regular:antiaalias=false
-URxvt*boldFont:         xft:Misc Tamsyn:pixelsize=16:style:Bold=false, \
-                        xft:Inconsolata:pixelsize=16:style:Bold:antiaalias=false
+URxvt*font:             xft:Misc Tamsyn:pixelsize=16:style=Regular:antialias=true, \
+                        xft:Inconsolata:pixelsize=16:style=Regular:antiaalias=true
+URxvt*boldFont:         xft:Misc Tamsyn:pixelsize=16:style=Bold:antialias=true, \
+                        xft:Inconsolata:pixelsize=16:style=Bold:antiaalias=true
 !URxvt*font:             xft:iosevka:size=12:antialias=true
 !URxvt*boldFont:         xft:iosevka:size=12:style=Bold:antialias=true
 !URxvt*italicFont:       xft:iosevka:size=12style=Italic:antialias=true
@@ -41,8 +41,8 @@ rofi.fixed-num-lines:       true
 
 ! general font setup for applications ignoring fontconfig
 ! https://wiki.archlinux.org/index.php/Font_configuration#Fontconfig_configuration
-Xft.autohint: 0
-Xft.antialias: 0
+Xft.autohint: 1
+Xft.antialias: 1
 Xft.hinting: true
 Xft.hintstyle: hintfull
 Xft.rgba: rgb

@@ -49,17 +49,18 @@ for_window [instance="ncmpcpp"] focus
 assign [instance="dance"] 3
 for_window [instance="dance"] focus
 assign [instance="cava"] 3
-assign [instance="cava"] 3
 assign [class="mpv"] 4
 for_window [class="mpv"] focus
 assign [class="Firefox"] 1
 for_window [class="Firefox"] focus
+assign [instance="qbittorrent"] 5
 
 # Setup workspaces 
 workspace 1 output HDMI-0
 workspace 2 output DVI-I-1
 workspace 3 output DP-0
 workspace 4 output HDMI-0
+workspace 5 output HDMI-0
 
 ###--- i3 navigation binds ---###
 # change focus - vim style

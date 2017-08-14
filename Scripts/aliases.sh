@@ -42,6 +42,7 @@ alias cfr="vim ~/.config/ranger/rc.conf"
 alias cfm="vim ~/.muttrc"
 alias cfp="vim ~/.config/polybar/config"
 alias cfd="vim ~/.config/dunst/dunstrc"
+alias cfx="vim ~/.Xresources"
 
 # Use i3lock when afk
 alias afk="sh ~/Scripts/lock.sh"
