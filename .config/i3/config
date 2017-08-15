@@ -210,7 +210,7 @@ exec --no-startup-id nitrogen --restore
 exec --no-startup-id sleep 2; sh ~/Scripts/beautify.sh
 
 ###--- Launch Applications/Daemons At Start ---###
-exec --no-startup-id sleep 2; dropbox
+exec --no-startup-id sleep 10; dropbox
 
 # Setup NetworkManager
 exec --no-startup-id nm-applet

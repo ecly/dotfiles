@@ -1,5 +1,4 @@
 "set background=dark            " only relevant with some emulators
-syntax enable                   " syntax highlighting on
 set clipboard=unnamed           " system clipboard
 set nocompatible                " be iMproved, required
 set laststatus=2                " always show status line
@@ -17,7 +16,6 @@ set noerrorbells                " don't beep
 set nobackup                    " don't need swp files
 set noswapfile                  " don't need swp files
 set backspace=indent,eol,start  " allow backspacing everything in insert
-filetype plugin indent on       " filetype specific declarations
 
 " Use comma as leader
 let mapleader = ","
@@ -98,8 +96,9 @@ Plugin 'xuhdev/vim-latex-live-preview'
 call vundle#end()
 " --- End of Vundle section --- "
 
-" --- Plugin specific settings --- "
-" Color airline and vim with wal
+" These need to be after plugin section to function correctly
+syntax enable                   " syntax highlighting on
+filetype plugin indent on       " filetype specific declarations
 colorscheme wal
 
 " Intuitive split binds

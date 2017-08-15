@@ -34,6 +34,9 @@ alias la="ls -laF ${colorflag}"
 # List only directories
 alias lsd="ls -lF ${colorflag} | grep --color=never '^d'"
 
+# Some shorthand launching
+alias t="tmux"
+alias u="urxvt"
 
 # Config editing binds
 alias cfv="vim ~/.vimrc"
