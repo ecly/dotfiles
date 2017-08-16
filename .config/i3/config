@@ -118,7 +118,7 @@ bindsym $mod+Return exec urxvt
 bindsym $mod+Shift+Return exec urxvt -e tmux
 bindsym $sup+Return exec urxvt
 bindsym $sup+Shift+Return exec urxvt -e tmux
-bindsym $sup+e exec urxvt -name ranger -e ranger
+bindsym $sup+r exec urxvt -name ranger -e ranger
 bindsym $sup+Shift+e exec claws-mail
 bindsym $sup+n exec urxvt -name ncmpcpp -e ncmpcpp; exec --no-startup-id mpc random on; exec --no-startup-id mpc repeat on
 bindsym $sup+h exec urxvt -name htop -e htop
@@ -198,7 +198,8 @@ bindsym $sup+l exec --no-startup-id sh ~/Scripts/lock.sh
 
 ###--- Scripts ran at start ---###
 # Setup triple monitor setup
-exec --no-startup-id xrandr --auto --output DVI-I-1 --mode 1920x1080 --rate 144 --auto --output HDMI-0 --mode 1920x1080 --rate 60 --left-of DVI-I-1 --auto --output DP-0 --mode 1920x1080 --rate 60 --right-of DVI-I-1 --rotate right
+#exec --no-startup-id xrandr --auto --output DVI-I-1 --mode 1920x1080 --rate 144 --auto --output HDMI-0 --mode 1920x1080 --rate 60 --left-of DVI-I-1 --auto --output DP-0 --mode 1920x1080 --rate 60 --right-of DVI-I-1 --rotate right
+exec --no-startup-id sh ~/Scripts/nvidia.sh
 
 # Restore wallpaper setup
 exec --no-startup-id nitrogen --restore
