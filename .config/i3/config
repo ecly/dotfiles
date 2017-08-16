@@ -210,6 +210,8 @@ exec --no-startup-id nitrogen --restore
 exec --no-startup-id sleep 2; sh ~/Scripts/beautify.sh
 
 ###--- Launch Applications/Daemons At Start ---###
+
+# Dropbox won't seem to start without a delay - tray issue
 exec --no-startup-id sleep 10; dropbox
 
 # Setup NetworkManager
