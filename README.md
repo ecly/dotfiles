@@ -34,6 +34,7 @@ Manual firefox restart currently necessary for [userChrome.css](.config/userChro
 - [urlview](https://github.com/sigpipe/urlview) extract urls in mutt.
 - [vundle](https://github.com/VundleVim/Vundle.vim) vim plugin manager.
 - [xclip](https://github.com/astrand/xclip) for copying url to clipboard with imgur script.
+- [nvidia-settings](https://www.archlinux.org/packages/extra/x86_64/nvidia-settings/) For script setting up multi-head without screen tearing in X.
 - Probably a couple more things found out the hard way.
 
 **Manual setup:**
