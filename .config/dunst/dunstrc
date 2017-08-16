@@ -1,5 +1,5 @@
 [global]
-    font = "Tamsyn 10"
+    font = "Misc Tamsyn 10"
     markup = yes
     format = "<b>%s</b>\n%b"
     sort = yes
