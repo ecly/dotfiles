@@ -128,6 +128,7 @@ bindsym $sup+Shift+b exec firefox --private-window
 bindsym $sup+q exec qbittorrent
 bindsym $sup+m exec urxvt -name mutt -e mutt
 bindsym $sup+s exec slack
+bindsym $sup+w exec urxvt -name weechat -e weechat
 
 # All in one music bind -> d for dance
 bindsym $sup+d exec urxvt -name dance -e sh ~/Scripts/music_mux.sh
@@ -199,10 +200,13 @@ bindsym $sup+l exec --no-startup-id sh ~/Scripts/lock.sh
 ###--- Scripts ran at start ---###
 # Setup triple monitor setup
 #exec --no-startup-id xrandr --auto --output DVI-I-1 --mode 1920x1080 --rate 144 --auto --output HDMI-0 --mode 1920x1080 --rate 60 --left-of DVI-I-1 --auto --output DP-0 --mode 1920x1080 --rate 60 --right-of DVI-I-1 --rotate right
-exec --no-startup-id sh ~/Scripts/nvidia.sh
+
+# Merged nvidia monitor setup with nitrogen as nitrogen won't restore properly till screens are setup
+# Nvidia setup instead of xrandr is to include fix for screen tearing with X and Nvidia proprietary driver
+exec --no-startup-id sh ~/Scripts/nvidia.sh; nitrogen --restore
 
 # Restore wallpaper setup
-exec --no-startup-id nitrogen --restore
+#exec --no-startup-id nitrogen --restore
 
 # Wal, dunst and polybar combined - waiting for wal values first
 # Currently wait a bit before executing due to a known bug
