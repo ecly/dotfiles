@@ -84,9 +84,9 @@ monitor = ${env:MONITOR}
 ; high res
 height = 35 
 
-modules-left = i3index vpncheck battery
+modules-left = i3index vpncheck 
 modules-center = mpd
-modules-right = volume keyboard date 
+modules-right = volume keyboard date battery
 
 font-0 = "Misc Tamsyn:pixelsize=20;0"
 font-1 = "FontAwesome:pixelsize=14;1"
@@ -272,7 +272,7 @@ label-discharging = %percentage%%
 
 ; Available tokens:
 ;   %percentage% (default)
-label-full = %percentage%
+label-full =  %percentage%%
 
 ; Only applies if <ramp-capacity> is used
 ramp-capacity-0 = 
