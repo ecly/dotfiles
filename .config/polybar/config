@@ -91,7 +91,7 @@ modules-right = volume keyboard date
 font-0 = "Misc Tamsyn:pixelsize=20;0"
 font-1 = "FontAwesome:pixelsize=14;1"
 font-2 = "Inconsolata:pixelsize=20;1"
-font-3 = "Noto Sans:size=14;0"
+font-3 = "Noto Sans:size=14;2"
 
 tray-detached = false
 tray-position = right
