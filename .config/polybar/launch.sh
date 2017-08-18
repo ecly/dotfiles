@@ -6,6 +6,10 @@ killall -q polybar
 # Wait until the processes have been shut down
 while pgrep -x polybar >/dev/null; do sleep 1; done
 
-MONITOR=DVI-I-1 polybar main &
-MONITOR=HDMI-0 polybar secondary &
-MONITOR=DP-0 polybar secondary &
+if [ "$HOSTNAME" = ecly ]; then
+    MONITOR=DVI-I-1 polybar main &
+    MONITOR=HDMI-0 polybar secondary &
+    MONITOR=DP-0 polybar secondary &
+else 
+    MONITOR=eDP1 polybar main &
+fi
