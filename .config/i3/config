@@ -133,19 +133,27 @@ bindsym $sup+w exec urxvt -name weechat -e weechat
 # All in one music bind -> d for dance
 bindsym $sup+d exec urxvt -name dance -e sh ~/Scripts/music_mux.sh
 
+###--- Audo and Music definitions---###
+set $pause mpc toggle
+set $next mpc next
+set $prev mpc prev
+set $inc pamixer --allow-boost -i 5
+set $dec pamixer --allow-boost -d 5
+set $mute pamixer --allow-boost -t
+
 ###--- Music/Sound Keybindings ---###
-bindsym $sup+Right exec --no-startup-id mpc next
-bindsym $sup+Left exec --no-startup-id mpc prev
-bindsym $sup+p exec --no-startup-id mpc toggle 
+bindsym $sup+Right exec --no-startup-id $next
+bindsym $sup+Left exec --no-startup-id $prev
+bindsym $sup+p exec --no-startup-id $pause
 bindsym $sup+Up exec --no-startup-id mpc volume +5
 bindsym $sup+Down exec --no-startup-id mpc volume -5
 
 # Sound
 bindsym $mod+i exec --no-startup-id sh ~/Scripts/movesinks.sh 1
 bindsym $mod+Shift+i exec --no-startup-id sh ~/Scripts/movesinks.sh 0
-bindsym $mod+p exec --no-startup-id pamixer --allow-boost -t
-bindsym $mod+Up exec --no-startup-id pamixer --allow-boost -i 5
-bindsym $mod+Down exec --no-startup-id pamixer --allow-boost -d 5
+bindsym $mod+p exec --no-startup-id $mute
+bindsym $mod+Up exec --no-startup-id $inc
+bindsym $mod+Down exec --no-startup-id $dec
 
 ###--- Command Keybindings ---###
 # focus the parent container
@@ -252,3 +260,15 @@ for_window [instance="password"] move scratchpad
 exec --no-startup-id enpass -name password
 
 bindsym $mod+Shift+u [instance="password"] scratchpad show; move position center
+
+###--- Media key bindings ---###
+bindsym XF86AudioMute		    exec $mute
+bindsym XF86AudioLowerVolume	exec $dec
+bindsym XF86AudioRaiseVolume    exec $inc
+bindsym XF86MonBrightnessDown	exec --no-startup-id xbacklight -dec 15
+bindsym XF86MonBrightnessUp     exec --no-startup-id xbacklight -inc 15
+bindsym XF86KbdBrightnessDown	exec --no-startup-id kbdlight up
+bindsym XF86KbdBrightnessUp     exec --no-startup-id kbdlight down
+bindsym XF86AudioNext		    exec $next
+bindsym XF86AudioPlay		    exec $pause
+bindsym XF86AudioPrev           exec $prev
