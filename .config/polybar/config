@@ -81,12 +81,17 @@ tray-position =
 [bar/laptop]
 inherit = bar/main
 monitor = ${env:MONITOR}
+; high res
+height = 35 
 
 modules-left = i3index battery
 modules-center = mpd
 modules-right = volume keyboard date 
 
 font-0 = "Misc Tamsyn:pixelsize=20;0"
+font-1 = "FontAwesome:pixelsize=14;0"
+font-2 = "Inconsolata:pixelsize=20;2"
+font-3 = "Noto Sans:size=14;0"
 
 [module/xwindow]
 type = internal/xwindow
@@ -225,11 +230,6 @@ adapter = ADP1
 ; Default: 5
 poll-interval = 5
 
-; see "man date" for details on how to format the time string
-; NOTE: if you want to use syntax tags here you need to use %%{...}
-; Default: %H:%M:%S
-time-format = %H:%M
-
 ; Available tags:
 ;   <label-charging> (default)
 ;   <bar-capacity>
@@ -253,17 +253,17 @@ format-discharging = <ramp-capacity> <label-discharging>
 ;   %percentage% (default)
 ;   %time%
 ;   %consumption% (shows current charge rate in watts)
-label-charging = Charging %percentage%%
+label-charging = %percentage%%
 
 ; Available tokens:
 ;   %percentage% (default)
 ;   %time%
 ;   %consumption% (shows current discharge rate in watts)
-label-discharging = Discharging %percentage%%
+label-discharging = %percentage%%
 
 ; Available tokens:
 ;   %percentage% (default)
-label-full = Fully charged
+label-full = %percentage%
 
 ; Only applies if <ramp-capacity> is used
 ramp-capacity-0 = 
