@@ -2,6 +2,8 @@
 folder-hook 'personlrc' 'source ~/.config/mutt/personalrc'
 folder-hook 'educationrc' 'source ~/.config/mutt/educationrc'
 folder-hook 'companyrc' 'source ~/.config/mutt/companyrc'
+folder-hook 'slaverc' 'source ~/.config/mutt/slaverc'
+folder-hook 'mailboxrc' 'source ~/.config/mutt/mailboxrc'
 
 # Important config for live account
 source "~/.config/mutt/personalrc" # Default account
@@ -74,6 +76,8 @@ bind generic,compose,attach,pager,index d noop
 macro index <f1> '<sync-mailbox><refresh><enter-command>source ~/.config/mutt/personalrc<enter><change-folder>!<enter>'
 macro index <f2> '<sync-mailbox><refresh><enter-command>source ~/.config/mutt/educationrc<enter><change-folder>!<enter>'
 macro index <f3> '<sync-mailbox><refresh><enter-command>source ~/.config/mutt/companyrc<enter><change-folder>!<enter>'
+macro index <f4> '<sync-mailbox><refresh><enter-command>source ~/.config/mutt/slaverc<enter><change-folder>!<enter>'
+macro index <f5> '<sync-mailbox><refresh><enter-command>source ~/.config/mutt/mailboxrc<enter><change-folder>!<enter>'
 
 # Mailbox navigation
 # --- Sourced --- #

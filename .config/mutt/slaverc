@@ -1,21 +1,21 @@
 # vim: filetype=muttrc
-source "~/.config/mutt/.personal"
+source "~/.config/mutt/.slave"
 
-#unmailboxes *
+unmailboxes *
 set imap_user = "$my_email"
 set imap_pass = "$my_password"
-set smtp_url = "smtp://$my_email@smtp.live.com:587/"
+set smtp_url = "smtp://$my_email@smtp.office365.com:587/"
 set smtp_pass = "$my_password"
 set from = "$my_email"
 set realname = "$my_name"
-set folder = "imaps://imap-mail.outlook.com:993"
+set folder = "imaps://outlook.office365.com:993"
 set spoolfile = "+INBOX"
 set postponed = "+Drafts"
 set trash = "+Deleted"
 set record = "+Sent"
-set header_cache = ~/.config/mutt/Personal/cache/headers
-set message_cachedir = ~/.config/mutt/Personal/cache/bodies
-set header_cache = ~/.config/mutt/Personal/cache/headers
+set header_cache = ~/.config/mutt/Slave/cache/headers
+set message_cachedir = ~/.config/mutt/Slave/cache/bodies
+set header_cache = ~/.config/mutt/Slave/cache/headers
 set certificate_file = ~/.config/mutt/certificates
 
 set imap_check_subscribed="yes"

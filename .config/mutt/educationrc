@@ -1,7 +1,7 @@
 # vim: filetype=muttrc
 source "~/.config/mutt/.education"
 
-unmailboxes *
+#unmailboxes *
 set imap_user = "$my_email"
 set imap_pass = "$my_password"
 set smtp_url = "smtp://$my_email@smtp.office365.com:587/"
