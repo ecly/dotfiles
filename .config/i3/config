@@ -267,8 +267,8 @@ bindsym XF86AudioLowerVolume	exec $dec
 bindsym XF86AudioRaiseVolume    exec $inc
 bindsym XF86MonBrightnessDown	exec --no-startup-id xbacklight -dec 15
 bindsym XF86MonBrightnessUp     exec --no-startup-id xbacklight -inc 15
-bindsym XF86KbdBrightnessDown	exec --no-startup-id kbdlight up
-bindsym XF86KbdBrightnessUp     exec --no-startup-id kbdlight down
+bindsym XF86KbdBrightnessDown	exec --no-startup-id kbdlight down
+bindsym XF86KbdBrightnessUp     exec --no-startup-id kbdlight up
 bindsym XF86AudioNext		    exec $next
 bindsym XF86AudioPlay		    exec $pause
 bindsym XF86AudioPrev           exec $prev
