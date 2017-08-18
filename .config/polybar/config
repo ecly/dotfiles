@@ -102,7 +102,6 @@ tray-padding = 0
 tray-scale = 1
 tray-background = ${colors.background}
 
-
 [module/xwindow]
 type = internal/xwindow
 label = %title:0:30:...%
@@ -161,7 +160,7 @@ time-alt = %H:%M:%S
 ;format-prefix =  
 format-prefix-foreground = ${colors.foreground}
 
-label = %date% %time%
+label = %time%
 
 [module/mpd]
 type = internal/mpd
