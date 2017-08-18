@@ -1,0 +1,31 @@
+# vim: filetype=muttrc
+source "~/.config/mutt/.company"
+
+unmailboxes *
+set pop_user = "$my_email"
+set pop_pass = "$my_password"
+set smtp_url = "smtp://$my_email@asmtp.com:587/"
+set smtp_pass = "$my_password"
+set from = "$my_email"
+set realname = "$my_name"
+set pop_host = "pops://mail.unoeuro.com:110"
+set spoolfile = "pops://mail.unoeuro.com/Inbox"
+set postponed = "pops://mail.unoeuro.com/Drafts"
+set trash = "pops://mail.unoeuro.com/Trash"
+set record = "pops://mail.unoeuro.com/Sent"
+set header_cache = ~/.config/mutt/Company/cache/headers
+set message_cachedir = ~/.config/mutt/Company/cache/bodies
+set header_cache = ~/.config/mutt/Company/cache/headers
+set certificate_file = ~/.config/mutt/certificates
+
+set status_format = "$from -%r-Mutt: %f [Msgs:%?M?%M/?%m%?n? New:%n?%?o? Old:%o?%?d? Del:%d?%?F? Flag:%F?%?t? Tag:%t?%?p? Post:%p?%?b? Inc:%b?%?l? %l?]---(%s/%S)-%>-(%P)---"
+
+# Just to avoid warnings
+bind  index g  noop 
+
+# Since none of these currently work with PO3
+#macro index gi "<change-folder>=Inbox<enter>" "Go to inbox"
+#macro index gs "<change-folder>=Sent<enter>" "Go to sent"
+#macro index gd "<change-folder>=Drafts<enter>" "Go to drafts"
+#macro index gj "<change-folder>=Junk<enter>" "Go to junk"
+#macro index gt "<change-folder>=Trash<enter>" "Go to trash"

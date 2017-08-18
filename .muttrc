@@ -1,5 +1,10 @@
+# Folder hooks for multiple accounts
+folder-hook 'personlrc' 'source ~/.config/mutt/personalrc'
+folder-hook 'educationrc' 'source ~/.config/mutt/educationrc'
+folder-hook 'companyrc' 'source ~/.config/mutt/companyrc'
+
 # Important config for live account
-source "~/.config/mutt/personalrc"
+source "~/.config/mutt/personalrc" # Default account
 source "~/.config/mutt/aliases"
 source "~/.config/mutt/muttcol"
 
@@ -16,15 +21,13 @@ set wait_key = no
 # Settings inspired by https://gist.github.com/bnagy/8914f712f689cc01c267
 set hidden_host
 set fast_reply                              # skip initial prompts when replying
-#set charset=iso-8859-1                      # One of those days in England...
 set noallow_8bit                            # 8bit isn't safe via Demon.
 set ascii_chars=yes                         # use ascii characters when displaying trees
 set edit_headers= yes                       # Include headers in message for easy change
 set nomark_old                              # Don't mark unread new msgs as old.
 set nobeep                                  # We don't need no beeping software.
 set nostrict_threads                        # Lets have some fuzzy threading.
-# don't save local copies of sent mail >:(
-unset record
+unset record                                # don't save local copies of sent mail 
 
 auto_view text/html
 alternative_order text/plain text/enriched text/html
@@ -61,17 +64,23 @@ color body brightblue default (https?|ftp)://[\-\.,/%~_:?&=\#a-zA-Z0-9]+
 
 
 ###--- Bindings ---###
+# Unbinds
+bind generic,compose,attach,pager g noop 
+bind generic,compose,attach,pager,index d noop 
+#bind attach,browser,pager g   noop
+#bind attach,browser,index,pager d   noop
+
+# Account changing
+macro index <f1> '<sync-mailbox><refresh><enter-command>source ~/.config/mutt/personalrc<enter><change-folder>!<enter>'
+macro index <f2> '<sync-mailbox><refresh><enter-command>source ~/.config/mutt/educationrc<enter><change-folder>!<enter>'
+macro index <f3> '<sync-mailbox><refresh><enter-command>source ~/.config/mutt/companyrc<enter><change-folder>!<enter>'
+
 # Mailbox navigation
 # --- Sourced --- #
 
 # Use w3m for url view
 macro index,pager \cv |urlview\n
 
-# Unbinds
-bind generic,compose,attach,pager g noop 
-bind generic,compose,attach,pager,index d noop 
-#bind attach,browser,pager g   noop
-#bind attach,browser,index,pager d   noop
 
 # Editor
 bind editor                     ^T complete
@@ -117,7 +126,7 @@ bind    index   R           group-reply
 bind    index   <up>        previous-entry
 bind    index   <down>      next-entry
 bind    index   <delete>    delete-message
-bind    index   n           next-entry
+# bind    index   n           next-entry / overrides next search item
 bind    index   p           previous-entry
 macro   index   Q           ":set quit=yes\nq" "Quit mutt without asking"
 bind    index   C           noop
@@ -125,5 +134,5 @@ bind    index   -           collapse-thread
 bind    index   _           collapse-all
 macro   index   \cr         "T~N<enter>;WNT~O<enter>;WO\CT~T<enter>" "mark all messages read"
 
-# Refreshing
+# Refreshing 'go fetch'
 bind index gf imap-fetch-mail

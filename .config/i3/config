@@ -98,8 +98,8 @@ bindsym $mod+t floating toggle
 # toggle / untoggle gaps
 # see https://www.reddit.com/r/i3wm/comments/5e593j/script_to_toggle_gaps_on_and_off/
 # to make this into a single command
-bindsym $mod+g gaps inner current set 0; gaps outer current set 0
-bindsym $mod+Shift+g gaps inner current set $innergap; gaps outer current set $outergap
+bindsym $mod+Shift+g gaps inner current set 0; gaps outer current set 0
+bindsym $mod+g gaps inner current set $innergap; gaps outer current set $outergap
 
 # open an empty container
 bindsym $mod+o open
