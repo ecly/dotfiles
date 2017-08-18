@@ -24,6 +24,7 @@ Manual firefox restart currently necessary for [userChrome.css](.config/userChro
 **Browser:** Firefox  
 **Startpage:** [startpage](https://github.com/ecly/startpage)  
 **IRC Client:** [weechat](https://github.com/weechat/weechat)  
+**Color theme generation:** [pywal](https://github.com/dylanaraps/pywal)  
 
 **Additional dependencies:**
 - [pulseaudio](https://www.archlinux.org/packages/?name=pulseaudio) & [pulseaudio-alsa](https://www.archlinux.org/packages/extra/any/pulseaudio-alsa/), alsa version is necessary for polybar volume.
@@ -47,3 +48,4 @@ Manual firefox restart currently necessary for [userChrome.css](.config/userChro
 - Mopidy spotify authorization configuration & renaming of config file.
 - Mutt cache folders, alises and .personal containing mail info.
 - Weechat SASL/Secure setup.
+- qBittorrent setup with VPN.

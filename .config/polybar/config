@@ -84,7 +84,7 @@ monitor = ${env:MONITOR}
 ; high res
 height = 35 
 
-modules-left = i3index battery
+modules-left = i3index vpncheck battery
 modules-center = mpd
 modules-right = volume keyboard date 
 
