@@ -244,7 +244,7 @@ exec --no-startup-id xinput --set-prop 9 'libinput Accel Speed' -0.5
 
 # Map Caps Lock to Esc
 # Allow keyboard toggling using alt + space
-exec --no-startup-id setxkbmap -option caps:escape; setxkbmap -option grp:switch,grp:alt_space_toggle,grp_led:scroll us,dk
+exec --no-startup-id sh ~/Scripts/keymap.sh
 
 ###--- Scratchpad terminal setup ---### 
 for_window [instance="scratch"] floating enable
