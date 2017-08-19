@@ -1,21 +1,21 @@
 # vim: filetype=muttrc
-source "~/.config/mutt/.education"
+source "~/.config/mutt/.mailbox"
 
-#unmailboxes *
+unmailboxes *
 set imap_user = "$my_email"
 set imap_pass = "$my_password"
-set smtp_url = "smtp://$my_email@smtp.office365.com:587/"
+set smtp_url = "smtp://$my_email@smtp.mailbox.org:587/"
 set smtp_pass = "$my_password"
 set from = "$my_email"
 set realname = "$my_name"
-set folder = "imaps://outlook.office365.com:993"
+set folder = "imaps://imap.mailbox.org:993"
 set spoolfile = "+INBOX"
 set postponed = "+Drafts"
-set trash = "+Deleted Items"
+set trash = "+Trash"
 set record = "+Sent"
-set header_cache = ~/.config/mutt/Education/cache/headers
-set message_cachedir = ~/.config/mutt/Education/cache/bodies
-set header_cache = ~/.config/mutt/Education/cache/headers
+set header_cache = ~/.config/mutt/Mailbox/cache/headers
+set message_cachedir = ~/.config/mutt/Mailbox/cache/bodies
+set header_cache = ~/.config/mutt/Mailbox/cache/headers
 set certificate_file = ~/.config/mutt/certificates
 
 set imap_check_subscribed="yes"
@@ -30,5 +30,5 @@ macro index gi "<change-folder>=Inbox<enter>" "Go to inbox"
 macro index gs "<change-folder>=Sent<enter>" "Go to sent"
 macro index gd "<change-folder>=Drafts<enter>" "Go to drafts"
 macro index gj "<change-folder>=Junk<enter>" "Go to junk"
-macro index gt "<change-folder>=Deleted Items<enter>" "Go to trash"
+macro index gt "<change-folder>=Trash<enter>" "Go to trash"
 macro index ga "<change-folder>=Archived<enter>" "Go to trash"

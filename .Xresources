@@ -16,20 +16,20 @@
 #endif
 
 ! urvxt setup
-URxvt*perl-ext-common:  resize-font,selection-to-clipboard
+URxvt*perl-ext-common:  resize-font,selection-to-clipboard,matcher
 URxvt*font:             xft:Misc Tamsyn:pixelsize=SIZE:style=Regular:antialias=true, \
                         xft:Inconsolata:pixelsize=SIZE:style=Regular:antiaalias=true
 URxvt*boldFont:         xft:Misc Tamsyn:pixelsize=SIZE:style=Bold:antialias=true, \
                         xft:Inconsolata:pixelsize=SIZE:style=Bold:antiaalias=true
-URxvt*urlLauncher:      firefox  
+URxvt*url-launcher:     /usr/bin/firefox 
+!URxvt*urlLauncher:     /usr/bin/firefox
 URxvt*scrollBar:        false
-URxvt*scrollBar_right:  true
+!URxvt*scrollBar_right:  true
 URxvt.iso14755:         False
 URxvt*dynamicColors:    on
 URxvt.internalBorder:   10
-URxvt.urlLauncher:      /usr/bin/firefox
 URxvt.underlineURLs:    true
-URxvt.urlButton:        1
+URxvt.matcher.button:   1
 !URxvt.copyCommand:      xclip -i -selection clipboard
 !URxvt.pasteCommand:     xclip -o -selection clipboard
 

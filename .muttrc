@@ -6,7 +6,7 @@ folder-hook 'slaverc' 'source ~/.config/mutt/slaverc'
 folder-hook 'mailboxrc' 'source ~/.config/mutt/mailboxrc'
 
 # Important config for live account
-source "~/.config/mutt/personalrc" # Default account
+source "~/.config/mutt/mailboxrc" # Default account
 source "~/.config/mutt/aliases"
 source "~/.config/mutt/muttcol"
 
@@ -72,18 +72,22 @@ bind generic,compose,attach,pager,index d noop
 #bind attach,browser,pager g   noop
 #bind attach,browser,index,pager d   noop
 
+# Don't ask - just move this Archived
+macro index S ":set confirmappend=no delete=yes\n<tag-prefix><save-message>=Archived\n<sync-mailbox>:set confirmappend=yes delete=ask-yes\n"
+
 # Account changing
-macro index <f1> '<sync-mailbox><refresh><enter-command>source ~/.config/mutt/personalrc<enter><change-folder>!<enter>'
+macro index <f1> '<sync-mailbox><refresh><enter-command>source ~/.config/mutt/mailboxrc<enter><change-folder>!<enter>'
 macro index <f2> '<sync-mailbox><refresh><enter-command>source ~/.config/mutt/educationrc<enter><change-folder>!<enter>'
 macro index <f3> '<sync-mailbox><refresh><enter-command>source ~/.config/mutt/companyrc<enter><change-folder>!<enter>'
 macro index <f4> '<sync-mailbox><refresh><enter-command>source ~/.config/mutt/slaverc<enter><change-folder>!<enter>'
-macro index <f5> '<sync-mailbox><refresh><enter-command>source ~/.config/mutt/mailboxrc<enter><change-folder>!<enter>'
+macro index <f5> '<sync-mailbox><refresh><enter-command>source ~/.config/mutt/personalrc<enter><change-folder>!<enter>'
 
 # Mailbox navigation
 # --- Sourced --- #
 
 # Use w3m for url view
-macro index,pager \cv |urlview\n
+# macro index,pager \cv |urlview\n
+macro index,pager,attach,compose \cv "<pipe-entry> urlscan<Enter>" "call urlscan to extract URLs out of a message"
 
 
 # Editor
@@ -94,7 +98,7 @@ bind attach                     <space> view-mailcap
 
 # Moving around
 bind attach,browser,index       gg  first-entry
-bind attach,browser,index       G   last-entry
+# bind attach,browser,index       G   last-entry - used go fetch
 bind pager                      gg  top
 bind pager                      G   bottom
 bind pager                      k   previous-line
@@ -139,4 +143,4 @@ bind    index   _           collapse-all
 macro   index   \cr         "T~N<enter>;WNT~O<enter>;WO\CT~T<enter>" "mark all messages read"
 
 # Refreshing 'go fetch'
-bind index gf imap-fetch-mail
+bind index G imap-fetch-mail
