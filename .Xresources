@@ -7,7 +7,7 @@
 #ifndef DPI
 #if HOST == trsh 
 #define SIZE 20
-#define DPI 227
+#define DPI 144
 #else
 #define SIZE 16
 #define DPI 96
