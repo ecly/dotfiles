@@ -1,0 +1,31 @@
+[filter "media"]
+	required = true
+	clean = git media clean %f
+	smudge = git media smudge %f
+[user]
+	name = ecly
+    email = ecly@mailbo"x.or"g
+[core]
+    editor = vim
+	autocrlf = input
+[diff]
+    tool = vimdiff
+[branch]
+    autosetuprebase = always
+[merge]
+    summary = true
+    log = true
+    tool = vimdiff
+[mergetool]
+    prompt = false
+    keepBackup = false
+[color]
+	ui = auto
+	diff = auto
+	status = auto
+	branch = auto
+	interactive = auto
+    grep = auto
+[alias]
+    st = status -sb
+    lg = log --graph --pretty=format:'%C(yellow)%h%C(auto)%d%Creset %s %C(white)- %an, %ar%Creset'
