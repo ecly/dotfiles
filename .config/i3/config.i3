@@ -1,6 +1,8 @@
 # vim:filetype=i3
 # Should you change your keyboard layout some time, delete
 # this file and re-run i3-config-wizard(1).
+ 
+# Expected to be symlinked to ~/.config/i3/config
 
 # i3 config file (v4)
 # Please see http://i3wm.org/docs/userguide.html for a complete reference!
