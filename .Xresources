@@ -2,10 +2,12 @@
 
 !### C-preprocessing for variable font per machine
 !### Use for different font sizes for laptop/desktop
-!### Assumed to be retina if 2000+ height
+!### Assumed to be my desktop if width is 3000 >
+#define FONT xos4 Terminus
+
 #ifndef SIZE
 #ifndef DPI
-#if HOST == trsh 
+#if WIDTH < 3000 
 #define SIZE 20
 #define DPI 144
 #else
@@ -15,11 +17,12 @@
 #endif
 #endif
 
+
 ! urvxt setup
 URxvt*perl-ext-common:  resize-font,selection-to-clipboard,matcher
-URxvt*font:             xft:Misc Tamsyn:pixelsize=SIZE:style=Regular:antialias=true, \
+URxvt*font:             xft:FONT:pixelsize=SIZE:style=Regular:antialias=true, \
                         xft:Inconsolata:pixelsize=SIZE:style=Regular:antiaalias=true
-URxvt*boldFont:         xft:Misc Tamsyn:pixelsize=SIZE:style=Bold:antialias=true, \
+URxvt*boldFont:         xft:FONT:pixelsize=SIZE:style=Bold:antialias=true, \
                         xft:Inconsolata:pixelsize=SIZE:style=Bold:antiaalias=true
 URxvt*url-launcher:     /usr/bin/firefox 
 !URxvt*urlLauncher:     /usr/bin/firefox
@@ -40,7 +43,7 @@ URxvt.keysym.Shift-Down: command:\033]721;10\007
 ! rofi setup
 rofi.color-enabled:         true
 rofi.separator-style:       solid
-rofi.font:                  Misc Tamsyn SIZE
+rofi.font:                  FONT SIZE
 rofi.bw:                    2
 rofi.columns:               1
 rofi.yoffset:               0
@@ -56,7 +59,7 @@ rofi.fixed-num-lines:       true
 ! general font setup for applications ignoring fontconfig
 ! https://wiki.archlinux.org/index.php/Font_configuration#Fontconfig_configuration
 Xft.autohint:               0
-Xft.antialias:              1
+ft.antialias:              1
 Xft.hinting:                true
 Xft.hintstyle:              hintfull
 Xft.rgba:                   rgb

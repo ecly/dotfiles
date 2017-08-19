@@ -6,9 +6,16 @@
 # Source generated colors.
 source "${HOME}/.cache/wal/colors.sh"
 
+
 reload_dunst() {
+    font="xos4 Terminus 8"
+    if [ "$HOSTNAME" = trsh ]; then
+        font="xos4 Terminus 20"
+    fi
+
     pkill dunst
     dunst -config ~/.config/dunst/dunstrc \
+        -fn "${font}" \
         -lb "${color0:-#F0F0F0}" \
         -nb "${color0:-#F0F0F0}" \
         -cb "${color0:-#F0F0F0}" \

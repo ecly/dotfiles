@@ -19,7 +19,7 @@ set $outergap 10
 floating_modifier $mod
 
 # Almost solely used in case of nagbar
-font pango: Misc Tamsyn 12
+font pango: xos4 Terminus 12
 
 # Do not follow the mouse
 focus_follows_mouse no

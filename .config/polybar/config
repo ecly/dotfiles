@@ -51,10 +51,10 @@ padding-bottom = 2
 module-margin-left = 1
 module-margin-right = 1
 
-font-0 = "Misc Tamsyn:pixelsize=16;0"
+font-0 = "xos4 Terminus:pixelsize=14;0"
 font-1 = "FontAwesome:pixelsize=12;1"
-font-2 = "Inconsolata:pixelsize=16;1"
-font-3 = "Noto Sans:size=12;1"
+font-2 = "Inconsolata:pixelsize=14;1"
+font-3 = "Noto Sans:size=14;1"
 
 modules-left = i3index vpncheck
 modules-center = mpd
@@ -88,10 +88,10 @@ modules-left = i3index vpncheck
 modules-center = mpd
 modules-right = volume keyboard date battery
 
-font-0 = "Misc Tamsyn:pixelsize=20;0"
-font-1 = "FontAwesome:pixelsize=14;1"
-font-2 = "Inconsolata:pixelsize=20;1"
-font-3 = "Noto Sans:size=14;2"
+font-0 = "xos4 Terminus:pixelsize=24;0"
+font-1 = "FontAwesome:pixelsize=20;1"
+font-2 = "Inconsolata:pixelsize=24;1"
+font-3 = "Noto Sans:size=20;2"
 
 tray-detached = false
 tray-position = right
