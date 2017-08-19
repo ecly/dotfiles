@@ -8,7 +8,7 @@
 #ifndef SIZE
 #ifndef DPI
 #if WIDTH < 3000 
-#define SIZE 20
+#define SIZE 24
 #define DPI 144
 #else
 #define SIZE 16

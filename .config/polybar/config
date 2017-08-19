@@ -82,7 +82,7 @@ tray-position =
 inherit = bar/main
 monitor = ${env:MONITOR}
 ; high res
-height = 35 
+height = 40 
 
 modules-left = i3index vpncheck 
 modules-center = mpd
