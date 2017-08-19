@@ -5,7 +5,7 @@
 !### Assumed to be retina if 2000+ height
 #ifndef SIZE
 #ifndef DPI
-#if HEIGHT > 2000 
+#if HOST == trsh 
 #define SIZE 20
 #define DPI 227
 #else
