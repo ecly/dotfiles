@@ -49,3 +49,5 @@ Manual firefox restart currently necessary for [userChrome.css](.config/userChro
 - Mutt cache folders, alises and .personal containing mail info.
 - Weechat SASL/Secure setup.
 - qBittorrent setup with VPN.
+- Symlink ~/.config/i3/config.i3 and modify beforehand if needed for machine
+- Install Vundle + Plugins -> make vimproc
