@@ -121,6 +121,7 @@ bindsym $mod+Shift+Return exec urxvt -e tmux
 bindsym $sup+Return exec urxvt
 bindsym $sup+Shift+Return exec urxvt -e tmux
 bindsym $sup+r exec urxvt -name ranger -e ranger
+bindsym $mod+r exec urxvt -name ranger -e ranger
 bindsym $sup+Shift+e exec claws-mail
 bindsym $sup+n exec urxvt -name ncmpcpp -e ncmpcpp; exec --no-startup-id mpc random on; exec --no-startup-id mpc repeat on
 bindsym $sup+h exec urxvt -name htop -e htop

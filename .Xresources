@@ -3,6 +3,7 @@
 !### C-preprocessing for variable font per machine
 !### Use for different font sizes for laptop/desktop
 !### Assumed to be my desktop if width is 3000 >
+!### Bit of a hack, since I couldn't get host working
 #define FONT xos4 Terminus
 
 #ifndef SIZE
