@@ -7,13 +7,13 @@ tmpbg='/tmp/screen.png'
 
 maim "$tmpbg"
 convert "$tmpbg" -scale 10% -scale 1000% "$tmpbg"
+mpc pause
 
 #add icon (not the greatest with multiple monitors
 #potentially use i3lock-fancy-mutiple-monitors instead
-#convert "$tmpbg" "$icon" -gravity center -composite -matte "$tmpbg"
-mpc pause
-
-i3lock -i "$tmpbg" -n; mpc play
-
-# command that hide defaults icon
-#i3lock -u -i "$tmpbg"
+if [ "$HOSTNAME" = trsh ]; then
+    convert "$tmpbg" "$icon" -gravity center -composite -matte "$tmpbg"
+    i3lock -u -i "$tmpbg"; mpc play
+else
+    i3lock -i "$tmpbg" -n; mpc play
+fi
