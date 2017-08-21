@@ -1,3 +1,5 @@
 NAME=~/Pictures/Screenshots/$(date +%s).png
-maim -s $NAME
-notify-send "Screenshot saved at $NAME" --icon=camera-photo
+if maim -s $NAME; then 
+    notify-send "Screenshot saved at $NAME" --icon=camera-photo
+fi
+
