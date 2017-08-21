@@ -1,9 +1,5 @@
 # Dotfiles for Arch Linux
 Basically serves as my checklist when setting up Arch on a new machine.  
-Some scripts are modified to behave differently based on hostname for the setup to work more fluently between my machines.  
-These may need modifications based on the machin. (.xinit, nvidia.sh, config.i3, wal-set)
-
-Theming based on [wal](https://github.com/dylanaraps/pywal) for automated coloring of everything.  
 In ranger use 'mkt' on image to have colorscheme generated and applied to everything.  
 Manual firefox restart currently necessary for [userChrome.css](.config/userChrome.css) to be applied after changing colorscheme.
 
@@ -31,7 +27,7 @@ Manual firefox restart currently necessary for [userChrome.css](.config/userChro
 **IRC Client:** [weechat](https://github.com/weechat/weechat)  
 **Color theme generation:** [pywal](https://github.com/dylanaraps/pywal)  
 
-**Additional dependencies:**
+### Additional dependencies:
 - [pulseaudio](https://www.archlinux.org/packages/?name=pulseaudio) & [pulseaudio-alsa](https://www.archlinux.org/packages/extra/any/pulseaudio-alsa/), alsa version is necessary for polybar volume.
 - [w3m](http://w3m.sourceforge.net/), for previews in ranger.
 - [NetworkManager](https://www.archlinux.org/packages/extra/x86_64/networkmanager/),[nm-applet](https://www.archlinux.org/packages/extra/x86_64/network-manager-applet/) and [networkmanager-openvpn](https://www.archlinux.org/packages/extra/i686/networkmanager-openvpn/).
@@ -46,7 +42,11 @@ Manual firefox restart currently necessary for [userChrome.css](.config/userChro
 - [Tamsyn](https://www.archlinux.org/packages/community/any/tamsyn-font/), [Iosevka](https://aur.archlinux.org/packages/ttf-iosevka), [FontAwesome](https://aur.archlinux.org/packages/ttf-font-awesome/), [Inconsolata](https://www.archlinux.org/packages/community/any/ttf-inconsolata/), [Noto Sans](https://www.archlinux.org/packages/extra/any/noto-fonts/),[Terminus](https://www.archlinux.org/packages/community/any/terminus-font), fonts used for basically everything.
 - Probably a couple more things found out the hard way.
 
-**Manual setup:**
+### Laptop only dependencies:
+- [kbdlight](https://aur.archlinux.org/packages/kbdlight/), adjust keyboard lighting.
+- [xbacklight](https://www.archlinux.org/packages/extra/x86_64/xorg-xbacklight/), adjust backlight.
+
+### Manual setup:
 - Manual symlinking of [userChrome.css](.config/userChrome.css) to Firefox profile.
 - Manual clone and setup of [startpage](https://github.com/ecly/startpage) with Firefox.
 - Manual OpenVPN VPN setup.
