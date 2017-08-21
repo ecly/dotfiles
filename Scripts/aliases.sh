@@ -48,6 +48,9 @@ alias cfd="vim ~/.config/dunst/dunstrc"
 alias cfx="vim ~/.Xresources"
 alias cfz="vim ~/.zshrc"
 
+# Used for toggling colors for playing csgo
+alias csgo="sh ~/Scripts/vibrance.sh"
+
 # Use i3lock when afk
 alias afk="sh ~/Scripts/lock.sh"
 
