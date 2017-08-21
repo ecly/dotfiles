@@ -240,8 +240,9 @@ exec --no-startup-id mopidy
 exec --no-startup-id redshift
 
 ###--- Input settings (mouse/keyboard) ---####
-# Reduce mouse speed by 50%
-exec --no-startup-id xinput --set-prop 9 'libinput Accel Speed' -0.25
+# Reduce mouse speed by 0%
+exec --no-startup-id xinput --set-prop 9 'libinput Accel Speed' 0
+#exec --no-startup-id xinput --set-prop 9 'libinput Accel Speed' -0.25
 
 # Map Caps Lock to Esc
 # Allow keyboard toggling using alt + space
