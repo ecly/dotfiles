@@ -1,8 +1,13 @@
-# Dotfiles for Arch
+# Dotfiles for Arch Linux
+Basically serves as my checklist when setting up Arch on a new machine.  
+Some scripts are modified to behave differently based on hostname for the setup to work more fluently between my machines.  
+These may need modifications based on the machin. (.xinit, nvidia.sh, config.i3, wal-set)
+
 Theming based on [wal](https://github.com/dylanaraps/pywal) for automated coloring of everything.  
 In ranger use 'mkt' on image to have colorscheme generated and applied to everything.  
-Manual firefox restart currently necessary for [userChrome.css](.config/userChrome.css) to be applied.
+Manual firefox restart currently necessary for [userChrome.css](.config/userChrome.css) to be applied after changing colorscheme.
 
+## Primary setup:
 **Shell:** [zsh](https://github.com/zsh-users/zsh)  
 **Terminal emulator:** [urxvt](https://github.com/exg/rxvt-unicode)  
 **Terminal multiplexer:** [tmux](https://github.com/tmux/tmux)  
@@ -21,7 +26,7 @@ Manual firefox restart currently necessary for [userChrome.css](.config/userChro
 **Screenshot utility:** [maim](https://github.com/naelstrof/maim)  
 **Background manager:** [nitrogen](https://github.com/l3ib/nitrogen)  
 **Image viewer:** [sxiv](https://github.com/muennich/sxiv)  
-**Browser:** Firefox  
+**Browser:** [firefox](https://www.archlinux.org/packages/extra/x86_64/firefox/)  
 **Startpage:** [startpage](https://github.com/ecly/startpage)  
 **IRC Client:** [weechat](https://github.com/weechat/weechat)  
 **Color theme generation:** [pywal](https://github.com/dylanaraps/pywal)  
@@ -29,7 +34,7 @@ Manual firefox restart currently necessary for [userChrome.css](.config/userChro
 **Additional dependencies:**
 - [pulseaudio](https://www.archlinux.org/packages/?name=pulseaudio) & [pulseaudio-alsa](https://www.archlinux.org/packages/extra/any/pulseaudio-alsa/), alsa version is necessary for polybar volume.
 - [w3m](http://w3m.sourceforge.net/), for previews in ranger.
-- Networkmanager and nm-applet (potentialially also network-manager-openvpn for gui like management)
+- [NetworkManager](https://www.archlinux.org/packages/extra/x86_64/networkmanager/),[nm-applet](https://www.archlinux.org/packages/extra/x86_64/network-manager-applet/) and [networkmanager-openvpn](https://www.archlinux.org/packages/extra/i686/networkmanager-openvpn/).
 - [htop](https://github.com/hishamhm/htop).
 - [pamixer](https://github.com/cdemoulins/pamixer) for volume control binds.
 - [w3m](http://w3m.sourceforge.net/) for ranger previews and html in mutt.
@@ -42,12 +47,12 @@ Manual firefox restart currently necessary for [userChrome.css](.config/userChro
 - Probably a couple more things found out the hard way.
 
 **Manual setup:**
-- Manual symlinking of [userChrome.css](.config/userChrome.css) to Firefox profile upon clone.
+- Manual symlinking of [userChrome.css](.config/userChrome.css) to Firefox profile.
 - Manual clone and setup of [startpage](https://github.com/ecly/startpage) with Firefox.
-- Manual openVPN VPN setup. Automatic 'running' check by polybar.
+- Manual OpenVPN VPN setup.
 - Mopidy spotify authorization configuration & renaming of config file.
 - Mutt cache folders, alises and .personal containing mail info.
 - Weechat SASL/Secure setup.
 - qBittorrent setup with VPN.
-- Symlink ~/.config/i3/config.i3 and modify beforehand if needed for machine
-- Install Vundle + Plugins -> make vimproc
+- Symlink ~/.config/i3/config.i3 and modify beforehand if needed for machine (eg. workspace bindings).
+- Install Vundle + Plugins -> make vimproc.
