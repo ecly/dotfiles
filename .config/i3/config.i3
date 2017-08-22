@@ -124,7 +124,7 @@ bindsym $sup+r exec urxvt -name ranger -e ranger
 bindsym $mod+r exec urxvt -name ranger -e ranger
 bindsym $sup+Shift+e exec claws-mail
 bindsym $sup+n exec urxvt -name ncmpcpp -e ncmpcpp; exec --no-startup-id mpc random on; exec --no-startup-id mpc repeat on
-bindsym $sup+h exec urxvt -name htop -e htop
+bindsym $sup+t exec urxvt -name vtop -e vtop
 bindsym $sup+c exec urxvt -name cava -e cava
 bindsym $sup+b exec firefox
 bindsym $sup+Shift+b exec firefox --private-window

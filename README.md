@@ -31,13 +31,14 @@ Manual firefox restart currently necessary for [userChrome.css](.config/userChro
 - [pulseaudio](https://www.archlinux.org/packages/?name=pulseaudio) & [pulseaudio-alsa](https://www.archlinux.org/packages/extra/any/pulseaudio-alsa/), alsa version is necessary for polybar volume.
 - [w3m](http://w3m.sourceforge.net/), for previews in ranger.
 - [NetworkManager](https://www.archlinux.org/packages/extra/x86_64/networkmanager/),[nm-applet](https://www.archlinux.org/packages/extra/x86_64/network-manager-applet/) and [networkmanager-openvpn](https://www.archlinux.org/packages/extra/i686/networkmanager-openvpn/).
-- [htop](https://github.com/hishamhm/htop).
+- [vtop](https://github.com/MrRio/vtop).
 - [pamixer](https://github.com/cdemoulins/pamixer) for volume control binds.
 - [w3m](http://w3m.sourceforge.net/) for ranger previews and html in mutt.
 - [urlscan](https://github.com/firecat53/urlscan) extract urls in mutt.
 - [vundle](https://github.com/VundleVim/Vundle.vim) vim plugin manager.
 - [xclip](https://github.com/astrand/xclip) for copying url to clipboard with imgur script.
 - [nvidia-settings](https://www.archlinux.org/packages/extra/x86_64/nvidia-settings/) For script setting up multi-head without screen tearing in X.
+- [wal_steam](https://github.com/kotajacob/wal_steam), styling steam based on wal colors.
 - [imagemagick](https://github.com/ImageMagick/ImageMagick) For i3lock blur effect.
 - [Tamsyn](https://www.archlinux.org/packages/community/any/tamsyn-font/), [Iosevka](https://aur.archlinux.org/packages/ttf-iosevka), [FontAwesome](https://aur.archlinux.org/packages/ttf-font-awesome/), [Inconsolata](https://www.archlinux.org/packages/community/any/ttf-inconsolata/), [Noto Sans](https://www.archlinux.org/packages/extra/any/noto-fonts/),[Terminus](https://www.archlinux.org/packages/community/any/terminus-font), fonts used for basically everything.
 - Probably a couple more things found out the hard way.

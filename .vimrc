@@ -102,8 +102,8 @@ filetype plugin indent on       " filetype specific declarations
 colorscheme wal
 
 " Intuitive split binds
-nnoremap <C-w><BS> <C-w>v
-nnoremap <C-w>\  <C-w>s
+nnoremap <C-w><BS> <C-w>s
+nnoremap <C-w>\  <C-w>v
 let g:ctrlp_prompt_mappings = {
     \ 'AcceptSelection("h")': ['<c-bs>', '<2-LeftMouse>'],
     \ 'AcceptSelection("v")': ['<c-\>', '<RightMouse>'],
