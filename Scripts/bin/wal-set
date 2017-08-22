@@ -12,7 +12,7 @@ reload_dunst() {
     geometry="300x5-20+40"
     if [ "$HOSTNAME" = trsh ]; then
         font="xos4 Terminus 10"
-        geometry="300x5-20+50"
+        geometry="300x5-20+60"
     fi
 
     pkill dunst
