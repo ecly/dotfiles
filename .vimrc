@@ -30,6 +30,9 @@ autocmd BufWrite * mkview
 autocmd BufRead * silent loadview
 autocmd BufNewFile * start " new files start in insert
 
+" If :make is called, write the file first
+set autowrite
+
 " Intuitive split directions
 set splitbelow
 set splitright
@@ -87,6 +90,9 @@ Plugin 'godlygeek/tabular'
 " Elixir
 Plugin 'elixir-lang/vim-elixir'
 Plugin 'slashmili/alchemist.vim'
+
+" Go
+Plugin 'fatih/vim-go'
 
 " Latex and markdown
 Plugin 'plasticboy/vim-markdown'
