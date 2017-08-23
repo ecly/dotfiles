@@ -29,6 +29,9 @@ function TRAPINT() {
   return $(( 128 + $1 ))
 } 
 
+" Used as directory for binaries for vim go plugin
+export GOPATH="/home/ecly/.local/share/go"
+
 # Stop the lag in vi mode
 export KEYTIMEOUT=1
 
