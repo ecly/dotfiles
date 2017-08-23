@@ -169,10 +169,10 @@ host = 127.0.0.1
 port = 6600
 
 ; Seconds to sleep between progressbar/song timer sync, Default: 1
-interval = 1
+interval = 2
 
-label-song = 𝄞 %artist% - %title%
-label-offline = 🎜 mpd is offline
+label-song = %artist% - %title%
+label-offline = mpd is offline
 
 [module/current-song-spotify]
 type = custom/script
