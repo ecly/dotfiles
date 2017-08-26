@@ -60,7 +60,7 @@ rofi.fixed-num-lines:       true
 ! general font setup for applications ignoring fontconfig
 ! https://wiki.archlinux.org/index.php/Font_configuration#Fontconfig_configuration
 Xft.autohint:               0
-ft.antialias:              1
+ft.antialias:               1
 Xft.hinting:                true
 Xft.hintstyle:              hintfull
 Xft.rgba:                   rgb

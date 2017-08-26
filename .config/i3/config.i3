@@ -236,7 +236,7 @@ exec --no-startup-id nm-applet
 exec --no-startup-id mopidy
 
 # Save the eyes with redshift
-exec --no-startup-id redshift
+exec --no-startup-id redshift -l 59.334591:18.063240
 
 ###--- Input settings (mouse/keyboard) ---####
 # Reduce mouse speed by 0%
