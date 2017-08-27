@@ -55,6 +55,7 @@ autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
 autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
 autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
 autocmd FileType elixir setlocal omnifunc=elixircomplete#Complete
+autocmd FileType java setlocal omnifunc=javacomplete#Complete
 
 " Enable heavy omni completion.
 if !exists('g:neocomplete#sources#omni#input_patterns')

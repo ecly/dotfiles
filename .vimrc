@@ -94,6 +94,9 @@ Plugin 'slashmili/alchemist.vim'
 " Go
 Plugin 'fatih/vim-go'
 
+" Java
+Plugin 'artur-shaik/vim-javacomplete2'
+
 " Latex and markdown
 Plugin 'plasticboy/vim-markdown'
 Plugin 'lervag/vimtex'
