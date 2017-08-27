@@ -70,6 +70,7 @@ Plugin 'tpope/vim-fugitive'
 " Various syntax
 Plugin 'scrooloose/syntastic'
 Plugin 'PotatoesMaster/i3-vim-syntax'
+Plugin 'Yggdroot/indentLine'
 
 " File browsing
 Plugin 'scrooloose/nerdtree'
