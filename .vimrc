@@ -51,7 +51,7 @@ map <C-k> <C-w>k
 map <C-l> <C-w>l
 
 " w!! to write with sudo even if not opened with sudo
-cmap w!! w !sudo tee % >/dev/null
+cmap w!! w !sudo tee >/dev/null %
 
 " --- Vundle section --- "
 set rtp+=~/.vim/bundle/Vundle.vim
