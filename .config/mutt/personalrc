@@ -1,7 +1,7 @@
 # vim: filetype=muttrc
 source "~/.config/mutt/.personal"
 
-#unmailboxes *
+unmailboxes *
 set imap_user = "$my_email"
 set imap_pass = "$my_password"
 set smtp_url = "smtp://$my_email@smtp.live.com:587/"
@@ -17,6 +17,7 @@ set header_cache = ~/.config/mutt/Personal/cache/headers
 set message_cachedir = ~/.config/mutt/Personal/cache/bodies
 set header_cache = ~/.config/mutt/Personal/cache/headers
 set certificate_file = ~/.config/mutt/certificates
+mailboxes "+INBOX" "+Drafts" "+Deleted" "+Sent"
 
 set imap_check_subscribed="yes"
 set imap_list_subscribed="yes"
@@ -26,7 +27,7 @@ set status_format = "$from -%r-Mutt: %f [Msgs:%?M?%M/?%m%?n? New:%n?%?o? Old:%o?
 
 # Just to avoid warnings
 bind  index g  noop 
-macro index gi "<change-folder>=Inbox<enter>" "Go to inbox"
+macro index gi "<change-folder>=INBOX<enter>" "Go to inbox"
 macro index gs "<change-folder>=Sent<enter>" "Go to sent"
 macro index gd "<change-folder>=Drafts<enter>" "Go to drafts"
 macro index gj "<change-folder>=Junk<enter>" "Go to junk"
