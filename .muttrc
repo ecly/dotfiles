@@ -11,7 +11,6 @@ source "~/.config/mutt/muttcol"
 
 # Other settings
 set editor = vim
-set copy = yes
 set timeout = "10"
 set mail_check = "10"
 set mailcap_path = ~/.config/mutt/mailcap
@@ -29,7 +28,7 @@ set edit_headers= yes                       # Include headers in message for eas
 set nomark_old                              # Don't mark unread new msgs as old.
 set nobeep                                  # We don't need no beeping software.
 set nostrict_threads                        # Lets have some fuzzy threading.
-unset record                                # don't save local copies of sent mail 
+# unset record                              # don't save local copies of sent mail - only desirable for autosaves such as gmail
 
 auto_view text/html
 alternative_order text/plain text/enriched text/html
