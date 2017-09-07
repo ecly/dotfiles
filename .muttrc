@@ -11,6 +11,7 @@ source "~/.config/mutt/muttcol"
 
 # Other settings
 set editor = vim
+set copy = yes
 set timeout = "10"
 set mail_check = "10"
 set mailcap_path = ~/.config/mutt/mailcap

@@ -131,4 +131,4 @@ let g:vim_markdown_conceal=0
 
 " Use zathura for previewing latex
 let g:livepreview_previewer = 'zathura'
-"let g:livepreview_engine = 'latexmk -pdf'
+" let g:livepreview_engine = 'latexmk -pdf'
