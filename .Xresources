@@ -4,7 +4,7 @@
 !### Use for different font sizes for laptop/desktop
 !### Assumed to be my desktop if width is 3000 >
 !### Bit of a hack, since I couldnt get host working
-#define FONT xos4 Terminess Powerline
+#define FONT xos4 Terminus
 
 #ifndef SIZE
 #ifndef DPI
