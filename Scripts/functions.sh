@@ -27,3 +27,16 @@ function r() {
     fi
   fi;
 }
+
+# Use vim as a pager
+function less() {
+  if [ $# -eq 0 ]; then
+    echo "At least one file expected"
+  else
+    if [[ -d $1 ]]; then
+        echo "$1 is a directory"
+    elif [[ -f $1 ]]; then
+        vim --noplugin -u ~/.vimrc.less "$1";
+    fi
+  fi;
+}
