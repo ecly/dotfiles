@@ -50,6 +50,9 @@ map <C-j> <C-w>j
 map <C-k> <C-w>k
 map <C-l> <C-w>l
 
+" Tmux like close split
+map <C-w>x <C-w>q
+
 " w!! to write with sudo even if not opened with sudo
 cmap w!! w !sudo tee >/dev/null %
 
