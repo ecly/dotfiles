@@ -29,7 +29,7 @@ function r() {
 }
 
 # Use vim as a pager
-function less() {
+function vless() {
   if [ $# -eq 0 ]; then
     echo "At least one file expected"
   else

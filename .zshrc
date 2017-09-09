@@ -48,7 +48,7 @@ export KEYTIMEOUT=1
 export EDITOR="vim"
 #
 # Use less as pager (this is alised in ~/Scripts/functions.sh)
-export PAGER="less"
+export PAGER="vless"
 
 # Don't log duplicate commands.
 export HISTCONTROL=ignoredups
