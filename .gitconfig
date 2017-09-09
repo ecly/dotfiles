@@ -16,6 +16,8 @@
     summary = true
     log = true
     tool = vimdiff
+    conflictstyle = diff3
+    prompt = false
 [mergetool]
     prompt = false
     keepBackup = false
