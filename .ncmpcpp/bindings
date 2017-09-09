@@ -42,5 +42,5 @@ def_key "K"
 
 def_key "G"
     move_end
-def key "g"
+def_key "g"
     move_home
