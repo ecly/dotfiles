@@ -50,7 +50,7 @@ Manual firefox restart currently necessary for [userChrome.css](.config/userChro
 ### Manual setup:
 - Manual symlinking of [userChrome.css](.config/userChrome.css) to Firefox profile.
 - Manual clone and setup of [startpage](https://github.com/ecly/startpage) with Firefox.
-- Manual OpenVPN VPN setup.
+- Manual OpenVPN VPN setup with [dispatcher](https://wiki.archlinux.org/index.php/NetworkManager#Network_services_with_NetworkManager_dispatcher).
 - Mopidy spotify authorization configuration & renaming of config file.
 - Mutt cache folders, alises and .personal containing mail info.
 - Weechat SASL/Secure setup.
