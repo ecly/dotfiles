@@ -38,8 +38,8 @@ alias lsd="ls -lF ${colorflag} | grep --color=never '^d'"
 alias t="tmux"
 alias u="urxvt"
 
-# All possible pagers bound to vless functions
-alias {less,more,most,view}="vless"
+# All pagers except less bound to vless
+alias {vl,more,most,view}="vless"
 
 # Config editing binds
 alias cfv="vim ~/.vimrc"

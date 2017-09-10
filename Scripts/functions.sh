@@ -29,9 +29,14 @@ function r() {
 }
 
 # Use vim as a pager
+# If no input check if stdin was redirected and use vim's '-' for it
 function vless() {
   if [ $# -eq 0 ]; then
-    echo "At least one file expected"
+      if [ -t 0 ]; then
+        echo "At least one file expected"
+      else
+        vim --noplugin -u ~/.vimrc.less -
+      fi
   else
     if [[ -d $1 ]]; then
         echo "$1 is a directory"
