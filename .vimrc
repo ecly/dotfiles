@@ -20,6 +20,13 @@ set backspace=indent,eol,start  " allow backspacing everything in insert
 " Use comma as leader
 let mapleader = ","
 
+" If we're in diff mode, use shortcuts
+if &diff
+    map <leader>l :diffget LOCAL<CR>
+    map <leader>b :diffget BASE<CR>
+    map <leader>r :diffget REMOTE<CR>
+endif
+
 " Set dosini syntax highlighting for config files
 autocmd BufRead,BufNewFile config setf dosini
 " Treat .eex files as html for elixir
