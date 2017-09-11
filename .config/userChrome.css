@@ -6,7 +6,7 @@ Change 'ecly' to your username. */
 :root {
     --foreground-alt: var(--color5);
     --foreground-alt-alt: var(--color9);
-    --font: 'xos4 Terminus';
+    --font: 'Inconsolata';
 }
 
 /* --- General coloring of header panel --- */
@@ -15,8 +15,8 @@ textarea, input, select {
     background-color: var(--background) !important;
     color: var(--foreground) !important;
     -moz-appearance: none !important;
-    border-color: var(--background);
-    font-family: var(--font);
+    border-color: var(--background) !important;
+    font-family: var(--font) !important;
 }
 
 /* url container color */
@@ -27,7 +27,7 @@ textarea, input, select {
 
 /* Color for firefox panel (tabs background and background behind url bar) */
 menubar, toolbar, nav-bar, #TabsToolbar > *{
-    font-family: var(--font);
+    font-family: var(--font !important);
     background-color: var(--background) !important;
     color: var(--foreground) !important; 
 }
@@ -51,7 +51,7 @@ menubar, toolbar, nav-bar, #TabsToolbar > *{
 #contentAreaContextMenu *, #placesContext *, .textbox-contextmenu *, #tabContextMenu *, #toolbar-context-menu *{
     -moz-appearance: none !important;
     background-color: var(--background) !important;
-    font-family: var(--font);
+    font-family: var(--font) !important;
     margin-left: 0px !important;
     color: var(--foreground) !important;
 }
@@ -61,13 +61,13 @@ menu {
     -moz-appearance: none !important;
     font-family: var(--font) !important;
     color: var(--foreground-alt-alt) !important;
-    padding-left: 5px;
-    padding-right: 5px;
-    padding-bottom: 2px;
-    padding-top: 2px;
+    padding-left: 5px !important;
+    padding-right: 5px !important;
+    padding-bottom: 2px !important;
+    padding-top: 2px !important;
     border-bottom-style:solid !important;
     border-bottom-width:1px !important;
-    border-color: var(--foreground-alt)
+    border-color: var(--foreground-alt) !important;
 }
 
 /* General menu item specs */
@@ -75,13 +75,13 @@ menuitem {
     -moz-appearance: none !important;
     font-family: var(--font) !important;
     color: var(--foreground) !important;
-    padding-left: 5px;
-    padding-right: 5px;
-    padding-bottom: 2px;
-    padding-top: 2px;
+    padding-left: 5px !important;
+    padding-right: 5px !important;
+    padding-bottom: 2px !important;
+    padding-top: 2px !important;
     border-bottom-style:solid !important;
     border-bottom-width:1px !important;
-    border-color: var(--foreground-alt)
+    border-color: var(--foreground-alt) !important;
 }
 
 /* Fixes silly hovers for context menu items */
@@ -94,7 +94,7 @@ menuitem:focus, menu:focus,#PlacesToolbarItems > toolbarbutton:hover {
     -moz-appearance: none !important;
     background-color: var(--background) !important;
     color: var(--foreground) !important; 
-    font-family: var(--font);
+    font-family: var(--font) !important;
     margin-left: 0px !important;
 }
 
@@ -135,7 +135,7 @@ menuitem image, .menu-accel-container{
 
 /* tabs coloring */
 .tabbrowser-tab .tab-label { 
-    font-family: var(--font);
+    font-family: var(--font) !important;
     color: var(--foreground) !important; 
     background-color: var(--background) !important; 
 }
@@ -233,10 +233,10 @@ menuitem image, .menu-accel-container{
     -moz-appearance: none !important;
     font-family: var(--font) !important;
     color: var(--foreground) !important;
-    padding-left: 5px;
-    padding-right: 5px;
-    padding-bottom: 2px;
-    padding-top: 2px;
+    padding-left: 5px !important;
+    padding-right: 5px !important;
+    padding-bottom: 2px !important;
+    padding-top: 2px !important;
     border-bottom-style:solid !important;
     border-bottom-width:1px !important;
     border-color: var(--foreground-alt)
@@ -283,7 +283,7 @@ treechildren.searchbar-treebody::-moz-tree-row(selected) {
 /* the bow surrounding the items */
 .autocomplete-richlistbox {
     background-color: var(--background) !important;
-    margin: 0px important;
+    margin: 0px important !important;
 }
 /*
 .autocomplete-richlistitem:focused{
