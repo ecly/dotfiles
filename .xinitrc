@@ -5,7 +5,6 @@ sh ~/Scripts/wal.sh
 # If laptop, scale display
 if [ "$HOSTNAME" = trsh ]; then
     xrandr --output eDP1 --mode 1920x1200
-    #xrandr --dpi 227
 fi
 
 exec i3
