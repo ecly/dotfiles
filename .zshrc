@@ -39,7 +39,8 @@ source "${HOME}/Scripts/aliases.sh"
 source "${HOME}/Scripts/functions.sh"
 
 # Used as directory for binaries for vim go plugin
-export GOPATH="/home/ecly/.local/share/go"
+export GOPATH="${HOME}/Programming/go"
+export GOBIN="${GOPATH}/bin"
 
 # Stop the lag in vi mode
 export KEYTIMEOUT=1
