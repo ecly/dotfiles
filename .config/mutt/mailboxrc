@@ -33,3 +33,6 @@ macro index gd "<change-folder>=Drafts<enter>" "Go to drafts"
 macro index gj "<change-folder>=Junk<enter>" "Go to junk"
 macro index gt "<change-folder>=Trash<enter>" "Go to trash"
 macro index ga "<change-folder>=Archived<enter>" "Go to trash"
+
+# Save mail to Archived
+macro index A ":set confirmappend=no delete=yes\n<save-message>=Archived\n<sync-mailbox>:set confirmappend=yes delete=ask-yes\n"
