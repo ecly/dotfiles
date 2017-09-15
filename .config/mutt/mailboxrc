@@ -1,12 +1,11 @@
 # vim: filetype=muttrc
-source "~/.config/mutt/.mailbox"
 
 unmailboxes *
-set imap_user = "$my_email"
-set imap_pass = "$my_password"
-set smtp_url = "smtp://$my_email@smtp.mailbox.org:587/"
-set smtp_pass = "$my_password"
-set from = "$my_email"
+set imap_user = "$my_mailbox_email"
+set imap_pass = "$my_mailbox_password"
+set smtp_url = "smtp://$my_mailbox_email@smtp.mailbox.org:587/"
+set smtp_pass = "$my_mailbox_password"
+set from = "$my_mailbox_email"
 set realname = "$my_name"
 set folder = "imaps://imap.mailbox.org:993"
 set spoolfile = "+INBOX"

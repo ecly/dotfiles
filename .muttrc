@@ -5,6 +5,7 @@ folder-hook 'companyrc' 'source ~/.config/mutt/companyrc'
 folder-hook 'personalrc' 'source ~/.config/mutt/personalrc'
 
 # Important config for live account
+source "~/.config/mutt/.details"
 source "~/.config/mutt/mailboxrc" # Default account
 source "~/.config/mutt/aliases"
 source "~/.config/mutt/muttcol"

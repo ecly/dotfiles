@@ -1,12 +1,11 @@
 # vim: filetype=muttrc
-source "~/.config/mutt/.education"
 
 unmailboxes *
-set imap_user = "$my_email"
-set imap_pass = "$my_password"
-set smtp_url = "smtp://$my_email@smtp.office365.com:587/"
-set smtp_pass = "$my_password"
-set from = "$my_email"
+set imap_user = "$my_education_email"
+set imap_pass = "$my_education_password"
+set smtp_url = "smtp://$my_education_email@smtp.office365.com:587/"
+set smtp_pass = "$my_education_password"
+set from = "$my_education_email"
 set realname = "$my_name"
 set folder = "imaps://outlook.office365.com:993"
 set spoolfile = "+INBOX"

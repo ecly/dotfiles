@@ -1,12 +1,11 @@
 # vim: filetype=muttrc
-source "~/.config/mutt/.personal"
 
 unmailboxes *
-set imap_user = "$my_email"
-set imap_pass = "$my_password"
-set smtp_url = "smtp://$my_email@smtp.live.com:587/"
-set smtp_pass = "$my_password"
-set from = "$my_email"
+set imap_user = "$my_personal_email"
+set imap_pass = "$my_personal_password"
+set smtp_url = "smtp://$my_personal_email@smtp.live.com:587/"
+set smtp_pass = "$my_personal_password"
+set from = "$my_personal_email"
 set realname = "$my_name"
 set folder = "imaps://imap-mail.outlook.com:993"
 set spoolfile = "+INBOX"

@@ -1,12 +1,11 @@
 # vim: filetype=muttrc
-source "~/.config/mutt/.company"
 
 unmailboxes *
-set pop_user = "$my_email"
-set pop_pass = "$my_password"
-set smtp_url = "smtp://$my_email@asmtp.unoeuro.com:587/"
-set smtp_pass = "$my_password"
-set from = "$my_email"
+set pop_user = "$my_company_email"
+set pop_pass = "$my_company_password"
+set smtp_url = "smtp://$my_company_email@asmtp.unoeuro.com:587/"
+set smtp_pass = "$my_company_password"
+set from = "$my_company_email"
 set realname = "$my_name"
 set pop_host = "pops://mail.unoeuro.com:110"
 set spoolfile = "pops://mail.unoeuro.com/Inbox"
