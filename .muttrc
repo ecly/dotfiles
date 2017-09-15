@@ -10,7 +10,7 @@ source "~/.config/mutt/aliases"
 source "~/.config/mutt/muttcol"
 
 # Other settings
-set editor = vim
+set editor ="vim +13 -c 'set nobackup' -c 'set noswapfile' -c 'set nowritebackup' -c 'set tw=72 ft=mail noautoindent'"
 set timeout = "10"
 set mail_check = "10"
 set mailcap_path = ~/.config/mutt/mailcap
@@ -28,7 +28,13 @@ set edit_headers= yes                       # Include headers in message for eas
 set nomark_old                              # Don't mark unread new msgs as old.
 set nobeep                                  # We don't need no beeping software.
 set nostrict_threads                        # Lets have some fuzzy threading.
+set noconfirmappend                         # Just append, don't hassle me (when moving mail)
+set pager_stop                              # Don't skip msgs on next page.
+set tilde                                   # Fill out messages with '~'.
+set include                                 # Include the message in replies.
+set fast_reply                              # skip initial prompts when replying
 # unset record                              # don't save local copies of sent mail - only desirable for autosaves such as gmail
+#
 
 auto_view text/html
 alternative_order text/plain text/enriched text/html
@@ -44,6 +50,10 @@ set ssl_use_tlsv1_1=no
 set ssl_use_tlsv1_2=yes
 set ssl_verify_dates=yes
 set ssl_verify_host=yes
+
+# Don't trust the system. First time always prompts for acceptance
+unset ssl_usesystemcerts
+set certificate_file=~/.config/mutt/certificates
 
 ###--- Mutt sorting ---###
 set sort=threads

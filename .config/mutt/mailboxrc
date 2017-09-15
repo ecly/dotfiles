@@ -14,8 +14,6 @@ set postponed = "+Drafts"
 set trash = "+Trash"
 set record = "+Sent"
 set header_cache = ~/.config/mutt/Mailbox/cache/headers
-set message_cachedir = ~/.config/mutt/Mailbox/cache/bodies
-set header_cache = ~/.config/mutt/Mailbox/cache/headers
 set certificate_file = ~/.config/mutt/certificates
 mailboxes "+INBOX" "+Drafts" "+Trash" "+Sent" "+Archived" "+Junk"
 
