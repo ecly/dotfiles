@@ -15,6 +15,7 @@ set visualbell                  " don't beep
 set noerrorbells                " don't beep
 set nobackup                    " don't need swp files
 set noswapfile                  " don't need swp files
+set showmatch                   " Show matching braces when over one
 set backspace=indent,eol,start  " allow backspacing everything in insert
 set hlsearch                    " highlight searches
 set incsearch                   " search as typing
@@ -38,6 +39,17 @@ autocmd BufEnter *.eex :setlocal filetype=html
 autocmd BufWrite * mkview
 autocmd BufRead * silent loadview
 autocmd BufNewFile * start " new files start in insert
+
+" binds for finding matches
+nnoremap [I [I:ijump<Space><Space><Space><C-r><C-w><S-Left><Left><Left>
+nnoremap ]I ]I:ijump<Space><Space><Space><C-r><C-w><S-Left><Left><Left>
+
+" juggling with changes
+nnoremap <leader>; g;
+nnoremap <leader>, g,
+
+" juggling with jumps - because ` is unpleasant
+nnoremap ' `
 
 " If :make is called, write the file first
 set autowrite
