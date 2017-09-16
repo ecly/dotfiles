@@ -45,10 +45,9 @@ export GOBIN="${GOPATH}/bin"
 # Stop the lag in vi mode
 export KEYTIMEOUT=1
 
-# Set vim  as editor.
-export EDITOR="vim"
-#
-# Use less as pager (this is alised in ~/Scripts/functions.sh)
+# Set vim as editor, less as pager.
+export EDITOR="nvim"
+export VISUAL="nvim"
 export PAGER="less"
 
 # Don't log duplicate commands.

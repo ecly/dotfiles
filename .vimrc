@@ -23,22 +23,13 @@ set incsearch                   " search as typing
 " Use comma as leader
 let mapleader = ","
 
-" If we're in diff mode, use shortcuts
-if &diff
-    map <leader>l :diffget LOCAL<CR>
-    map <leader>b :diffget BASE<CR>
-    map <leader>r :diffget REMOTE<CR>
-endif
-
 " Set dosini syntax highlighting for config files
 autocmd BufRead,BufNewFile config setf dosini
 " Treat .eex files as html for elixir
 autocmd BufEnter *.eex :setlocal filetype=html
 
-" Autoloads and saves folds
-autocmd BufWrite * mkview
-autocmd BufRead * silent loadview
-autocmd BufNewFile * start " new files start in insert
+" new files start in insert
+autocmd BufNewFile * start 
 
 " binds for finding matches
 nnoremap [I [I:ijump<Space><Space><Space><C-r><C-w><S-Left><Left><Left>
@@ -50,9 +41,6 @@ nnoremap <leader>, g,
 
 " juggling with jumps - because ` is unpleasant
 nnoremap ' `
-
-" If :make is called, write the file first
-set autowrite
 
 " Intuitive split directions
 set splitbelow
@@ -75,6 +63,10 @@ map <C-j> <C-w>j
 map <C-k> <C-w>k
 map <C-l> <C-w>l
 
+" Intuitive split binds
+nnoremap <C-w><BS> <C-w>s
+nnoremap <C-w>\  <C-w>v
+
 " Tmux like close split
 map <C-w>x <C-w>q
 
@@ -82,66 +74,65 @@ map <C-w>x <C-w>q
 cmap w!! w !sudo tee >/dev/null %
 
 " --- Vundle section --- "
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin('~/.vim/bundle')
-" let Vundle manage Vundle, required
-Plugin 'VundleVim/Vundle.vim'
+call plug#begin('~/.vim/plugged')
 
 " Theming
-Plugin 'vim-airline/vim-airline'
-Plugin 'vim-airline/vim-airline-themes'
-Plugin 'dylanaraps/wal'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+Plug 'dylanaraps/wal'
+
+" Editing and usability
+Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugs' }
+Plug 'godlygeek/tabular'
+Plug 'tpope/vim-surround'
+Plug 'ervandew/supertab'
+Plug 'chrisbra/Colorizer'
 
 " Git for vim
-Plugin 'tpope/vim-fugitive'
+Plug 'tpope/vim-fugitive'
 
 " Various syntax
-Plugin 'scrooloose/syntastic'
-Plugin 'PotatoesMaster/i3-vim-syntax'
-Plugin 'Yggdroot/indentLine'
+Plug 'scrooloose/syntastic'
+Plug 'PotatoesMaster/i3-vim-syntax'
+Plug 'Yggdroot/indentLine'
+Plug 'neomake/neomake'
 
 " File browsing
-Plugin 'scrooloose/nerdtree'
-Plugin 'ctrlpvim/ctrlp.vim'
-Plugin 'chrisbra/Colorizer'
-
-" General usability
-Plugin 'tpope/vim-surround'
-Plugin 'ervandew/supertab'
-Plugin 'Shougo/neocomplete'
+Plug 'scrooloose/nerdtree'
+Plug 'ctrlpvim/ctrlp.vim'
 
 " Haskell
-Plugin 'eagletmt/neco-ghc'
-Plugin 'shiena/ghcmod-vim'
-Plugin 'Shougo/vimproc'
-Plugin 'godlygeek/tabular'
+Plug 'eagletmt/neco-ghc'
+Plug 'shiena/ghcmod-vim'
+Plug 'Shougo/vimproc.vim', { 'do': 'make' }
 
 " Elixir
-Plugin 'elixir-lang/vim-elixir'
-Plugin 'slashmili/alchemist.vim'
+Plug 'elixir-lang/vim-elixir'
+Plug 'slashmili/alchemist.vim'
 
 " Go
-Plugin 'fatih/vim-go'
+Plug 'fatih/vim-go'
 
 " Java
-Plugin 'artur-shaik/vim-javacomplete2'
+Plug 'artur-shaik/vim-javacomplete2'
 
 " Latex and markdown
-Plugin 'plasticboy/vim-markdown'
-Plugin 'lervag/vimtex'
-Plugin 'xuhdev/vim-latex-live-preview'
+Plug 'plasticboy/vim-markdown'
+Plug 'lervag/vimtex'
+Plug 'xuhdev/vim-latex-live-preview'
 
-call vundle#end()
-" --- End of Vundle section --- "
+" Initialize plugin system
+call plug#end()
 
 " These need to be after plugin section to function correctly
 syntax enable                   " syntax highlighting on
 filetype plugin indent on       " filetype specific declarations
 colorscheme wal
 
-" Intuitive split binds
-nnoremap <C-w><BS> <C-w>s
-nnoremap <C-w>\  <C-w>v
+" Neomake settings
+autocmd! BufWritePost * Neomake
+autocmd! BufReadPost * Neomake
+let g:neomake_elixir_enabled_makers = ['mix', 'credo']
 
 " CtrlP split binds
 let g:ctrlp_prompt_mappings = {

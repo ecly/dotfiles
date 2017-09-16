@@ -9,9 +9,9 @@ function c() {
 
 function v() {
   if [ $# -eq 0 ]; then
-    vim .;
+    nvim .;
   else
-    vim "$@";
+    nvim "$@";
   fi;
 }
 
@@ -35,13 +35,13 @@ function vless() {
       if [ -t 0 ]; then
         echo "At least one file expected"
       else
-        vim --noplugin -u ~/.vimrc.less -
+        nvim --noplugin -u ~/.vimrc.less -
       fi
   else
     if [[ -d $1 ]]; then
         echo "$1 is a directory"
     elif [[ -f $1 ]]; then
-        vim --noplugin -u ~/.vimrc.less "$1";
+        nvim --noplugin -u ~/.vimrc.less "$1";
     fi
   fi;
 }

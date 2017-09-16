@@ -1,7 +1,7 @@
 # ALIASES
 alias dot='git --git-dir=$HOME/.dots.git/ --work-tree=$HOME' # dotfile handling
 alias shutdown="systemctl poweroff"
-alias vi="vim"
+alias {vi,vim}="nvim"
 alias pdf="zathura"
 alias poly="nohup sh ~/.config/polybar/launch.sh > /dev/null 2>&1 &"
 alias gsync="grive -p ~/GoogleDrive"

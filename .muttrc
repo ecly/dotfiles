@@ -11,7 +11,7 @@ source "~/.config/mutt/aliases"
 source "~/.config/mutt/muttcol"
 
 # Other settings
-set editor ="vim +13 -c 'set nobackup' -c 'set noswapfile' -c 'set nowritebackup' -c 'set tw=72 ft=mail noautoindent'"
+set editor ="nvim +13 -c 'set nobackup' -c 'set noswapfile' -c 'set nowritebackup' -c 'set tw=72 ft=mail noautoindent'"
 set timeout = "10"
 set mail_check = "10"
 set mailcap_path = ~/.config/mutt/mailcap
