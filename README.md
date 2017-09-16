@@ -39,8 +39,9 @@ Manual firefox restart currently necessary for [userChrome.css](.config/userChro
 - [xclip](https://github.com/astrand/xclip) for copying url to clipboard with imgur script.
 - [nvidia-settings](https://www.archlinux.org/packages/extra/x86_64/nvidia-settings/) For script setting up multi-head without screen tearing in X.
 - [wal_steam](https://github.com/kotajacob/wal_steam), styling steam based on wal colors.
-- [imagemagick](https://github.com/ImageMagick/ImageMagick) For i3lock blur effect.
-- [Tamsyn](https://www.archlinux.org/packages/community/any/tamsyn-font/), [Iosevka](https://aur.archlinux.org/packages/ttf-iosevka), [FontAwesome](https://aur.archlinux.org/packages/ttf-font-awesome/), [Inconsolata](https://www.archlinux.org/packages/community/any/ttf-inconsolata/), [Noto Sans](https://www.archlinux.org/packages/extra/any/noto-fonts/),[Terminus](https://www.archlinux.org/packages/community/any/terminus-font), fonts used for basically everything.
+- [imagemagick](https://github.com/ImageMagick/ImageMagick) For i3lock blur effect and pywal.
+- [gnupg](https://www.archlinux.org/packages/core/x86_64/gnupg/) For mutt details.
+- [Tamsyn](https://www.archlinux.org/packages/community/any/tamsyn-font/); [FontAwesome](https://aur.archlinux.org/packages/ttf-font-awesome/); [Inconsolata](https://www.archlinux.org/packages/community/any/ttf-inconsolata/); [Noto Sans](https://www.archlinux.org/packages/extra/any/noto-fonts/); [Terminus](https://www.archlinux.org/packages/community/any/terminus-font) Fonts used for basically everything.
 - Probably a couple more things found out the hard way.
 
 ### Laptop only dependencies:
