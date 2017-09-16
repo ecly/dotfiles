@@ -16,6 +16,8 @@ set noerrorbells                " don't beep
 set nobackup                    " don't need swp files
 set noswapfile                  " don't need swp files
 set backspace=indent,eol,start  " allow backspacing everything in insert
+set hlsearch                    " highlight searches
+set incsearch                   " search as typing
 
 " Use comma as leader
 let mapleader = ","
@@ -48,8 +50,8 @@ set splitright
 nnoremap j gj
 nnoremap k gk
 
-" Don't have to clear search every time
-nmap <silent> ,/ :nohlsearch<CR>
+" Bind to clear search
+nmap <leader>/ :nohlsearch<CR>
 
 " Easy window navigation
 map <C-h> <C-w>h
