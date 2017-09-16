@@ -10,7 +10,7 @@ Manual firefox restart currently necessary for [userChrome.css](.config/userChro
 - **WM:** [i3-gaps](https://github.com/Airblader/i3)  
 - **Bar:** [polybar](https://github.com/jaagr/polybar)  
 - **Launcher:** [rofi](https://github.com/DaveDavenport/rofi)  
-- **Text editor:** [vim](https://github.com/vim/vim)  
+- **Text editor:** [neovim](https://github.com/neovim/neovim)  
 - **Notification daemon:** [dunst](https://github.com/dunst-project/dunst)  
 - **File manager:** [ranger](https://github.com/ranger/ranger)  
 - **Media player:** [mpv](https://github.com/mpv-player/mpv)  
@@ -31,11 +31,11 @@ Manual firefox restart currently necessary for [userChrome.css](.config/userChro
 - [pulseaudio](https://www.archlinux.org/packages/?name=pulseaudio) & [pulseaudio-alsa](https://www.archlinux.org/packages/extra/any/pulseaudio-alsa/), alsa version is necessary for polybar volume.
 - [w3m](http://w3m.sourceforge.net/), for previews in ranger.
 - [NetworkManager](https://www.archlinux.org/packages/extra/x86_64/networkmanager/),[nm-applet](https://www.archlinux.org/packages/extra/x86_64/network-manager-applet/) and [networkmanager-openvpn](https://www.archlinux.org/packages/extra/i686/networkmanager-openvpn/).
-- [vtop](https://github.com/MrRio/vtop).
+- [vtop](https://github.com/MrRio/vtop) system monitoring with vim binds.
 - [pamixer](https://github.com/cdemoulins/pamixer) for volume control binds.
 - [w3m](http://w3m.sourceforge.net/) for ranger previews and html in mutt.
 - [urlscan](https://github.com/firecat53/urlscan) extract urls in mutt.
-- [vundle](https://github.com/VundleVim/Vundle.vim) vim plugin manager.
+- [plug](https://github.com/junegunn/vim-plug) vim plugin manager.
 - [xclip](https://github.com/astrand/xclip) for copying url to clipboard with imgur script.
 - [nvidia-settings](https://www.archlinux.org/packages/extra/x86_64/nvidia-settings/) For script setting up multi-head without screen tearing in X.
 - [wal_steam](https://github.com/kotajacob/wal_steam), styling steam based on wal colors.

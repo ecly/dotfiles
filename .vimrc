@@ -82,7 +82,7 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'dylanaraps/wal'
 
 " Editing and usability
-Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugs' }
+Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'godlygeek/tabular'
 Plug 'tpope/vim-surround'
 Plug 'ervandew/supertab'
