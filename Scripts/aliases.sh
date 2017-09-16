@@ -1,11 +1,13 @@
 # ALIASES
+alias dot='git --git-dir=$HOME/.dots.git/ --work-tree=$HOME' # dotfile handling
 alias shutdown="systemctl poweroff"
 alias vi="vim"
 alias pdf="zathura"
 alias poly="nohup sh ~/.config/polybar/launch.sh > /dev/null 2>&1 &"
-alias rm="rm -I" # ask when deleting multiple
 alias gsync="grive -p ~/GoogleDrive"
 alias imgur"sh ~/Scripts/imgur.sh"
+
+# .Xresources handling - reload, merge
 alias xm="xrdb -merge ~/.Xresources"
 alias xr="xrdb ~/.Xresources"
 
@@ -21,6 +23,9 @@ if ls --color > /dev/null 2>&1; then # GNU `ls`
 else # OS X `ls`
   colorflag="-G"
 fi
+
+# ask when deleting multiple
+alias rm="rm -I" 
 
 # Basic colored ls
 alias ls="ls ${colorflag}"
