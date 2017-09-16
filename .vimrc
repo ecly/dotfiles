@@ -53,6 +53,10 @@ nnoremap k gk
 " Bind to clear search
 nmap <leader>/ :nohlsearch<CR>
 
+" Quick search and replace for block and selection
+nnoremap <Space><Space> :'{,'}s/\<<C-r>=expand("<cword>")<CR>\>/
+nnoremap <Space>% :%s/\<<C-r>=expand("<cword>")<CR>\>/
+
 " Easy window navigation
 map <C-h> <C-w>h
 map <C-j> <C-w>j
@@ -126,10 +130,15 @@ colorscheme wal
 " Intuitive split binds
 nnoremap <C-w><BS> <C-w>s
 nnoremap <C-w>\  <C-w>v
+
+" CtrlP split binds
 let g:ctrlp_prompt_mappings = {
     \ 'AcceptSelection("h")': ['<c-bs>', '<2-LeftMouse>'],
     \ 'AcceptSelection("v")': ['<c-\>', '<RightMouse>'],
     \ }
+
+" CtrlP settings for when started without explicit stating dir
+let g:ctrlp_working_path_mode = 'cr'
 
 " Nerdtree binds to make it behave more like ranger
 map <C-n> :NERDTreeToggle<CR>
