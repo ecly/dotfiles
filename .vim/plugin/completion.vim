@@ -22,10 +22,3 @@ if has('nvim')
   autocmd InsertLeave,CompleteDone * if pumvisible() == 0 | pclose | endif
   inoremap <expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
 endif
-
-let b:vcm_tab_complete = 'omni'
-set omnifunc=syntaxcomplete#Complete
-" select the completion with enter
-inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
-" close preview on completion complete
-autocmd CompleteDone * pclose

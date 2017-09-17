@@ -23,11 +23,12 @@ set incsearch                   " search as typing
 " Use comma as leader
 let mapleader = ","
 
+" Trim whitespace on write for following filetypes
+autocmd FileType c,java,elixir,go,haskell autocmd BufWritePre <buffer> %s/\s\+$//e
 " Set dosini syntax highlighting for config files
 autocmd BufRead,BufNewFile config setf dosini
 " Treat .eex files as html for elixir
 autocmd BufEnter *.eex :setlocal filetype=html
-
 " new files start in insert
 autocmd BufNewFile * start 
 
