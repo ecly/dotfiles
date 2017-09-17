@@ -13,7 +13,7 @@ mpc pause
 #potentially use i3lock-fancy-mutiple-monitors instead
 if [ "$HOSTNAME" = trsh ]; then
     convert "$tmpbg" "$icon" -gravity center -composite -matte "$tmpbg"
-    i3lock -u -i "$tmpbg"; mpc play
+    i3lock -u -i "$tmpbg"
 else
-    i3lock -i "$tmpbg" -n; mpc play
+    i3lock -i "$tmpbg" -n
 fi
