@@ -1,5 +1,6 @@
 All credit for this method goes to [jaagr](https://github.com/jaagr/dots/blob/master/README.md).  
-Same goes for following documentation. Only modified to ease my own usage.
+Same goes for following documentation.  
+Modified by ecly.
 
 #### Management
 ---------------------------------
@@ -51,4 +52,15 @@ git clone --recursive --separate-git-dir=$HOME/.dots.git https://github.com/ecly
 rsync -rvl --exclude ".git" /tmp/dots/ $HOME/
 rm -r /tmp/dots
 dot submodule update --init --recursive $HOME/
+~~~
+
+#### Extra
+If you don't want eg. LICENSE.md and README.md to clutter your home dir.
+~~~ sh
+git update-index --assume-unchanged LICENSE.md
+~~~
+To later undo this do:
+
+~~~ sh
+git update-index --no-assume-unchanged LICENSE.md
 ~~~
