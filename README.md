@@ -53,8 +53,7 @@ Manual firefox restart currently necessary for [userChrome.css](.config/userChro
 - Manual clone and setup of [startpage](https://github.com/ecly/startpage) with Firefox.
 - Manual OpenVPN VPN setup with [dispatcher](https://wiki.archlinux.org/index.php/NetworkManager#Network_services_with_NetworkManager_dispatcher).
 - Mopidy spotify authorization configuration & renaming of config file.
-- Mutt cache folders, alises and .personal containing mail info.
+- Mutt cache folders, alises and .details containing mail info.
 - Weechat SASL/Secure setup.
 - qBittorrent setup with VPN.
 - Symlink ~/.config/i3/config.i3 and modify beforehand if needed for machine (eg. workspace bindings).
-- Install Vundle + Plugins -> make vimproc.
