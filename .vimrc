@@ -139,8 +139,8 @@ let g:neomake_elixir_enabled_makers = ['mix', 'credo']
 
 " CtrlP split binds
 let g:ctrlp_prompt_mappings = {
-    \ 'AcceptSelection("h")': ['<c-bs>', '<2-LeftMouse>'],
-    \ 'AcceptSelection("v")': ['<c-\>', '<RightMouse>'],
+    \ 'AcceptSelection("h")': ['<c-bs>', '<c-h>', '<2-LeftMouse>'],
+    \ 'AcceptSelection("v")': ['<c-\>', '<c-v>', '<RightMouse>'],
     \ }
 
 " CtrlP settings for when started without explicit stating dir
@@ -148,8 +148,10 @@ let g:ctrlp_working_path_mode = 'cr'
 
 " Nerdtree binds to make it behave more like ranger
 map <C-n> :NERDTreeToggle<CR>
-let NERDTreeMapOpenSplit='<BS>'
-let NERDTreeMapOpenVSplit='\'
+let g:NERDTreeDirArrowExpandable = '▶'
+let g:NERDTreeDirArrowCollapsible = '▼'
+let NERDTreeMapOpenSplit=':h'
+let NERDTreeMapOpenVSplit=':v'
 let NERDTreeMapActivateNode='l'
 let NERDTreeMapCloseDir='h'
 
