@@ -1,7 +1,7 @@
 # vim:filetype=i3
 # Should you change your keyboard layout some time, delete
 # this file and re-run i3-config-wizard(1).
- 
+
 # Expected to be symlinked to ~/.config/i3/config
 
 # i3 config file (v4)
@@ -30,7 +30,7 @@ new_window pixel 4
 # Setup gaps
 gaps inner $innergap
 gaps outer $outergap
- 
+
 ###--- i3 coloring ---###
 # Make it clear when failed using red - otherwise set i3 colors with wal from xresources
 set_from_resource $bg           i3wm.color2 #ff0000
@@ -60,7 +60,7 @@ assign [class="Firefox"] 1
 for_window [class="Firefox"] focus
 assign [instance="qbittorrent"] 5
 
-# Setup workspaces 
+# Setup workspaces
 workspace 1 output HDMI-0
 workspace 2 output DVI-I-1
 workspace 3 output DP-0
@@ -131,6 +131,7 @@ bindsym $sup+q exec qbittorrent
 bindsym $sup+m exec urxvt -name mutt -e mutt
 bindsym $sup+s exec slack
 bindsym $sup+w exec urxvt -name weechat -e weechat
+bindsym $sup+j exec urxvt -name todo -e nvim ~/Dropbox/IRL/todo.txt
 
 # All in one music bind -> d for dance
 bindsym $sup+d exec urxvt -name dance -e sh ~/Scripts/music_mux.sh
@@ -200,7 +201,7 @@ bindsym $mod+Shift+minus resize shrink height 10 px or 10 ppt
 bindsym $mod+z exec --no-startup-id sh Scripts/screenshot_region.sh
 bindsym $mod+Shift+z exec --no-startup-id sh Scripts/screenshot_monitor.sh
 
-# Rofi keybinds 
+# Rofi keybinds
 bindsym $mod+m exec sh ~/Scripts/rofi.sh run
 bindsym $mod+Shift+m exec sh ~/Scripts/rofi.sh window
 
@@ -247,7 +248,7 @@ exec --no-startup-id xinput --set-prop 9 'libinput Accel Speed' 0
 # Allow keyboard toggling using alt + space
 exec --no-startup-id sh ~/Scripts/keymap.sh
 
-###--- Scratchpad terminal setup ---### 
+###--- Scratchpad terminal setup ---###
 for_window [instance="scratch"] floating enable
 for_window [instance="scratch"] resize set 625 400
 for_window [instance="scratch"] move position center
