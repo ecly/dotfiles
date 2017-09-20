@@ -9,6 +9,7 @@ augroup omnifuncs
   autocmd FileType php setlocal omnifunc=phpcomplete#CompletePHP
   autocmd FileType elixir setlocal omnifunc=elixircomplete#Complete
   autocmd FileType java setlocal omnifunc=javacomplete#Complete
+  autocmd FileType go setlocal omnifunc=gocomplete#Complete
 augroup end
 
 " completions
