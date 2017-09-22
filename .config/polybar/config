@@ -56,15 +56,15 @@ font-1 = "FontAwesome:pixelsize=12;1"
 font-2 = "Inconsolata:pixelsize=14;2"
 font-3 = "Noto Sans:size=14;2"
 
-modules-left = i3index vpncheck
+modules-left = i3 vpncheck
 modules-center = mpd
-modules-right = volume keyboard date 
+modules-right = time cpu volume_percentage keyboard
 
 ;fix tray position
 ;override-redirect = true
 
 tray-detached = false
-tray-position = right
+tray-position = 
 tray-offset-x = 0
 tray-offset-y = 0
 tray-maxsize = 16
@@ -115,52 +115,53 @@ index-sort = true
 enable-click = false
 enable-scroll = false
 
-ws-icon-0 = 0;*
-ws-icon-default = ○
+ws-icon-0 = "1;web"
+ws-icon-1 = "2;dev"
+ws-icon-2 = "3;ent"
+ws-icon-3 = "4;vid"
+ws-icon-4 = "5;com"
+ws-icon-5 = "6;bit"
+ws-icon-7 = "7;rnd"
+ws-icon-8 = "8;rnd"
+ws-icon-9 = "9;rnd"
+
+;label-mode-padding = 4
 
 ; Only show workspaces on the same output as the bar
-pin-workspaces = true
+pin-workspaces = false
 
-label-mode = " %mode% "
+label-mode = %icon%
 label-mode-foreground = ${colors.foreground}
 label-mode-background = ${colors.background}
 
 ; focused = Active workspace on focused monitor
-label-focused = " ● "
+label-focused = %icon%
 label-focused-foreground = ${colors.highlight}
 label-focused-background = ${colors.background}
+label-focused-padding = 1
 
 ; unfocused = Inactive workspace on any monitor
-label-unfocused = " %icon% "
+label-unfocused = %icon%
 label-unfocused-foreground = ${colors.foreground}
 label-unfocused-background = ${colors.background}
+label-unfocused-padding = 1
 
 ; urgent = Workspace with urgency hint set
-label-urgent = " ● "
+;label-urgent = " ● "
 label-urgent-foreground = ${colors.foreground-alt}
 label-urgent-background = ${colors.background}
 
-[module/i3index]
-type = internal/i3
-format = <label-state>
-index-sort = true
+label-visible = %icon%
+label-visible-padding = 1
 
-label-focused-foreground = ${colors.highlight}
-label-unfocused-foreground = ${colors.foreground}
+[module/cpu]
+type = internal/cpu
+interval = 1.0
 
-[module/date]
-type = internal/date
-interval = 5
+format = <label>
+format-foreground = ${colors.foreground
 
-date = "%D"
-
-time = %I:%M
-time-alt = %H:%M:%S
-
-;format-prefix =  
-format-prefix-foreground = ${colors.foreground}
-
-label = %time%
+label = cpu %percentage%%
 
 [module/mpd]
 type = internal/mpd
@@ -207,6 +208,16 @@ bar-volume-fill-font = 2
 bar-volume-empty = ─
 bar-volume-empty-font = 2
 bar-volume-empty-foreground = ${colors.foreground-alt}
+
+[module/volume_percentage]
+type = internal/volume
+
+format-volume = <label-volume>
+label-volume = vol %percentage%%
+label-volume-foreground = ${root.foreground}
+
+format-muted-foreground = ${colors.foreground-alt}
+label-muted = muted
 
 [module/keyboard]
 type = internal/xkeyboard
@@ -292,3 +303,23 @@ animation-charging-3 = 
 animation-charging-4 = 
 ; Framerate in milliseconds
 animation-charging-framerate = 750
+
+[module/time]
+type = internal/date
+interval = 5
+time = %I:%M
+time-alt = %H:%M:%S
+format-prefix-foreground = ${colors.foreground}
+label = %time%
+
+[module/date]
+type = internal/date
+interval = 1
+
+format-foreground = ${colors.foreground}
+
+date = "%Y/%m/%d | "
+date-alt = "It is day %j, week %V, of year %y of the %Cth century;"
+time = "%I:%M:%S %p"
+time-alt = " %z %Z."
+label = " %date%%time% "
