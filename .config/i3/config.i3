@@ -83,6 +83,7 @@ workspace 1 output HDMI-0
 workspace 2 output DVI-I-1
 workspace 3 output DP-0
 workspace 4 output HDMI-0
+workspace 5 output HDMI-0
 
 ###--- i3 navigation binds ---###
 # change focus - vim style
