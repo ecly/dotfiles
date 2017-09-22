@@ -48,24 +48,41 @@ client.placeholder      $bg     $bg-alt $fg  $bg                $bg
 
 client.background       $bg
 
-###--- window bindings / focus ---###
+###--- Window bindings / Focus ---###
+#Web
+assign [class="Firefox"] 1
+for_window [class="Firefox"] focus
+
+#Enternatain -> music and pdf
+for_window [class="Zathura"] focus
+assign [class="Zathura"] 3
 assign [instance="ncmpcpp"] 3
 for_window [instance="ncmpcpp"] focus
 assign [instance="dance"] 3
 for_window [instance="dance"] focus
 assign [instance="cava"] 3
-assign [class="mpv"] 4
+
+# Communication
+assign [class="Slack"] 4
+for_window [class="Slack"] focus
+assign [class="(?i)messenger for desktop"] 4
+for_window [class="(?i)messenger for desktop"] focus
+assign [instance="mutt"] 4
+assign [instance="mutt"] 4
+for_window [instance="mutt"] focus
+
+#Video
+assign [class="mpv"] 5
 for_window [class="mpv"] focus
-assign [class="Firefox"] 1
-for_window [class="Firefox"] focus
-assign [instance="qbittorrent"] 5
+
+#Bit
+assign [instance="qbittorrent"] 6
 
 # Setup workspaces
 workspace 1 output HDMI-0
 workspace 2 output DVI-I-1
 workspace 3 output DP-0
 workspace 4 output HDMI-0
-workspace 5 output HDMI-0
 
 ###--- i3 navigation binds ---###
 # change focus - vim style
