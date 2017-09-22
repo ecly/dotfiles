@@ -64,7 +64,7 @@ modules-right = cpu volume_percentage keyboard
 ;override-redirect = true
 
 tray-detached = false
-tray-position = 
+tray-position =
 tray-offset-x = 0
 tray-offset-y = 0
 tray-maxsize = 16
@@ -76,15 +76,15 @@ tray-background = ${colors.background}
 ; Same as primary with no tray
 inherit = bar/main
 monitor = ${env:MONITOR}
-tray-position = 
+tray-position =
 
 [bar/laptop]
 inherit = bar/main
 monitor = ${env:MONITOR}
 ; high res
-height = 40 
+height = 40
 
-modules-left = i3index vpncheck 
+modules-left = i3index vpncheck
 modules-center = mpd
 modules-right = battery volume keyboard date
 
@@ -156,12 +156,14 @@ label-visible-padding = 1
 
 [module/cpu]
 type = internal/cpu
-interval = 1.0
+interval = 2
+format-prefix = " "
+format-prefix-foreground = ${colors.foreground-alt}
 
 format = <label>
-format-foreground = ${colors.foreground
+format-foreground = ${colors.foreground}
 
-label = cpu %percentage%%
+label = %percentage%%
 
 [module/mpd]
 type = internal/mpd
@@ -212,16 +214,23 @@ bar-volume-empty-foreground = ${colors.foreground-alt}
 [module/volume_percentage]
 type = internal/volume
 
+format-volume-prefix = " "
+format-volume-prefix-foreground = ${colors.foreground-alt}
 format-volume = <label-volume>
-label-volume = vol %percentage%%
-label-volume-foreground = ${root.foreground}
 
-format-muted-foreground = ${colors.foreground-alt}
+label-volume = %percentage%%
+label-volume-foreground = ${colors.foreground}
+
+format-muted-foreground = ${colors.foreground}
+format-muted-prefix = " "
+format-muted-prefix-foreground = ${colors.foreground-alt}
 label-muted = muted
 
 [module/keyboard]
 type = internal/xkeyboard
 
+format-prefix = " "
+format-prefix-foreground = ${colors.foreground-alt}
 format = <label-layout>
 label = layout = %name%
 label-layout-background = ${colors.background}
@@ -286,6 +295,7 @@ label-discharging = %percentage%%
 label-full =  %percentage%%
 
 ; Only applies if <ramp-capacity> is used
+ramp-capacity-foreground = ${colors.foreground-alt}
 ramp-capacity-0 = 
 ramp-capacity-1 = 
 ramp-capacity-2 = 
@@ -296,13 +306,14 @@ ramp-capacity-4 = 
 bar-capacity-width = 10
 
 ; Only applies if <animation-charging> is used
+animation-charging-foreground = ${colors.foreground-alt}
 animation-charging-0 = 
 animation-charging-1 = 
 animation-charging-2 = 
 animation-charging-3 = 
 animation-charging-4 = 
 ; Framerate in milliseconds
-animation-charging-framerate = 750
+animation-charging-framerate = 250
 
 [module/time]
 type = internal/date
@@ -316,6 +327,8 @@ label = %time%
 type = internal/date
 interval = 1
 
+format-prefix-foreground = ${colors.foreground-alt}
+format-prefix = " "
 format-foreground = ${colors.foreground}
 
 date = "%Y/%m/%d | "
