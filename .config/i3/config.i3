@@ -248,6 +248,9 @@ exec --no-startup-id xinput --set-prop 9 'libinput Accel Speed' 0
 # Allow keyboard toggling using alt + space
 exec --no-startup-id sh ~/Scripts/keymap.sh
 
+# Start unclutter to hide mouse-pointer when unused
+exec --no-startup-id unclutter
+
 ###--- Scratchpad terminal setup ---###
 for_window [instance="scratch"] floating enable
 for_window [instance="scratch"] resize set 625 400
