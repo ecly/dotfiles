@@ -57,8 +57,8 @@ font-2 = "Inconsolata:pixelsize=14;2"
 font-3 = "Noto Sans:size=14;2"
 
 modules-left = i3 vpncheck
-modules-center = mpd
-modules-right = time cpu volume_percentage keyboard
+modules-center = date
+modules-right = cpu volume_percentage keyboard
 
 ;fix tray position
 ;override-redirect = true
