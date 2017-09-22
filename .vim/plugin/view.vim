@@ -2,12 +2,15 @@
 let $view_dir=expand('~/.vim/view')
 
 if !isdirectory($view_dir)
-    call mkdir($view_dir, "p")
+    call mkdir($view_dir, 'p')
 endif
 
 set viewdir=$view_dir
 
 " Autoloads and saves folds
-autocmd BufWrite * mkview
-autocmd BufRead * silent! loadview
-autocmd BufNewFile * start " new files start in insert
+augroup folds
+    autocmd!
+    autocmd BufWrite * mkview
+    autocmd BufRead * silent! loadview
+    autocmd BufNewFile * start " new files start in insert
+augroup END

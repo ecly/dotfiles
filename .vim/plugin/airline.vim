@@ -1,3 +1,4 @@
+scriptencoding utf-8
 " Settings for airline
 " Enable powerline fonts
 let g:airline_powerline_fonts = 1

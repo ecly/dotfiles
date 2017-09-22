@@ -1,12 +1,12 @@
-"set background=dark            " only relevant with some emulators
+set encoding=utf-8
+scriptencoding utf-8
 set clipboard=unnamed           " system clipboard
-set nocompatible                " be iMproved, required
 set laststatus=2                " always show status line
 set expandtab                   " spaces instead of tabs
 set tabstop=4                   " 4 spaces will do
 set shiftwidth=4                " control indentation for >> bind
 set autoindent                  " always set autoindenting on
-set rnu                         " relative line numbers
+set relativenumber              " relative line numbers
 set number                      " hybrid numbering with both rnu and number
 set hidden                      " hide buffers instead of closing them
 set ignorecase                  " ignore case when searching
@@ -21,14 +21,22 @@ set hlsearch                    " highlight searches
 set incsearch                   " search as typing
 
 " Use comma as leader
-let mapleader = ","
+let g:mapleader = ','
 
-" Set dosini syntax highlighting for config files
-autocmd BufRead,BufNewFile config setf dosini
-" Treat .eex files as html for elixir
-autocmd BufEnter *.eex :setlocal filetype=html
-" new files start in insert
-autocmd BufNewFile * start
+" Commands ran automatically on certain events
+augroup autos
+    autocmd!
+    " Set dosini syntax highlighting for config files
+    autocmd BufRead,BufNewFile config setf dosini
+    " Treat .eex files as html for elixir
+    autocmd BufEnter *.eex :setlocal filetype=html
+    " new files start in insert
+    autocmd BufNewFile * start
+
+    " Run Neomake automatically
+    autocmd BufWritePost * Neomake
+    autocmd BufReadPost * Neomake
+augroup END
 
 "Remove all trailing whitespace by pressing <leader>T
 "Avoids messing with search terms - from vim wiki
@@ -132,9 +140,6 @@ syntax enable                   " syntax highlighting on
 filetype plugin indent on       " filetype specific declarations
 colorscheme wal
 
-" Neomake settings
-autocmd! BufWritePost * Neomake
-autocmd! BufReadPost * Neomake
 let g:neomake_elixir_enabled_makers = ['mix', 'credo']
 
 " CtrlP split binds
@@ -150,10 +155,10 @@ let g:ctrlp_working_path_mode = 'cr'
 map <C-n> :NERDTreeToggle<CR>
 let g:NERDTreeDirArrowExpandable = '▶'
 let g:NERDTreeDirArrowCollapsible = '▼'
-let NERDTreeMapOpenSplit=':h'
-let NERDTreeMapOpenVSplit=':v'
-let NERDTreeMapActivateNode='l'
-let NERDTreeMapCloseDir='h'
+let g:NERDTreeMapOpenSplit=':h'
+let g:NERDTreeMapOpenVSplit=':v'
+let g:NERDTreeMapActivateNode='l'
+let g:NERDTreeMapCloseDir='h'
 
 " Use zathura for previewing latex
 let g:livepreview_previewer = 'zathura'

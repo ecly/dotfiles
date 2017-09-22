@@ -1,10 +1,18 @@
 " https://github.com/fatih/vim-go-tutorial
-autocmd FileType go nmap <leader>r  <Plug>(go-run)
-autocmd FileType go nmap <leader>t  <Plug>(go-test)
-autocmd FileType go nmap <Leader>c <Plug>(go-coverage-toggle)
+augroup gocommands
+    autocmd!
+    autocmd FileType go nmap <leader>r  <Plug>(go-run)
+    autocmd FileType go nmap <leader>t  <Plug>(go-test)
+    autocmd FileType go nmap <Leader>c <Plug>(go-coverage-toggle)
+    " Build for files and tests
+    autocmd FileType go nmap <leader>b :<C-u>call <SID>build_go_files()<CR>
+
+    " Ideal settings for spaces/tabs with go
+    autocmd BufNewFile,BufRead *.go setlocal noexpandtab tabstop=4 shiftwidth=4 
+augroup END
 
 " Auto import
-let g:go_fmt_command = "goimports"
+let g:go_fmt_command = 'goimports'
 
 " run :GoBuild or :GoTestCompile based on the go file
 function! s:build_go_files()
@@ -16,11 +24,6 @@ function! s:build_go_files()
   endif
 endfunction
 
-" Build for files and tests
-autocmd FileType go nmap <leader>b :<C-u>call <SID>build_go_files()<CR>
-
-" Ideal settings for spaces/tabs with go
-autocmd BufNewFile,BufRead *.go setlocal noexpandtab tabstop=4 shiftwidth=4 
 
 " Linting
 let g:go_metalinter_enabled = ['vet', 'golint', 'errcheck']
