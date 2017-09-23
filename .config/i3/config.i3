@@ -148,7 +148,8 @@ bindsym $sup+Shift+b exec firefox --private-window
 bindsym $sup+q exec qbittorrent
 bindsym $sup+m exec urxvt -name mutt -e mutt
 bindsym $sup+s exec slack
-bindsym $sup+w exec urxvt -name weechat -e weechat
+bindsym $sup+i exec urxvt -name weechat -e weechat
+bindsym $sup+w exec urxvt -name nmtui -e nmtui-connect
 bindsym $sup+j exec urxvt -name todo -e nvim ~/Dropbox/IRL/todo.txt
 
 # All in one music bind -> d for dance
