@@ -13,6 +13,7 @@ background-alt = ${xrdb:color3:#222}
 foreground = ${xrdb:color15:#222}
 foreground-alt =  ${xrdb:color2:#555}
 highlight = ${xrdb:color4}
+urgent = #f00
 
 [settings]
 screenchange-reload = true
@@ -157,21 +158,22 @@ label-visible-padding = 1
 [module/i3icons]
 inherit = module/i3
 
-label-visible-foreground = ${colors.foreground-alt}
+label-visible-foreground = ${colors.foreground}
 label-focused-foreground = ${colors.highlight}
-label-unfocused-foreground = ${colors.foreground-alt}
-label-urgent-foreground = #f00
+label-unfocused-foreground = ${colors.foreground}
+label-urgent-foreground = ${colors.urgent}
 
-ws-icon-0 = "1;%{F}%{F-} web"
-ws-icon-1 = "2;%{F}%{F-} dev"
-ws-icon-2 = "3;%{F}%{F-} ent"
-ws-icon-3 = "4;%{F}%{F-} com"
-ws-icon-4 = "5;%{F}%{F-} vid"
-ws-icon-5 = "6;%{F}%{F-} bit"
-ws-icon-6 = "7;%{F}%{F-} rnd"
-ws-icon-7 = "8;%{F}%{F-} rnd"
-ws-icon-8 = "9;%{F}%{F-} rnd"
-; ws-icon-default = 
+# icon definition found in ~/.config/polybar/launch.sh
+ws-icon-0 = ${env:POLY_WS_ICON_0}
+ws-icon-1 = ${env:POLY_WS_ICON_1}
+ws-icon-2 = ${env:POLY_WS_ICON_2}
+ws-icon-3 = ${env:POLY_WS_ICON_3}
+ws-icon-4 = ${env:POLY_WS_ICON_4}
+ws-icon-5 = ${env:POLY_WS_ICON_5}
+ws-icon-6 = ${env:POLY_WS_ICON_6}
+ws-icon-7 = ${env:POLY_WS_ICON_7}
+ws-icon-8 = ${env:POLY_WS_ICON_8} 
+;ws-icon-default = 
 
 [module/cpu]
 type = internal/cpu
@@ -255,11 +257,13 @@ type = internal/xkeyboard
 format-prefix = " "
 format-prefix-foreground = ${colors.foreground-alt}
 format = <label-layout>
+format-foreground = ${colors.foreground}
 label = layout = %name%
 
 [module/vpncheck]
 type = custom/script
 exec = sh ~/Scripts/vpncheck.sh
+format-foreground = ${colors.foreground}
 interval = 5
 
 [module/battery]
