@@ -56,7 +56,7 @@ font-1 = "FontAwesome:pixelsize=12;2"
 font-2 = "Inconsolata:pixelsize=14;2"
 font-3 = "Noto Sans:size=14;2"
 
-modules-left = i3 
+modules-left = i3icons
 modules-center = date
 modules-right = vpncheck cpu volume_percentage keyboard
 
@@ -147,12 +147,27 @@ label-unfocused-background = ${colors.background}
 label-unfocused-padding = 1
 
 ; urgent = Workspace with urgency hint set
-;label-urgent = " ● "
 label-urgent-foreground = ${colors.foreground-alt}
 label-urgent-background = ${colors.background}
 
 label-visible = %icon%
 label-visible-padding = 1
+
+[module/i3icons]
+inherit = module/i3
+
+ws-icon-0 = "1; web"
+ws-icon-1 = "2; dev"
+ws-icon-2 = "3; ent"
+ws-icon-3 = "4; com"
+ws-icon-4 = "5; vid"
+#ws-icon-5 = "6; bit"
+ws-icon-5 = "6; bit"
+ws-icon-6 = "6; rnd"
+ws-icon-7 = "7; rnd"
+ws-icon-8 = "8; rnd"
+ws-icon-9 = "9; rnd"
+; ws-icon-default = 
 
 [module/cpu]
 type = internal/cpu
