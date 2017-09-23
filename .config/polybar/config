@@ -346,7 +346,7 @@ type = internal/date
 interval = 1
 
 format-prefix-foreground = ${colors.foreground-alt}
-format-prefix = " "
+format-prefix = ""
 format-foreground = ${colors.foreground}
 
 date = "%Y/%m/%d | "
