@@ -95,7 +95,7 @@ font-2 = "Inconsolata:pixelsize=24;1"
 font-3 = "Noto Sans:size=20;2"
 
 tray-detached = false
-tray-position = right
+tray-position = 
 tray-offset-x = 0
 tray-offset-y = 0
 tray-maxsize = 26
@@ -349,7 +349,7 @@ animation-charging-2 = 
 animation-charging-3 = 
 animation-charging-4 = 
 ; Framerate in milliseconds
-animation-charging-framerate = 250
+animation-charging-framerate = 500
 
 [module/time]
 type = internal/date
