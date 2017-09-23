@@ -8,7 +8,7 @@
 
 #ifndef SIZE
 #ifndef DPI
-#if WIDTH < 3000 
+#if WIDTH < 3000
 #define SIZE 24
 #define DPI 144
 #else
@@ -25,7 +25,7 @@ URxvt*font:             xft:FONT:pixelsize=SIZE:style=Regular:antialias=true, \
                         xft:Inconsolata:pixelsize=SIZE:style=Regular:antiaalias=true
 URxvt*boldFont:         xft:FONT:pixelsize=SIZE:style=Bold:antialias=true, \
                         xft:Inconsolata:pixelsize=SIZE:style=Bold:antiaalias=true
-URxvt*url-launcher:     /usr/bin/firefox 
+URxvt*url-launcher:     /usr/bin/firefox
 !URxvt*urlLauncher:     /usr/bin/firefox
 URxvt*scrollBar:        false
 !URxvt*scrollBar_right:  true

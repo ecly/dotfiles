@@ -56,9 +56,9 @@ font-1 = "FontAwesome:pixelsize=12;2"
 font-2 = "Inconsolata:pixelsize=14;2"
 font-3 = "Noto Sans:size=14;2"
 
-modules-left = i3 vpncheck
+modules-left = i3 
 modules-center = date
-modules-right = cpu volume_percentage keyboard
+modules-right = vpncheck cpu volume_percentage keyboard
 
 ;fix tray position
 ;override-redirect = true
@@ -174,6 +174,10 @@ port = 6600
 ; Seconds to sleep between progressbar/song timer sync, Default: 1
 interval = 2
 
+format-online = <label-song>
+format-online-prefix = " "
+format-online-prefix-foreground = ${colors.foreground-alt}
+
 label-song = %artist% - %title%
 label-offline = mpd is offline
 
@@ -233,16 +237,11 @@ format-prefix = " "
 format-prefix-foreground = ${colors.foreground-alt}
 format = <label-layout>
 label = layout = %name%
-label-layout-background = ${colors.background}
-label-layout-foreground = ${colors.foreground}
 
 [module/vpncheck]
 type = custom/script
-exec = pgrep openvpn
+exec = sh ~/Scripts/vpncheck.sh
 interval = 5
-label = vpn
-format-prefix = " "
-format-prefix-foreground = ${colors.foreground-alt}
 
 [module/battery]
 type = internal/battery
