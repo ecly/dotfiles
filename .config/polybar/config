@@ -295,40 +295,16 @@ format-foreground = ${colors.foreground}
 ; Default: 5
 poll-interval = 5
 
-; Available tags:
-;   <label-charging> (default)
-;   <bar-capacity>
-;   <ramp-capacity>
-;   <animation-charging>
 format-charging = <animation-charging> <label-charging>
-
-; Available tags:
-;   <label-discharging> (default)
-;   <bar-capacity>
-;   <ramp-capacity>
 format-discharging = <ramp-capacity> <label-discharging>
+format-full = <ramp-capacity> <label-full>
 
-; Available tags:
-;   <label-full> (default)
-;   <bar-capacity>
-;   <ramp-capacity>
-;format-full = <ramp-capacity> <label-full>
-
-; Available tokens:
-;   %percentage% (default)
-;   %time%
-;   %consumption% (shows current charge rate in watts)
 label-charging = %percentage%%
-
-; Available tokens:
-;   %percentage% (default)
-;   %time%
-;   %consumption% (shows current discharge rate in watts)
 label-discharging = %percentage%%
 
 ; Available tokens:
 ;   %percentage% (default)
-label-full =  %percentage%%
+label-full = %percentage%%
 
 ; Only applies if <ramp-capacity> is used
 ramp-capacity-foreground = ${colors.foreground-alt}
