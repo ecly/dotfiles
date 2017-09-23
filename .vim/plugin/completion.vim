@@ -9,7 +9,6 @@ augroup omnifuncs
   autocmd FileType php setlocal omnifunc=phpcomplete#CompletePHP
   autocmd FileType elixir setlocal omnifunc=elixircomplete#Complete
   autocmd FileType java setlocal omnifunc=javacomplete#Complete
-  autocmd FileType go setlocal omnifunc=gocomplete#Complete
 augroup end
 
 " completions
@@ -21,5 +20,10 @@ if has('nvim')
     let g:deoplete#omni#input_patterns = {}
   endif
   autocmd InsertLeave,CompleteDone * if pumvisible() == 0 | pclose | endif
-  inoremap <expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
 endif
+
+" more natural completion selection
+"inoremap <silent><expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
+"inoremap <silent><expr><s-tab> pumvisible() ? "\<c-p>" : "\<s-tab>"
+inoremap <expr> <Esc> pumvisible() ? "\<c-e>" : "\<Esc>"
+let g:SuperTabDefaultCompletionType = "<c-n>"

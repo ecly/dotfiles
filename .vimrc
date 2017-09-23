@@ -123,6 +123,7 @@ Plug 'slashmili/alchemist.vim'
 
 " Go
 Plug 'fatih/vim-go'
+Plug 'zchee/deoplete-go', { 'do': 'make'}
 
 " Java
 Plug 'artur-shaik/vim-javacomplete2'
