@@ -4,9 +4,9 @@ Change 'ecly' to your username. */
 @namespace xul url(http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul);
 
 :root {
-    --foreground-alt: var(--color5);
-    --foreground-alt-alt: var(--color9);
-    --font: 'Inconsolata';
+    --foreground-alt: var(--color2);
+    --foreground-alt-alt: var(--color4);
+    --font: 'xos Terminus4';
 }
 
 /* --- General coloring of header panel --- */
@@ -22,14 +22,14 @@ textarea, input, select {
 /* url container color */
 #urlbar {
     background-color: var(--background) !important;
-    color: var(--foreground) !important; 
+    color: var(--foreground) !important;
 }
 
 /* Color for firefox panel (tabs background and background behind url bar) */
 menubar, toolbar, nav-bar, #TabsToolbar > *{
     font-family: var(--font !important);
     background-color: var(--background) !important;
-    color: var(--foreground) !important; 
+    color: var(--foreground) !important;
 }
 
 /* active tab coloring */
@@ -93,14 +93,14 @@ menuitem:focus, menu:focus,#PlacesToolbarItems > toolbarbutton:hover {
 #contentAreaContextMenu *, #placesContext *, .textbox-contextmenu *, #tabContextMenu *, #toolbar-context-menu *{
     -moz-appearance: none !important;
     background-color: var(--background) !important;
-    color: var(--foreground) !important; 
+    color: var(--foreground) !important;
     font-family: var(--font) !important;
     margin-left: 0px !important;
 }
 
 /* Disable some context menu buttons */
 #context-back,
-#context-forward, 
+#context-forward,
 #context-reload,
 #context-stop,
 #context-bookmarkpage
@@ -112,7 +112,7 @@ menuitem > * {
     background-color: var(--background) !important;
 }
 
-/* Hide icons in for booksmarks and a little side container */ 
+/* Hide icons in for booksmarks and a little side container */
 menuitem image, .menu-accel-container{
     display: none !important;
 }
@@ -134,10 +134,10 @@ menuitem image, .menu-accel-container{
 }
 
 /* tabs coloring */
-.tabbrowser-tab .tab-label { 
+.tabbrowser-tab .tab-label {
     font-family: var(--font) !important;
-    color: var(--foreground) !important; 
-    background-color: var(--background) !important; 
+    color: var(--foreground) !important;
+    background-color: var(--background) !important;
 }
 
 /* active tab coloring */
@@ -224,8 +224,8 @@ menuitem image, .menu-accel-container{
 }
 
 /* Bookmarks Toolbar: no icons */
-#personal-bookmarks .toolbarbutton-icon, .menu-iconic-left, .openintabs-menuitem { 
-    display: none !important; 
+#personal-bookmarks .toolbarbutton-icon, .menu-iconic-left, .openintabs-menuitem {
+    display: none !important;
 }
 
 /* Bookmark items */

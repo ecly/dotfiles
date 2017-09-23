@@ -147,6 +147,7 @@ label-unfocused-background = ${colors.background}
 label-unfocused-padding = 1
 
 ; urgent = Workspace with urgency hint set
+label-urgent = %icon%
 label-urgent-foreground = ${colors.foreground-alt}
 label-urgent-background = ${colors.background}
 
