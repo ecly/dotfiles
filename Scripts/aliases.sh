@@ -42,6 +42,7 @@ alias lsd="ls -lF ${colorflag} | grep --color=never '^d'"
 
 # Some shorthand launching
 alias t="tmux"
+alias ta="tmux attach-session"
 alias u="urxvt"
 
 # All pagers except less bound to vless
