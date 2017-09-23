@@ -25,5 +25,5 @@ endif
 " more natural completion selection
 "inoremap <silent><expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
 "inoremap <silent><expr><s-tab> pumvisible() ? "\<c-p>" : "\<s-tab>"
-inoremap <expr> <Esc> pumvisible() ? "\<c-e>" : "\<Esc>"
+"inoremap <expr> <Esc> pumvisible() ? "\<c-e>" : "\<Esc>"
 let g:SuperTabDefaultCompletionType = "<c-n>"
