@@ -157,17 +157,21 @@ label-visible-padding = 1
 [module/i3icons]
 inherit = module/i3
 
-ws-icon-0 = "1; web"
-ws-icon-1 = "2; dev"
-ws-icon-2 = "3; ent"
-ws-icon-3 = "4; com"
-ws-icon-4 = "5; vid"
-#ws-icon-5 = "6; bit"
-ws-icon-5 = "6; bit"
-ws-icon-6 = "6; rnd"
-ws-icon-7 = "7; rnd"
-ws-icon-8 = "8; rnd"
-ws-icon-9 = "9; rnd"
+label-visible-foreground = ${colors.foreground-alt}
+label-focused-foreground = ${colors.highlight}
+label-unfocused-foreground = ${colors.foreground-alt}
+label-urgent-foreground = ${colors.foreground-alt}
+label-urgent-background = ${colors.background}
+
+ws-icon-0 = ${env:POLY_WS_ICON_0}
+ws-icon-1 = ${env:POLY_WS_ICON_1}
+ws-icon-2 = ${env:POLY_WS_ICON_2}
+ws-icon-3 = ${env:POLY_WS_ICON_3}
+ws-icon-4 = ${env:POLY_WS_ICON_4}
+ws-icon-5 = ${env:POLY_WS_ICON_5}
+ws-icon-6 = ${env:POLY_WS_ICON_6}
+ws-icon-7 = ${env:POLY_WS_ICON_7}
+ws-icon-8 = ${env:POLY_WS_ICON_8}
 ; ws-icon-default = 
 
 [module/cpu]
