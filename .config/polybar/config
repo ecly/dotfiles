@@ -43,7 +43,7 @@ line-color = #f00
 border-size = 0
 border-color = #00000000
 
-padding-left = 0
+padding-left = 1
 padding-right = 2
 padding-top = 2
 padding-bottom = 2
@@ -160,7 +160,7 @@ inherit = module/i3
 label-visible-foreground = ${colors.foreground-alt}
 label-focused-foreground = ${colors.highlight}
 label-unfocused-foreground = ${colors.foreground-alt}
-label-urgent-foreground = ${colors.foreground-alt}
+label-urgent-foreground = #f00
 
 ws-icon-0 = "1;%{F}%{F-} web"
 ws-icon-1 = "2;%{F}%{F-} dev"
