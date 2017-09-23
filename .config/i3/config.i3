@@ -158,9 +158,9 @@ bindsym $sup+d exec urxvt -name dance -e sh ~/Scripts/music_mux.sh
 set $pause mpc toggle
 set $next mpc next
 set $prev mpc prev
-set $inc pamixer --allow-boost -i 5
-set $dec pamixer --allow-boost -d 5
-set $mute pamixer --allow-boost -t
+set $inc pamixer -i 5
+set $dec pamixer -d 5
+set $mute pamixer -t
 
 ###--- Music/Sound Keybindings ---###
 bindsym $sup+Right exec --no-startup-id $next

@@ -59,7 +59,7 @@ font-3 = "Noto Sans:size=14;2"
 
 modules-left = i3icons
 modules-center = date
-modules-right = vpncheck cpu volume_percentage keyboard
+modules-right = vpncheck cpu pavolume keyboard
 
 ;fix tray position
 ;override-redirect = true
@@ -85,9 +85,9 @@ monitor = ${env:MONITOR}
 ; high res
 height = 40
 
-modules-left = i3index vpncheck
-modules-center = mpd
-modules-right = battery volume keyboard date
+modules-left = i3icons
+modules-center = date
+modules-right = vpncheck cpu volume_percentage keyboard battery
 
 font-0 = "xos4 Terminus:pixelsize=24;2"
 font-1 = "FontAwesome:pixelsize=16;3"
@@ -251,6 +251,18 @@ format-muted-prefix = " "
 format-muted-prefix-foreground = ${colors.foreground-alt}
 label-muted = muted
 
+[module/pavolume]
+; useful if machine is using multiple sinks
+type = custom/script
+interval = 2
+label = %output%
+exec = sh ~/Scripts/pavolume.sh
+format-foreground = ${colors.foreground}
+; click-right = exec pavucontrol
+click-left = sh ~/Scripts/pavolume.sh --togmute
+scroll-up = sh ~/Scripts/pavolume.sh --up
+scroll-down = sh ~/Scripts/pavolume.sh --down
+
 [module/keyboard]
 type = internal/xkeyboard
 
@@ -276,6 +288,8 @@ full-at = 99
 ; $ ls -1 /sys/class/power_supply/
 battery = BAT0
 adapter = ADP1
+
+format-foreground = ${colors.foreground}
 
 ;
 ; Default: 5
