@@ -250,6 +250,7 @@ format-muted-foreground = ${colors.foreground}
 format-muted-prefix = " "
 format-muted-prefix-foreground = ${colors.foreground-alt}
 label-muted = muted
+label-muted-foreground = ${colors.urgent}
 
 [module/pavolume]
 ; useful if machine is using multiple sinks
