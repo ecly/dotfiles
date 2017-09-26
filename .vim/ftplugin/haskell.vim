@@ -8,4 +8,4 @@ map <silent> tq :GhcModType<CR>
 map <silent> te :GhcModTypeClear<CR>
 
 " Fix to allow ghcmod-vim to use a stack installation of ghc-mod
-let g:ghcmod_use_basedir="/home/ecly/Scripts/bin"
+let g:ghcmod_use_basedir='~/Scripts/bin'

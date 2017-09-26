@@ -12,5 +12,4 @@ augroup folds
     autocmd!
     autocmd BufWrite * mkview
     autocmd BufRead * silent! loadview
-    autocmd BufNewFile * start " new files start in insert
 augroup END

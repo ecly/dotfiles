@@ -2,9 +2,9 @@ set encoding=utf-8
 scriptencoding utf-8
 set clipboard=unnamed           " system clipboard
 set laststatus=2                " always show status line
-set expandtab                   " spaces instead of tabs
 set tabstop=4                   " 4 spaces will do
 set shiftwidth=4                " control indentation for >> bind
+set expandtab                   " spaces instead of tabs
 set autoindent                  " always set autoindenting on
 set relativenumber              " relative line numbers
 set number                      " hybrid numbering with both rnu and number
@@ -42,14 +42,6 @@ augroup END
 "Avoids messing with search terms - from vim wiki
 nnoremap <leader>T :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar><CR>
 
-" binds for finding matches
-nnoremap [I [I:ijump<Space><Space><Space><C-r><C-w><S-Left><Left><Left>
-nnoremap ]I ]I:ijump<Space><Space><Space><C-r><C-w><S-Left><Left><Left>
-
-" juggling with changes
-nnoremap <leader>; g;
-nnoremap <leader>, g,
-
 " juggling with jumps - because ` is unpleasant
 nnoremap ' `
 
@@ -64,7 +56,7 @@ nnoremap k gk
 " Bind to clear search
 nmap <leader>/ :nohlsearch<CR>
 
-" Quick search and replace for block and selection
+" Quick search and replace for block and selection - from romainln minivimrc
 nnoremap <Space><Space> :'{,'}s/\<<C-r>=expand("<cword>")<CR>\>/
 nnoremap <Space>% :%s/\<<C-r>=expand("<cword>")<CR>\>/
 
@@ -152,6 +144,8 @@ let g:ctrlp_prompt_mappings = {
 
 " CtrlP settings for when started without explicit stating dir
 let g:ctrlp_working_path_mode = 'cr'
+" Always open files in new buffer
+let g:ctrlp_switch_buffer = 0
 
 " Nerdtree binds to make it behave more like ranger
 map <C-n> :NERDTreeToggle<CR>
