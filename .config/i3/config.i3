@@ -65,6 +65,8 @@ assign [instance="cava"] 3
 # Communication
 assign [class="Slack"] 4
 for_window [class="Slack"] focus
+assign [class="(?i)discord"] 4
+for_window [class="(?i)discord"] focus
 assign [class="(?i)messenger for desktop"] 4
 for_window [class="(?i)messenger for desktop"] focus
 assign [instance="mutt"] 4
