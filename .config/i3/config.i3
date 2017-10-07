@@ -70,8 +70,9 @@ for_window [class="(?i)discord"] focus
 assign [class="(?i)messenger for desktop"] 4
 for_window [class="(?i)messenger for desktop"] focus
 assign [instance="mutt"] 4
-assign [instance="mutt"] 4
 for_window [instance="mutt"] focus
+assign [instance="weechat"] 4
+for_window [instance="weechat"] focus
 
 #Video
 assign [class="mpv"] 5
