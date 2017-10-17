@@ -53,6 +53,7 @@ Manual firefox restart currently necessary for [userChrome.css](.config/userChro
 ### Laptop only dependencies:
 - [kbdlight](https://aur.archlinux.org/packages/kbdlight/), adjust keyboard lighting.
 - [xbacklight](https://www.archlinux.org/packages/extra/x86_64/xorg-xbacklight/), adjust backlight.
+- [mons](https://github.com/Ventto/mons), shell script for external display management.
 
 ### Manual setup:
 - Manual symlinking of [userChrome.css](.config/userChrome.css) to Firefox profile.
