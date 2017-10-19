@@ -88,6 +88,7 @@ Plug 'ervandew/supertab'
 Plug 'chrisbra/Colorizer'
 Plug 'Yggdroot/indentLine'
 Plug 'christoomey/vim-tmux-navigator'
+Plug 'junegunn/goyo.vim'
 
 " Git for vim
 Plug 'tpope/vim-fugitive'
