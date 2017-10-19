@@ -85,6 +85,7 @@ Plug 'godlygeek/tabular'
 Plug 'tpope/vim-surround'
 Plug 'ervandew/supertab'
 Plug 'chrisbra/Colorizer'
+Plug 'Yggdroot/indentLine'
 Plug 'christoomey/vim-tmux-navigator'
 
 " Git for vim
@@ -93,8 +94,7 @@ Plug 'airblade/vim-gitgutter'
 
 " Various syntax
 Plug 'w0rp/ale'
-Plug 'PotatoesMaster/i3-vim-syntax'
-Plug 'Yggdroot/indentLine'
+Plug 'sheerun/vim-polyglot'
 
 " File browsing
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }"
@@ -107,18 +107,15 @@ Plug 'shiena/ghcmod-vim'
 Plug 'Shougo/vimproc.vim', { 'do': 'make' }
 
 " Elixir
-Plug 'elixir-lang/vim-elixir'
 Plug 'slashmili/alchemist.vim'
 
 " Go
-Plug 'fatih/vim-go'
 Plug 'zchee/deoplete-go', { 'do': 'make'}
 
 " Java
 Plug 'artur-shaik/vim-javacomplete2'
 
 " Latex and markdown
-Plug 'plasticboy/vim-markdown'
 Plug 'lervag/vimtex'
 Plug 'xuhdev/vim-latex-live-preview'
 
