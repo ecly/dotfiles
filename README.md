@@ -48,6 +48,7 @@ Manual firefox restart currently necessary for [userChrome.css](.config/userChro
 - [unclutter-xfixes](https://github.com/Airblader/unclutter-xfixes) hide cursor when unused.
 - [highlight](https://www.archlinux.org/packages/community/i686/highlight/) for highlighting in ranger previews.
 - [redshift](https://www.archlinux.org/packages/community/x86_64/redshift/) easy on the eyes at night.
+- [tldr](https://aur.archlinux.org/packages/nodejs-tldr/) tldr manpages.
 - Probably a couple more things found out the hard way.
 
 ### Laptop only dependencies:
