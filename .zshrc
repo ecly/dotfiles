@@ -1,3 +1,8 @@
+# Utility function to determine whether command is executable or aliased.
+_has() {
+  return $( whence $1 >/dev/null )
+}
+
 # Enable desired plugins with oh my zsh
 plugins=(git)
 PROMPT='[%F{1}%n%f@%F{5}%m%f%F{3}%f]%F{6}~%f '
@@ -56,10 +61,19 @@ export HISTCONTROL=ignoredups
 # Import colorscheme from 'wal'
 [[ -z "$VTE_VERSION" ]] && (wal -r &)
 
+# If folder fzf is present with pacman, source binds and completion
+if [ -e /usr/share/fzf/key-bindings.zsh ]; then
+    source /usr/share/fzf/key-bindings.zsh
+    source /usr/share/fzf/completion.zsh
+fi
+
 # Use ag for fzf
-export FZF_DEFAULT_COMMAND='ag --nocolor -g ""'
-export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
-export FZF_ALT_C_COMMAND="$FZF_DEFAULT_COMMAND"
+# Uses same command for all binds - could make this for ALT_C
+if _has fzf && _has ag; then
+    export FZF_DEFAULT_COMMAND='ag --nocolor -g ""'
+    export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
+    export FZF_ALT_C_COMMAND="$FZF_DEFAULT_COMMAND"
+fi
 
 autoload -Uz promptinit 
 promptinit
