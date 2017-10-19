@@ -76,11 +76,10 @@ cmap w!! w !sudo tee >/dev/null %
 call plug#begin('~/.vim/plugged')
 
 " Theming
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
 Plug 'dylanaraps/wal'
 
 " Editing and usability
+Plug 'itchyny/lightline.vim'
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'godlygeek/tabular'
 Plug 'tpope/vim-surround'
@@ -90,6 +89,7 @@ Plug 'christoomey/vim-tmux-navigator'
 
 " Git for vim
 Plug 'tpope/vim-fugitive'
+Plug 'airblade/vim-gitgutter'
 
 " Various syntax
 Plug 'w0rp/ale'
