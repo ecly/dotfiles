@@ -85,8 +85,9 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'dylanaraps/wal'
 
 " Editing and usability
-Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }"
 Plug 'junegunn/fzf.vim'
+Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'godlygeek/tabular'
 Plug 'tpope/vim-surround'
 Plug 'ervandew/supertab'
@@ -136,6 +137,9 @@ filetype plugin indent on       " filetype specific declarations
 colorscheme wal
 
 let g:neomake_elixir_enabled_makers = ['mix', 'credo']
+
+" Add fzf to the runtimepath
+" set runtimepath+=~/.fzf
 
 " CtrlP split binds
 let g:ctrlp_prompt_mappings = {

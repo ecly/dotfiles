@@ -49,6 +49,8 @@ Manual firefox restart currently necessary for [userChrome.css](.config/userChro
 - [highlight](https://www.archlinux.org/packages/community/i686/highlight/) for highlighting in ranger previews.
 - [redshift](https://www.archlinux.org/packages/community/x86_64/redshift/) easy on the eyes at night.
 - [tldr](https://aur.archlinux.org/packages/nodejs-tldr/) tldr manpages.
+- [fzf](https://github.com/junegunn/fzf) command line fuzzy finding.
+- [ag](https://github.com/ggreer/the_silver_searcher) fast search tool.
 - Probably a couple more things found out the hard way.
 
 ### Laptop only dependencies:

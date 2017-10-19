@@ -77,3 +77,5 @@ fi
 
 autoload -Uz promptinit 
 promptinit
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
