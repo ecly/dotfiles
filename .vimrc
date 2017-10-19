@@ -129,6 +129,11 @@ syntax enable                   " syntax highlighting on
 filetype plugin indent on       " filetype specific declarations
 colorscheme wal
 
+" GitGutter
+let g:gitgutter_sign_added = '+'
+let g:gitgutter_sign_modified = '∙'
+let g:gitgutter_sign_removed = '-'
+
 " Binds for fzf 
 " nmap ; :Buffers<CR>
 nmap <c-p> :Files<CR>
