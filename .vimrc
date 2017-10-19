@@ -32,10 +32,6 @@ augroup autos
     autocmd BufEnter *.eex :setlocal filetype=html
     " new files start in insert
     autocmd BufNewFile * start
-
-    " Run Neomake automatically
-    autocmd BufWritePost * Neomake
-    autocmd BufReadPost * Neomake
 augroup END
 
 "Remove all trailing whitespace by pressing <leader>T
@@ -85,8 +81,6 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'dylanaraps/wal'
 
 " Editing and usability
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }"
-Plug 'junegunn/fzf.vim'
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'godlygeek/tabular'
 Plug 'tpope/vim-surround'
@@ -98,14 +92,14 @@ Plug 'christoomey/vim-tmux-navigator'
 Plug 'tpope/vim-fugitive'
 
 " Various syntax
-Plug 'scrooloose/syntastic'
+Plug 'w0rp/ale'
 Plug 'PotatoesMaster/i3-vim-syntax'
 Plug 'Yggdroot/indentLine'
-Plug 'neomake/neomake'
 
 " File browsing
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }"
+Plug 'junegunn/fzf.vim'
 Plug 'scrooloose/nerdtree'
-Plug 'ctrlpvim/ctrlp.vim'
 
 " Haskell
 Plug 'eagletmt/neco-ghc'
@@ -136,21 +130,14 @@ syntax enable                   " syntax highlighting on
 filetype plugin indent on       " filetype specific declarations
 colorscheme wal
 
-let g:neomake_elixir_enabled_makers = ['mix', 'credo']
+" Binds for fzf 
+" nmap ; :Buffers<CR>
+nmap <c-p> :Files<CR>
 
-" Add fzf to the runtimepath
-" set runtimepath+=~/.fzf
-
-" CtrlP split binds
-let g:ctrlp_prompt_mappings = {
-    \ 'AcceptSelection("h")': ['<c-bs>', '<c-h>', '<2-LeftMouse>'],
-    \ 'AcceptSelection("v")': ['<c-\>', '<c-v>', '<RightMouse>'],
-    \ }
-
-" CtrlP settings for when started without explicit stating dir
-let g:ctrlp_working_path_mode = 'cr'
-" Always open files in new buffer
-let g:ctrlp_switch_buffer = 0
+let g:fzf_action = {
+  \ 'ctrl-t': 'tab split',
+  \ 'ctrl-h': 'split',
+  \ 'ctrl-v': 'vsplit' }
 
 " Nerdtree binds to make it behave more like ranger
 map <C-n> :NERDTreeToggle<CR>
