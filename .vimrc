@@ -86,6 +86,7 @@ Plug 'dylanaraps/wal'
 
 " Editing and usability
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+Plug 'junegunn/fzf.vim'
 Plug 'godlygeek/tabular'
 Plug 'tpope/vim-surround'
 Plug 'ervandew/supertab'
