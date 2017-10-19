@@ -77,10 +77,11 @@ call plug#begin('~/.vim/plugged')
 
 " Theming
 Plug 'dylanaraps/wal'
+Plug 'itchyny/lightline.vim'
 
 " Editing and usability
-Plug 'itchyny/lightline.vim'
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+Plug 'tpope/vim-commentary'
 Plug 'godlygeek/tabular'
 Plug 'tpope/vim-surround'
 Plug 'ervandew/supertab'
