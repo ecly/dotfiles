@@ -134,9 +134,16 @@ let g:gitgutter_sign_added = '+'
 let g:gitgutter_sign_modified = '∙'
 let g:gitgutter_sign_removed = '-'
 
-" Binds for fzf 
+" fzf.vim settings
+"https://github.com/junegunn/fzf.vim/issues/47
+" Use :Files from git root if one is present, otherwise just use :files
+function! s:find_git_root()
+  return system('git rev-parse --show-toplevel 2> /dev/null')[:-2]
+endfunction
+
 " nmap ; :Buffers<CR>
-nmap <c-p> :Files<CR>
+command! ProjectFiles execute 'Files' s:find_git_root()
+nmap <c-p> :ProjectFiles<CR>
 
 let g:fzf_action = {
   \ 'ctrl-t': 'tab split',
