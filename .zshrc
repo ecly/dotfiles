@@ -69,10 +69,10 @@ fi
 
 # Use ag for fzf
 # Uses same command for all binds - could make this for ALT_C
-if _has fzf && _has ag; then
-    export FZF_DEFAULT_COMMAND='ag --nocolor -g ""'
+if _has fzf && _has rg; then
+    export FZF_DEFAULT_COMMAND='rg --files --no-ignore --hidden --follow --glob "!.git/*"'
     export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
-    export FZF_ALT_C_COMMAND="$FZF_DEFAULT_COMMAND"
+    export FZF_ALT_C_COMMAND="cd ~/; rg --hidden --sort-files --files --null 2> /dev/null | xargs -0 dirname | uniq"
 fi
 
 autoload -Uz promptinit 
