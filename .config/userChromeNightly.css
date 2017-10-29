@@ -7,6 +7,14 @@ Change 'ecly' to your username. */
     --foreground-alt: var(--color2);
     --foreground-alt-alt: var(--color4);
     --font: 'xos Terminus4';
+
+    /* for thinner tabs */
+	--tab-line-color: none !important;
+	--toolbarbutton-border-radius: 0px !important;
+    /* removes inner padding of all toolbar buttons */
+	--toolbarbutton-inner-padding: -1px !important;
+    /* decreases tab height (only works in pair with "--toolbarbutton-inner-padding") */
+	--tab-min-height: 22px !important;
 }
 
 /* --- General coloring of header panel --- */
