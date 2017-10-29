@@ -17,7 +17,12 @@ Change 'ecly' to your username. */
 	--tab-min-height: 22px !important;
 }
 
-/* --- General coloring of header panel --- */
+/* set font size for everything */
+* {
+	font-size: 14px !important;
+}
+
+/* --- General color settings of header panel --- */
 /* text area coloring */
 textarea, input, select {
     background-color: var(--background) !important;
@@ -51,6 +56,58 @@ menubar, toolbar, nav-bar, #TabsToolbar > *{
 #back-button:not([disabled="true"]):not([open="true"]):not(:active) .toolbarbutton-icon {
     background-color: var(--background) !important;
     color: var(--foreground) !important;
+}
+
+/* --- General sizing settings of header panel --- */
+/* changes padding of toolbar buttons */
+toolbar .toolbarbutton-1 {
+	margin: -2px !important;
+	padding: 0px 4px 0px 4px !important;
+}
+
+/* adjusts the padding and margin of the URL box buttons */
+
+:root .urlbar-icon {
+	width: 20px !important;
+	height: 20px !important;
+	padding: 4px !important;
+}
+
+/* adjusts the padding and margin of the icons before the URL */
+#identity-icon, #tracking-protection-icon, #connection-icon, .notification-anchor-icon, #blocked-permissions-container > .blocked-permission-icon, #extension-icon {
+	width: 14px !important;
+	height: 14px !important;
+	margin-inline-start: 4px !important;
+}
+
+/* adjusts entire nav bar padding */
+#nav-bar {
+	padding-top: 0px !important;
+	padding-bottom: 0px !important;
+}
+
+/* adjusts the padding of the three lines menu button */
+#PanelUI-menu-button {
+	padding-inline-start: 4px !important;
+	padding-inline-end: 8px !important;
+}
+
+/* hides forward and back buttons */
+#forward-button {
+	display: none !important;
+}
+#back-button {
+	display: none !important;
+}
+
+/* reduces the margin of the url bar */
+#urlbar-container {
+	margin: -4px !important;
+}
+
+/* url bar border settings */
+#urlbar, .searchbar-textbox {
+	border: 0px solid hsla(240,5%,5%,.25) !important;
 }
 
 /* --- Customize the context menu --- */
@@ -159,6 +216,11 @@ menuitem image, .menu-accel-container{
     background-color: var(--background) !important;
     font-weight: bold !important;
     -moz-appearance: none !important;
+}
+
+/* tab box border settings */
+#TabsToolbar:not([collapsed="true"]) + #nav-bar {
+	border-top: 0px solid var(--tabs-border) !important;
 }
 
 /* Tabs: no icons */
