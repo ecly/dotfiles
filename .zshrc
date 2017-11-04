@@ -46,6 +46,7 @@ source "${HOME}/Scripts/functions.sh"
 # Used as directory for binaries for vim go plugin
 export GOPATH="${HOME}/Programming/go"
 export GOBIN="${GOPATH}/bin"
+export PATH=$GOBIN:$PATH
 
 # Stop the lag in vi mode
 export KEYTIMEOUT=1
