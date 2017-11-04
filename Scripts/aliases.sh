@@ -57,12 +57,16 @@ alias cfp="vim ~/.config/polybar/config"
 alias cfd="vim ~/.config/dunst/dunstrc"
 alias cfx="vim ~/.Xresources"
 alias cfz="vim ~/.zshrc"
+alias cft="vim ~/.tmux.conf"
 
 # Used for toggling colors for playing csgo
 alias csgo="sh ~/Scripts/vibrance.sh"
 
 # Use i3lock when afk
 alias afk="sh ~/Scripts/lock.sh"
+
+# Setup up 3 panes O|8
+alias mux="sh ~/Scripts/code_mux.sh"
 
 # Reload shell
 alias reload="exec $SHELL -l"
