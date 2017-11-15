@@ -115,9 +115,6 @@ Plug 'slashmili/alchemist.vim'
 Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries' }
 Plug 'zchee/deoplete-go', { 'do': 'make'}
 
-" Java
-Plug 'artur-shaik/vim-javacomplete2'
-
 " Latex and markdown
 Plug 'lervag/vimtex'
 Plug 'xuhdev/vim-latex-live-preview'

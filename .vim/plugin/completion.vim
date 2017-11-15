@@ -8,7 +8,6 @@ augroup omnifuncs
   autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
   autocmd FileType php setlocal omnifunc=phpcomplete#CompletePHP
   autocmd FileType elixir setlocal omnifunc=elixircomplete#Complete
-  autocmd FileType java setlocal omnifunc=javacomplete#Complete
 augroup end
 
 " completions
