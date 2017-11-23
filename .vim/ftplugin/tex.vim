@@ -3,8 +3,10 @@
 "let g:Tex_FoldedEnvironments=''
 "let g:Tex_FoldedMisc=''
 
+setlocal concealcursor=
+
 " Don't conceal symbols
-let g:tex_conceal = ""
+" let g:tex_conceal = ""
 
 " Use zathura for previewing latex
 let g:livepreview_previewer = 'zathura'

@@ -19,6 +19,8 @@ set showmatch                   " Show matching braces when over one
 set backspace=indent,eol,start  " allow backspacing everything in insert
 set hlsearch                    " highlight searches
 set incsearch                   " search as typing
+set concealcursor=              " don't conceal cursorline
+set background=dark             " this effects some plugins colors
 
 " Use comma as leader
 let g:mapleader = ','
@@ -86,7 +88,7 @@ Plug 'godlygeek/tabular'
 Plug 'tpope/vim-surround'
 Plug 'ervandew/supertab'
 Plug 'chrisbra/Colorizer'
-Plug 'Yggdroot/indentLine'
+Plug 'nathanaelkane/vim-indent-guides'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'junegunn/goyo.vim'
 
