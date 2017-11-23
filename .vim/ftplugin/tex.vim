@@ -3,8 +3,6 @@
 "let g:Tex_FoldedEnvironments=''
 "let g:Tex_FoldedMisc=''
 
-setlocal concealcursor=
-
 " Don't conceal symbols
 " let g:tex_conceal = ""
 

@@ -19,8 +19,7 @@ set showmatch                   " Show matching braces when over one
 set backspace=indent,eol,start  " allow backspacing everything in insert
 set hlsearch                    " highlight searches
 set incsearch                   " search as typing
-set concealcursor=              " don't conceal cursorline
-set background=dark             " this effects some plugins colors
+set concealcursor=              " never conceal anything on current line
 
 " Use comma as leader
 let g:mapleader = ','
