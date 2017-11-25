@@ -92,6 +92,11 @@ toolbar .toolbarbutton-1 {
 	padding-inline-end: 8px !important;
 }
 
+/* hide the empty space prior to tabs */
+.titlebar-placeholder[type="pre-tabs"]{
+    display:none !important;
+}
+
 /* hides forward and back buttons */
 #forward-button {
 	display: none !important;
