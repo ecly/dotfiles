@@ -90,6 +90,7 @@ Plug 'chrisbra/Colorizer'
 Plug 'nathanaelkane/vim-indent-guides'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'junegunn/goyo.vim'
+Plug 'xtal8/traces.vim'
 
 " Git for vim
 Plug 'tpope/vim-fugitive'
