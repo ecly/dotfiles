@@ -50,8 +50,10 @@ client.background       $bg
 
 ###--- Window bindings / Focus ---###
 #Web
-assign [class="Firefox"] 1
-for_window [class="Firefox"] focus
+assign [class="(?i)firefox"] 1
+for_window [class="(?i)firefox"] focus
+assign [class="(?i)nightly"] 1
+for_window [class="(?i)nightly"] focus
 
 #Enternatain -> music and pdf
 for_window [class="Zathura"] focus
