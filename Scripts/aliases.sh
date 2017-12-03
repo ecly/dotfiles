@@ -3,7 +3,6 @@ alias dot='git --git-dir=$HOME/.dots.git/ --work-tree=$HOME' # dotfile handling
 alias shutdown="systemctl poweroff"
 alias {vi,vim}="nvim"
 alias todo="nvim ~/Dropbox/IRL/todo.txt"
-alias pdf="zathura"
 alias poly="nohup sh ~/.config/polybar/launch.sh > /dev/null 2>&1 &"
 alias gsync="grive -p ~/GoogleDrive"
 alias imgur"sh ~/Scripts/imgur.sh"

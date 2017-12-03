@@ -45,3 +45,12 @@ function vless() {
     fi
   fi;
 }
+
+# Open pdf and unbind it from the terminal session
+function pdf() {
+  if [ $# -eq 0 ]; then
+    echo "At least one file expected"
+  else
+    zathura $1 & disown
+  fi;
+}
