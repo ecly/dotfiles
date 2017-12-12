@@ -73,6 +73,9 @@ map <C-w>x <C-w>q
 " w!! to write with sudo even if not opened with sudo
 cmap w!! w !sudo tee >/dev/null %
 
+" since I constantly write accidentally write W instead of w
+cmap W w
+
 " --- Vundle section --- "
 call plug#begin('~/.vim/plugged')
 
