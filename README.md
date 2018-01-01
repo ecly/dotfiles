@@ -1,5 +1,6 @@
 # Dotfiles for Arch Linux
 Checklist file for setting up Arch.  
+For management of dotfiles see [this](.config/DOT_MANAGEMENT.md).
 
 
 **Styling**  
