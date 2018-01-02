@@ -6,7 +6,7 @@ Change 'ecly' to your username. */
 :root {
     --foreground-alt: var(--color2);
     --foreground-alt-alt: var(--color4);
-    --font: 'xos Terminus4';
+    --font: "xos4 Terminus";
 
     /* for thinner tabs */
 	--tab-line-color: none !important;
