@@ -60,7 +60,7 @@ export PAGER="less"
 export HISTCONTROL=ignoredups
 
 # Import colorscheme from 'wal'
-[[ -z "$VTE_VERSION" ]] && (wal -r &)
+(cat ~/.cache/wal/sequences &)
 
 # If folder fzf is present with pacman, source binds and completion
 if [ -e /usr/share/fzf/key-bindings.zsh ]; then
