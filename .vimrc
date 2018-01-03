@@ -46,6 +46,8 @@ augroup autos
     autocmd BufRead,BufNewFile config setf dosini
     " Treat .eex files as html for elixir
     autocmd BufEnter *.eex :setlocal filetype=html
+    " exs files are just elixir
+    autocmd BufEnter *.exs :setlocal filetype=elixir
     " new files start in insert
     autocmd BufNewFile * start
     " Strip trailing white space before writing
