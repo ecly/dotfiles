@@ -12,3 +12,6 @@ let g:livepreview_previewer = 'zathura'
 "
 " .tex files are always filetype latex
 let g:tex_flavor = 'latex'
+
+" avoid conflict between vimtex and polygot
+let g:polyglot_disabled = ['latex']
