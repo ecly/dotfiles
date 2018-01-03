@@ -101,8 +101,18 @@ call plug#begin('~/.vim/plugged')
 Plug 'dylanaraps/wal'
 Plug 'itchyny/lightline.vim'
 
+" Completion
+if has('nvim')
+  Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+else
+  Plug 'Shougo/deoplete.nvim'
+  Plug 'roxma/nvim-yarp'
+  Plug 'roxma/vim-hug-neovim-rpc'
+endif
+Plug 'Shougo/neosnippet'
+Plug 'Shougo/neosnippet-snippets'
+
 " Editing and usability
-Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'tpope/vim-commentary'
 Plug 'godlygeek/tabular'
 Plug 'tpope/vim-surround'
