@@ -24,6 +24,21 @@ set concealcursor=              " never conceal anything on current line
 " Use comma as leader
 let g:mapleader = ','
 
+fun! StripTrailingWhitespace()
+    " Don't trim for these filetypes
+    if &ft =~ 'markdown\|ruby'
+        return
+    endif
+    "Remove all trailing whitespace
+    "Avoids messing with search terms - from vim wiki
+    let _s=@/
+    %s/\s\+$//e
+    let @/=_s
+    nohl
+    unlet _s
+endfun
+
+
 " Commands ran automatically on certain events
 augroup autos
     autocmd!
@@ -33,11 +48,12 @@ augroup autos
     autocmd BufEnter *.eex :setlocal filetype=html
     " new files start in insert
     autocmd BufNewFile * start
+    " Strip trailing white space before writing
+    autocmd BufWritePre * call StripTrailingWhitespace()
 augroup END
 
-"Remove all trailing whitespace by pressing <leader>T
-"Avoids messing with search terms - from vim wiki
-nnoremap <leader>T :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar><CR>
+" Manual call to Strip whitespace from end of line
+nnoremap <leader>T :call StripTrailingWhitespace()<CR>
 
 " juggling with jumps - because ` is unpleasant
 nnoremap ' `
