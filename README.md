@@ -52,6 +52,7 @@ Manual firefox restart currently necessary for [userChrome.css](.config/userChro
 - [tldr](https://aur.archlinux.org/packages/nodejs-tldr/) tldr manpages.
 - [fzf](https://github.com/junegunn/fzf) command line fuzzy finding.
 - [ripgrep](https://github.com/BurntSushi/ripgrep) fast search tool.
+- [urlscan](https://aur.archlinux.org/packages/urlscan-git/) url selection in mutt.
 - Probably a couple more things found out the hard way.
 
 ### Laptop only dependencies:
