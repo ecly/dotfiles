@@ -95,7 +95,7 @@ font-2 = "Inconsolata:pixelsize=24;1"
 font-3 = "Noto Sans:size=20;2"
 
 tray-detached = false
-tray-position = 
+tray-position =
 tray-offset-x = 0
 tray-offset-y = 0
 tray-maxsize = 26
@@ -144,7 +144,7 @@ label-focused-padding = 1
 
 ; unfocused = Inactive workspace on any monitor
 label-unfocused = %icon%
-label-unfocused-foreground = ${colors.foreground}
+label-unfocused-foreground = ${colors.highlight}
 label-unfocused-background = ${colors.background}
 label-unfocused-padding = 1
 
@@ -160,6 +160,7 @@ label-visible-padding = 1
 inherit = module/i3
 
 # icon definition found in ~/.config/polybar/launch.sh
+
 ws-icon-0 = ${env:POLY_WS_ICON_0}
 ws-icon-1 = ${env:POLY_WS_ICON_1}
 ws-icon-2 = ${env:POLY_WS_ICON_2}
@@ -168,7 +169,7 @@ ws-icon-4 = ${env:POLY_WS_ICON_4}
 ws-icon-5 = ${env:POLY_WS_ICON_5}
 ws-icon-6 = ${env:POLY_WS_ICON_6}
 ws-icon-7 = ${env:POLY_WS_ICON_7}
-ws-icon-8 = ${env:POLY_WS_ICON_8} 
+ws-icon-8 = ${env:POLY_WS_ICON_8}
 ;ws-icon-default = 
 
 [module/cpu]

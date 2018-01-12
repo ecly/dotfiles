@@ -151,7 +151,7 @@ bindsym $sup+c exec urxvt -name cava -e cava
 bindsym $sup+b exec firefox
 bindsym $sup+Shift+b exec firefox --private-window
 bindsym $sup+q exec qbittorrent
-bindsym $sup+m exec urxvt -name mutt -e mutt
+bindsym $sup+m exec urxvt -name mutt -e sh ~/Scripts/mutt.sh
 bindsym $sup+s exec slack
 bindsym $sup+i exec urxvt -name weechat -e weechat
 bindsym $sup+w exec urxvt -name nmtui -e nmtui-connect
