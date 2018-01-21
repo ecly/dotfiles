@@ -54,3 +54,12 @@ function pdf() {
     zathura $1 & disown
   fi;
 }
+
+# Open intellij and unbind it from the terminal session
+function idea() {
+  if [ $# -eq 0 ]; then
+    echo "At least one file or folder expected"
+  else
+    idea.sh $1 & disown
+  fi;
+}
