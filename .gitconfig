@@ -1,13 +1,13 @@
 [filter "media"]
-	required = true
-	clean = git media clean %f
-	smudge = git media smudge %f
+    required = true
+    clean = git media clean %f
+    smudge = git media smudge %f
 [user]
-	name = ecly
+    name = ecly
     email = ecly@mailbo"x.or"g
 [core]
     editor = vim
-	autocrlf = input
+    autocrlf = input
 [diff]
     tool = vimdiff
 [branch]
@@ -22,11 +22,11 @@
     prompt = false
     keepBackup = false
 [color]
-	ui = auto
-	diff = auto
-	status = auto
-	branch = auto
-	interactive = auto
+    ui = auto
+    diff = auto
+    status = auto
+    branch = auto
+    interactive = auto
     grep = auto
 [alias]
     mt = mergetool
