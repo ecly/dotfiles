@@ -1,6 +1,6 @@
 set encoding=utf-8
 scriptencoding utf-8
-set clipboard=unnamed           " system clipboard
+set clipboard+=unnamed           " system clipboard
 set laststatus=2                " always show status line
 set tabstop=4                   " 4 spaces will do
 set shiftwidth=4                " control indentation for >> bind
