@@ -138,9 +138,9 @@ Plug 'junegunn/fzf.vim'
 Plug 'scrooloose/nerdtree'
 
 " Haskell
-" Plug 'eagletmt/neco-ghc'
-" Plug 'shiena/ghcmod-vim'
-" Plug 'Shougo/vimproc.vim', { 'do': 'make' }
+Plug 'eagletmt/neco-ghc'
+Plug 'shiena/ghcmod-vim'
+Plug 'Shougo/vimproc.vim', { 'do': 'make' }
 
 " Elixir
 Plug 'slashmili/alchemist.vim'
