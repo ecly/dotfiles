@@ -5,7 +5,8 @@ alias {vi,vim}="nvim"
 alias todo="nvim ~/Dropbox/IRL/todo.txt"
 alias poly="nohup sh ~/.config/polybar/launch.sh > /dev/null 2>&1 &"
 alias gsync="grive -p ~/GoogleDrive"
-alias imgur"sh ~/Scripts/imgur.sh"
+alias imgur="sh ~/Scripts/imgur.sh"
+alias mutt="sh ~/Scripts/mutt.sh"
 
 # .Xresources handling - reload, merge
 alias xm="xrdb -merge ~/.Xresources"
@@ -25,7 +26,7 @@ else # OS X `ls`
 fi
 
 # ask when deleting multiple
-alias rm="rm -I" 
+alias rm="rm -I"
 
 # Basic colored ls
 alias ls="ls ${colorflag}"
