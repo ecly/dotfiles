@@ -26,7 +26,7 @@ let g:mapleader = ','
 
 fun! StripTrailingWhitespace()
     " Don't trim for these filetypes
-    if &ft =~ 'markdown\|ruby'
+    if &filetype =~ 'markdown\|ruby'
         return
     endif
     "Remove all trailing whitespace
@@ -37,7 +37,6 @@ fun! StripTrailingWhitespace()
     nohl
     unlet _s
 endfun
-
 
 " Commands ran automatically on certain events
 augroup autos
@@ -139,6 +138,7 @@ Plug 'scrooloose/nerdtree'
 
 " Haskell
 Plug 'eagletmt/neco-ghc'
+" Plug 'lukerandall/haskellmode-vim'
 Plug 'shiena/ghcmod-vim'
 Plug 'Shougo/vimproc.vim', { 'do': 'make' }
 
@@ -194,3 +194,6 @@ let g:NERDTreeMapCloseDir='h'
 " Use zathura for previewing latex
 let g:livepreview_previewer = 'zathura'
 " let g:livepreview_engine = 'latexmk -pdf'
+
+" Haskellmode Haddock browser
+let g:haddock_browser = '/usr/bin/firefox'

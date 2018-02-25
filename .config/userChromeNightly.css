@@ -101,9 +101,9 @@ toolbar .toolbarbutton-1 {
 #forward-button {
 	display: none !important;
 }
-#back-button {
-	display: none !important;
-}
+/* #back-button { */
+/* 	display: none !important; */
+/* } */
 
 /* reduces the margin of the url bar */
 #urlbar-container {
