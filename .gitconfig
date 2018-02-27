@@ -34,3 +34,5 @@
     lg = log --graph --pretty=format:'%C(yellow)%h%C(auto)%d%Creset %s %C(white)- %an, %ar%Creset'
     hide = update-index --assume-unchanged
     unhide = update-index --no-assume-unchanged
+[credential]
+	helper = store
