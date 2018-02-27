@@ -65,6 +65,9 @@ export HISTCONTROL=ignoredups
 export OPAMROOT=~/opam-coq.8.6
 export COQBIN=~/opam-coq.8.6/system/bin/
 
+# node environment settings
+export NODE_ENV="development"
+
 # Opam setup
 . /home/ecly/opam-coq.8.6/opam-init/init.zsh > /dev/null 2> /dev/null || true
 
