@@ -1,8 +1,8 @@
 # Folder hooks for multiple accounts
 folder-hook 'mailboxrc' 'source ~/.config/mutt/mailboxrc'
+folder-hook 'workrc' 'source ~/.config/mutt/workrc'
 folder-hook 'educationrc' 'source ~/.config/mutt/educationrc'
 folder-hook 'companyrc' 'source ~/.config/mutt/companyrc'
-folder-hook 'personalrc' 'source ~/.config/mutt/personalrc'
 
 # Important config for live account
 source "gpg -d ~/.config/mutt/.details.gpg |"
@@ -77,8 +77,8 @@ color body brightblue default (https?|ftp)://[\-\.,/%~_:?&=\#a-zA-Z0-9]+
 
 ###--- Bindings ---###
 # Unbinds
-bind generic,compose,attach,pager g noop 
-bind generic,compose,attach,pager,index d noop 
+bind generic,compose,attach,pager g noop
+bind generic,compose,attach,pager,index d noop
 #bind attach,browser,pager g   noop
 #bind attach,browser,index,pager d   noop
 
@@ -87,9 +87,9 @@ macro index S ":set confirmappend=no delete=yes\n<tag-prefix><save-message>=Arch
 
 # Account changing
 macro index <f1> '<sync-mailbox><refresh><enter-command>source ~/.config/mutt/mailboxrc<enter><change-folder>!<enter>'
-macro index <f2> '<sync-mailbox><refresh><enter-command>source ~/.config/mutt/educationrc<enter><change-folder>!<enter>'
-macro index <f3> '<sync-mailbox><refresh><enter-command>source ~/.config/mutt/companyrc<enter><change-folder>!<enter>'
-macro index <f4> '<sync-mailbox><refresh><enter-command>source ~/.config/mutt/personalrc<enter><change-folder>!<enter>'
+macro index <f2> '<sync-mailbox><refresh><enter-command>source ~/.config/mutt/workrc<enter><change-folder>!<enter>'
+macro index <f3> '<sync-mailbox><refresh><enter-command>source ~/.config/mutt/educationrc<enter><change-folder>!<enter>'
+macro index <f4> '<sync-mailbox><refresh><enter-command>source ~/.config/mutt/companyrc<enter><change-folder>!<enter>'
 
 # Mailbox navigation
 # --- Sourced --- #
@@ -138,7 +138,7 @@ bind    index   \cd         half-down
 bind    index   \cu         half-up
 bind    index   dd          delete-message
 bind    index   U           undelete-message
-bind    index   F           search 
+bind    index   F           search
 bind    index   R           group-reply
 bind    index   <up>        previous-entry
 bind    index   <down>      next-entry

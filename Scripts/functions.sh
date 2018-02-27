@@ -66,11 +66,11 @@ function idea() {
 
 function cpc() {
   if [ $# -eq 0 ]; then
-    echo "need a branch name"
+    echo "Need a branch name"
   elif [ $# -gt 1 ]; then
-    echo "only a single param expected"
+    echo "Single param expected"
   else
-    oldbr=$(git rev-parse --abbrev-ref HEAD)
-    (git checkout $1); (git pull); (git checkout "$olbdr")
+    OLDBRANCH=`git rev-parse --abbrev-ref HEAD`
+    git checkout $1; git pull; git checkout $OLDBRANCH
   fi;
 }
