@@ -21,12 +21,13 @@ export POLY_WS_ICON_4="5;%{F$foreground_alt}%{F-} vid"
 export POLY_WS_ICON_5="6;%{F$foreground_alt}%{F-} bit"
 export POLY_WS_ICON_6="7;%{F$foreground_alt}%{F-} rnd"
 export POLY_WS_ICON_7="8;%{F$foreground_alt}%{F-} rnd"
-export POLY_WS_ICON_8="9;%{F$foreground_alt}%{F-} rnd" 
+export POLY_WS_ICON_8="9;%{F$foreground_alt}%{F-} rnd"
 
 if [ "$HOSTNAME" = ecly ]; then
     MONITOR=DVI-I-1 polybar main &
     MONITOR=HDMI-0 polybar secondary &
     MONITOR=DP-0 polybar secondary &
-else 
+else
     MONITOR=eDP1 polybar laptop &
+    MONITOR=DP1 polybar laptop &
 fi
