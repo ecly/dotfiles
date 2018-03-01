@@ -45,17 +45,11 @@ menubar, toolbar, nav-bar, #TabsToolbar > *{
     color: var(--foreground) !important;
 }
 
-/* active tab coloring */
-.tabbrowser-tab[selected="true"] {
-    font-weight: bold !important;
-    color: var(--foreground-alt) !important;
-    background-color: var(--background) !important;
-}
-
 /* Back button coloring color */
-#back-button:not([disabled="true"]):not([open="true"]):not(:active) .toolbarbutton-icon {
+#back-button .toolbarbutton-icon {
     background-color: var(--background) !important;
     color: var(--foreground) !important;
+    padding-left: 5px !important;
 }
 
 /* --- Urlbar settings --- */
@@ -146,53 +140,18 @@ toolbar .toolbarbutton-1 {
 /* --- Customize the context menu --- */
 /* Remove all silly margins and set color/font everywhere */
 #contentAreaContextMenu *, #placesContext *, .textbox-contextmenu *, #tabContextMenu *, #toolbar-context-menu *{
-    -moz-appearance: none !important;
-    background-color: var(--background) !important;
     font-family: var(--font) !important;
-    margin-left: 0px !important;
-    color: var(--foreground) !important;
 }
 
-/* Specs for submenus */
-menu {
-    -moz-appearance: none !important;
-    font-family: var(--font) !important;
-    color: var(--foreground-alt-alt) !important;
-    padding-left: 5px !important;
-    padding-right: 5px !important;
-    padding-bottom: 2px !important;
-    padding-top: 2px !important;
-    border-bottom-style:solid !important;
-    border-bottom-width:1px !important;
-    border-color: var(--foreground-alt) !important;
-}
-
+/* Specs for submenus and */
 /* General menu item specs */
-menuitem {
-    -moz-appearance: none !important;
+menu, menuitem{
     font-family: var(--font) !important;
-    color: var(--foreground) !important;
-    padding-left: 5px !important;
-    padding-right: 5px !important;
-    padding-bottom: 2px !important;
-    padding-top: 2px !important;
-    border-bottom-style:solid !important;
-    border-bottom-width:1px !important;
-    border-color: var(--foreground-alt) !important;
 }
 
-/* Fixes silly hovers for context menu items */
-menuitem:focus, menu:focus,#PlacesToolbarItems > toolbarbutton:hover {
-    -moz-appearance: none !important;
-    font-weight:bold !important;
-}
-
-#contentAreaContextMenu *, #placesContext *, .textbox-contextmenu *, #tabContextMenu *, #toolbar-context-menu *{
-    -moz-appearance: none !important;
-    background-color: var(--background) !important;
-    color: var(--foreground) !important;
+/* This affects eg. dropdowns from bookmarks folders, and context menus */
+menuitem > * {
     font-family: var(--font) !important;
-    margin-left: 0px !important;
 }
 
 /* Disable some context menu buttons */
@@ -203,88 +162,16 @@ menuitem:focus, menu:focus,#PlacesToolbarItems > toolbarbutton:hover {
 #context-bookmarkpage
 {display:none !important; }
 
-/* This affects eg. dropdowns from bookmarks folders, and context menus */
-menuitem > * {
-    color: var(--foreground) !important;
-    background-color: var(--background) !important;
-}
 
-/* Hide icons in for booksmarks and a little side container */
-menuitem image, .menu-accel-container{
-    display: none !important;
-}
 
 /* --- Customize tabs--- */
+
 /* Hide main tabs toolbar */
 #TabsToolbar {
 	visibility: collapse;
 }
 
 /* --- Bookmarks customization --- */
-#PlacesToolbarItems > .bookmark-item {
-    min-height: 0px !important;
-    padding-bottom: 0px !important;
-    padding-top: 0px !important;
-}
-
-/* In bookmark submenus this will be the color of folders */
-.menu-iconic.bookmark-item.subviewbutton{
-    color: var(--foreground-alt) !important;
-}
-
-/* The bookmarks panel when pressing the 'bookmarks button' */
-#bookmarksPanel, #historyPanel {
-    font-weight: bold !important;
-    color: var(--foreground-alt) !important;
-    background-image: var(--background) !important;
-    background-color: var(--background) !important;
-
-}
-
-/* Toolbar */
-#PersonalToolbar > * {
-    /* Make sure that all items in the toolbar can become smaller. */
-    min-height: 0px !important;
-}
-
-/* Bookmarks Toolbar: no icons */
-#personal-bookmarks .toolbarbutton-icon, .menu-iconic-left, .openintabs-menuitem {
-    display: none !important;
-}
-
-/* Bookmark items */
-.menuitem-iconic.bookmark-item.menuitem-with-favicon{
-    -moz-appearance: none !important;
-    font-family: var(--font) !important;
-    color: var(--foreground) !important;
-    padding-left: 5px !important;
-    padding-right: 5px !important;
-    padding-bottom: 2px !important;
-    padding-top: 2px !important;
-    border-bottom-style:solid !important;
-    border-bottom-width:1px !important;
-    border-color: var(--foreground-alt)
-}
-
-/* Bookmark items hover */
-.menuitem-iconic.bookmark-item.menuitem-with-favicon:hover{
-    -moz-appearance: none !important;
-    font-weight: bold !important;
-    background-color: var(--background) !important;
-}
-
-/* Removes all the excess padding of the container of dropdown bookmarks */
-.box-inherit.scrollbox-innerbox{
-    background-color: var(--background) !important;
-    padding: 0px !important;
-    margin: 0px !important;
-    border: none !important;
-}
-#contentAreaContextMenu
-#placesContext.menuitem {
-    margin: 0px !important;
-    padding: 0px !important;
-}
 
 /* --- Autocomplete dropdown --- */
 .autocomplete-richlistitem {
