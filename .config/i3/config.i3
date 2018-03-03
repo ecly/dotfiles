@@ -13,7 +13,7 @@ set $sup Mod4
 set $term = urxvt
 
 set $innergap 10
-set $outergap 10
+set $outergap 0
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
@@ -25,7 +25,7 @@ font pango: xos4 Terminus 12
 focus_follows_mouse no
 
 # Window border
-new_window pixel 4
+new_window pixel 3
 
 # Setup gaps
 gaps inner $innergap
