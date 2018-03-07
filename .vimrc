@@ -187,8 +187,8 @@ let g:fzf_action = {
 map <C-n> :NERDTreeToggle<CR>
 let g:NERDTreeDirArrowExpandable = '▶'
 let g:NERDTreeDirArrowCollapsible = '▼'
-let g:NERDTreeMapOpenSplit=':h'
-let g:NERDTreeMapOpenVSplit=':v'
+let g:NERDTreeMapOpenSplit='gh'
+let g:NERDTreeMapOpenVSplit='gv'
 let g:NERDTreeMapActivateNode='l'
 let g:NERDTreeMapCloseDir='h'
 
