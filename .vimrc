@@ -23,21 +23,7 @@ set concealcursor=              " never conceal anything on current line
 
 " Use comma as leader
 let g:mapleader = ','
-
-fun! StripTrailingWhitespace()
-    " Don't trim for these filetypes
-    if &filetype =~ 'markdown\|ruby'
-        return
-    endif
-    "Remove all trailing whitespace
-    "Avoids messing with search terms - from vim wiki
-    let _s=@/
-    %s/\s\+$//e
-    let @/=_s
-    nohl
-    unlet _s
-endfun
-
+"
 " Commands ran automatically on certain events
 augroup autos
     autocmd!
@@ -49,12 +35,10 @@ augroup autos
     autocmd BufEnter *.exs :setlocal filetype=elixir
     " new files start in insert
     autocmd BufNewFile * start
-    " Strip trailing white space before writing
-    autocmd BufWritePre * call StripTrailingWhitespace()
 augroup END
 
 " Manual call to Strip whitespace from end of line
-nnoremap <leader>T :call StripTrailingWhitespace()<CR>
+nnoremap <leader>T :StripWhitespace<CR>
 
 " juggling with jumps - because ` is unpleasant
 nnoremap ' `
@@ -90,18 +74,21 @@ map <C-w>x <C-w>q
 " w!! to write with sudo even if not opened with sudo
 cmap w!! w !sudo tee >/dev/null %
 
-" since I constantly write accidentally write W instead of w
-cmap W w
+" since I constantly write accidentally mess these up when going fast
+command WQ wq
+command Wq wq
+command W w
+command Q q
 
-" --- Vundle section --- "
+" --- Plugin section --- "
 call plug#begin('~/.vim/plugged')
 
-" Theming
+" --- Theming --- "
 Plug 'dylanaraps/wal'
 Plug 'itchyny/lightline.vim'
 Plug 'taohex/lightline-buffer'
 
-" Completion
+" --- Completion and syntax --- "
 if has('nvim')
   Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 else
@@ -111,6 +98,7 @@ else
 endif
 Plug 'Shougo/neosnippet'
 Plug 'Shougo/neosnippet-snippets'
+Plug 'w0rp/ale'
 
 " Editing and usability
 Plug 'tpope/vim-commentary'
@@ -123,37 +111,33 @@ Plug 'christoomey/vim-tmux-navigator'
 Plug 'junegunn/goyo.vim'
 Plug 'xtal8/traces.vim'
 Plug 'AndrewRadev/splitjoin.vim'
+Plug 'ntpeters/vim-better-whitespace'
 
-" Git for vim
+" --- Git for vim --- "
 Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter'
 
-" Various syntax
-Plug 'w0rp/ale'
-Plug 'sheerun/vim-polyglot'
-
-" File browsing
+" --- File browsing --- "
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }"
 Plug 'junegunn/fzf.vim'
+
 Plug 'scrooloose/nerdtree'
 
+" --- Programming languages --- "
+Plug 'sheerun/vim-polyglot'
 " Haskell
 Plug 'eagletmt/neco-ghc'
-" Plug 'lukerandall/haskellmode-vim'
 Plug 'shiena/ghcmod-vim'
 Plug 'Shougo/vimproc.vim', { 'do': 'make' }
-
 " Elixir
 Plug 'slashmili/alchemist.vim'
-
 " Go
 Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries' }
 Plug 'zchee/deoplete-go', { 'do': 'make'}
 
-" Latex and markdown
+" --- Latex and markdown --- "
 Plug 'lervag/vimtex'
 Plug 'xuhdev/vim-latex-live-preview'
-
 " Initialize plugin system
 call plug#end()
 
@@ -192,9 +176,12 @@ let g:NERDTreeMapOpenVSplit='gv'
 let g:NERDTreeMapActivateNode='l'
 let g:NERDTreeMapCloseDir='h'
 
-" Use zathura for previewing latex
+" Whitespace settings
+let g:better_whitespace_enabled=1
+let g:strip_whitespace_on_save=1
+let g:better_whitespace_filetypes_blacklist=['ruby', 'markdown',
+            \ 'diff', 'gitcommit', 'unite', 'qf', 'help']
+
+" Latex preview settings
 let g:livepreview_previewer = 'zathura'
 " let g:livepreview_engine = 'latexmk -pdf'
-
-" Haskellmode Haddock browser
-let g:haddock_browser = '/usr/bin/firefox'
