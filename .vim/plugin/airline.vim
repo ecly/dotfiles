@@ -11,10 +11,9 @@ let g:lightline = {
     \   'right': [['lineinfo'], ['percent'], ['readonly', 'linter_warnings', 'linter_errors', 'linter_ok', 'filetype']],
     \ },
     \ 'tabline': {
-    \   'left': [[ 'bufferinfo' ],
-    \             [ 'separator' ],
+    \   'left': [[ 'separator' ],
     \             [ 'bufferbefore', 'buffercurrent', 'bufferafter' ],],
-    \   'right': [[ 'close' ],],
+    \   'right': [],
     \ },
     \ 'component_expand': {
     \   'linter_warnings': 'LightlineLinterWarnings',
@@ -87,7 +86,7 @@ nnoremap <Right> :bnext<CR>
 " replace these symbols with ascii characters if your environment does not support unicode
 let g:lightline_buffer_logo = ' '
 let g:lightline_buffer_readonly_icon = ''
-let g:lightline_buffer_modified_icon = '✭'
+let g:lightline_buffer_modified_icon = '*'
 let g:lightline_buffer_git_icon = ' '
 let g:lightline_buffer_ellipsis_icon = '..'
 let g:lightline_buffer_expand_left_icon = '◀ '
@@ -96,10 +95,6 @@ let g:lightline_buffer_active_buffer_left_icon = ''
 let g:lightline_buffer_active_buffer_right_icon = ''
 let g:lightline_buffer_separator_icon = '  '
 
-" enable devicons, only support utf-8
-" require <https://github.com/ryanoasis/vim-devicons>
-let g:lightline_buffer_enable_devicons = 1
-
 " lightline-buffer function settings
 let g:lightline_buffer_show_bufnr = 1
 
@@ -107,7 +102,7 @@ let g:lightline_buffer_show_bufnr = 1
 let g:lightline_buffer_fname_mod = ':t'
 
 " hide buffer list
-let g:lightline_buffer_excludes = ['vimfiler']
+" let g:lightline_buffer_excludes = ['vimfiler']
 
 " max file name length
 let g:lightline_buffer_maxflen = 30
