@@ -167,6 +167,11 @@ let g:fzf_action = {
   \ 'ctrl-h': 'split',
   \ 'ctrl-v': 'vsplit' }
 
+
+" Ale error goto bindings
+nmap <silent> <leader>aj :ALENext<cr>
+nmap <silent> <leader>ak :ALEPrevious<cr>
+
 " Nerdtree binds to make it behave more like ranger
 map <C-n> :NERDTreeToggle<CR>
 let g:NERDTreeDirArrowExpandable = '▶'
