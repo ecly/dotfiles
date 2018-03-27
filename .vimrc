@@ -134,6 +134,9 @@ Plug 'slashmili/alchemist.vim'
 " Go
 Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries' }
 Plug 'zchee/deoplete-go', { 'do': 'make'}
+" Python
+Plug 'davidhalter/jedi-vim'
+Plug 'zchee/deoplete-jedi'
 
 " --- Latex and markdown --- "
 Plug 'lervag/vimtex'
@@ -190,3 +193,6 @@ let g:better_whitespace_filetypes_blacklist=['ruby', 'markdown',
 " Latex preview settings
 let g:livepreview_previewer = 'zathura'
 " let g:livepreview_engine = 'latexmk -pdf'
+
+" Let deoplete-jedi complete instead
+let g:jedi#completions_enabled = 0
