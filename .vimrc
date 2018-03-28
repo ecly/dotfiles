@@ -64,6 +64,11 @@ map <C-j> <C-w>j
 map <C-k> <C-w>k
 map <C-l> <C-w>l
 
+" Buffer navigation
+nnoremap <Tab> :bnext<CR>
+nnoremap <S-Tab> :bprev<CR>
+
+
 " Intuitive split binds
 nnoremap <C-w><BS> <C-w>s
 nnoremap <C-w>\  <C-w>v

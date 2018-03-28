@@ -73,14 +73,8 @@ function! s:MaybeUpdateLightline()
     end
 endfunction
 
-
 " Lightline buffer:
-set hidden  " allow buffer switching without saving
 set showtabline=2  " always show tabline
-
-" remap arrow keys
-nnoremap <Left> :bprev<CR>
-nnoremap <Right> :bnext<CR>
 
 " lightline-buffer ui settings
 " replace these symbols with ascii characters if your environment does not support unicode
