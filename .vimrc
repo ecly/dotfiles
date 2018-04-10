@@ -33,6 +33,8 @@ augroup autos
     autocmd BufEnter *.eex :setlocal filetype=html
     " exs files are just elixir
     autocmd BufEnter *.exs :setlocal filetype=elixir
+    " ensure all .js files are treated as javascript
+    autocmd BufEnter *.js :setlocal filetype=javascript
     " new files start in insert
     autocmd BufNewFile * start
 augroup END
