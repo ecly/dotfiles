@@ -25,7 +25,7 @@ endif
 "inoremap <silent><expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
 "inoremap <silent><expr><s-tab> pumvisible() ? "\<c-p>" : "\<s-tab>"
 "inoremap <expr> <Esc> pumvisible() ? "\<c-e>" : "\<Esc>"
-let g:SuperTabDefaultCompletionType = "<c-n>"
+let g:SuperTabDefaultCompletionType = '<c-n>'
 
 " Plugin key-mappings for neosnippet.vim
 " Note: It must be "imap" and "smap".  It uses <Plug> mappings.
