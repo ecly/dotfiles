@@ -23,16 +23,12 @@ set concealcursor=              " never conceal anything on current line
 
 " Use comma as leader
 let g:mapleader = ','
-"
+
 " Commands ran automatically on certain events
 augroup autos
     autocmd!
     " Set dosini syntax highlighting for config files
     autocmd BufRead,BufNewFile config setf dosini
-    " Treat .eex files as html for elixir
-    autocmd BufEnter *.eex :setlocal filetype=html
-    " exs files are just elixir
-    autocmd BufEnter *.exs :setlocal filetype=elixir
     " ensure all .js files are treated as javascript
     autocmd BufEnter *.js :setlocal filetype=javascript
     " new files start in insert
@@ -138,6 +134,7 @@ Plug 'shiena/ghcmod-vim'
 Plug 'Shougo/vimproc.vim', { 'do': 'make' }
 " Elixir
 Plug 'slashmili/alchemist.vim'
+Plug 'elixir-editors/vim-elixir'
 " Go
 Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries' }
 Plug 'zchee/deoplete-go', { 'do': 'make'}
