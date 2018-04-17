@@ -8,6 +8,7 @@ plugins=(git)
 PROMPT='[%F{1}%n%f@%F{5}%m%f%F{3}%f]%F{6}~%f '
 
 bindkey -v
+bindkey '^R' history-incremental-search-backward
 
 vim_ins_mode="%F{2}[INS]%f"
 vim_cmd_mode="%F{1}[CMD]%f"
