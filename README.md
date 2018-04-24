@@ -37,6 +37,7 @@ Manual firefox restart currently necessary for [userChrome.css](.config/userChro
 - [NetworkManager](https://www.archlinux.org/packages/extra/x86_64/networkmanager/),[nm-applet](https://www.archlinux.org/packages/extra/x86_64/network-manager-applet/) and [networkmanager-openvpn](https://www.archlinux.org/packages/extra/i686/networkmanager-openvpn/).
 - [vtop](https://github.com/MrRio/vtop) system monitoring with vim binds.
 - [pamixer](https://github.com/cdemoulins/pamixer) for volume control binds.
+- [ncpamixer](https://github.com/fulhax/ncpamixer) ncurses mixer for pulseaudio.
 - [w3m](http://w3m.sourceforge.net/) for ranger previews and html in mutt.
 - [urlscan](https://github.com/firecat53/urlscan) extract urls in mutt.
 - [plug](https://github.com/junegunn/vim-plug) vim plugin manager.
