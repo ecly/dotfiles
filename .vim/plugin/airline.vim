@@ -7,7 +7,7 @@ scriptencoding utf-8
 let g:lightline = {
     \ 'colorscheme': '16color',
     \ 'active': {
-    \   'left': [['mode', 'paste'], [ 'gitbranch', 'filename', 'modified']],
+    \   'left': [['mode', 'paste'], [ 'gitbranch', 'modified']],
     \   'right': [['lineinfo'], ['percent'], ['readonly', 'linter_warnings', 'linter_errors', 'linter_ok', 'filetype']],
     \ },
     \ 'tabline': {
@@ -90,7 +90,7 @@ let g:lightline_buffer_active_buffer_right_icon = ''
 let g:lightline_buffer_separator_icon = '  '
 
 " lightline-buffer function settings
-let g:lightline_buffer_show_bufnr = 1
+let g:lightline_buffer_show_bufnr = 0
 
 " :help filename-modifiers
 let g:lightline_buffer_fname_mod = ':t'

@@ -139,10 +139,8 @@ bindsym $mod+Shift+grave exec i3-msg exit
 bindsym $mod+q kill
 
 ###--- Launch Applications Binds ---###
-bindsym $mod+Return exec urxvt
-bindsym $mod+Shift+Return exec urxvt -e tmux
-bindsym $sup+Return exec urxvt
-bindsym $sup+Shift+Return exec urxvt -e tmux
+bindsym $mod+Return exec urxvt -e tmux
+bindsym $mod+Shift+Return exec urxvt
 bindsym $sup+r exec urxvt -name ranger -e ranger
 bindsym $mod+r exec urxvt -name ranger -e ranger
 bindsym $sup+n exec urxvt -name ncmpcpp -e ncmpcpp; exec --no-startup-id mpc random on; exec --no-startup-id mpc repeat on
