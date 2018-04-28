@@ -34,6 +34,10 @@ augroup autos
     autocmd BufEnter *.js :setlocal filetype=javascript
     " new files start in insert
     autocmd BufNewFile * start
+
+    " Auto toggle Limelight when using Goyo
+    autocmd User GoyoEnter Limelight
+    autocmd User GoyoLeave Limelight!
 augroup END
 
 " Manual call to Strip whitespace from end of line
@@ -113,6 +117,7 @@ Plug 'chrisbra/Colorizer'
 Plug 'nathanaelkane/vim-indent-guides'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'junegunn/goyo.vim'
+Plug 'junegunn/limelight.vim'
 Plug 'xtal8/traces.vim'
 Plug 'AndrewRadev/splitjoin.vim'
 Plug 'ntpeters/vim-better-whitespace'
