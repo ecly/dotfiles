@@ -26,6 +26,7 @@ focus_follows_mouse no
 
 # Window border
 new_window pixel 3
+default_border pixel 3
 
 # Setup gaps
 gaps inner $innergap
@@ -33,18 +34,18 @@ gaps outer $outergap
 
 ###--- i3 coloring ---###
 # Make it clear when failed using red - otherwise set i3 colors with wal from xresources
-set_from_resource $bg           i3wm.color3 #ff0000
-set_from_resource $bg-alt       i3wm.color0 #ff0000
+set_from_resource $bg           i3wm.color0 #ff0000
+set_from_resource $bg-alt       i3wm.color14 #ff0000
 set_from_resource $fg           i3wm.color15 #ff0000
 set_from_resource $fg-alt       i3wm.color2 #ff0000
-set_from_resource $hl           i3wm.color4 #ff0000
+set_from_resource $hl           i3wm.color13 #ff0000
 
-# class                 border  backgr. text indicator      child_border
-client.focused          $fg-alt $bg     $fg  $fg-alt        $hl
-client.focused_inactive $bg     $bg-alt $fg  $bg            $bg
-client.unfocused        $bg     $bg-alt $fg  $bg            $bg
-client.urgent           $bg     $bg-alt $fg  $bg            $bg
-client.placeholder      $bg     $bg-alt $fg  $bg            $bg
+# class                 border      backgr. text indicator      child_border
+client.focused          $fg-alt     $bg     $hl  $fg-alt        $hl
+client.focused_inactive $fg-alt     $bg     $fg  $bg            $fg-alt
+client.unfocused        $fg-alt     $bg     $fg  $bg            $fg-alt
+client.urgent           $fg-alt     $bg     $fg  $bg            $fg-alt
+client.placeholder      $fg-alt     $bg     $fg  $bg            $fg-alt
 
 client.background       $bg
 
