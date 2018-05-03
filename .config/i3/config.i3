@@ -10,7 +10,7 @@
 ###--- Settings---###
 set $mod Mod1
 set $sup Mod4
-set $term = urxvt
+set $term urxvt
 
 set $innergap 10
 set $outergap 0
@@ -140,24 +140,24 @@ bindsym $mod+Shift+grave exec i3-msg exit
 bindsym $mod+q kill
 
 ###--- Launch Applications Binds ---###
-bindsym $mod+Return exec urxvt -e tmux
-bindsym $mod+Shift+Return exec urxvt
-bindsym $sup+r exec urxvt -name ranger -e ranger
-bindsym $mod+r exec urxvt -name ranger -e ranger
-bindsym $sup+n exec urxvt -name ncmpcpp -e ncmpcpp; exec --no-startup-id mpc random on; exec --no-startup-id mpc repeat on
-bindsym $sup+t exec urxvt -name vtop -e vtop
-bindsym $sup+c exec urxvt -name cava -e cava
+bindsym $mod+Return exec $term -e tmux
+bindsym $mod+Shift+Return exec $term
+bindsym $sup+r exec $term -name ranger -e ranger
+bindsym $mod+r exec $term -name ranger -e ranger
+bindsym $sup+n exec $term -name ncmpcpp -e ncmpcpp; exec --no-startup-id mpc random on; exec --no-startup-id mpc repeat on
+bindsym $sup+t exec $term -name vtop -e vtop
+bindsym $sup+c exec $term -name cava -e cava
 bindsym $sup+b exec firefox
 bindsym $sup+Shift+b exec firefox --private-window
 bindsym $sup+q exec qbittorrent
-bindsym $sup+m exec urxvt -name mutt -e sh ~/Scripts/mutt.sh
+bindsym $sup+m exec $term -name mutt -e sh ~/Scripts/mutt.sh
 bindsym $sup+s exec slack
-bindsym $sup+i exec urxvt -name weechat -e weechat
-bindsym $sup+w exec urxvt -name nmtui -e nmtui-connect
-bindsym $sup+j exec urxvt -name todo -e nvim ~/Dropbox/IRL/todo.txt
+bindsym $sup+i exec $term -name weechat -e weechat
+bindsym $sup+w exec $term -name nmtui -e nmtui-connect
+bindsym $sup+j exec $term -name todo -e nvim ~/Dropbox/IRL/todo.txt
 
 # All in one music bind -> d for dance
-bindsym $sup+d exec urxvt -name dance -e sh ~/Scripts/music_mux.sh
+bindsym $sup+d exec $term -name dance -e sh ~/Scripts/music_mux.sh
 
 ###--- Audo and Music definitions---###
 set $pause mpc toggle
@@ -279,7 +279,7 @@ for_window [instance="scratch"] floating enable
 for_window [instance="scratch"] resize set 625 400
 for_window [instance="scratch"] move position center
 for_window [instance="scratch"] move scratchpad
-exec --no-startup-id urxvt -name scratch -e tmux
+exec --no-startup-id $term -name scratch -e tmux
 
 bindsym $mod+u [instance="scratch"] scratchpad show; move position center
 

@@ -5,7 +5,7 @@ scriptencoding utf-8
 
 " Lightline
 let g:lightline = {
-    \ 'colorscheme': '16color',
+    \ 'colorscheme': 'seoul256',
     \ 'active': {
     \   'left': [['mode', 'paste'], [ 'gitbranch', 'modified']],
     \   'right': [['lineinfo'], ['percent'], ['readonly', 'linter_warnings', 'linter_errors', 'linter_ok', 'filetype']],
