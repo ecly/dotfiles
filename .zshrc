@@ -1,3 +1,7 @@
+autoload -Uz compinit promptinit
+compinit
+promptinit
+
 # Utility function to determine whether command is executable or aliased.
 _has() {
   return $( whence $1 >/dev/null )
@@ -44,6 +48,9 @@ source "${HOME}/Scripts/aliases.sh"
 # Source aliases
 source "${HOME}/Scripts/functions.sh"
 
+# Source completion for tmuxinator
+source "${HOME}/.bin/tmuxinator.zsh"
+
 # Used as directory for binaries for vim go plugin
 export GOPATH="${HOME}/Programming/go"
 export GOBIN="${GOPATH}/bin"
@@ -88,8 +95,5 @@ if _has fzf && _has rg; then
     export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
     export FZF_ALT_C_COMMAND="cd ~/; rg --sort-files --files --null 2> /dev/null | xargs -0 dirname | uniq"
 fi
-
-autoload -Uz promptinit
-promptinit
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

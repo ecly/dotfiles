@@ -65,9 +65,6 @@ alias csgo="sh ~/Scripts/vibrance.sh"
 # Use i3lock when afk
 alias afk="sh ~/Scripts/lock.sh"
 
-# Setup up 3 panes O|8
-alias mux="sh ~/Scripts/code_mux.sh"
-
 # Reload shell
 alias reload="exec $SHELL -l"
 
