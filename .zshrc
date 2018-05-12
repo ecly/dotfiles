@@ -49,7 +49,7 @@ source "${HOME}/Scripts/aliases.sh"
 source "${HOME}/Scripts/functions.sh"
 
 # Source completion for tmuxinator
-source "${HOME}/.bin/tmuxinator.zsh"
+source "${HOME}/.config/tmuxinator/tmuxinator.zsh"
 
 # Used as directory for binaries for vim go plugin
 export GOPATH="${HOME}/Programming/go"
