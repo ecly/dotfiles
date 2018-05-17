@@ -202,7 +202,7 @@ let g:better_whitespace_filetypes_blacklist=['ruby', 'markdown',
 
 " Latex preview settings
 let g:livepreview_previewer = 'zathura'
-" let g:livepreview_engine = 'latexmk -pdf'
+let g:livepreview_engine = 'latexmk -pdf'
 
 " Let deoplete-jedi complete instead
 let g:jedi#completions_enabled = 0
