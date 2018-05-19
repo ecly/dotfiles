@@ -1,6 +1,4 @@
-# ~/.tmuxinator/work.yml
-
-name: work
+name: buddy
 root: ~/Programming/work
 
 # Optional tmux socket
@@ -43,26 +41,8 @@ root: ~/Programming/work
 # post: tmux -CC attach -t work
 
 windows:
-  - extractor:
-      root: ~/Programming/work/Car-Data-Extractor
-      layout: even-horizontal
-      panes:
-        -
-        -
-  - parser:
-      root: ~/Programming/work/Car-Data-Parser
-      layout: even-horizontal
-      panes:
-        -
-        -
-  - booking:
-      root: ~/Programming/work/openhouse-service-booking
-      layout: even-horizontal
-      panes:
-        -
-        -
-  - scanner:
-      root: ~/Programming/work/LP-Scanner-Python
+  - buddy_matching:
+      root: ~/Programming/freetime/buddy_matching
       layout: even-horizontal
       panes:
         -
