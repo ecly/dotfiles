@@ -121,6 +121,7 @@ Plug 'junegunn/limelight.vim'
 Plug 'xtal8/traces.vim'
 Plug 'AndrewRadev/splitjoin.vim'
 Plug 'ntpeters/vim-better-whitespace'
+Plug 'Chiel92/vim-autoformat'
 
 " --- Git for vim --- "
 Plug 'tpope/vim-fugitive'
@@ -158,6 +159,11 @@ call plug#end()
 syntax enable                   " syntax highlighting on
 filetype plugin indent on       " filetype specific declarations
 colorscheme wal
+
+" Autoformat bindings
+nmap <silent> <leader>f :Autoformat<cr>
+let g:formatdef_black = '"black"'
+let g:formatters_python = ['black']
 
 " GitGutter
 let g:gitgutter_sign_added = '+'
