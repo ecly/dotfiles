@@ -68,6 +68,10 @@ alias afk="sh ~/Scripts/lock.sh"
 # Reload shell
 alias reload="exec $SHELL -l"
 
+# Used for grepping cars from the zipped
+# Danish motorregister
+alias cargrep="zgrep -B 10 -A 60 -m 1 -n"
+
 # Get week number
 alias week='date +%V'
 
