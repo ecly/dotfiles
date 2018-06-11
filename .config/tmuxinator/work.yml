@@ -73,3 +73,9 @@ windows:
       panes:
         -
         -
+  - image-tagger:
+      root: ~/Programming/freetime/image_tagger
+      layout: even-horizontal
+      panes:
+        -
+        -
