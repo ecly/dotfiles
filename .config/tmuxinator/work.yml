@@ -79,3 +79,4 @@ windows:
       panes:
         -
         -
+  - server: ssh server
