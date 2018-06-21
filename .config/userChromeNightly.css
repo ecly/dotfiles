@@ -87,7 +87,7 @@ Change 'ecly' to your username. */
 
 /* --- Customize the context menu --- */
 /* Remove all silly margins and set /font everywhere */
-#contentAreaContextMenu *, #placesContext *, .textbox-contextmenu *, #tabContextMenu *, #toolbar-context-menu *{
+#contentAreaContextMenu *, #placesContext *, .textbox-contextmenu *, #tabContextMenu * {
     font-family: var(--font) !important;
 }
 
@@ -133,7 +133,6 @@ menuitem > * {
 .ac-url-text, .ac-action-text {
     font-family: var(--font) !important;
 }
-
 
 /* separator between item and url for autocomplete */
 .ac-separator-text{
