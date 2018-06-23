@@ -64,6 +64,8 @@ for_window [instance="ncmpcpp"] focus
 assign [instance="dance"] 3
 for_window [instance="dance"] focus
 assign [instance="cava"] 3
+for_window [class="(?i)spotify"] focus
+assign [class="(?i)spotify"] 3
 
 # Communication
 assign [class="Slack"] 4
@@ -88,7 +90,7 @@ assign [instance="qbittorrent"] 6
 workspace 1 output HDMI-0
 workspace 2 output DVI-I-1
 workspace 3 output DP-0
-workspace 4 output HDMI-0
+workspace 4 output DP-0
 workspace 5 output HDMI-0
 
 ###--- i3 navigation binds ---###
