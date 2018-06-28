@@ -1,4 +1,4 @@
-#!/bin/bash 
+#!/bin/bash
 if [ "$HOSTNAME" = trsh ]; then
     # On laptop swap alt and win
     setxkbmap -option altwin:swap_lalt_lwin
