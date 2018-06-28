@@ -1,6 +1,6 @@
 # ~/.tmuxinator/work.yml
 
-name: work
+name: sunday
 root: ~/Programming/work
 
 # Optional tmux socket
@@ -43,40 +43,14 @@ root: ~/Programming/work
 # post: tmux -CC attach -t work
 
 windows:
-  - extractor:
-      root: ~/Programming/work/Car-Data-Extractor
-      layout: even-horizontal
-      panes:
-        -
-        -
-  - parser:
-      root: ~/Programming/work/Car-Data-Parser
-      layout: even-horizontal
-      panes:
-        -
-        -
   - booking:
       root: ~/Programming/work/openhouse-service-booking
       layout: even-horizontal
       panes:
         -
-        -
-  - scanner:
-      root: ~/Programming/work/LP-Scanner-Python
+  - real-estate:
+      root: ~/Programming/work/openhouse-service-real-estate
       layout: even-horizontal
       panes:
         -
-        -
-  - hosting:
-      root: ~/Programming/work/hosting-utils
-      layout: even-horizontal
-      panes:
-        -
-        -
-  - image-tagger:
-      root: ~/Programming/freetime/image_tagger
-      layout: even-horizontal
-      panes:
-        -
-        -
-  - server: ssh server
+
