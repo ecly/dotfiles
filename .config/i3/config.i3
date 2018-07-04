@@ -147,7 +147,7 @@ bindsym $mod+Shift+Return exec $term
 bindsym $sup+r exec $term -name ranger -e ranger
 bindsym $mod+r exec $term -name ranger -e ranger
 bindsym $sup+n exec $term -name ncmpcpp -e ncmpcpp; exec --no-startup-id mpc random on; exec --no-startup-id mpc repeat on
-bindsym $sup+t exec $term -name gtop -e gtop
+bindsym $sup+t exec $term -name gotop -e gotop
 bindsym $sup+c exec $term -name cava -e cava
 bindsym $sup+b exec firefox
 bindsym $sup+Shift+b exec firefox --private-window
