@@ -74,3 +74,13 @@ function cpc() {
     git checkout $1; git pull; git checkout $OLDBRANCH
   fi;
 }
+
+function weather() {
+  if [ $# -eq 0 ]; then
+    echo "Need a country or city name"
+  elif [ $# -gt 1 ]; then
+    echo "A single country or city is expected"
+  else
+    curl -s wttr.in/$1 | head -n -2
+  fi;
+}
