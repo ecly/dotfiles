@@ -1,26 +1,26 @@
 set encoding=utf-8
 scriptencoding utf-8
-set noshowmode                  " lightline shows this already
-set clipboard+=unnamed          " system clipboard
-set laststatus=2                " always show status line
+set noshowmode                  " Lightline shows this already
+set clipboard+=unnamed          " System clipboard
+set laststatus=2                " Always show status line
 set tabstop=4                   " 4 spaces will do
-set shiftwidth=4                " control indentation for >> bind
-set expandtab                   " spaces instead of tabs
-set autoindent                  " always set autoindenting on
-set relativenumber              " relative line numbers
-set number                      " hybrid numbering with both rnu and number
-set hidden                      " hide buffers instead of closing them
-set ignorecase                  " ignore case when searching
-set smartcase                   " ignore case if all lowercase
-set visualbell                  " don't beep
-set noerrorbells                " don't beep
-set nobackup                    " don't need swp files
-set noswapfile                  " don't need swp files
+set shiftwidth=4                " Control indentation for >> bind
+set expandtab                   " Spaces instead of tabs
+set autoindent                  " Always set autoindenting on
+set relativenumber              " Relative line numbers
+set number                      " Hybrid numbering with both rnu and number
+set hidden                      " Hide buffers instead of closing them
+set ignorecase                  " Ignore case when searching
+set smartcase                   " Ignore case if all lowercase
+set visualbell                  " Don't beep
+set noerrorbells                " Don't beep
+set nobackup                    " Don't need swp files
+set noswapfile                  " Don't need swp files
 set showmatch                   " Show matching braces when over one
-set backspace=indent,eol,start  " allow backspacing everything in insert
-set hlsearch                    " highlight searches
-set incsearch                   " search as typing
-set concealcursor=              " never conceal anything on current line
+set backspace=indent,eol,start  " Allow backspacing everything in insert
+set hlsearch                    " Highlight searches
+set incsearch                   " Search as typing
+set concealcursor=              " Never conceal anything on current line
 
 " Use comma as leader
 let g:mapleader = ','
@@ -30,11 +30,10 @@ augroup autos
     autocmd!
     " Set dosini syntax highlighting for config files
     autocmd BufRead,BufNewFile config setf dosini
-    " ensure all .js files are treated as javascript
+    " Ensure all .js files are treated as javascript
     autocmd BufEnter *.js :setlocal filetype=javascript
-    " new files start in insert
+    " New files start in insert
     autocmd BufNewFile * start
-
     " Auto toggle Limelight when using Goyo
     autocmd User GoyoEnter Limelight
     autocmd User GoyoLeave Limelight!
@@ -43,7 +42,7 @@ augroup END
 " Manual call to Strip whitespace from end of line
 nnoremap <leader>T :StripWhitespace<CR>
 
-" juggling with jumps - because ` is unpleasant
+" Jumps with ` are unpleasant on my keyboard
 nnoremap ' `
 
 " Intuitive split directions
@@ -71,7 +70,6 @@ map <C-l> <C-w>l
 nnoremap <Tab> :bnext<CR>
 nnoremap <S-Tab> :bprev<CR>
 
-
 " Intuitive split binds
 nnoremap <C-w><BS> <C-w>s
 nnoremap <C-w>\  <C-w>v
@@ -82,7 +80,7 @@ map <C-w>x <C-w>q
 " w!! to write with sudo even if not opened with sudo
 cmap w!! w !sudo tee >/dev/null %
 
-" since I constantly write accidentally mess these up when going fast
+" I constantly mess these up when going fast
 command WQ wq
 command Wq wq
 command W w
@@ -170,14 +168,13 @@ let g:gitgutter_sign_added = '+'
 let g:gitgutter_sign_modified = '∙'
 let g:gitgutter_sign_removed = '-'
 
-" fzf.vim settings
-"https://github.com/junegunn/fzf.vim/issues/47
+" Settings for fzf.vim
+" https://github.com/junegunn/fzf.vim/issues/47
 " Use :Files from git root if one is present, otherwise just use :files
 function! s:find_git_root()
   return system('git rev-parse --show-toplevel 2> /dev/null')[:-2]
 endfunction
 
-" nmap ; :Buffers<CR>
 command! ProjectFiles execute 'Files' s:find_git_root()
 nmap <c-p> :ProjectFiles<CR>
 
