@@ -1,11 +1,9 @@
-"Needed for stack wrapper of ghc-mod
-let $PATH = $PATH . ':' . expand('~/Scripts/bin')
-
 " Haskell binds
-map <silent> tw :GhcModTypeInsert<CR>
-map <silent> ts :GhcModSplitFunCase<CR>
-map <silent> tq :GhcModType<CR>
-map <silent> te :GhcModTypeClear<CR>
+map <silent> <leader>tw :GhcModTypeInsert<CR>
+map <silent> <leader>ts :GhcModSplitFunCase<CR>
+map <silent> <leader>tq :GhcModType<CR>
+map <silent> <leader>te :GhcModTypeClear<CR>
 
-" Fix to allow ghcmod-vim to use a stack installation of ghc-mod
-let g:ghcmod_use_basedir='~/Scripts/bin'
+" Disable haskell-vim omnifunc
+let g:haskellmode_completion_ghc = 0
+autocmd FileType haskell setlocal omnifunc=necoghc#omnifunc

@@ -136,6 +136,7 @@ Plug 'scrooloose/nerdtree'
 " --- Programming languages --- "
 Plug 'sheerun/vim-polyglot'
 " Haskell
+Plug 'lukerandall/haskellmode-vim'
 Plug 'eagletmt/neco-ghc'
 Plug 'shiena/ghcmod-vim'
 Plug 'Shougo/vimproc.vim', { 'do': 'make' }
@@ -144,7 +145,6 @@ Plug 'slashmili/alchemist.vim'
 Plug 'elixir-editors/vim-elixir'
 " Go
 Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries' }
-Plug 'zchee/deoplete-go', { 'do': 'make'}
 " Python
 Plug 'davidhalter/jedi-vim'
 Plug 'zchee/deoplete-jedi'
