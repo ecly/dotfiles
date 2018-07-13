@@ -35,7 +35,7 @@ Manual firefox restart currently necessary for [userChrome.css](.config/userChro
 - [pulseaudio](https://www.archlinux.org/packages/?name=pulseaudio) & [pulseaudio-alsa](https://www.archlinux.org/packages/extra/any/pulseaudio-alsa/), alsa version is necessary for polybar volume.
 - [w3m](http://w3m.sourceforge.net/), for previews in ranger.
 - [NetworkManager](https://www.archlinux.org/packages/extra/x86_64/networkmanager/),[nm-applet](https://www.archlinux.org/packages/extra/x86_64/network-manager-applet/) and [networkmanager-openvpn](https://www.archlinux.org/packages/extra/i686/networkmanager-openvpn/).
-- [vtop](https://github.com/MrRio/vtop) system monitoring with vim binds.
+- [gotop](https://github.com/cjbassi/gotop) system monitoring with vim binds.
 - [pamixer](https://github.com/cdemoulins/pamixer) for volume control binds.
 - [ncpamixer](https://github.com/fulhax/ncpamixer) ncurses mixer for pulseaudio.
 - [w3m](http://w3m.sourceforge.net/) for ranger previews and html in mutt.
@@ -46,11 +46,12 @@ Manual firefox restart currently necessary for [userChrome.css](.config/userChro
 - [wal_steam](https://github.com/kotajacob/wal_steam), styling steam based on wal colors.
 - [imagemagick](https://github.com/ImageMagick/ImageMagick) For i3lock blur effect and pywal.
 - [gnupg](https://www.archlinux.org/packages/core/x86_64/gnupg/) For mutt details.
-- [Tamsyn](https://www.archlinux.org/packages/community/any/tamsyn-font/); [FontAwesome](https://aur.archlinux.org/packages/ttf-font-awesome/); [Inconsolata](https://www.archlinux.org/packages/community/any/ttf-inconsolata/); [Noto Sans](https://www.archlinux.org/packages/extra/any/noto-fonts/); [Terminus](https://www.archlinux.org/packages/community/any/terminus-font) Fonts used for basically everything.
+- [Terminus](https://www.archlinux.org/packages/community/any/terminus-font); [FontAwesome](https://aur.archlinux.org/packages/ttf-font-awesome/); [Inconsolata](https://www.archlinux.org/packages/community/any/ttf-inconsolata/); [Noto Sans](https://www.archlinux.org/packages/extra/any/noto-fonts/); Fonts used for basically everything.
 - [unclutter-xfixes](https://github.com/Airblader/unclutter-xfixes) hide cursor when unused.
 - [highlight](https://www.archlinux.org/packages/community/i686/highlight/) for highlighting in ranger previews.
+- [ffmpegthumbnailer](https://github.com/dirkvdb/ffmpegthumbnailer) for video thumbnails in ranger.
 - [redshift](https://www.archlinux.org/packages/community/x86_64/redshift/) easy on the eyes at night.
-- [tldr](https://aur.archlinux.org/packages/nodejs-tldr/) tldr manpages.
+- [cht.sh](https://github.com/chubin/cheat.sh#command-line-client-chtsh) easy cheat sheet access.
 - [fzf](https://github.com/junegunn/fzf) command line fuzzy finding.
 - [ripgrep](https://github.com/BurntSushi/ripgrep) fast search tool.
 - [urlscan](https://aur.archlinux.org/packages/urlscan-git/) url selection in mutt.
@@ -62,7 +63,7 @@ Manual firefox restart currently necessary for [userChrome.css](.config/userChro
 - [mons](https://github.com/Ventto/mons), shell script for external display management.
 
 ### Manual setup:
-- Manual symlinking of [userChrome.css](.config/userChrome.css) to Firefox profile.
+- Manual symlinking of [userChrome.css](.config/userChromeNightly.css) to Firefox profile.
 - Manual clone and setup of [startpage](https://github.com/ecly/startpage) with Firefox.
 - Manual OpenVPN VPN setup with [dispatcher](https://wiki.archlinux.org/index.php/NetworkManager#Network_services_with_NetworkManager_dispatcher).
 - Mopidy spotify authorization configuration & renaming of config file.
