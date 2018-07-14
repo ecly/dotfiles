@@ -285,13 +285,13 @@ exec --no-startup-id $term -name scratch -e tmux
 
 bindsym $mod+u [instance="scratch"] scratchpad show; move position center
 
-for_window [instance="password"] floating enable
-for_window [instance="password"] resize set 1366 768
-for_window [instance="password"] move position center
-for_window [instance="password"] move scratchpad
+for_window [instance="(?i)bitwarden"] floating enable
+for_window [instance="(?i)bitwarden"] resize set 1366 768
+for_window [instance="(?i)bitwarden"] move position center
+for_window [instance="(?i)bitwarden"] move scratchpad
 exec --no-startup-id bitwarden -name password
 
-bindsym $mod+Shift+u [instance="password"] scratchpad show; move position center
+bindsym $mod+Shift+u [instance="(?i)bitwarden"] scratchpad show; move position center
 
 ###--- Media key bindings ---###
 bindsym XF86AudioMute		    exec $mute
