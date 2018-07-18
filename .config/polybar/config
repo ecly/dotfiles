@@ -59,7 +59,7 @@ font-3 = "Noto Sans:size=14;2"
 
 modules-left = i3icons
 modules-center = date
-modules-right = vpncheck cpu pavolume keyboard
+modules-right = vpncheck cpu pulseaudio keyboard
 
 ;fix tray position
 ;override-redirect = true
@@ -87,7 +87,7 @@ height = 40
 
 modules-left = i3icons
 modules-center = date
-modules-right = vpncheck cpu volume_percentage keyboard battery
+modules-right = vpncheck cpu pulseaudio keyboard battery
 
 font-0 = "xos4 Terminus:pixelsize=24;2"
 font-1 = "FontAwesome:pixelsize=16;3"
@@ -233,21 +233,49 @@ bar-volume-empty = ─
 bar-volume-empty-font = 2
 bar-volume-empty-foreground = ${colors.foreground-alt}
 
-[module/volume_percentage]
-type = internal/volume
+[module/pulseaudio]
+type = internal/pulseaudio
+; Sink to be used, if it exists (find using `pacmd list-sinks`, name field)
+; If not, uses default sink
+; sink = alsa_output.pci-0000_12_00.3.analog-stereo
 
+; Use PA_VOLUME_UI_MAX (~153%) if true, or PA_VOLUME_NORM (100%) if false
+; Default: true
+use-ui-max = true
+
+; Available tags:
+;   <label-volume> (default)
+;   <ramp-volume>
+;   <bar-volume>
+format-volume = <label-volume>
 format-volume-prefix = " "
 format-volume-prefix-foreground = ${colors.foreground-alt}
-format-volume = <label-volume>
+
+format-muted = <label-muted>
+format-muted-prefix = " "
+format-muted-prefix-foreground = ${colors.foreground-alt}
 
 label-volume = %percentage%%
 label-volume-foreground = ${colors.foreground}
 
-format-muted-foreground = ${colors.foreground}
-format-muted-prefix = " "
-format-muted-prefix-foreground = ${colors.foreground-alt}
 label-muted = muted
 label-muted-foreground = ${colors.urgent}
+
+; [module/volume_percentage]
+; type = internal/volume
+
+; format-volume-prefix = " "
+; format-volume-prefix-foreground = ${colors.foreground-alt}
+; format-volume = <label-volume>
+
+; label-volume = %percentage%%
+; label-volume-foreground = ${colors.foreground}
+
+; format-muted-foreground = ${colors.foreground}
+; format-muted-prefix = " "
+; format-muted-prefix-foreground = ${colors.foreground-alt}
+; label-muted = muted
+; label-muted-foreground = ${colors.urgent}
 
 [module/pavolume]
 ; useful if machine is using multiple sinks
