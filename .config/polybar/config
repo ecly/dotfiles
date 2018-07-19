@@ -205,34 +205,6 @@ exec = ~/Scripts/spotify.sh %artist% - %title%
 tail = true
 interval = 2
 
-[module/volume]
-type = internal/volume
-
-format-volume = <label-volume> <bar-volume>
-label-volume = VOL
-label-volume-foreground = ${root.foreground}
-
-format-muted-prefix = " "
-format-muted-foreground = ${colors.foreground-alt}
-label-muted = sound muted
-
-bar-volume-width = 10
-bar-volume-foreground-0 = ${colors.foreground}
-bar-volume-foreground-1 = ${colors.foreground}
-bar-volume-foreground-2 = ${colors.foreground}
-bar-volume-foreground-3 = ${colors.foreground}
-bar-volume-foreground-4 = ${colors.foreground}
-bar-volume-foreground-5 = ${colors.foreground}
-bar-volume-foreground-6 = ${colors.foreground-alt}
-bar-volume-gradient = false
-bar-volume-indicator = |
-bar-volume-indicator-font = 2
-bar-volume-fill = ─
-bar-volume-fill-font = 2
-bar-volume-empty = ─
-bar-volume-empty-font = 2
-bar-volume-empty-foreground = ${colors.foreground-alt}
-
 [module/pulseaudio]
 type = internal/pulseaudio
 ; Sink to be used, if it exists (find using `pacmd list-sinks`, name field)
@@ -260,34 +232,6 @@ label-volume-foreground = ${colors.foreground}
 
 label-muted = muted
 label-muted-foreground = ${colors.urgent}
-
-; [module/volume_percentage]
-; type = internal/volume
-
-; format-volume-prefix = " "
-; format-volume-prefix-foreground = ${colors.foreground-alt}
-; format-volume = <label-volume>
-
-; label-volume = %percentage%%
-; label-volume-foreground = ${colors.foreground}
-
-; format-muted-foreground = ${colors.foreground}
-; format-muted-prefix = " "
-; format-muted-prefix-foreground = ${colors.foreground-alt}
-; label-muted = muted
-; label-muted-foreground = ${colors.urgent}
-
-[module/pavolume]
-; useful if machine is using multiple sinks
-type = custom/script
-interval = 2
-label = %output%
-exec = sh ~/Scripts/pavolume.sh
-format-foreground = ${colors.foreground}
-; click-right = exec pavucontrol
-click-left = sh ~/Scripts/pavolume.sh --togmute
-scroll-up = sh ~/Scripts/pavolume.sh --up
-scroll-down = sh ~/Scripts/pavolume.sh --down
 
 [module/keyboard]
 type = internal/xkeyboard
