@@ -67,10 +67,16 @@ windows:
       panes:
         -
         -
+  - skill-calculator:
+      root: ~/Programming/work/Skill-Calculator
+      layout: even-horizontal
+      panes:
+        -
+        -
+  - server: ssh server-lan
   - image-tagger:
       root: ~/Programming/freetime/image_tagger
       layout: even-horizontal
       panes:
         -
         -
-  - server: ssh server-lan
