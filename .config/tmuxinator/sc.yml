@@ -68,7 +68,7 @@ windows:
         -
         -
   - skill-calculator:
-      root: ~/Programming/work/Skill-Calculator
+      root: ~/programming/work/Skill-Calculator
       layout: even-horizontal
       panes:
         -
