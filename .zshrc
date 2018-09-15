@@ -43,16 +43,16 @@ function TRAPINT() {
 source "${HOME}/.cache/wal/colors.sh"
 
 # Source aliases
-source "${HOME}/Scripts/aliases.sh"
+source "${HOME}/scripts/aliases.sh"
 
 # Source aliases
-source "${HOME}/Scripts/functions.sh"
+source "${HOME}/scripts/functions.sh"
 
 # Source completion for tmuxinator
 source "${HOME}/.config/tmuxinator/tmuxinator.zsh"
 
 # Used as directory for binaries for vim go plugin
-export GOPATH="${HOME}/Programming/go"
+export GOPATH="${HOME}/programming/go"
 export GOBIN="${GOPATH}/bin"
 export PATH=$GOBIN:$PATH
 

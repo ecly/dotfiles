@@ -65,7 +65,7 @@ modules-right = vpncheck cpu pulseaudio keyboard
 ;override-redirect = true
 
 tray-detached = false
-tray-position =
+tray-position = right
 tray-offset-x = 0
 tray-offset-y = 0
 tray-maxsize = 16
@@ -201,7 +201,7 @@ label-offline = mpd is offline
 
 [module/current-song-spotify]
 type = custom/script
-exec = ~/Scripts/spotify.sh %artist% - %title%
+exec = ~/scripts/spotify.sh %artist% - %title%
 tail = true
 interval = 2
 
@@ -244,7 +244,7 @@ label = layout = %name%
 
 [module/vpncheck]
 type = custom/script
-exec = sh ~/Scripts/vpncheck.sh
+exec = sh ~/scripts/vpncheck.sh
 format-foreground = ${colors.foreground}
 interval = 5
 

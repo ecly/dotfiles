@@ -152,14 +152,14 @@ bindsym $sup+c exec $term -name cava -e cava
 bindsym $sup+b exec firefox
 bindsym $sup+Shift+b exec firefox --private-window
 bindsym $sup+q exec qbittorrent
-bindsym $sup+m exec $term -name mutt -e sh ~/Scripts/mutt.sh
+bindsym $sup+m exec $term -name mutt -e sh ~/scripts/mutt.sh
 bindsym $sup+s exec slack
 bindsym $sup+i exec $term -name weechat -e weechat
 bindsym $sup+w exec $term -name nmtui -e nmtui-connect
-bindsym $sup+j exec $term -name todo -e nvim ~/Dropbox/IRL/todo.txt
+bindsym $sup+j exec $term -name todo -e nvim ~/Dropbox/irl/todo.txt
 
 # All in one music bind -> d for dance
-bindsym $sup+d exec $term -name dance -e sh ~/Scripts/music_mux.sh
+bindsym $sup+d exec $term -name dance -e sh ~/scripts/music_mux.sh
 
 ###--- Audo and Music definitions---###
 set $pause mpc toggle
@@ -177,8 +177,8 @@ bindsym $sup+Up exec --no-startup-id mpc volume +5
 bindsym $sup+Down exec --no-startup-id mpc volume -5
 
 # Sound
-bindsym $mod+i exec --no-startup-id sh ~/Scripts/movesinks.sh 1
-bindsym $mod+Shift+i exec --no-startup-id sh ~/Scripts/movesinks.sh 0
+bindsym $mod+i exec --no-startup-id sh ~/scripts/movesinks.sh 1
+bindsym $mod+Shift+i exec --no-startup-id sh ~/scripts/movesinks.sh 0
 bindsym $mod+p exec --no-startup-id $mute
 bindsym $mod+Up exec --no-startup-id $inc
 bindsym $mod+Down exec --no-startup-id $dec
@@ -223,23 +223,23 @@ bindsym $mod+minus resize shrink width 10 px or 10 ppt
 bindsym $mod+Shift+minus resize shrink height 10 px or 10 ppt
 
 # Screenshot region/monitor and uniquely identify in picture folder
-bindsym $mod+z exec --no-startup-id sh Scripts/screenshot_region.sh
-bindsym $mod+Shift+z exec --no-startup-id sh Scripts/screenshot_monitor.sh
+bindsym $mod+z exec --no-startup-id sh scripts/screenshot_region.sh
+bindsym $mod+Shift+z exec --no-startup-id sh scripts/screenshot_monitor.sh
 
 # Rofi keybinds
-bindsym $mod+m exec sh ~/Scripts/rofi.sh run
-bindsym $mod+Shift+m exec sh ~/Scripts/rofi.sh window
+bindsym $mod+m exec sh ~/scripts/rofi.sh run
+bindsym $mod+Shift+m exec sh ~/scripts/rofi.sh window
 
 # Lock screen
-bindsym $sup+l exec --no-startup-id sh ~/Scripts/lock.sh
+bindsym $sup+l exec --no-startup-id sh ~/scripts/lock.sh
 
-###--- Scripts ran at start ---###
+###--- scripts ran at start ---###
 # Setup triple monitor setup
 #exec --no-startup-id xrandr --auto --output DVI-I-1 --mode 1920x1080 --rate 144 --auto --output HDMI-0 --mode 1920x1080 --rate 60 --left-of DVI-I-1 --auto --output DP-0 --mode 1920x1080 --rate 60 --right-of DVI-I-1 --rotate right
 
 # Merged nvidia monitor setup with nitrogen as nitrogen won't restore properly till screens are setup
 # Nvidia setup instead of xrandr is to include fix for screen tearing with X and Nvidia proprietary driver
-exec --no-startup-id sh ~/Scripts/nvidia.sh; nitrogen --restore
+exec --no-startup-id sh ~/scripts/nvidia.sh; nitrogen --restore
 
 # Restore wallpaper setup
 #exec --no-startup-id nitrogen --restore
@@ -248,7 +248,7 @@ exec --no-startup-id sh ~/Scripts/nvidia.sh; nitrogen --restore
 # Currently wait a bit before executing due to a known bug
 # https://bbs.archlinux.org/viewtopic.php?id=200797
 # Modify sleep time from machine to machine
-exec --no-startup-id sleep 2; sh ~/Scripts/beautify.sh
+exec --no-startup-id sleep 2; sh ~/scripts/beautify.sh
 
 ###--- Launch Applications/Daemons At Start ---###
 
@@ -271,7 +271,7 @@ exec --no-startup-id xinput --set-prop 9 'libinput Accel Speed' 0
 
 # Map Caps Lock to Esc
 # Allow keyboard toggling using alt + space
-exec --no-startup-id sh ~/Scripts/keymap.sh
+exec --no-startup-id sh ~/scripts/keymap.sh
 
 # Start unclutter to hide mouse-pointer when unused
 exec --no-startup-id unclutter

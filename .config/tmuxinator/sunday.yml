@@ -1,7 +1,7 @@
 # ~/.tmuxinator/work.yml
 
 name: sunday
-root: ~/Programming/work
+root: ~/programming/work
 
 # Optional tmux socket
 # socket_name: foo
@@ -44,12 +44,12 @@ root: ~/Programming/work
 
 windows:
   - booking:
-      root: ~/Programming/work/openhouse-service-booking
+      root: ~/programming/work/openhouse-service-booking
       layout: even-horizontal
       panes:
         -
   - real-estate:
-      root: ~/Programming/work/openhouse-service-real-estate
+      root: ~/programming/work/openhouse-service-real-estate
       layout: even-horizontal
       panes:
         -

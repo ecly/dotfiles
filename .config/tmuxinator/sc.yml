@@ -1,7 +1,7 @@
 # ~/.tmuxinator/work.yml
 
 name: sc
-root: ~/Programming/work
+root: ~/programming/work
 
 # Optional tmux socket
 # socket_name: foo
@@ -44,25 +44,25 @@ root: ~/Programming/work
 
 windows:
   - extractor:
-      root: ~/Programming/work/Car-Data-Extractor
+      root: ~/programming/work/Car-Data-Extractor
       layout: even-horizontal
       panes:
         -
         -
   - parser:
-      root: ~/Programming/work/Car-Data-Parser
+      root: ~/programming/work/Car-Data-Parser
       layout: even-horizontal
       panes:
         -
         -
   - hosting:
-      root: ~/Programming/work/hosting-utils
+      root: ~/programming/work/hosting-utils
       layout: even-horizontal
       panes:
         -
         -
   - scanner:
-      root: ~/Programming/work/LP-Scanner-Python
+      root: ~/programming/work/LP-Scanner-Python
       layout: even-horizontal
       panes:
         -
@@ -75,7 +75,7 @@ windows:
         -
   - server: ssh server-lan
   - image-tagger:
-      root: ~/Programming/freetime/image_tagger
+      root: ~/programming/freetime/image_tagger
       layout: even-horizontal
       panes:
         -

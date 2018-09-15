@@ -1,5 +1,5 @@
 name: buddy
-root: ~/Programming/work
+root: ~/programming/work
 
 # Optional tmux socket
 # socket_name: foo
@@ -42,7 +42,7 @@ root: ~/Programming/work
 
 windows:
   - buddy_matching:
-      root: ~/Programming/freetime/buddy_matching
+      root: ~/programming/freetime/buddy_matching
       layout: even-horizontal
       panes:
         -

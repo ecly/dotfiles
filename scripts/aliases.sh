@@ -5,8 +5,8 @@ alias {vi,vim}="nvim"
 alias todo="nvim ~/Dropbox/IRL/todo.txt"
 alias poly="nohup sh ~/.config/polybar/launch.sh > /dev/null 2>&1 &"
 alias gsync="grive -p ~/GoogleDrive"
-alias imgur="sh ~/Scripts/imgur.sh"
-alias mutt="sh ~/Scripts/mutt.sh"
+alias imgur="sh ~/scripts/imgur.sh"
+alias mutt="sh ~/scripts/mutt.sh"
 
 # .Xresources handling - reload, merge
 alias xm="xrdb -merge ~/.Xresources"
@@ -60,10 +60,10 @@ alias cfz="vim ~/.zshrc"
 alias cft="vim ~/.tmux.conf"
 
 # Used for toggling colors for playing csgo
-alias csgo="sh ~/Scripts/vibrance.sh"
+alias csgo="sh ~/scripts/vibrance.sh"
 
 # Use i3lock when afk
-alias afk="sh ~/Scripts/lock.sh"
+alias afk="sh ~/scripts/lock.sh"
 
 # Reload shell
 alias reload="exec $SHELL -l"
