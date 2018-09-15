@@ -65,7 +65,7 @@ modules-right = vpncheck cpu pulseaudio keyboard
 ;override-redirect = true
 
 tray-detached = false
-tray-position = right
+tray-position =
 tray-offset-x = 0
 tray-offset-y = 0
 tray-maxsize = 16
