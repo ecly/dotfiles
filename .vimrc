@@ -146,6 +146,9 @@ Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries' }
 " Python
 Plug 'davidhalter/jedi-vim'
 Plug 'zchee/deoplete-jedi'
+" Javascript
+Plug 'pangloss/vim-javascript'
+Plug 'mxw/vim-jsx'
 
 " --- Latex and markdown --- "
 Plug 'lervag/vimtex'
