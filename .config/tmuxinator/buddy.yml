@@ -41,8 +41,14 @@ root: ~/programming/work
 # post: tmux -CC attach -t work
 
 windows:
-  - buddy_matching:
+  - backend:
       root: ~/programming/freetime/buddy_matching
+      layout: even-horizontal
+      panes:
+        -
+        -
+  - frontend:
+      root: ~/programming/freetime/buddy_v2
       layout: even-horizontal
       panes:
         -
