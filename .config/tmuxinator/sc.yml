@@ -56,7 +56,7 @@ windows:
         -
         -
   - hosting:
-      root: ~/programming/work/hosting-utils
+      root: ~/programming/work/Hosting-Utils
       layout: even-horizontal
       panes:
         -
