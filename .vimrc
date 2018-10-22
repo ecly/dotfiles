@@ -149,7 +149,8 @@ Plug 'zchee/deoplete-jedi'
 " Javascript
 Plug 'pangloss/vim-javascript'
 Plug 'mxw/vim-jsx'
-
+" Proverif
+Plug 'mgrabovsky/vim-xverif'
 " --- Latex and markdown --- "
 Plug 'lervag/vimtex'
 Plug 'xuhdev/vim-latex-live-preview'
