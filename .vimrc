@@ -32,6 +32,7 @@ augroup autos
     autocmd BufRead,BufNewFile config setf dosini
     " Ensure all .js files are treated as javascript
     autocmd BufEnter *.js :setlocal filetype=javascript
+    autocmd FileType typescript set noexpandtab
     " New files start in insert
     autocmd BufNewFile * start
     " Auto toggle Limelight when using Goyo
@@ -147,6 +148,7 @@ Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries' }
 Plug 'davidhalter/jedi-vim'
 Plug 'zchee/deoplete-jedi'
 " Javascript
+Plug 'leafgarland/typescript-vim'
 Plug 'pangloss/vim-javascript'
 Plug 'mxw/vim-jsx'
 " Proverif
