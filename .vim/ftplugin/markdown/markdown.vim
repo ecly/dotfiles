@@ -1,5 +1,6 @@
 " disable folding
-set nofoldenable        
+set nofoldenable
 
-" Don't conceal in markdown files
-" let g:vim_markdown_conceal=0
+" Latex/Markdown conceal settings
+let g:vim_markdown_conceal = 0
+let g:vim_markdown_math = 1

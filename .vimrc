@@ -155,7 +155,7 @@ Plug 'mxw/vim-jsx'
 Plug 'mgrabovsky/vim-xverif'
 " --- Latex and markdown --- "
 Plug 'lervag/vimtex'
-Plug 'xuhdev/vim-latex-live-preview'
+Plug 'xuhdev/vim-latex-live-preview', { 'for': 'tex' }
 " Initialize plugin system
 call plug#end()
 
@@ -209,14 +209,5 @@ let g:strip_whitespace_on_save=1
 let g:better_whitespace_filetypes_blacklist=['ruby', 'markdown',
             \ 'diff', 'gitcommit', 'unite', 'qf', 'help']
 
-" Latex preview settings
-let g:livepreview_previewer = 'zathura'
-let g:livepreview_engine = 'latexmk -pdf'
-
 " Let deoplete-jedi complete instead
 let g:jedi#completions_enabled = 0
-
-" Latex/Markdown conceal settings
-let g:vim_markdown_conceal = 0
-let g:tex_conceal = ''
-let g:vim_markdown_math = 1
