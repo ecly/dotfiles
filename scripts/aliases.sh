@@ -81,6 +81,9 @@ alias ...="cd ../.."
 alias ....="cd ../../.."
 alias .....="cd ../../../.."
 
+# Creating scratch pad in case it was deleted (depends on i3 config)
+alias scratch="urxvt -name scratch -e tmux"
+
 # Remove all local branches that 'gone' on the remote. Lanuguage dependent
 # https://stackoverflow.com/questions/7726949/remove-local-branches-no-longer-on-remote/38404202#38404202
 alias gprune= "git fetch -p && git branch -vv | awk '/: gone]/{print $1}' | xargs git branch -d"
