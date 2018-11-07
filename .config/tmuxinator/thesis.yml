@@ -58,3 +58,7 @@ windows:
       layout: even-horizontal
       panes:
         -
+  - notes:
+      root: ~/programming/school/thesis/notes
+      layout: even-horizontal
+      panes:
