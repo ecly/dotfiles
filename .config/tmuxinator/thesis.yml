@@ -62,3 +62,7 @@ windows:
       root: ~/programming/school/thesis/notes
       layout: even-horizontal
       panes:
+  - papers:
+      root: ~/Dropbox/books/papers/nlp/
+      layout: even-horizontal
+      panes: ranger .
