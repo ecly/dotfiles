@@ -4,3 +4,11 @@
 # system, and so shouldn't trigger E1101 when accessed. Python regular
 # expressions are accepted.
 generated-members=numpy.*,torch.*
+
+[FORMAT]
+good-names=i,j,x,y,f
+
+# let constants be named like variables
+# loosely - only annoyed by this in scripts
+# but don't want to add exceptions all the time
+const-rgx=[A-Za-z_][A-Za-z0-9_]{2,30}$
