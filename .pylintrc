@@ -6,7 +6,7 @@
 generated-members=numpy.*,torch.*
 
 [FORMAT]
-good-names=i,j,x,y,f
+good-names=i,j,x,y,f,k,n,m,a,b
 
 # let constants be named like variables
 # loosely - only annoyed by this in scripts
