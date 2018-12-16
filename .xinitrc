@@ -6,5 +6,6 @@ sh ~/scripts/wal.sh
 if [ "$HOSTNAME" = trsh ]; then
     xrandr --output eDP1 --mode 1920x1200
 fi
+# xrandr --setprovideroutputsource Intel NVIDIA-0
 
 exec i3
