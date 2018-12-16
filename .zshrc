@@ -118,3 +118,4 @@ if _has fzf && _has rg; then
 fi
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
