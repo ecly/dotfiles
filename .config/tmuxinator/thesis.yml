@@ -44,22 +44,22 @@ root: ~/
 
 windows:
   - report:
-      root: ~/programming/school/thesis/report/
+      root: ~/Programming/school/thesis/report/
       layout: even-horizontal
       panes:
         - vim thesis_prep.tex references.bib
   - namas-pytorch:
-      root: ~/programming/school/namas_pytorch
+      root: ~/Programming/school/namas_pytorch
       layout: even-horizontal
       panes:
         -
   - namas-original:
-      root: ~/programming/school/NAMAS
+      root: ~/Programming/school/NAMAS
       layout: even-horizontal
       panes:
         -
   - notes:
-      root: ~/programming/school/thesis/notes
+      root: ~/Programming/school/thesis/notes
       layout: even-horizontal
       panes:
   - papers:

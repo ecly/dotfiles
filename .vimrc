@@ -93,7 +93,7 @@ call plug#begin('~/.vim/plugged')
 " --- Theming --- "
 Plug 'dylanaraps/wal'
 Plug 'itchyny/lightline.vim'
-Plug 'taohex/lightline-buffer'
+Plug 'taohexxx/lightline-buffer'
 
 " --- Completion and syntax --- "
 if has('nvim')

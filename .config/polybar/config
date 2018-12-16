@@ -201,7 +201,7 @@ label-offline = mpd is offline
 
 [module/current-song-spotify]
 type = custom/script
-exec = ~/scripts/spotify.sh %artist% - %title%
+exec = ~/Scripts/spotify.sh %artist% - %title%
 tail = true
 interval = 2
 
@@ -244,7 +244,7 @@ label = layout = %name%
 
 [module/vpncheck]
 type = custom/script
-exec = sh ~/scripts/vpncheck.sh
+exec = sh ~/Scripts/vpncheck.sh
 format-foreground = ${colors.foreground}
 interval = 5
 

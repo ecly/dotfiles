@@ -43,10 +43,10 @@ function TRAPINT() {
 source "${HOME}/.cache/wal/colors.sh"
 
 # Source aliases
-source "${HOME}/scripts/aliases.sh"
+source "${HOME}/Scripts/aliases.sh"
 
 # Source aliases
-source "${HOME}/scripts/functions.sh"
+source "${HOME}/Scripts/functions.sh"
 
 # Source completion for tmuxinator
 source "${HOME}/.config/tmuxinator/tmuxinator.zsh"
