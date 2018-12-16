@@ -289,7 +289,7 @@ for_window [instance="(?i)bitwarden"] floating enable
 for_window [instance="(?i)bitwarden"] resize set 1366 768
 for_window [instance="(?i)bitwarden"] move position center
 for_window [instance="(?i)bitwarden"] move scratchpad
-exec --no-startup-id bitwarden -name password
+exec --no-startup-id bitwarden-bin -name password
 
 bindsym $mod+Shift+u [instance="(?i)bitwarden"] scratchpad show; move position center
 
