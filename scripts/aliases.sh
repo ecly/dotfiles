@@ -82,7 +82,7 @@ alias ....="cd ../../.."
 alias .....="cd ../../../.."
 
 # Creating scratch pad in case it was deleted (depends on i3 config)
-alias scratch="urxvt -name scratch -e tmux"
+alias scratch="urxvt -name scratch -e tmux & disown"
 
 # Remove all local branches that 'gone' on the remote. Lanuguage dependent
 # https://stackoverflow.com/questions/7726949/remove-local-branches-no-longer-on-remote/38404202#38404202
