@@ -83,15 +83,15 @@ tray-position =
 inherit = bar/main
 monitor = ${env:MONITOR}
 ; high res
-height = 40
+height = 35
 
 modules-left = i3icons
 modules-center = date
 modules-right = vpncheck cpu pulseaudio keyboard battery
 
-font-0 = "xos4 Terminus:pixelsize=24;2"
+font-0 = "xos4 Terminus:pixelsize=22;2"
 font-1 = "FontAwesome:pixelsize=16;3"
-font-2 = "Inconsolata:pixelsize=24;1"
+font-2 = "Inconsolata:pixelsize=22;1"
 font-3 = "Noto Sans:size=20;2"
 
 tray-detached = false
