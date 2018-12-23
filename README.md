@@ -34,7 +34,7 @@ Manual firefox restart currently necessary for [userChrome.css](.config/userChro
 ### Additional dependencies:
 - [pulseaudio](https://www.archlinux.org/packages/?name=pulseaudio) & [pulseaudio-alsa](https://www.archlinux.org/packages/extra/any/pulseaudio-alsa/), alsa version is necessary for polybar volume.
 - [w3m](http://w3m.sourceforge.net/), for previews in ranger.
-- [NetworkManager](https://www.archlinux.org/packages/extra/x86_64/networkmanager/),[nm-applet](https://www.archlinux.org/packages/extra/x86_64/network-manager-applet/) and [networkmanager-openvpn](https://www.archlinux.org/packages/extra/i686/networkmanager-openvpn/).
+- [NetworkManager](https://www.archlinux.org/packages/extra/x86_64/networkmanager/), includes nmtui and connection editor.
 - [gotop](https://github.com/cjbassi/gotop) system monitoring with vim binds.
 - [pamixer](https://github.com/cdemoulins/pamixer) for volume control binds.
 - [ncpamixer](https://github.com/fulhax/ncpamixer) ncurses mixer for pulseaudio.
@@ -69,5 +69,4 @@ Manual firefox restart currently necessary for [userChrome.css](.config/userChro
 - Mopidy spotify authorization configuration & renaming of config file.
 - Mutt aliases and .details setup.
 - Weechat SASL/Secure setup.
-- qBittorrent setup with VPN.
 - Symlink ~/.config/i3/config.i3 and modify beforehand if needed for machine (eg. workspace bindings).
