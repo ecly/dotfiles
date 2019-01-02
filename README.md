@@ -63,8 +63,7 @@ Manual firefox restart currently necessary for [userChrome.css](.config/userChro
 - [mons](https://github.com/Ventto/mons), shell script for external display management.
 
 ### Manual setup:
-- Manual symlinking of [userChrome.css](.config/userChromeNightly.css) to Firefox profile.
-- Manual clone and setup of [startpage](https://github.com/ecly/startpage) with Firefox.
+- Symlink [userChrome.css](.config/userChromeNightly.css) to Firefox profile.
 - VPN setup.
 - Mopidy spotify authorization configuration & renaming of config file.
 - Mutt aliases and .details setup.
