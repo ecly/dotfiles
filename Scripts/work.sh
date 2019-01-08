@@ -1,5 +1,5 @@
-sh /home/ecly/Scripts/keymap.sh # fix keymap
-xset b off # no keyboard beeping
-optirun intel-virtual-output # enable gpu
-mons -m # mirror display
-sh ~/.config/polybar/launch.sh # re-run polybar
+. /home/ecly/Scripts/keymap.sh; \
+xset b off; \
+optirun intel-virtual-output; \
+mons -m; \
+nohup sh ~/.config/polybar/launch.sh > /dev/null 2>&1 & # rerun polybar
