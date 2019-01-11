@@ -5,7 +5,6 @@ For management of dotfiles see [this](.config/DOT_MANAGEMENT.md).
 
 **Styling**  
 In ranger use 'mkt' on image to have colorscheme generated and applied to everything.  
-Manual firefox restart currently necessary for [userChrome.css](.config/userChrome.css) to be applied after changing colorscheme.
 
 ## Primary setup:
 - **Shell:** [zsh](https://github.com/zsh-users/zsh)  
