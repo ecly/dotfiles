@@ -86,5 +86,5 @@ function weather() {
 }
 
 function twitch() {
-    livestreamer --player "mpv -" "https://twitch.tv/$@" best
+    streamlink -p mpv twitch.tv/$@ best
 }
