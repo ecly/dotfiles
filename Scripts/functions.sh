@@ -84,3 +84,7 @@ function weather() {
     curl -s wttr.in/$1 | head -n -2
   fi;
 }
+
+function twitch() {
+    livestreamer --player "mpv -" "https://twitch.tv/$@" best
+}

@@ -29,7 +29,7 @@ fi
 alias rm="rm -I"
 
 # Basic colored ls
-alias ls="ls ${colorflag}"
+alias ls="ls ${colorflag} --human-readable --group-directories-first --classify"
 
 # List all files colorized in long format
 alias l="ls -lF ${colorflag}"
@@ -90,3 +90,6 @@ alias gprune="git fetch -p && git branch -vv | awk '/: gone]/{print $1}' | xargs
 
 # Shortcut for running work script
 alias work="sh ~/Scripts/work.sh"
+
+# Start an instance of firefox with no profile
+alias fx="firefox --new-instance --profile $(mktemp -d)"
