@@ -21,6 +21,7 @@ set backspace=indent,eol,start  " Allow backspacing everything in insert
 set hlsearch                    " Highlight searches
 set incsearch                   " Search as typing
 set concealcursor=              " Never conceal anything on current line
+set undofile                    " Use persistent undofiles
 
 " Use comma as leader
 let g:mapleader = ','
