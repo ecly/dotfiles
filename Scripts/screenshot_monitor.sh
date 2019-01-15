@@ -17,7 +17,7 @@ for mon in ${MONITORS}; do
       if (( ${YMOUSE} >= ${MONY} )); then
         if (( ${YMOUSE} <= ${MONY}+${MONH} )); then
           # We have found our monitor!
-          NAME=~/pictures/screenshots/$(date +%s).png
+          NAME=~/Pictures/screenshots/$(date +%s).png
           maim -g "${MONW}x${MONH}+${MONX}+${MONY}" $NAME
           notify-send "Screenshot saved at $NAME" --icon=camera-photo
           exit 0
