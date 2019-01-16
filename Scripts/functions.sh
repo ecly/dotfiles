@@ -86,5 +86,5 @@ function weather() {
 }
 
 function twitch() {
-    streamlink -p mpv twitch.tv/$@ best
+    nohup streamlink -p mpv twitch.tv/$@ best > /dev/null 2>&1 &
 }
