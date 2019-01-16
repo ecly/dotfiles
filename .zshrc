@@ -52,7 +52,7 @@ source "${HOME}/Scripts/functions.sh"
 source "${HOME}/.config/tmuxinator/tmuxinator.zsh"
 
 # Used as directory for binaries for vim go plugin
-export GOPATH="${HOME}/programming/go"
+export GOPATH="${HOME}/Programming/go"
 export GOBIN="${GOPATH}/bin"
 export PATH=$GOBIN:$PATH
 
