@@ -107,6 +107,8 @@ endif
 Plug 'Shougo/neosnippet'
 Plug 'Shougo/neosnippet-snippets'
 Plug 'w0rp/ale'
+Plug 'jparise/vim-graphql'
+Plug 'elzr/vim-json'
 
 " Editing and usability
 Plug 'tpope/vim-commentary'
