@@ -36,3 +36,5 @@
     unhide = update-index --no-assume-unchanged
 [credential]
 	helper = store
+[pull]
+	rebase = true
