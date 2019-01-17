@@ -5,9 +5,12 @@ A `CLIENT_ID` can either be generated, or a random one gotten
 by merely visiting Twitch and inspecting the network requests.
 """
 from urllib.request import urlopen
+from urllib.error import URLError
 import json
 import sys
 
+# Currently not known how long a client_id
+# not attached to a specific user is valid for.
 CLIENT_ID = "kimne78kx3ncx6brgo4mv6wki5h1ko"
 
 def get_following(user):
@@ -26,5 +29,10 @@ def is_online(users):
     return list(map(lambda s: s["channel"]["name"], info["streams"]))
 
 if __name__ == '__main__':
-    followed = get_following(sys.argv[1])
-    print("\n".join(is_online(followed)))
+    try:
+        followed = get_following(sys.argv[1])
+        print("\n".join(is_online(followed)))
+
+    except URLError:
+        print("No network")
+        exit(1)
