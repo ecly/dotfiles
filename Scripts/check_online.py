@@ -13,11 +13,12 @@ import sys
 # not attached to a specific user is valid for.
 CLIENT_ID = "kimne78kx3ncx6brgo4mv6wki5h1ko"
 
+
 def get_following(user):
     """Return list of channels followed by given user"""
-    base = "https://api.twitch.tv/kraken/users/%s/follows/channels?limit=100&client_id=%s"
+    base = "https://api.twitch.tv/kraken/users/%s/follows/channels?limit=100&sortby=last_broadcast&client_id=%s"
     url = base % (user, CLIENT_ID)
-    info = json.loads(urlopen(url, timeout=15).read().decode('utf-8'))
+    info = json.loads(urlopen(url, timeout=15).read().decode("utf-8"))
     return list(map(lambda s: s["channel"]["name"], info["follows"]))
 
 
@@ -25,10 +26,11 @@ def is_online(users):
     """Return list of users out of given that are online"""
     base = "https://api.twitch.tv/kraken/streams/?channel=%s&client_id=%s"
     url = base % (",".join(users), CLIENT_ID)
-    info = json.loads(urlopen(url, timeout=15).read().decode('utf-8'))
+    info = json.loads(urlopen(url, timeout=15).read().decode("utf-8"))
     return list(map(lambda s: s["channel"]["name"], info["streams"]))
 
-if __name__ == '__main__':
+
+if __name__ == "__main__":
     try:
         followed = get_following(sys.argv[1])
         print("\n".join(is_online(followed)))
