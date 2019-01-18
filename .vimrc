@@ -35,7 +35,7 @@ augroup autos
     autocmd BufEnter *.js :setlocal filetype=javascript
     autocmd FileType typescript set noexpandtab
     " New files start in insert
-    autocmd BufNewFile * start
+    " autocmd BufNewFile * start
     " Auto toggle Limelight when using Goyo
     autocmd User GoyoEnter Limelight
     autocmd User GoyoLeave Limelight!
