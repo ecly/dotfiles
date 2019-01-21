@@ -30,6 +30,7 @@ if [ "$HOSTNAME" = ecly ]; then
 else
     MONITOR=DP1 polybar laptop &
     MONITOR=eDP-1 polybar laptop &
+    MONITOR=eDP1 polybar laptop &
     MONITOR=HDMI1 polybar laptop &
     MONITOR=HDMI2 polybar laptop &
     MONITOR=VIRTUAL3 polybar laptop &
