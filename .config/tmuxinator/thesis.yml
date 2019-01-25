@@ -1,4 +1,4 @@
-# /home/ecly/.config/tmuxinator/thesis.yml
+# /home/ecly/.config/tmuxinator/thesis_prep.yml
 
 name: thesis
 root: ~/
@@ -40,11 +40,11 @@ root: ~/
 # attach: false
 
 # Runs after everything. Use it to attach to tmux with custom options etc.
-# post: tmux -CC attach -t thesis
+# post: tmux -CC attach -t thesis_prep
 
 windows:
   - report:
-      root: ~/Programming/school/thesis/report/
+      root: ~/Programming/school/thesis_prep/report/
       layout: even-horizontal
       panes:
         - vim thesis_prep.tex references.bib
@@ -59,7 +59,7 @@ windows:
       panes:
         -
   - notes:
-      root: ~/Programming/school/thesis/notes
+      root: ~/Programming/school/thesis_prep/notes
       layout: even-horizontal
       panes:
   - papers:
