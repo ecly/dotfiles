@@ -76,6 +76,9 @@ export COQBIN=~/opam-coq.8.6/system/bin/
 # node environment settings
 export NODE_ENV="development"
 
+# nltk data directory
+export NLTK_DATA="~/.local/share/nltk_data"
+
 # Opam setup
 . /home/ecly/opam-coq.8.6/opam-init/init.zsh > /dev/null 2> /dev/null || true
 

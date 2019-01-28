@@ -156,7 +156,7 @@ bindsym $sup+m exec $term -name mutt -e sh ~/Scripts/mutt.sh
 bindsym $sup+s exec slack
 bindsym $sup+i exec $term -name weechat -e weechat
 bindsym $sup+w exec $term -name nmtui -e nmtui-connect
-bindsym $sup+j exec $term -name todo -e nvim ~/Dropbox/irl/todo.txt
+bindsym $sup+j exec $term -name todo -e nvim ~/Documents/irl/todo.txt
 
 # All in one music bind -> d for dance
 bindsym $sup+d exec $term -name dance -e sh ~/Scripts/music_mux.sh
@@ -251,9 +251,6 @@ exec --no-startup-id sh ~/Scripts/nvidia.sh; nitrogen --restore
 exec --no-startup-id sleep 2; sh ~/Scripts/beautify.sh
 
 ###--- Launch Applications/Daemons At Start ---###
-
-# Dropbox won't seem to start without a delay - tray issue
-exec --no-startup-id sleep 10; dropbox
 
 # Setup NetworkManager
 exec --no-startup-id nm-applet
