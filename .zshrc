@@ -55,8 +55,8 @@ source "${HOME}/.config/tmuxinator/tmuxinator.zsh"
 export GOPATH="${HOME}/Programming/go"
 export GOBIN="${GOPATH}/bin"
 export PATH=$GOBIN:$PATH
-
 export PATH=~/.local/bin:$PATH
+export PATH=~/.local/share/tresorit:$PATH
 
 # Stop the lag in vi mode
 export KEYTIMEOUT=1
