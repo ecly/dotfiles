@@ -64,8 +64,8 @@ for_window [instance="ncmpcpp"] focus
 assign [instance="dance"] 3
 for_window [instance="dance"] focus
 assign [instance="cava"] 3
-for_window [class="(?i)spotify"] focus
-assign [class="(?i)spotify"] 3
+for_window [class="Spotify"] move to workspace 3
+for_window [class="Spotify"] focus
 
 # Communication
 assign [class="Slack"] 4
