@@ -63,6 +63,6 @@ windows:
       layout: even-horizontal
       panes:
   - papers:
-      root: ~/Dropbox/books/papers/nlp/
+      root: ~/Documents/books/papers/nlp
       layout: even-horizontal
       panes: ranger .
