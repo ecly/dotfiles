@@ -43,18 +43,13 @@ root: ~/
 # post: tmux -CC attach -t thesis_prep
 
 windows:
-  - report:
-      root: ~/Programming/school/thesis_prep/report/
-      layout: even-horizontal
-      panes:
-        - vim thesis_prep.tex references.bib
-  - namas-pytorch:
-      root: ~/Programming/school/namas_pytorch
+  - thesis:
+      root: ~/Programming/school/thesis
       layout: even-horizontal
       panes:
         -
-  - namas-original:
-      root: ~/Programming/school/NAMAS
+  - namas-pytorch:
+      root: ~/Programming/school/namas_pytorch
       layout: even-horizontal
       panes:
         -
