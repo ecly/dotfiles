@@ -53,11 +53,18 @@ windows:
       layout: even-horizontal
       panes:
         -
+  - adjectives:
+      root: ~/Programming/school/learning_to_negate_adjectives
+      layout: even-horizontal
+      panes:
+        -
   - notes:
       root: ~/Programming/school/thesis_prep/notes
       layout: even-horizontal
       panes:
+        -
   - papers:
       root: ~/Documents/books/papers/nlp
       layout: even-horizontal
-      panes: ranger .
+      panes:
+        - ranger .
