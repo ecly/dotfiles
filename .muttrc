@@ -4,6 +4,9 @@ folder-hook 'workrc' 'source ~/.config/mutt/workrc'
 folder-hook 'educationrc' 'source ~/.config/mutt/educationrc'
 folder-hook 'companyrc' 'source ~/.config/mutt/companyrc'
 
+# Unbinds prior to sourcing to avoid warnings.
+bind    index,editor,browser,attach,pager   g   noop
+
 # Important config for live account
 source "gpg -d ~/.config/mutt/.details.gpg |"
 source "~/.config/mutt/mailboxrc" # Default account
@@ -17,7 +20,9 @@ set mail_check = "10"
 set mailcap_path = ~/.config/mutt/mailcap
 set date_format="%m/%d %I:%M"
 set index_format="%2C %Z %d %-15.15F %s (%-4.4c)"
-set new_mail_command="sh ~/Scripts/mailnotify.sh %n %u&"
+# see possible args:
+# https://neomutt.org/guide/reference.html#status-format
+set new_mail_command="sh ~/Scripts/mailnotify.sh %f %n %u&"
 set wait_key = no
 
 # Settings inspired by https://gist.github.com/bnagy/8914f712f689cc01c267
@@ -86,10 +91,10 @@ bind generic,compose,attach,pager,index d noop
 macro index S ":set confirmappend=no delete=yes\n<tag-prefix><save-message>=Archived\n<sync-mailbox>:set confirmappend=yes delete=ask-yes\n"
 
 # Account changing
-macro index <f1> '<sync-mailbox><refresh><enter-command>source ~/.config/mutt/mailboxrc<enter><change-folder>!<enter>'
-macro index <f2> '<sync-mailbox><refresh><enter-command>source ~/.config/mutt/workrc<enter><change-folder>!<enter>'
-macro index <f3> '<sync-mailbox><refresh><enter-command>source ~/.config/mutt/educationrc<enter><change-folder>!<enter>'
-macro index <f4> '<sync-mailbox><refresh><enter-command>source ~/.config/mutt/companyrc<enter><change-folder>!<enter>'
+macro index ,1 '<sync-mailbox><refresh><enter-command>source ~/.config/mutt/mailboxrc<enter><change-folder>!<enter>'
+macro index ,2 '<sync-mailbox><refresh><enter-command>source ~/.config/mutt/workrc<enter><change-folder>!<enter>'
+macro index ,3 '<sync-mailbox><refresh><enter-command>source ~/.config/mutt/educationrc<enter><change-folder>!<enter>'
+macro index ,4 '<sync-mailbox><refresh><enter-command>source ~/.config/mutt/companyrc<enter><change-folder>!<enter>'
 
 # Mailbox navigation
 # --- Sourced --- #
@@ -133,7 +138,7 @@ bind index                      za  collapse-thread
 bind index                      zA  collapse-all # Missing :folddisable/foldenabl
 
 # Index navigation
-bind    editor  <space>     noop
+bind    index   <space>     noop
 bind    index   \cd         half-down
 bind    index   \cu         half-up
 bind    index   dd          delete-message
