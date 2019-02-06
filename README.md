@@ -53,6 +53,7 @@ In ranger use 'mkt' on image to have colorscheme generated and applied to everyt
 - [fzf](https://github.com/junegunn/fzf) command line fuzzy finding.
 - [ripgrep](https://github.com/BurntSushi/ripgrep) fast search tool.
 - [urlscan](https://aur.archlinux.org/packages/urlscan-git/) url selection in mutt.
+- [tmuxinator](https://github.com/tmuxinator/tmuxinator) tmux session manager.
 - Probably a couple more things found out the hard way.
 
 ### Laptop only dependencies:
