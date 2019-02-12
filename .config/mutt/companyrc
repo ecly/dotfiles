@@ -12,14 +12,7 @@ set spoolfile = "pops://mail.unoeuro.com/Inbox"
 #set postponed = "+Drafts"
 #set trash = "pops://mail.unoeuro.com/Deleted"
 #set record = "+Sent" #- not working
-set header_cache = ~/.config/mutt/Company/cache/headers
-set certificate_file = ~/.config/mutt/certificates
 
 set status_format = "$from -%r-Mutt: %f [Msgs:%?M?%M/?%m%?n? New:%n?%?o? Old:%o?%?d? Del:%d?%?F? Flag:%F?%?t? Tag:%t?%?p? Post:%p?%?b? Inc:%b?%?l? %l?]---(%s/%S)-%>-(%P)---"
 
-# Since none of these currently work with PO3
-#macro index ,i "<change-folder>=Inbox<enter>" "Go to inbox"
-#macro index ,s "<change-folder>=Sent<enter>" "Go to sent"
-#macro index ,d "<change-folder>=Drafts<enter>" "Go to drafts"
-#macro index ,j "<change-folder>=Junk<enter>" "Go to junk"
-#macro index ,t "<change-folder>=Trash<enter>" "Go to trash"
+account-hook $folder "set pop_user=$my_company_email pop_pass=$my_company_password"

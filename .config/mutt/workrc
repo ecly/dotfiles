@@ -12,15 +12,9 @@ set spoolfile = "+INBOX"
 set postponed = "+Drafts"
 set trash = "+Trash"
 set record = "+Sent"
-set header_cache = ~/.config/mutt/Work/cache/headers
-set certificate_file = ~/.config/mutt/certificates
 mailboxes "+INBOX" "+Drafts" "+Trash" "+Sent" "+Archived" "+Junk"
 
-set imap_check_subscribed="yes"
-set imap_list_subscribed="yes"
-set imap_idle
-
-set status_format = "$from -%r-Mutt: %f [Msgs:%?M?%M/?%m%?n? New:%n?%?o? Old:%o?%?d? Del:%d?%?F? Flag:%F?%?t? Tag:%t?%?p? Post:%p?%?b? Inc:%b?%?l? %l?]---(%s/%S)-%>-(%P)---"
+set status_format = "$from: %f [Msgs:%?M?%M/?%m%?n? New:%n?%?o? Old:%o?%?d? Del:%d?%?F? Flag:%F?%?t? Tag:%t?%?p? Post:%p?%?b? Inc:%b?%?l? %l?]"
 
 macro index ,i "<change-folder>=Inbox<enter>" "Go to inbox"
 macro index ,s "<change-folder>=Sent<enter>" "Go to sent"
@@ -31,3 +25,5 @@ macro index ,a "<change-folder>=Archived<enter>" "Go to archived"
 
 # Save mail to Archived
 macro index A ":set confirmappend=no delete=yes\n<save-message>=Archived\n<sync-mailbox>:set confirmappend=yes delete=ask-yes\n"
+
+account-hook $folder "set imap_user=$my_work_email imap_pass=$my_work_password"
