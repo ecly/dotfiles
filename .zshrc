@@ -52,7 +52,7 @@ source "${HOME}/Scripts/functions.sh"
 source "${HOME}/.config/tmuxinator/tmuxinator.zsh"
 
 # Used as directory for binaries for vim go plugin
-export GOPATH="${HOME}/Programming/go"
+export GOPATH="${HOME}/.local/share/go"
 export GOBIN="${GOPATH}/bin"
 export PATH=$GOBIN:$PATH
 export PATH=~/.local/bin:$PATH
@@ -77,7 +77,10 @@ export COQBIN=~/opam-coq.8.6/system/bin/
 export NODE_ENV="development"
 
 # nltk data directory
-export NLTK_DATA="~/.local/share/nltk_data"
+export NLTK_DATA="/home/ecly/.local/share/nltk_data"
+
+# enable iex history
+export ERL_AFLAGS="-kernel shell_history enabled"
 
 # Opam setup
 . /home/ecly/opam-coq.8.6/opam-init/init.zsh > /dev/null 2> /dev/null || true
