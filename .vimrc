@@ -207,6 +207,7 @@ let g:NERDTreeMapActivateNode='l'
 let g:NERDTreeMapCloseDir='h'
 
 " Whitespace settings
+let g:strip_whitespace_confirm=0
 let g:better_whitespace_enabled=1
 let g:strip_whitespace_on_save=1
 let g:better_whitespace_filetypes_blacklist=['ruby', 'markdown',
