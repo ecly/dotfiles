@@ -22,6 +22,7 @@ set hlsearch                    " Highlight searches
 set incsearch                   " Search as typing
 set concealcursor=              " Never conceal anything on current line
 set undofile                    " Use persistent undofiles
+set lazyredraw                  " Speedup large files and macros
 
 " Use comma as leader
 let g:mapleader = ','
@@ -124,6 +125,7 @@ Plug 'xtal8/traces.vim'
 Plug 'AndrewRadev/splitjoin.vim'
 Plug 'ntpeters/vim-better-whitespace'
 Plug 'Chiel92/vim-autoformat'
+Plug 'Konfekt/FastFold'
 
 " --- Git for vim --- "
 Plug 'tpope/vim-fugitive'
@@ -201,8 +203,8 @@ nmap <silent> <leader>ak :ALEPrevious<cr>
 map <C-n> :NERDTreeToggle<CR>
 let g:NERDTreeDirArrowExpandable = '▶'
 let g:NERDTreeDirArrowCollapsible = '▼'
-let g:NERDTreeMapOpenSplit='gh'
-let g:NERDTreeMapOpenVSplit='gv'
+let g:NERDTreeMapOpenSplit='<BS>'
+let g:NERDTreeMapOpenVSplit='\'
 let g:NERDTreeMapActivateNode='l'
 let g:NERDTreeMapCloseDir='h'
 
