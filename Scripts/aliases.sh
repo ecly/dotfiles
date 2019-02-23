@@ -76,6 +76,8 @@ alias cargrep="zgrep -B 10 -A 60 -m 1 -n"
 alias week='date +%V'
 
 # Sped up cd navigation
+alias cd.="cd .."
+alias cd..="cd .."
 alias ..="cd .."
 alias ...="cd ../.."
 alias ....="cd ../../.."
