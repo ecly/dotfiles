@@ -276,6 +276,9 @@ exec --no-startup-id unclutter
 # Start xss-lock to handle screenlocking on systemd-events
 exec --no-startup-id xss-lock -l -- sh ~/Scripts/lock.sh
 
+# Start Tresorit daemon
+exec --no-startup-id ~/.local/share/tresorit/tresorit-daemon
+
 ###--- Scratchpad terminal setup ---###
 for_window [instance="scratch"] floating enable
 for_window [instance="scratch"] resize set 625 400
