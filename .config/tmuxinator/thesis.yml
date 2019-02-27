@@ -43,28 +43,34 @@ root: ~/
 # post: tmux -CC attach -t thesis_prep
 
 windows:
-  - thesis:
-      root: ~/Programming/school/thesis
+  - src:
+      root: ~/Programming/school/thesis/src
       layout: even-horizontal
       panes:
         -
-  - namas-pytorch:
-      root: ~/Programming/school/namas_pytorch
+  - tex:
+      root: ~/Programming/school/thesis/tex
       layout: even-horizontal
       panes:
         -
-  - adjectives:
-      root: ~/Programming/school/learning_to_negate_adjectives
+  - imp:
+      root: ~/Programming/school/summarization_repos/
       layout: even-horizontal
       panes:
         -
-  - notes:
-      root: ~/Programming/school/thesis_prep/notes
+  - txt:
+      root: ~/Programming/school
       layout: even-horizontal
       panes:
-        -
-  - papers:
-      root: ~/Documents/books/papers/nlp
-      layout: even-horizontal
+        - vim ./thesis/todo.md
+        - ranger ./thesis_prep/notes
+  - pdf:
+      root: ~/Documents/books/papers/nlp/summarization
+      layout: tiled
       panes:
         - ranger .
+  - ssh:
+      root: ~/Programming/school/
+      layout: tiled
+      panes:
+        - ssh nlp_cluster
