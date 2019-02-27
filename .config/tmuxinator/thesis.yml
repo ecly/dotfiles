@@ -71,6 +71,7 @@ windows:
         - ranger .
   - ssh:
       root: ~/Programming/school/
-      layout: tiled
+      layout: even-horizontal
       panes:
+        - ssh nlp_cluster
         - ssh nlp_cluster
