@@ -175,6 +175,9 @@ nmap <silent> <leader>f :Autoformat<cr>
 let g:formatdef_black = '"black"'
 let g:formatters_python = ['black']
 
+" Fugitive
+nmap gs :vertical Gstatus<CR>
+
 " GitGutter
 let g:gitgutter_sign_added = '+'
 let g:gitgutter_sign_modified = '∙'
