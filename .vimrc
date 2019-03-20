@@ -162,6 +162,7 @@ Plug 'mgrabovsky/vim-xverif'
 " --- Latex and markdown --- "
 Plug 'lervag/vimtex'
 Plug 'xuhdev/vim-latex-live-preview', { 'for': 'tex' }
+Plug 'ron89/thesaurus_query.vim'
 " Initialize plugin system
 call plug#end()
 
