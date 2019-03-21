@@ -44,12 +44,12 @@ root: ~/
 
 windows:
   - src:
-      root: ~/Programming/school/thesis/src
+      root: ~/Programming/school/thesis_src
       layout: even-horizontal
       panes:
         -
   - tex:
-      root: ~/Programming/school/thesis/tex
+      root: ~/Programming/school/thesis_paper
       layout: even-horizontal
       panes:
         -
@@ -58,19 +58,18 @@ windows:
       layout: even-horizontal
       panes:
         -
-  - txt:
-      root: ~/Programming/school
-      layout: even-horizontal
+  - todo:
+      root: ~/Programming/thesis_paper
+      layout: tiled
       panes:
-        - vim ./thesis/todo.md
-        - ranger ./thesis_prep/notes
+        - vim todo.md
   - pdf:
       root: ~/Documents/books/papers/nlp/summarization
       layout: tiled
       panes:
         - ranger .
   - ssh:
-      root: ~/Programming/school/
+      root: ~/Programming/school/thesis_src
       layout: even-horizontal
       panes:
         - ssh nlp_cluster
