@@ -143,7 +143,6 @@ Plug 'sheerun/vim-polyglot'
 " Haskell
 Plug 'lukerandall/haskellmode-vim'
 Plug 'eagletmt/neco-ghc'
-Plug 'shiena/ghcmod-vim'
 Plug 'Shougo/vimproc.vim', { 'do': 'make' }
 " Elixir
 Plug 'slashmili/alchemist.vim'
