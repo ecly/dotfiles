@@ -59,7 +59,7 @@ windows:
       panes:
         -
   - todo:
-      root: ~/Programming/thesis_paper
+      root: ~/Programming/school/thesis_paper
       layout: tiled
       panes:
         - vim todo.md
