@@ -15,16 +15,18 @@ source "~/.config/mutt/muttcol"
 
 # Other settings
 set editor ="nvim +13 -c 'set nobackup' -c 'set noswapfile' -c 'set nowritebackup' -c 'set tw=72 ft=mail noautoindent'"
-set imap_keepalive = 300
+set imap_keepalive = 180
 unset imap_passive
-set imap_check_subscribed
-set imap_list_subscribed
+set imap_check_subscribed="yes"
+set imap_list_subscribed="yes"
+set smtp_authenticators = "login"
 set imap_idle
-set timeout = 20
-set mail_check = 10
+set timeout = 15
+set mail_check = 90
 set mailcap_path = ~/.config/mutt/mailcap
 set date_format = "%m/%d %I:%M"
-set index_format = "%2C %Z %d %-15.15F %s (%-4.4c)"
+# set index_format = "%2C %Z %d %-15.15F %s (%-4.4c)"
+set index_format=" %?M? ↳&%4C? %Z %D %-15.15n %s"
 # see possible args:
 # https://neomutt.org/guide/reference.html#status-format
 set new_mail_command="sh ~/Scripts/mailnotify.sh %f %n %u &"
@@ -56,7 +58,7 @@ auto_view application/pdf
 set ssl_force_tls=yes
 set ssl_starttls=yes
 set ssl_use_sslv2=no
-set ssl_use_sslv3=no
+set ssl_use_sslv3=yes
 set ssl_use_tlsv1=no
 set ssl_use_tlsv1_1=no
 set ssl_use_tlsv1_2=yes
@@ -70,7 +72,7 @@ set certificate_file=~/.config/mutt/certificates
 ###--- Mutt sorting ---###
 set sort=threads
 set sort_browser=date
-set sort_aux=reverse-last-date-received
+set sort_aux=last-date-received
 
 ###--- Coloring ---###
 mono bold bold
