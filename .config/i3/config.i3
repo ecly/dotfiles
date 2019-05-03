@@ -270,8 +270,8 @@ exec --no-startup-id xinput --set-prop 9 'libinput Accel Speed' 0
 # Allow keyboard toggling using alt + space
 exec --no-startup-id sh ~/Scripts/keymap.sh
 
-# Start unclutter to hide mouse-pointer when unused
-exec --no-startup-id unclutter
+# Start xbanish to hide mouse-pointer when typing
+exec --no-startup-id xbanish
 
 # Start xss-lock to handle screenlocking on systemd-events
 exec --no-startup-id xss-lock -l -- sh ~/Scripts/lock.sh
