@@ -72,7 +72,7 @@ set certificate_file=~/.config/mutt/certificates
 ###--- Mutt sorting ---###
 set sort=threads
 set sort_browser=date
-set sort_aux=last-date-received
+set sort_aux=reverse-last-date-received
 
 ###--- Coloring ---###
 mono bold bold
