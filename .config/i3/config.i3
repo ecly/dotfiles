@@ -59,6 +59,8 @@ for_window [class="(?i)nightly"] focus
 #Enternatain -> music and pdf
 for_window [class="Zathura"] focus
 assign [class="Zathura"] 3
+for_window [class="Evince"] focus
+assign [class="Evince"] 3
 assign [instance="ncmpcpp"] 3
 for_window [instance="ncmpcpp"] focus
 assign [instance="dance"] 3
