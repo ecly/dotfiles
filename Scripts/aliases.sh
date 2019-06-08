@@ -7,6 +7,7 @@ alias poly="nohup sh ~/.config/polybar/launch.sh > /dev/null 2>&1 &"
 alias gsync="grive -p ~/GoogleDrive"
 alias imgur="sh ~/Scripts/imgur.sh"
 alias mutt="sh ~/Scripts/mutt.sh"
+alias evince="evince 2>/dev/null"
 
 # .Xresources handling - reload, merge
 alias xm="xrdb -merge ~/.Xresources"
