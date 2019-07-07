@@ -1,3 +1,2 @@
 #!/bin/sh
-tmux new-session -d 'neomutt'
-tmux -2 attach-session -d
+tmux -2 new-session -A -s mutt 'neomutt'
