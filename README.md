@@ -44,7 +44,7 @@ In ranger use 'mkt' on image to have colorscheme generated and applied to everyt
 - [nvidia-settings](https://www.archlinux.org/packages/extra/x86_64/nvidia-settings/) For script setting up multi-head without screen tearing in X.
 - [imagemagick](https://github.com/ImageMagick/ImageMagick) For i3lock blur effect and pywal.
 - [gnupg](https://www.archlinux.org/packages/core/x86_64/gnupg/) For mutt details.
-- [Terminus](https://www.archlinux.org/packages/community/any/terminus-font); [FontAwesome](https://aur.archlinux.org/packages/ttf-font-awesome/); [Inconsolata](https://www.archlinux.org/packages/community/any/ttf-inconsolata/); [Noto Sans](https://www.archlinux.org/packages/extra/any/noto-fonts/); Fonts used for basically everything.
+- [Terminus](https://www.archlinux.org/packages/community/any/terminus-font); [FontAwesome](https://aur.archlinux.org/packages/ttf-font-awesome/); [Inconsolata](https://www.archlinux.org/packages/community/any/ttf-inconsolata/); [Noto Sans](https://www.archlinux.org/packages/extra/any/noto-fonts/); [Terminus TTF](https://aur.archlinux.org/packages/terminus-font-ttf/); Fonts used for basically everything.
 - [unclutter-xfixes](https://github.com/Airblader/unclutter-xfixes) hide cursor when unused.
 - [highlight](https://www.archlinux.org/packages/community/i686/highlight/) for highlighting in ranger previews.
 - [ffmpegthumbnailer](https://github.com/dirkvdb/ffmpegthumbnailer) for video thumbnails in ranger.
