@@ -89,6 +89,13 @@ command Wq wq
 command W w
 command Q q
 
+" Auto install Plug if not installed
+if empty(glob('~/.vim/autoload/plug.vim'))
+  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+endif
+
 " --- Plugin section --- "
 call plug#begin('~/.vim/plugged')
 
