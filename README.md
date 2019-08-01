@@ -45,14 +45,13 @@ In ranger use 'mkt' on image to have colorscheme generated and applied to everyt
 - [imagemagick](https://github.com/ImageMagick/ImageMagick) For i3lock blur effect and pywal.
 - [gnupg](https://www.archlinux.org/packages/core/x86_64/gnupg/) For mutt details.
 - [Terminus](https://www.archlinux.org/packages/community/any/terminus-font); [FontAwesome](https://aur.archlinux.org/packages/ttf-font-awesome/); [Inconsolata](https://www.archlinux.org/packages/community/any/ttf-inconsolata/); [Noto Sans](https://www.archlinux.org/packages/extra/any/noto-fonts/); [Terminus TTF](https://aur.archlinux.org/packages/terminus-font-ttf/); Fonts used for basically everything.
-- [unclutter-xfixes](https://github.com/Airblader/unclutter-xfixes) hide cursor when unused.
+- [xbanish](https://github.com/jcs/xbanish) hide cursor when unused.
 - [highlight](https://www.archlinux.org/packages/community/i686/highlight/) for highlighting in ranger previews.
 - [ffmpegthumbnailer](https://github.com/dirkvdb/ffmpegthumbnailer) for video thumbnails in ranger.
 - [redshift](https://www.archlinux.org/packages/community/x86_64/redshift/) easy on the eyes at night.
 - [cht.sh](https://github.com/chubin/cheat.sh#command-line-client-chtsh) easy cheat sheet access.
 - [fzf](https://github.com/junegunn/fzf) command line fuzzy finding.
 - [ripgrep](https://github.com/BurntSushi/ripgrep) fast search tool.
-- [urlscan](https://aur.archlinux.org/packages/urlscan-git/) url selection in mutt.
 - [tmuxinator](https://github.com/tmuxinator/tmuxinator) tmux session manager.
 - Probably a couple more things found out the hard way.
 
