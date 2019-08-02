@@ -93,6 +93,7 @@ alias gprune="git fetch -p && git branch -vv | awk '/: gone]/{print $1}' | xargs
 
 # Shortcut for running work script
 alias work="sh ~/Scripts/work.sh"
+alias vm="sh ~/Scripts.vm.sh"
 
 # Start an instance of firefox with no profile
 alias fx="firefox --new-instance --profile $(mktemp -d)"
