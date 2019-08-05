@@ -5,4 +5,5 @@
 xrandr --newmode "1440p"  419.11  3440 3688 4064 4688  1440 1441 1444 1490  -HSync +Vsync; \
 xrandr --addmode Virtual1 1440p; \
 xrandr --output Virtual1 --mode 1440p; \
-sh ~/.config/polybar/launch.sh
+
+nohup sh ~/.config/polybar/launch.sh > /dev/null 2>&1 &
