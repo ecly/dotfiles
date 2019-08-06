@@ -228,6 +228,11 @@ bindsym $mod+Shift+minus resize shrink height 10 px or 10 ppt
 bindsym $mod+z exec --no-startup-id sh ~/Scripts/screenshot_region.sh
 bindsym $mod+Shift+z exec --no-startup-id sh ~/Scripts/screenshot_monitor.sh
 
+# Reset monitor config
+bindsym $sup+0 exec --no-startup-id xrandr --output VIRTUAL3 --off && \
+    xrandr --output eDP1 --auto --primary && \
+    sh ~/.config/polybar/launch.sh
+
 # Rofi keybinds
 bindsym $mod+m exec sh ~/Scripts/rofi.sh run
 bindsym $mod+Shift+m exec sh ~/Scripts/rofi.sh window
