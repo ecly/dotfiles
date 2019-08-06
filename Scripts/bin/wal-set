@@ -8,8 +8,8 @@ source "${HOME}/.cache/wal/colors.sh"
 
 
 reload_dunst() {
-    font="xos4 Terminus 8"
-    geometry="300x5-10+35"
+    font="Terminus (TTF) 14"
+    geometry="300x5-10+45"
     if [ "$HOSTNAME" = trsh ]; then
         font="xos4 Terminus 10"
         geometry="300x5-20+60"
