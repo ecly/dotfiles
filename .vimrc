@@ -137,7 +137,7 @@ Plug 'Konfekt/FastFold'
 
 " --- Git for vim --- "
 Plug 'tpope/vim-fugitive'
-Plug 'airblade/vim-gitgutter'
+Plug 'mhinz/vim-signify'
 
 " --- File browsing --- "
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }"
@@ -229,3 +229,6 @@ let g:better_whitespace_filetypes_blacklist=['ruby', 'markdown',
 
 " Let deoplete-jedi complete instead
 let g:jedi#completions_enabled = 0
+
+" Only check vim diffs with signify
+let g:signify_vcs_list = [ 'git']
