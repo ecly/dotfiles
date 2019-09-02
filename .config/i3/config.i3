@@ -228,8 +228,14 @@ bindsym $mod+Shift+minus resize shrink height 10 px or 10 ppt
 bindsym $mod+z exec --no-startup-id sh ~/Scripts/screenshot_region.sh
 bindsym $mod+Shift+z exec --no-startup-id sh ~/Scripts/screenshot_monitor.sh
 
+# Setup work monitor setup
+bindsym $sup+9 exec --no-startup-id sh ~/Scripts/work.sh
 # Reset monitor config
-bindsym $sup+0 exec --no-startup-id xrandr --output VIRTUAL3 --off && \
+bindsym $sup+0 exec --no-startup-id \
+    xrandr --output VIRTUAL1 --off && \
+    xrandr --output VIRTUAL2 --off && \
+    xrandr --output VIRTUAL3 --off && \
+    xrandr --output VIRTUAL4 --off && \
     xrandr --output eDP1 --auto --primary && \
     sh ~/.config/polybar/launch.sh
 

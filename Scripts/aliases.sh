@@ -92,6 +92,7 @@ alias scratch="urxvt -name scratch -e tmux & disown"
 alias gprune="git fetch -p && git branch -vv | awk '/: gone]/{print $1}' | xargs git branch -d"
 
 # Shortcut for running work script
+alias mirror="sh ~/Scripts/mirror_display.sh"
 alias work="sh ~/Scripts/work.sh"
 alias vm="sh ~/Scripts/vm.sh"
 alias home="sh ~/Scripts/home.sh"

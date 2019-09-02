@@ -29,10 +29,11 @@ if [ "$HOSTNAME" = ecly ]; then
     MONITOR=DP-0 polybar secondary &
 else
     MONITOR=DP1 polybar laptop &
-    MONITOR=eDP-1 polybar laptop &
     MONITOR=eDP1 polybar laptop &
     MONITOR=HDMI1 polybar laptop &
     MONITOR=HDMI2 polybar laptop &
-    MONITOR=Virtual1 polybar laptop &
+    MONITOR=VIRTUAL1 polybar laptop &
+    MONITOR=VIRTUAL2 polybar laptop &
     MONITOR=VIRTUAL3 polybar laptop &
+    MONITOR=VIRTUAL4 polybar laptop &
 fi
