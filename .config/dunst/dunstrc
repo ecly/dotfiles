@@ -1,5 +1,5 @@
 [global]
-    font = "xos4 Terminus 16"
+    font = "Terminus (TTF) 16"
     markup = yes
     format = "<b>%s</b>\n%b"
     sort = yes

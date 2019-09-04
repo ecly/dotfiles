@@ -7,7 +7,7 @@ Change 'ecly' to your username. */
     /* No longer using coloring */
     /* --foreground-alt: var(--color2); */
     /* --foreground-alt-alt: var(--color4); */
-    --font: "xos4 Terminus";
+    --font: "Terminus (TTF)";
 
     /* for thinner tabs */
 	/* --tab-line-color: none !important; */
