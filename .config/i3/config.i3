@@ -184,6 +184,7 @@ bindsym $mod+Shift+i exec --no-startup-id sh ~/Scripts/movesinks.sh 0
 bindsym $mod+p exec --no-startup-id $mute
 bindsym $mod+Up exec --no-startup-id $inc
 bindsym $mod+Down exec --no-startup-id $dec
+bindsym $sup+v exec $term -name pacmixer -e pacmixer
 
 ###--- Command Keybindings ---###
 # focus the parent container
