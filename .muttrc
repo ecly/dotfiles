@@ -1,8 +1,6 @@
 # Folder hooks for multiple accounts
 folder-hook 'mailboxrc' 'source ~/.config/mutt/mailboxrc'
 folder-hook 'workrc' 'source ~/.config/mutt/workrc'
-folder-hook 'educationrc' 'source ~/.config/mutt/educationrc'
-folder-hook 'companyrc' 'source ~/.config/mutt/companyrc'
 
 # Unbinds prior to sourcing to avoid warnings.
 bind    index,editor,browser,attach,pager   g   noop
@@ -17,8 +15,8 @@ source "~/.config/mutt/muttcol"
 set editor ="nvim +13 -c 'set nobackup' -c 'set noswapfile' -c 'set nowritebackup' -c 'set tw=72 ft=mail noautoindent'"
 set imap_keepalive = 180
 unset imap_passive
-set imap_check_subscribed="yes"
-set imap_list_subscribed="yes"
+set imap_check_subscribed
+set imap_list_subscribed
 set smtp_authenticators = "login"
 set imap_idle
 set timeout = 15
@@ -99,8 +97,6 @@ macro index S ":set confirmappend=no delete=yes\n<tag-prefix><save-message>=Arch
 # Account changing
 macro index,pager ,1 '<sync-mailbox><enter-command>source ~/.config/mutt/mailboxrc<enter><change-folder>!<enter>'
 macro index,pager ,2 '<sync-mailbox><enter-command>source ~/.config/mutt/workrc<enter><change-folder>!<enter>'
-macro index,pager ,3 '<sync-mailbox><enter-command>source ~/.config/mutt/educationrc<enter><change-folder>!<enter>'
-macro index,pager ,4 '<sync-mailbox><enter-command>source ~/.config/mutt/companyrc<enter><change-folder>!<enter><refresh>'
 
 # Mailbox navigation
 # --- Sourced --- #

@@ -1,29 +1,34 @@
 # vim: filetype=muttrc
 
 unmailboxes *
+
+# imap settings
 set imap_user = "$my_work_email"
 set imap_pass = "$my_work_password"
-set smtp_url = "smtp://$my_work_email@asmtp.unoeuro.com:587/"
+set folder = "imaps://outlook.office365.com/"
+
+# smtp settings
+set smtp_url = "smtp://$my_work_email@outlook.office365.com:587/"
 set smtp_pass = "$my_work_password"
+
 set from = "$my_work_email"
 set realname = "$my_name"
-set folder = "imaps://mail.unoeuro.com:993"
+set hostname = "$my_work_hostname"
 set spoolfile = "+INBOX"
 set postponed = "+Drafts"
-set trash = "+Trash"
-set record = "+Sent"
-mailboxes "+INBOX" "+Drafts" "+Trash" "+Sent" "+Archived" "+Junk"
+set trash = "+Deleted Items"
+set record = "+Sent Items"
+mailboxes "+INBOX" "+Drafts" "+Deleted Items" "+Sent Items" "+Junk Email" "+Archive"
 
 set status_format = "$from: %f [Msgs:%?M?%M/?%m%?n? New:%n?%?o? Old:%o?%?d? Del:%d?%?F? Flag:%F?%?t? Tag:%t?%?p? Post:%p?%?b? Inc:%b?%?l? %l?]"
 
-macro index ,i "<change-folder>=Inbox<enter>" "Go to inbox"
-macro index ,s "<change-folder>=Sent<enter>" "Go to sent"
-macro index ,d "<change-folder>=Drafts<enter>" "Go to drafts"
-macro index ,j "<change-folder>=Junk<enter>" "Go to junk"
-macro index ,t "<change-folder>=Trash<enter>" "Go to trash"
-macro index ,a "<change-folder>=Archived<enter>" "Go to archived"
+macro index ,i "<change-folder>=INBOX<enter>" "Go to Inbox"
+macro index ,s "<change-folder>=Sent Items<enter>" "Go to Sent"
+macro index ,d "<change-folder>=Drafts<enter>" "Go to Drafts"
+macro index ,j "<change-folder>=Junk Email<enter>" "Go to Junk"
+macro index ,t "<change-folder>=Deleted Items<enter>" "Go to Trash"
+macro index ,a "<change-folder>=Deleted Items<enter>" "Go to Trash"
 
-# Save mail to Archived
 macro index A ":set confirmappend=no delete=yes\n<save-message>=Archived\n<sync-mailbox>:set confirmappend=yes delete=ask-yes\n"
 
 account-hook $folder "set imap_user=$my_work_email imap_pass=$my_work_password"
