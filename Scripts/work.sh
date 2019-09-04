@@ -2,9 +2,9 @@
 xset b off; \
 optirun intel-virtual-output; \
 sleep 3; \
-xrandr --output eDP1 --primary --mode 1920x1080; \
-xrandr --output VIRTUAL1 --mode VIRTUAL1.446-2560x1440 --right-of eDP1; \
-xrandr --output VIRTUAL2 --mode VIRTUAL1.446-2560x1440 --right-of VIRTUAL1; \
+xrandr --output eDP1 --primary --mode 2560x1440; \
+xrandr --output VIRTUAL1 --mode 2560x1440 --right-of eDP1; \
+xrandr --output VIRTUAL2 --mode 2560x1440 --right-of VIRTUAL1; \
 sleep 2; \
 i3-msg "workspace 1, move workspace to output VIRTUAL1"; \
 i3-msg "workspace 2, move workspace to output VIRTUAL2"; \
