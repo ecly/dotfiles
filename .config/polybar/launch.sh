@@ -33,6 +33,7 @@ else
     MONITOR=eDP-1 polybar laptop &
     MONITOR=HDMI1 polybar laptop &
     MONITOR=HDMI2 polybar laptop &
+    MONITOR=Virtual1 polybar laptop &
     MONITOR=VIRTUAL1 polybar laptop &
     MONITOR=VIRTUAL2 polybar laptop &
     MONITOR=VIRTUAL3 polybar laptop &
