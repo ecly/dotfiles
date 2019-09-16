@@ -3,11 +3,11 @@ xset b off; \
 optirun intel-virtual-output; \
 sleep 3; \
 xrandr --output eDP1 --primary --mode 2560x1440; \
-xrandr --output VIRTUAL1 --mode 2560x1440 --right-of eDP1; \
-xrandr --output VIRTUAL2 --mode 2560x1440 --right-of VIRTUAL1; \
+xrandr --output VIRTUAL2 --mode 2560x1440 --right-of eDP1; \
+xrandr --output VIRTUAL1 --mode 2560x1440 --right-of VIRTUAL2; \
 sleep 2; \
-i3-msg "workspace 1, move workspace to output VIRTUAL1"; \
-i3-msg "workspace 2, move workspace to output VIRTUAL2"; \
+i3-msg "workspace 1, move workspace to output VIRTUAL2" > /dev/null; \
+i3-msg "workspace 2, move workspace to output VIRTUAL1" > /dev/null; \
 feh --bg-scale ~/Pictures/wallpapers/wallpaper.jpg; \
 nohup sh ~/.config/polybar/launch.sh > /dev/null 2>&1 &
 
