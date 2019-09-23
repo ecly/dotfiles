@@ -102,3 +102,6 @@ alias fx="firefox --new-instance --profile $(mktemp -d)"
 
 # Check what users are online on twitch for given user"
 alias online="python3 ~/Scripts/check_online.py"
+
+# Connect to workVPN
+alias workvpn="sh ~/Scripts/workvpn.sh"
