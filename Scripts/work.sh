@@ -10,6 +10,7 @@ i3-msg "workspace 1, move workspace to output VIRTUAL2" > /dev/null; \
 i3-msg "workspace 2, move workspace to output VIRTUAL1" > /dev/null; \
 feh --bg-scale ~/Pictures/wallpapers/wallpaper.jpg; \
 nohup sh ~/.config/polybar/launch.sh > /dev/null 2>&1 &
+. /home/ecly/Scripts/workvpn.sh
 
 # remove any modes if they are still there
 # xrandr --delmode VIRTUAL1 2560x1440_60
