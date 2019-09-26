@@ -227,8 +227,9 @@ let g:strip_whitespace_on_save=1
 let g:better_whitespace_filetypes_blacklist=['ruby', 'markdown',
             \ 'diff', 'gitcommit', 'unite', 'qf', 'help']
 
-" Let deoplete-jedi complete instead
-let g:jedi#completions_enabled = 0
 
 " Only check vim diffs with signify
 let g:signify_vcs_list = [ 'git']
+
+" Disable languages that are already managed
+let g:polyglot_disabled = ['python', 'golang', 'elixir', 'i3']
