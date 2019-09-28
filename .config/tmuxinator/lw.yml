@@ -46,13 +46,23 @@ windows:
       layout: even-horizontal
       panes:
         - vim todo.txt
-  - code:
-      root: ~/Programming/work/
+  - cli:
+      root: ~/Programming/work/mlt-modern-mt-cli
       layout: even-horizontal
       panes:
         -
-  - read:
-      root: ~/Documents/books/to_read
+  - modernmt:
+      root: ~/Programming/work/modernmt
+      layout: even-horizontal
+      panes:
+        -
+  - fairseq:
+      root: ~/Programming/work/fairseq
+      layout: even-horizontal
+      panes:
+        -
+  - testbench:
+      root: ~/Programming/work
       layout: even-horizontal
       panes:
         -
