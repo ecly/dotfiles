@@ -91,6 +91,10 @@ export NLTK_DATA="/home/ecly/.local/share/nltk_data"
 # enable iex history
 export ERL_AFLAGS="-kernel shell_history enabled"
 
+# MT installation locations
+export BEERHOME="/home/ecly/.local/share/beer_2.0/"
+export MMTHOME="/home/ecly/Programming/work/modernmt/"
+
 # Import colorscheme from 'wal'
 (cat ~/.cache/wal/sequences &)
 
