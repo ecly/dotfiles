@@ -115,9 +115,6 @@ endif
 Plug 'Shougo/neosnippet'
 Plug 'Shougo/neosnippet-snippets'
 Plug 'w0rp/ale'
-Plug 'jparise/vim-graphql'
-Plug 'elzr/vim-json'
-Plug 'PotatoesMaster/i3-vim-syntax'
 
 " Editing and usability
 Plug 'tpope/vim-commentary'
@@ -142,11 +139,9 @@ Plug 'mhinz/vim-signify'
 " --- File browsing --- "
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }"
 Plug 'junegunn/fzf.vim'
-
 Plug 'scrooloose/nerdtree'
 
 " --- Programming languages --- "
-Plug 'sheerun/vim-polyglot'
 " Haskell
 Plug 'lukerandall/haskellmode-vim'
 Plug 'eagletmt/neco-ghc'
@@ -170,6 +165,10 @@ Plug 'lervag/vimtex'
 Plug 'xuhdev/vim-latex-live-preview', { 'for': 'tex' }
 Plug 'ron89/thesaurus_query.vim'
 Plug 'plasticboy/vim-markdown'
+" Misc.
+Plug 'jparise/vim-graphql'
+Plug 'elzr/vim-json'
+Plug 'PotatoesMaster/i3-vim-syntax'
 " Initialize plugin system
 call plug#end()
 
@@ -230,6 +229,3 @@ let g:better_whitespace_filetypes_blacklist=['ruby', 'markdown',
 
 " Only check vim diffs with signify
 let g:signify_vcs_list = [ 'git']
-
-" Disable languages that are already managed
-let g:polyglot_disabled = ['python', 'golang', 'elixir', 'i3']
