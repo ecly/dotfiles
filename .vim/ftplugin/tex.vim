@@ -31,3 +31,6 @@ let g:deoplete#omni#input_patterns.tex = g:vimtex#re#deoplete
 let g:vimtex_quickfix_open_on_warning = 0
 let g:vimtex_quickfix_autoclose_after_keystrokes=2
 let g:vimtex_quickfix_mode=2  " open on errors without focus
+
+" use neovim-remote for callbacks
+let g:vimtex_compiler_progname = 'nvr'

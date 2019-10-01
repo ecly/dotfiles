@@ -96,7 +96,23 @@ if empty(glob('~/.vim/autoload/plug.vim'))
   autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
 endif
 
+
 " --- Plugin section --- "
+let g:coc_global_extensions = [
+\ 'coc-ultisnips',
+\ 'coc-json',
+\ 'coc-tsserver',
+\ 'coc-html',
+\ 'coc-css',
+\ 'coc-yaml',
+\ 'coc-elixir',
+\ 'coc-snippets',
+\ 'coc-rls',
+\ 'coc-java',
+\ 'coc-yaml',
+\ 'coc-vimtex',
+\ ]
+
 call plug#begin('~/.vim/plugged')
 
 " --- Theming --- "
@@ -105,13 +121,7 @@ Plug 'itchyny/lightline.vim'
 Plug 'taohexxx/lightline-buffer'
 
 " --- Completion and syntax --- "
-if has('nvim')
-  Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-else
-  Plug 'Shougo/deoplete.nvim'
-  Plug 'roxma/nvim-yarp'
-  Plug 'roxma/vim-hug-neovim-rpc'
-endif
+Plug 'neoclide/coc.nvim', {'branch': 'release'}"
 Plug 'Shougo/neosnippet'
 Plug 'Shougo/neosnippet-snippets'
 Plug 'w0rp/ale'
@@ -143,21 +153,21 @@ Plug 'scrooloose/nerdtree'
 
 " --- Programming languages --- "
 " Haskell
-Plug 'lukerandall/haskellmode-vim'
-Plug 'eagletmt/neco-ghc'
-Plug 'Shougo/vimproc.vim', { 'do': 'make' }
+" Plug 'lukerandall/haskellmode-vim'
+" Plug 'eagletmt/neco-ghc'
+" Plug 'Shougo/vimproc.vim', { 'do': 'make' }
 " Elixir
-Plug 'slashmili/alchemist.vim'
+" Plug 'slashmili/alchemist.vim'
 Plug 'elixir-editors/vim-elixir'
 " Go
 Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries' }
 " Python
-Plug 'davidhalter/jedi-vim'
-Plug 'zchee/deoplete-jedi'
+" Plug 'davidhalter/jedi-vim'
+" Plug 'zchee/deoplete-jedi'
 " Javascript
-Plug 'leafgarland/typescript-vim'
-Plug 'pangloss/vim-javascript'
-Plug 'mxw/vim-jsx'
+" Plug 'leafgarland/typescript-vim'
+" Plug 'pangloss/vim-javascript'
+" Plug 'mxw/vim-jsx'
 " Proverif
 Plug 'mgrabovsky/vim-xverif'
 " --- Latex and markdown --- "
@@ -229,3 +239,5 @@ let g:better_whitespace_filetypes_blacklist=['ruby', 'markdown',
 
 " Only check vim diffs with signify
 let g:signify_vcs_list = [ 'git']
+" Use NVR for vimtex compilation
+let g:vimtex_compiler_progname = 'nvr'
