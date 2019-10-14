@@ -12,24 +12,20 @@ let g:lightline = {
     \ },
     \ 'tabline': {
     \   'left': [[ 'separator' ],
-    \             [ 'bufferbefore', 'buffercurrent', 'bufferafter' ],],
+    \             [ 'buffers' ],],
     \   'right': [],
     \ },
     \ 'component_expand': {
     \   'linter_warnings': 'LightlineLinterWarnings',
     \   'linter_errors': 'LightlineLinterErrors',
     \   'linter_ok': 'LightlineLinterOK',
-    \   'buffercurrent': 'lightline#buffer#buffercurrent',
-    \   'bufferbefore': 'lightline#buffer#bufferbefore',
-    \   'bufferafter': 'lightline#buffer#bufferafter',
+    \   'buffers': 'lightline#bufferline#buffers',
     \ },
     \ 'component_type': {
     \   'readonly': 'error',
     \   'linter_warnings': 'warning',
     \   'linter_errors': 'error',
-    \   'buffercurrent': 'tabsel',
-    \   'bufferbefore': 'raw',
-    \   'bufferafter': 'raw',
+    \   'buffers': 'tabsel',
     \ },
     \ 'component_function': {
     \   'gitbranch': 'fugitive#head',

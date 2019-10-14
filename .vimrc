@@ -98,6 +98,7 @@ endif
 
 
 " --- Plugin section --- "
+" Coc extensions
 let g:coc_global_extensions = [
 \ 'coc-ultisnips',
 \ 'coc-json',
@@ -109,6 +110,7 @@ let g:coc_global_extensions = [
 \ 'coc-snippets',
 \ 'coc-rls',
 \ 'coc-java',
+\ 'coc-omnisharp',
 \ 'coc-yaml',
 \ 'coc-vimtex',
 \ ]
@@ -118,31 +120,27 @@ call plug#begin('~/.vim/plugged')
 " --- Theming --- "
 Plug 'dylanaraps/wal'
 Plug 'itchyny/lightline.vim'
-Plug 'taohexxx/lightline-buffer'
+Plug 'mengelbrecht/lightline-bufferline'
 
-" --- Completion and syntax --- "
+" " --- Completion and syntax --- "
 Plug 'neoclide/coc.nvim', {'branch': 'release'}"
-Plug 'Shougo/neosnippet'
-Plug 'Shougo/neosnippet-snippets'
-Plug 'w0rp/ale'
 
 " Editing and usability
 Plug 'tpope/vim-commentary'
 Plug 'godlygeek/tabular'
 Plug 'tpope/vim-surround'
-Plug 'ervandew/supertab'
 Plug 'chrisbra/Colorizer'
-Plug 'nathanaelkane/vim-indent-guides'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'junegunn/goyo.vim'
 Plug 'junegunn/limelight.vim'
 Plug 'xtal8/traces.vim'
 Plug 'AndrewRadev/splitjoin.vim'
 Plug 'ntpeters/vim-better-whitespace'
-Plug 'Chiel92/vim-autoformat'
 Plug 'Konfekt/FastFold'
+Plug 'SirVer/ultisnips'
+" Plug 'honza/vim-snippets'
 
-" --- Git for vim --- "
+" " --- Git for vim --- "
 Plug 'tpope/vim-fugitive'
 Plug 'mhinz/vim-signify'
 
@@ -151,25 +149,11 @@ Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }"
 Plug 'junegunn/fzf.vim'
 Plug 'scrooloose/nerdtree'
 
-" --- Programming languages --- "
-" Haskell
-" Plug 'lukerandall/haskellmode-vim'
-" Plug 'eagletmt/neco-ghc'
-" Plug 'Shougo/vimproc.vim', { 'do': 'make' }
+" --- Language specific plugs --- "
 " Elixir
-" Plug 'slashmili/alchemist.vim'
 Plug 'elixir-editors/vim-elixir'
 " Go
 Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries' }
-" Python
-" Plug 'davidhalter/jedi-vim'
-" Plug 'zchee/deoplete-jedi'
-" Javascript
-" Plug 'leafgarland/typescript-vim'
-" Plug 'pangloss/vim-javascript'
-" Plug 'mxw/vim-jsx'
-" Proverif
-Plug 'mgrabovsky/vim-xverif'
 " --- Latex and markdown --- "
 Plug 'lervag/vimtex'
 Plug 'xuhdev/vim-latex-live-preview', { 'for': 'tex' }
@@ -187,18 +171,8 @@ syntax enable                   " syntax highlighting on
 filetype plugin indent on       " filetype specific declarations
 colorscheme wal
 
-" Autoformat bindings
-nmap <silent> <leader>f :Autoformat<cr>
-let g:formatdef_black = '"black"'
-let g:formatters_python = ['black']
-
 " Fugitive
 nmap gs :vertical Gstatus<CR>
-
-" GitGutter
-let g:gitgutter_sign_added = '+'
-let g:gitgutter_sign_modified = '∙'
-let g:gitgutter_sign_removed = '-'
 
 " Settings for fzf.vim
 " https://github.com/junegunn/fzf.vim/issues/47
@@ -241,3 +215,6 @@ let g:better_whitespace_filetypes_blacklist=['ruby', 'markdown',
 let g:signify_vcs_list = [ 'git']
 " Use NVR for vimtex compilation
 let g:vimtex_compiler_progname = 'nvr'
+
+" Since we use coc for snippets, we unbind ultisnips expansion
+let g:UltiSnipsExpandTrigger="<nop>"

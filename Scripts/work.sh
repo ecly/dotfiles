@@ -2,7 +2,7 @@
 xset b off; \
 optirun intel-virtual-output; \
 sleep 3; \
-xrandr --output eDP1 --primary --mode 2560x1440; \
+xrandr --output eDP1 --primary --mode 1920x1080; \
 xrandr --output VIRTUAL2 --mode 2560x1440 --right-of eDP1; \
 xrandr --output VIRTUAL1 --mode 2560x1440 --right-of VIRTUAL2; \
 sleep 2; \
