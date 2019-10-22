@@ -150,6 +150,8 @@ Plug 'junegunn/fzf.vim'
 Plug 'scrooloose/nerdtree'
 
 " --- Language specific plugs --- "
+" Python
+Plug 'alfredodeza/pytest.vim'
 " Elixir
 Plug 'elixir-editors/vim-elixir'
 " Go
