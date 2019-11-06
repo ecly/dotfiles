@@ -56,6 +56,11 @@ windows:
       layout: even-horizontal
       panes:
         -
+  - engine-builder:
+      root: ~/Programming/work/mlt-mt-engine-builder
+      layout: even-horizontal
+      panes:
+        -
   - fairseq:
       root: ~/Programming/work/fairseq
       layout: even-horizontal
