@@ -20,26 +20,28 @@
 
 
 ! urvxt setup
-URxvt*perl-ext-common:  resize-font,selection-to-clipboard,matcher
-URxvt*font:             xft:FONT:pixelsize=SIZE:style=Regular:antialias=true, \
-                        xft:Inconsolata:pixelsize=SIZE:style=Regular:antiaalias=true
-URxvt*boldFont:         xft:FONT:pixelsize=SIZE:style=Bold:antialias=true, \
-                        xft:Inconsolata:pixelsize=SIZE:style=Bold:antiaalias=true
-URxvt*url-launcher:     /usr/bin/firefox
-!URxvt*urlLauncher:     /usr/bin/firefox
-URxvt*scrollBar:        false
-!URxvt*scrollBar_right:  true
-URxvt.iso14755:         False
-URxvt*dynamicColors:    on
-URxvt.internalBorder:   10
-URxvt.underlineURLs:    true
-URxvt.matcher.button:   1
-URxvt.copyCommand:      xclip -i -selection clipboard
-URxvt.pasteCommand:     xclip -o -selection clipboard
+URxvt*termName:             rxvt-unicode-256color
+URxvt*perl-ext-common:      resize-font,selection-to-clipboard,matcher
+URxvt*font:                 xft:FONT:pixelsize=SIZE:style=Regular:antialias=true, \
+                            xft:Inconsolata:pixelsize=SIZE:style=Regular:antiaalias=true
+URxvt*boldFont:             xft:FONT:pixelsize=SIZE:style=Bold:antialias=true, \
+                            xft:Inconsolata:pixelsize=SIZE:style=Bold:antiaalias=true
+URxvt*url-launcher:         /usr/bin/firefox
+!URxvt*urlLauncher:         /usr/bin/firefox
+URxvt*scrollBar:            false
+!URxvt*scrollBar_right:      true
+URxvt.iso14755:             False
+URxvt*dynamicColors:        on
+URxvt.internalBorder:       10
+URxvt.underlineURLs:        true
+URxvt.matcher.button:       1
+URxvt.copyCommand:          xclip -i -selection clipboard
+URxvt.pasteCommand:         xclip -o -selection clipboard
+URxvt.cursorBlink:          0
 
 ! urxvt scrolling setup - up and down 10 lines
-URxvt.keysym.Shift-Up: command:\033]720;10\007
-URxvt.keysym.Shift-Down: command:\033]721;10\007
+URxvt.keysym.Shift-Up:      command:\033]720;10\007
+URxvt.keysym.Shift-Down:    command:\033]721;10\007
 
 ! rofi setup
 rofi.color-enabled:         true
