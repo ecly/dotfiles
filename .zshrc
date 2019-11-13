@@ -39,8 +39,10 @@ function zle-keymap-select {
   fi
 }
 zle -N zle-keymap-select
-precmd_functions+=( _set_beam_cursor )
-zle-line-finish() { _set_beam_cursor }
+# ensure beam cursor when starting new terminal
+precmd_functions+=(_set_beam_cursor) #
+# ensure insert mode and beam cursor when exiting vim
+zle-line-init() { zle -K viins; _set_beam_cursor }
 
 # Use vim keys in tab complete menu:
 bindkey -M menuselect 'h' vi-backward-char
