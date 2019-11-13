@@ -19,29 +19,28 @@ PROMPT='[%F{1}%n%f@%F{5}%m%f%F{3}%f]%F{6}~%f '
 bindkey -v
 export KEYTIMEOUT=1
 
-# Change cursor shape for different vi modes, inside/outside tmux.
+# Change cursor with support for inside/outside tmux
+function _set_cursor() {
+    if [[ $TMUX = '' ]]; then
+      echo -ne $1
+    else
+      echo -ne "\ePtmux;\e\e$1\e\\"
+    fi
+}
+
+function _set_block_cursor() { _set_cursor '\e[2 q' }
+function _set_beam_cursor() { _set_cursor '\e[6 q' }
+
 function zle-keymap-select {
   if [[ ${KEYMAP} == vicmd ]] || [[ $1 = 'block' ]]; then
-    # Use a solid block in CMD mode
-    if [[ $TMUX = '' ]]; then
-      echo -ne '\033[2 q'
-    else
-      echo -ne "\033Ptmux;\033\033[2 q\033\\"
-    fi
+      _set_block_cursor
   else
-    if [[ $TMUX = '' ]]; then
-      echo -ne '\033[6 q'
-    else
-      echo -ne "\033Ptmux;\033\033[6 q\033\\"
-    fi
+      _set_beam_cursor
   fi
 }
 zle -N zle-keymap-select
-_fix_cursor() {
-   echo -ne '\033[6 q'
-}
-precmd_functions+=(_fix_cursor)
-zle-line-finish() { echo -ne '\033[2 q' }
+precmd_functions+=( _set_beam_cursor )
+zle-line-finish() { _set_beam_cursor }
 
 # Use vim keys in tab complete menu:
 bindkey -M menuselect 'h' vi-backward-char
