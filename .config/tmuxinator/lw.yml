@@ -57,7 +57,12 @@ windows:
       panes:
         -
   - engine-builder:
-      root: ~/Programming/work/mlt-mt-engine-builder
+      root: ~/Programming/work/mlt-modern-mt-engine-builder
+      layout: even-horizontal
+      panes:
+        -
+  - model-trainer:
+      root: ~/Programming/work/mlt-modern-mt-model-trainer
       layout: even-horizontal
       panes:
         -
