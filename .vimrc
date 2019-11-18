@@ -137,7 +137,8 @@ Plug 'Konfekt/FastFold'
 Plug 'SirVer/ultisnips'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'tmux-plugins/vim-tmux-focus-events'
-Plug 'romxa/vim-tmux-clipboard'
+Plug 'tmux-plugins/vim-tmux'
+Plug 'roxma/vim-tmux-clipboard'
 " Plug 'honza/vim-snippets'
 
 " " --- Git for vim --- "
