@@ -136,6 +136,7 @@ Plug 'AndrewRadev/splitjoin.vim'
 Plug 'ntpeters/vim-better-whitespace'
 Plug 'Konfekt/FastFold'
 Plug 'SirVer/ultisnips'
+Plug 'tmux-plugins/vim-tmux-focus-events'
 " Plug 'honza/vim-snippets'
 
 " " --- Git for vim --- "
