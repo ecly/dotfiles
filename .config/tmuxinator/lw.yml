@@ -61,8 +61,8 @@ windows:
       layout: even-horizontal
       panes:
         -
-  - model-trainer:
-      root: ~/Programming/work/mlt-modern-mt-model-trainer
+  - exps:
+      root: ~/Programming/work/mlt-modern-mt-experiments
       layout: even-horizontal
       panes:
         -
@@ -71,7 +71,12 @@ windows:
       layout: even-horizontal
       panes:
         -
-  - testbench:
+  - tb1:
+      root: ~/Programming/work
+      layout: even-horizontal
+      panes:
+        -
+  - tb2:
       root: ~/Programming/work
       layout: even-horizontal
       panes:
