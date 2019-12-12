@@ -82,6 +82,8 @@ assign [instance="weechat"] 4
 for_window [instance="weechat"] focus
 assign [class="(?i)teams"] 4
 for_window [class="(?i)teams"] focus
+assign [class="(?i)signal"] 4
+for_window [class="(?i)signal"] focus
 
 #Video
 assign [class="mpv"] 5
