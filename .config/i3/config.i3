@@ -80,6 +80,8 @@ assign [instance="mutt"] 4
 for_window [instance="mutt"] focus
 assign [instance="weechat"] 4
 for_window [instance="weechat"] focus
+assign [class="(?i)teams"] 4
+for_window [class="(?i)teams"] focus
 
 #Video
 assign [class="mpv"] 5
@@ -214,7 +216,7 @@ bindsym $mod+Shift+8 move container to workspace 8
 bindsym $mod+Shift+9 move container to workspace 9
 bindsym $mod+Shift+0 move container to workspace 10
 
-# reload the configuration file
+# reload i3 config
 bindsym $mod+Shift+c reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+Shift+r restart
