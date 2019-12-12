@@ -21,9 +21,9 @@ macro index ,s "<change-folder>=Sent<enter>" "Go to sent"
 macro index ,d "<change-folder>=Drafts<enter>" "Go to drafts"
 macro index ,j "<change-folder>=Junk<enter>" "Go to junk"
 macro index ,t "<change-folder>=Trash<enter>" "Go to trash"
-macro index ,a "<change-folder>=Archived<enter>" "Go to archived"
+macro index ,a "<change-folder>=Archive<enter>" "Go to archived"
 
 # Save mail to Archived
-macro index A ":set confirmappend=no delete=yes\n<save-message>=Archived\n<sync-mailbox>:set confirmappend=yes delete=ask-yes\n"
+macro index A ":set confirmappend=no delete=yes\n<save-message>=Archive\n<sync-mailbox>:set confirmappend=yes delete=ask-yes\n"
 
 account-hook $folder "set imap_user=$my_mailbox_email imap_pass=$my_mailbox_password"
