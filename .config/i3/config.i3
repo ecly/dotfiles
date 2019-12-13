@@ -57,14 +57,16 @@ assign [class="(?i)nightly"] 1
 for_window [class="(?i)nightly"] focus
 
 #Enternatain -> music and pdf
-for_window [class="Zathura"] focus
-assign [class="Zathura"] 3
-for_window [class="Evince"] focus
-assign [class="Evince"] 3
-assign [instance="ncmpcpp"] 3
+for_window [class="(?i)zathura"] focus
+assign [class="(?i)zathura"] 3
+for_window [class="(?i)evince"] focus
+assign [class="(?i)evince"] 3
+for_window [class="(?i)acroread"] focus
+assign [class="(?i)acroread"] 3
 for_window [instance="ncmpcpp"] focus
-assign [instance="dance"] 3
+assign [instance="ncmpcpp"] 3
 for_window [instance="dance"] focus
+assign [instance="dance"] 3
 assign [instance="cava"] 3
 for_window [class="Spotify"] move to workspace 3
 for_window [class="Spotify"] focus
