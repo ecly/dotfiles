@@ -71,12 +71,7 @@ windows:
       layout: even-horizontal
       panes:
         -
-  - tb1:
-      root: ~/Programming/work
-      layout: even-horizontal
-      panes:
-        -
-  - tb2:
+  - cph:
       root: ~/Programming/work
       layout: even-horizontal
       panes:
