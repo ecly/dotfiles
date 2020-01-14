@@ -88,3 +88,7 @@ function weather() {
 function twitch() {
     nohup streamlink -p mpv twitch.tv/$@ best > /dev/null 2>&1 &
 }
+
+function kattis() {
+    mkdir $1; cd $1; vim $1.py
+}
