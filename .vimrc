@@ -111,6 +111,7 @@ let g:coc_global_extensions = [
 \ 'coc-omnisharp',
 \ 'coc-yaml',
 \ 'coc-vimtex',
+\ 'coc-python',
 \ ]
 
 call plug#begin('~/.vim/plugged')
