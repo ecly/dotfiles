@@ -89,7 +89,9 @@ yay -Syyu --noconfirm \
     biber \
     texlive-lang \
     neovim-remote \
-    python2-pynvim
+    python2-pynvim \
+    npm \
+    yarn
 
 # apply theme
 wal --theme base16-gruvbox-hard
@@ -102,7 +104,11 @@ timedatectl set-ntp true
 
 # additional optional setup
 if [ -e "$1" ]; then
-    yay -S postgresql
+    # setup postgres for development
+    yay -S --noconfirm \
+        postgresql \
+        spotify
+
     runuser -l postgres -c 'initdb -D /var/lib/postgres/data'
     systemctl enable --now postgresql
 fi
