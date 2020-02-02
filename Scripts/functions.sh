@@ -1,3 +1,5 @@
+#!/bin/bash
+
 # Function shortcuts for opening folder/files with various tools
 function c() {
   if [ $# -eq 0 ]; then
@@ -51,7 +53,7 @@ function pdf() {
   if [ $# -eq 0 ]; then
     echo "At least one file expected"
   else
-    zathura $1 & disown
+    zathura "$1" & disown
   fi;
 }
 
@@ -60,7 +62,7 @@ function idea() {
   if [ $# -eq 0 ]; then
     echo "At least one file or folder expected"
   else
-    idea.sh $1 & disown
+    idea.sh "$1" & disown
   fi;
 }
 
@@ -70,8 +72,8 @@ function cpc() {
   elif [ $# -gt 1 ]; then
     echo "Single param expected"
   else
-    OLDBRANCH=`git rev-parse --abbrev-ref HEAD`
-    git checkout $1; git pull; git checkout $OLDBRANCH
+    OLDBRANCH=$(git rev-parse --abbrev-ref HEAD)
+    git checkout "$1"; git pull; git checkout "$OLDBRANCH"
   fi;
 }
 
@@ -81,14 +83,14 @@ function weather() {
   elif [ $# -gt 1 ]; then
     echo "A single country or city is expected"
   else
-    curl -s wttr.in/$1 | head -n -2
+    curl -s wttr.in/"$1" | head -n -2
   fi;
 }
 
 function twitch() {
-    nohup streamlink -p mpv twitch.tv/$@ best > /dev/null 2>&1 &
+    nohup streamlink -p mpv twitch.tv/"$1" best > /dev/null 2>&1 &
 }
 
 function kattis() {
-    mkdir $1; cd $1; vim $1.py
+    mkdir "$1"; cd "$1" || exit; vim "$1".py
 }
