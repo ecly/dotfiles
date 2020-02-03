@@ -1,5 +1,6 @@
 {
     "suggest.timeout": 500,
     "python.pythonPath": "/usr/bin/python3",
-    "python.formatting.provider": "black"
+    "python.formatting.provider": "black",
+    "java.errors.incompleteClasspath.severity": "ignore"
 }
