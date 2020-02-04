@@ -99,6 +99,9 @@ export ERL_AFLAGS="-kernel shell_history enabled"
 export BEERHOME="/home/ecly/.local/share/beer_2.0/"
 export MMTHOME="/home/ecly/Programming/work/modernmt/"
 
+# disable dotnet telemtry
+export DOTNET_CLI_TELEMETRY_OPTOUT=1
+
 # Import colorscheme from 'wal'
 (cat ~/.cache/wal/sequences &)
 
