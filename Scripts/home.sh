@@ -1,3 +1,5 @@
+#!/bin/bash
+
 sh /home/ecly/Scripts/keymap.sh; \
 xset b off; \
 optirun intel-virtual-output; \
