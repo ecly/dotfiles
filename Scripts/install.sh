@@ -91,7 +91,8 @@ yay -Syyu --noconfirm \
     neovim-remote \
     python2-pynvim \
     npm \
-    yarn
+    yarn \
+    nm-connection-editor
 
 # apply theme
 wal --theme base16-gruvbox-hard
