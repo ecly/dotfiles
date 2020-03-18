@@ -82,6 +82,7 @@ yay -Syyu --noconfirm \
     zathura-pdf-mupdf \
     libreoffice \
     wget \
+    zip \
     unzip \
     nodejs-neovim \
     ruby-neovim \
