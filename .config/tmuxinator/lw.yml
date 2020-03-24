@@ -76,3 +76,8 @@ windows:
       layout: even-horizontal
       panes:
         -
+  - trainer:
+      root: ~/Programming/work/mlt-mmtcli-cloud-trainer
+      layout: even-horizontal
+      panes:
+        -
