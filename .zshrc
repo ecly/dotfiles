@@ -102,6 +102,9 @@ export MMTHOME="/home/ecly/Programming/work/modernmt/"
 # disable dotnet telemtry
 export DOTNET_CLI_TELEMETRY_OPTOUT=1
 
+# root directory for local airflow installation
+export AIRFLOW_HOME="/home/ecly/airflow"
+
 # Import colorscheme from 'wal'
 (cat ~/.cache/wal/sequences &)
 
@@ -153,3 +156,9 @@ if [ -f '/home/ecly/.local/share/google-cloud-sdk/path.zsh.inc' ]; then . '/home
 
 # The next line enables shell command completion for gcloud.
 if [ -f '/home/ecly/.local/share/google-cloud-sdk/completion.zsh.inc' ]; then . '/home/ecly/.local/share/google-cloud-sdk/completion.zsh.inc'; fi
+
+# pyenv default config
+export PYENV_ROOT="$HOME/.pyenv"
+if command -v pyenv 1>/dev/null 2>&1; then
+  eval "$(pyenv init -)"
+fi
