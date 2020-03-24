@@ -66,13 +66,13 @@ windows:
       layout: even-horizontal
       panes:
         -
-  - fairseq:
-      root: ~/Programming/work/fairseq
+  - monitor:
+      root: ~/Programming/work/mlt-modern-mt-monitor
       layout: even-horizontal
       panes:
         -
-  - cph:
-      root: ~/Programming/work
+  - airflow:
+      root: ~/Programming/work/mlt-smart-editor-2-logs-pipeline
       layout: even-horizontal
       panes:
         -
