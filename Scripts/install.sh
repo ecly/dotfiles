@@ -109,7 +109,9 @@ if [ -e "$1" ]; then
     # setup postgres for development
     yay -S --noconfirm \
         postgresql \
-        spotify
+        spotify \
+        noto-fonts-cjk \
+        dbeaver
 
     runuser -l postgres -c 'initdb -D /var/lib/postgres/data'
     systemctl enable --now postgresql
