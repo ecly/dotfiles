@@ -1,4 +1,0 @@
-# Changes currently needed to easily use setup with laptop
-
-- Modify font
-- Fix workspace bindings

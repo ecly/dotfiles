@@ -86,6 +86,9 @@ assign [class="(?i)teams"] 4
 for_window [class="(?i)teams"] focus
 assign [class="(?i)signal"] 4
 for_window [class="(?i)signal"] focus
+## Microsoft Teams For Linux floating notifications
+## https://docs.microsoft.com/answers/answers/3420/view.html
+for_window [title="(?i)microsoft teams notification" class="(?i)microsoft teams - preview"] floating enable
 
 #Video
 assign [class="mpv"] 5
