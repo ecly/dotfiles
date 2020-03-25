@@ -6,9 +6,8 @@ folder-hook 'workrc' 'source ~/.config/mutt/workrc'
 bind    index,editor,browser,attach,pager   g   noop
 
 # Important config for live account
-source "gpg -d ~/.config/mutt/.details.gpg |"
+source "gpg -d ~/.config/mutt/mutt_secret_cfg.gpg |"
 source "~/.config/mutt/mailboxrc" # Default account
-source "~/.config/mutt/aliases"
 source "~/.config/mutt/muttcol"
 
 # Other settings
