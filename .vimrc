@@ -140,6 +140,7 @@ Plug 'christoomey/vim-tmux-navigator'
 Plug 'tmux-plugins/vim-tmux-focus-events'
 Plug 'tmux-plugins/vim-tmux'
 Plug 'roxma/vim-tmux-clipboard'
+Plug 'chrisbra/csv.vim'
 " Plug 'psliwka/vim-smoothie'
 " Plug 'honza/vim-snippets'
 
