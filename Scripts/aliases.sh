@@ -61,11 +61,11 @@ alias {vl,more,most,view}="vless"
 alias cfv="vim ~/.vimrc"
 alias cfi="vim ~/.config/i3/config"
 alias cfr="vim ~/.config/ranger/rc.conf"
-alias cfm="vim ~/.muttrc"
+alias cfm="vim ~/.config/mutt/muttrc"
 alias cfp="vim ~/.config/polybar/config"
 alias cfd="vim ~/.config/dunst/dunstrc"
 alias cfx="vim ~/.Xresources"
-alias cfz="vim ~/.zshrc"
+alias cfz="vim ~/.config/zsh/.zshrc"
 alias cft="vim ~/.tmux.conf"
 
 # Used for toggling colors for playing csgo
@@ -117,3 +117,5 @@ alias workvpn="sh ~/Scripts/workvpn.sh"
 
 # Simpler access to lazydocker
 alias lzd="lazydocker"
+
+alias weechat="weechat -d '$HOME/.config/weechat'"
