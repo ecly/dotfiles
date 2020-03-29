@@ -67,6 +67,7 @@ alias cfd="vim ~/.config/dunst/dunstrc"
 alias cfx="vim ~/.Xresources"
 alias cfz="vim ~/.config/zsh/.zshrc"
 alias cft="vim ~/.tmux.conf"
+alias cfa="vim ~/.config/zsh/aliasrc"
 
 # Used for toggling colors for playing csgo
 alias csgo="sh ~/Scripts/vibrance.sh"
@@ -121,5 +122,3 @@ alias lzd="lazydocker"
 # Aliases for cleaning up $HOME
 alias weechat="weechat -d '$HOME/.config/weechat'"
 alias="wget --hsts-file='$HOME/.cache/wget-hsts'"
-
-#
