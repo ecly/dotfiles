@@ -118,4 +118,8 @@ alias workvpn="sh ~/Scripts/workvpn.sh"
 # Simpler access to lazydocker
 alias lzd="lazydocker"
 
+# Aliases for cleaning up $HOME
 alias weechat="weechat -d '$HOME/.config/weechat'"
+alias="wget --hsts-file='$HOME/.cache/wget-hsts'"
+
+#
