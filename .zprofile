@@ -55,6 +55,7 @@ export PGSERVICEFILE="$HOME/.config/pg/pg_service.conf"
 export GRIPHOME="$HOME/.config/grip"
 export CARGO_HOME="$HOME/.local/share/cargo"
 export WEECHAT_HOME="$HOME/.config/weechat"
+export PYTHONSTARTUP="$HOME/.config/pythonrc"
 
 # ensure creation of necessary folders for config
 mkdir -p "$HOME/.config/pg" && mkdir -p "$HOME/.cache/pg"
