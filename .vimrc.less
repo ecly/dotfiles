@@ -13,16 +13,13 @@ set ruler " Position in file
 " When reading from stdin don't consider the file modified.
 au VimEnter * set nomod
 
-" Enable Vundle + Wal for custom highlighting scheme
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin('~/.vim/bundle')
-" let Vundle manage Vundle, required
-Plugin 'VundleVim/Vundle.vim'
-Plugin 'dylanaraps/wal'
-call vundle#end()
+call plug#begin('~/.vim/plugged')
+Plug 'dylanaraps/wal'
+call plug#end()
 
 " Turn syntax on
 syntax enable
+filetype plugin indent on       " filetype specific declarations
 colorscheme wal
 
 " Key bindings.
