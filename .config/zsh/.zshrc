@@ -9,7 +9,7 @@ _comp_options+=(globdots) # Include hidden files.
 # store history in cache directory:
 HISTSIZE=10000
 SAVEHIST=10000
-HISTFILE=~/.cache/zsh/history
+HISTFILE="$HOME/.cache/zsh/history"
 
 # Enable desired plugins with oh my zsh
 plugins=(git)
@@ -68,7 +68,7 @@ source "${HOME}/.config/zsh/functionrc"
 source "${HOME}/.config/tmuxinator/tmuxinator.zsh"
 
 # Import colorscheme from 'wal'
-(cat ~/.cache/wal/sequences &)
+(cat "$HOME/.cache/wal/sequences" &)
 
 # If folder fzf is present with pacman, source binds and completion
 if [ -e /usr/share/fzf/key-bindings.zsh ]; then
@@ -108,7 +108,6 @@ if _has fzf && _has rg; then
     zle     -N   fzf-open-file-or-dir
     bindkey '^P' fzf-open-file-or-dir
 fi
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 # The next line updates PATH for the Google Cloud SDK.
 if [ -f '/home/ecly/.local/share/google-cloud-sdk/path.zsh.inc' ]; then . '/home/ecly/.local/share/google-cloud-sdk/path.zsh.inc'; fi
