@@ -36,7 +36,7 @@ export MMTHOME="/home/ecly/Programming/work/modernmt/"
 export DOTNET_CLI_TELEMETRY_OPTOUT=1
 
 # root directory for local airflow installation
-export AIRFLOW_HOME="/home/ecly/airflow"
+export AIRFLOW_HOME="/home/ecly/.local/share/airflow"
 
 # clean up for home directory
 # based heavily on:
