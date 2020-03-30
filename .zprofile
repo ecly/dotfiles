@@ -1,4 +1,3 @@
-export ZDOTDIR="$HOME/.config/zsh"
 export PATH="$HOME/.cargo/bin:$PATH"
 
 # Used as directory for binaries for vim go plugin
@@ -23,24 +22,21 @@ export HISTCONTROL=ignoredups
 export NODE_ENV="development"
 
 # nltk data directory
-export NLTK_DATA="/home/ecly/.local/share/nltk_data"
+export NLTK_DATA="$HOME/.local/share/nltk_data"
 
 # enable iex history
 export ERL_AFLAGS="-kernel shell_history enabled"
 
 # MT installation locations
-export BEERHOME="/home/ecly/.local/share/beer_2.0/"
-export MMTHOME="/home/ecly/Programming/work/modernmt/"
+export BEERHOME="$HOME/.local/share/beer_2.0/"
+export MMTHOME="$HOME/Programming/work/modernmt/"
 
 # disable dotnet telemtry
 export DOTNET_CLI_TELEMETRY_OPTOUT=1
 
-# root directory for local airflow installation
-export AIRFLOW_HOME="/home/ecly/.local/share/airflow"
-
-# clean up for home directory
-# based heavily on:
+# Clean up for home directory, based heavily on:
 # https://wiki.archlinux.org/index.php/XDG_Base_Directory
+export AIRFLOW_HOME="$HOME/airflow"
 export ZDOTDIR="$HOME/.config/zsh"
 export RUSTUP_HOME="$HOME/.config/rustup"
 export PYLINTHOME="$HOME/.cache/pylint"
@@ -49,6 +45,8 @@ export JUPYTER_CONFIG_DIR="$HOME/.config/jupyter"
 export DOCKER_CONFIG="$HOME/.config/docker"
 export LESSHISTFILE=-
 export MYSQL_HISTFILE="$HOME/.cache/mysql_history"
+# ensure creation of necessary folders for config
+mkdir -p "$HOME/.config/pg" && mkdir -p "$HOME/.cache/pg"
 export PSQL_HISTORY="$HOME/.cache/pg/psql_history"
 export PGPASSFILE="$HOME/.config/pg/pgpass"
 export PGSERVICEFILE="$HOME/.config/pg/pg_service.conf"
@@ -57,8 +55,6 @@ export CARGO_HOME="$HOME/.local/share/cargo"
 export WEECHAT_HOME="$HOME/.config/weechat"
 export PYTHONSTARTUP="$HOME/.config/pythonrc"
 
-# ensure creation of necessary folders for config
-mkdir -p "$HOME/.config/pg" && mkdir -p "$HOME/.cache/pg"
 
 if [ -z "$DISPLAY" ] && [ -n "$XDG_VTNR" ] && [ "$XDG_VTNR" -eq 1 ]; then
   exec startx "$HOME/.config/X11/xinitrc"
