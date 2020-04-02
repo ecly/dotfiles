@@ -36,7 +36,7 @@ export DOTNET_CLI_TELEMETRY_OPTOUT=1
 
 # Clean up for home directory, based heavily on:
 # https://wiki.archlinux.org/index.php/XDG_Base_Directory
-export AIRFLOW_HOME="$HOME/airflow"
+export AIRFLOW_HOME="$HOME/.local/share/airflow"
 export ZDOTDIR="$HOME/.config/zsh"
 export RUSTUP_HOME="$HOME/.config/rustup"
 export PYLINTHOME="$HOME/.cache/pylint"
