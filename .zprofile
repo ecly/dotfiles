@@ -63,6 +63,7 @@ fi
 
 # https://stackoverflow.com/a/18915067/4000764
 SSH_ENV="$HOME/.ssh/environment"
+mkdir -p "$HOME/.ssh/"
 function start_agent {
     echo "Initialising new SSH agent..."
     /usr/bin/ssh-agent | sed 's/^echo/#echo/' > "${SSH_ENV}"
