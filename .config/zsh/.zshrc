@@ -115,10 +115,25 @@ if [ -f '/home/ecly/.local/share/google-cloud-sdk/path.zsh.inc' ]; then . '/home
 # The next line enables shell command completion for gcloud.
 if [ -f '/home/ecly/.local/share/google-cloud-sdk/completion.zsh.inc' ]; then . '/home/ecly/.local/share/google-cloud-sdk/completion.zsh.inc'; fi
 
-# pyenv default config
-export PYENV_ROOT="$HOME/.pyenv"
-if command -v pyenv 1>/dev/null 2>&1; then
-  eval "$(pyenv init -)"
-fi
-
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
+# https://stackoverflow.com/a/18915067/4000764
+SSH_ENV="$HOME/.ssh/environment"
+mkdir -p "$HOME/.ssh/"
+function start_agent {
+    echo "Initialising new SSH agent..."
+    /usr/bin/ssh-agent | sed 's/^echo/#echo/' > "${SSH_ENV}"
+    echo succeeded
+    chmod 600 "${SSH_ENV}"
+    . "${SSH_ENV}" > /dev/null
+    /usr/bin/ssh-add;
+}
+if [ -f "${SSH_ENV}" ]; then
+    . "${SSH_ENV}" > /dev/null
+    #ps ${SSH_AGENT_PID} doesn't work under cywgin
+    ps -ef | grep ${SSH_AGENT_PID} | grep ssh-agent$ > /dev/null || {
+        start_agent;
+    }
+else
+    start_agent;
+fi
