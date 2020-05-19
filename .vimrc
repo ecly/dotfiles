@@ -141,6 +141,7 @@ Plug 'tmux-plugins/vim-tmux-focus-events'
 Plug 'tmux-plugins/vim-tmux'
 Plug 'roxma/vim-tmux-clipboard'
 Plug 'chrisbra/csv.vim'
+Plug 'janko/vim-test'
 " Plug 'psliwka/vim-smoothie'
 " Plug 'honza/vim-snippets'
 
@@ -153,8 +154,6 @@ Plug 'junegunn/fzf.vim'
 Plug 'scrooloose/nerdtree'
 
 " --- Language specific plugs --- "
-" Python
-Plug 'alfredodeza/pytest.vim'
 " Elixir
 Plug 'elixir-editors/vim-elixir'
 " Go
@@ -219,3 +218,10 @@ let g:vimtex_compiler_progname = 'nvr'
 
 " Since we use coc for snippets, we unbind ultisnips expansion
 let g:UltiSnipsExpandTrigger="<nop>"
+
+" vim-test mapping for running tests
+nmap <silent> <leader>tn :TestNearest<CR>
+nmap <silent> <leader>tf :TestFile<CR>
+nmap <silent> <leader>ts :TestSuite<CR>
+nmap <silent> <leader>tl :TestLast<CR>
+nmap <silent> <leader>tg :TestVisit<CR>
