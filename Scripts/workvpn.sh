@@ -1,2 +1,2 @@
 mullvad disconnect
-nmcli con up WorkVPN
+nmcli con up work_vpn --ask
