@@ -74,7 +74,7 @@ yay -Syyu --noconfirm \
     fd \
     feh \
     speedtest-cli \
-    pacmixer \
+    pulsemixer \
     python-pip \
     python-regex \
     python-tqdm \
