@@ -137,3 +137,8 @@ if [ -f "${SSH_ENV}" ]; then
 else
     start_agent;
 fi
+
+# automatically load pyenv
+if _has pyenv; then
+    eval "$(pyenv init -)"
+fi
