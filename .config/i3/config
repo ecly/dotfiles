@@ -253,6 +253,7 @@ bindsym $sup+0 exec --no-startup-id \
 # Rofi keybinds
 bindsym $mod+m exec sh ~/Scripts/rofi.sh run
 bindsym $mod+Shift+m exec sh ~/Scripts/rofi.sh window
+bindsym $mod+b exec sh ~/Scripts/rofi_books.sh window
 
 # Lock screen
 bindsym $sup+l exec --no-startup-id sh ~/Scripts/lock.sh
