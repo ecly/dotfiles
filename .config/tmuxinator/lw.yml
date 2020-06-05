@@ -56,13 +56,8 @@ windows:
       layout: even-horizontal
       panes:
         -
-  - exps:
-      root: ~/Programming/work/mlt-modern-mt-experiments
-      layout: even-horizontal
-      panes:
-        -
   - monitor:
-      root: ~/Programming/work/mlt-modern-mt-monitor
+      root: ~/Programming/work/mlt-system-health-monitor
       layout: even-horizontal
       panes:
         -
