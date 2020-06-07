@@ -142,6 +142,7 @@ Plug 'tmux-plugins/vim-tmux'
 Plug 'roxma/vim-tmux-clipboard'
 Plug 'chrisbra/csv.vim'
 Plug 'janko/vim-test'
+Plug 'ryanoasis/vim-devicons'
 " Plug 'psliwka/vim-smoothie'
 " Plug 'honza/vim-snippets'
 
@@ -218,6 +219,9 @@ let g:vimtex_compiler_progname = 'nvr'
 
 " Since we use coc for snippets, we unbind ultisnips expansion
 let g:UltiSnipsExpandTrigger="<nop>"
+
+" Ensure that devicons work with lightline-bufferline
+let g:lightline#bufferline#enable_devicons = 1
 
 " vim-test mapping for running tests
 nmap <silent> <leader>tn :TestNearest<CR>

@@ -23,9 +23,9 @@ margin-top = 3
 margin-bottom = 3
 
 [bar/main]
-monitor = ${env:MONITOR}
+; monitor = ${env:MONITOR}
 width = 100%
-height = 25
+height = 35
 ;offset-x = 1%
 offset-y = 0%
 radius = 0.0
@@ -37,10 +37,7 @@ foreground = ${colors.foreground}
 line-size = 2
 line-color = #f00
 
-;border-bottom = 0
-;border-top = 15
-;border-right = 25
-;border-left = 25
+border-left = 0
 border-size = 0
 border-color = #00000000
 
@@ -52,48 +49,15 @@ padding-bottom = 2
 module-margin-left = 1
 module-margin-right = 1
 
-font-0 = "Terminus (TTF):pixelsize=14;2"
-font-1 = "FontAwesome:pixelsize=12;2"
-font-2 = "Inconsolata:pixelsize=14;2"
-font-3 = "Noto Sans:size=14;2"
+font-0 = "Terminus (TTF):pixelsize=16;2"
+font-1 = "TerminessTTF Nerd Font Mono:pixelsize=26;4"
 
 modules-left = i3icons
 modules-center = date
-modules-right = vpncheck cpu pulseaudio keyboard
+modules-right = vpncheck cpu memory pulseaudio keyboard battery
 
 ;fix tray position
 ;override-redirect = true
-
-tray-detached = false
-tray-position =
-tray-offset-x = 0
-tray-offset-y = 0
-tray-maxsize = 16
-tray-padding = 0
-tray-scale = 1
-tray-background = ${colors.background}
-
-[bar/secondary]
-; Same as primary with no tray
-inherit = bar/main
-monitor = ${env:MONITOR}
-tray-position =
-
-[bar/laptop]
-inherit = bar/main
-monitor = ${env:MONITOR}
-; high res
-height = 35
-
-modules-left = i3icons
-modules-center = date
-modules-right = vpncheck cpu pulseaudio keyboard battery
-
-font-0 = "Terminus (TTF):pixelsize=16;2"
-font-1 = "FontAwesome:pixelsize=16;3"
-font-2 = "Inconsolata:pixelsize=22;1"
-font-3 = "Noto Sans:size=20;2"
-
 tray-detached = false
 tray-position =
 tray-offset-x = 0
@@ -125,8 +89,6 @@ ws-icon-5 = "6;bit"
 ws-icon-7 = "7;rnd"
 ws-icon-8 = "8;rnd"
 ws-icon-9 = "9;rnd"
-
-;label-mode-padding = 4
 
 ; Only show workspaces on the same output as the bar
 pin-workspaces = false
@@ -160,7 +122,6 @@ label-visible-padding = 1
 inherit = module/i3
 
 # icon definition found in ~/.config/polybar/launch.sh
-
 ws-icon-0 = ${env:POLY_WS_ICON_0}
 ws-icon-1 = ${env:POLY_WS_ICON_1}
 ws-icon-2 = ${env:POLY_WS_ICON_2}
@@ -175,7 +136,7 @@ ws-icon-8 = ${env:POLY_WS_ICON_8}
 [module/cpu]
 type = internal/cpu
 interval = 2
-format-prefix = " "
+format-prefix = " "
 format-prefix-foreground = ${colors.foreground-alt}
 
 format = <label>
@@ -318,3 +279,14 @@ date-alt = "It is day %j, week %V, of year %y of the %Cth century;"
 time = "%I:%M %p"
 time-alt = " %z %Z."
 label = " %date%%time% "
+
+[module/memory]
+type = internal/memory
+interval = 2
+format-prefix = " "
+format-prefix-foreground = ${colors.foreground-alt}
+
+format = <label>
+format-foreground = ${colors.foreground}
+
+label = %percentage_used%%

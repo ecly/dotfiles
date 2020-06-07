@@ -1,35 +1,21 @@
 ! ~/.Xresources
 
-!### C-preprocessing for variable font per machine
-!### Use for different font sizes for laptop/desktop
-!### Assumed to be my desktop if width is 3000 >
-!### Bit of a hack, since I couldnt get host working
 #define FONT Terminus (TTF)
-
-#ifndef SIZE
-#ifndef DPI
-#if WIDTH < 3000
 #define SIZE 22
 #define DPI 96
-#else
-#define SIZE 16
-#define DPI 96
-#endif
-#endif
-#endif
 
 
 ! urvxt setup
 URxvt*termName:             rxvt-256color
 URxvt*perl-ext-common:      resize-font,selection-to-clipboard,matcher
 URxvt*font:                 xft:FONT:pixelsize=SIZE:style=Regular:antialias=true, \
+                            xft:TerminessTTF Nerd Font Mono:pixelsize=SIZE:style=Medium:antiaalias=true, \
                             xft:Inconsolata:pixelsize=SIZE:style=Regular:antiaalias=true
 URxvt*boldFont:             xft:FONT:pixelsize=SIZE:style=Bold:antialias=true, \
+                            xft:TerminessTTF Nerd Font Mono:pixelsize=SIZE:style=Bold:antiaalias=true, \
                             xft:Inconsolata:pixelsize=SIZE:style=Bold:antiaalias=true
 URxvt*url-launcher:         /usr/bin/firefox
-!URxvt*urlLauncher:         /usr/bin/firefox
 URxvt*scrollBar:            false
-!URxvt*scrollBar_right:      true
 URxvt.iso14755:             False
 URxvt*dynamicColors:        on
 URxvt.internalBorder:       10
@@ -52,7 +38,6 @@ rofi.columns:               1
 rofi.yoffset:               0
 rofi.fake-transparency:     false
 rofi.hide-scrollbar:        true
-!rofi.opacity:               90
 
 rofi.location:              0
 rofi.width:                 30

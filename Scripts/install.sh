@@ -43,8 +43,9 @@ yay -Syyu --noconfirm \
     xclip \
     imagemagick \
     gnupg \
-    terminus-font \
+    noto-fonts \
     terminus-font-ttf \
+    nerd-fonts-terminus \
     highlight \
     ffmpegthumbnailer \
     redshift \
@@ -53,8 +54,6 @@ yay -Syyu --noconfirm \
     tmuxinator \
     xbanish \
     ttf-inconsolata \
-    noto-fonts \
-    ttf-font-awesome-4 \
     xorg \
     xorg-xinit \
     zsh-syntax-highlighting \
