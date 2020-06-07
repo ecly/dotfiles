@@ -15,5 +15,4 @@ hlfg=$color0
 exec rofi -show $1  -color-window "$bg, $fg, $border" \
                     -color-normal "$bg, $fg, $bgalt, $hlbg, $hlfg" \
                     -color-urgent "$bg, $urgent, $bgalt, $urgent, $fg" \
-                    -color-active "$bg, $fg, $bgalt, $hlbg, $hlfg" \
-                    -font "Terminus (TTF) 22"
+                    -color-active "$bg, $fg, $bgalt, $hlbg, $hlfg"
