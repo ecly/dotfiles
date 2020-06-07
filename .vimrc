@@ -128,7 +128,6 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}"
 Plug 'tpope/vim-commentary'
 Plug 'godlygeek/tabular'
 Plug 'tpope/vim-surround'
-Plug 'chrisbra/Colorizer'
 Plug 'junegunn/goyo.vim'
 Plug 'junegunn/limelight.vim'
 Plug 'xtal8/traces.vim'
@@ -144,7 +143,6 @@ Plug 'chrisbra/csv.vim'
 Plug 'janko/vim-test'
 Plug 'ryanoasis/vim-devicons'
 " Plug 'psliwka/vim-smoothie'
-" Plug 'honza/vim-snippets'
 
 " " --- Git for vim --- "
 Plug 'tpope/vim-fugitive'
@@ -152,7 +150,7 @@ Plug 'mhinz/vim-signify'
 
 " --- File browsing --- "
 Plug 'junegunn/fzf.vim'
-Plug 'scrooloose/nerdtree'
+Plug 'preservim/nerdtree'
 
 " --- Language specific plugs --- "
 " Elixir
@@ -162,10 +160,8 @@ Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries' }
 " --- Latex and markdown --- "
 Plug 'lervag/vimtex'
 Plug 'xuhdev/vim-latex-live-preview', { 'for': 'tex' }
-Plug 'ron89/thesaurus_query.vim'
 Plug 'plasticboy/vim-markdown'
 " Misc.
-Plug 'jparise/vim-graphql'
 Plug 'elzr/vim-json'
 Plug 'PotatoesMaster/i3-vim-syntax'
 " Initialize plugin system
