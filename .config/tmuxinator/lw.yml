@@ -62,7 +62,7 @@ windows:
       panes:
         -
   - airflow:
-      root: ~/Programming/work/mlt-smart-editor-2-logs-pipeline
+      root: ~/Programming/work/mlt-airflow-pipelines
       layout: even-horizontal
       panes:
         -
