@@ -19,7 +19,7 @@ set $outergap 0
 floating_modifier $mod
 
 # Almost solely used in case of nagbar
-font pango: Terminus (TTF) 12
+font pango: Terminus (TTF) 22
 
 # Do not follow the mouse
 focus_follows_mouse no
@@ -306,7 +306,7 @@ exec --no-startup-id ~/.local/share/tresorit/tresorit-daemon
 
 ###--- Scratchpad terminal setup ---###
 for_window [instance="scratch"] floating enable
-for_window [instance="scratch"] resize set 625 400
+for_window [instance="scratch"] resize set 800 600
 for_window [instance="scratch"] move position center
 for_window [instance="scratch"] move scratchpad
 exec --no-startup-id $term -name scratch -e tmux
