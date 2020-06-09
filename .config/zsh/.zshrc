@@ -118,7 +118,7 @@ if [ -f '/home/ecly/.local/share/google-cloud-sdk/completion.zsh.inc' ]; then . 
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 # https://stackoverflow.com/a/18915067/4000764
-SSH_ENV="$HOME/.ssh/environment"
+SSH_ENV="$HOME/.ssh/env"
 mkdir -p "$HOME/.ssh/"
 function start_agent {
     echo "Initialising new SSH agent..."
