@@ -1,9 +1,19 @@
 ! ~/.Xresources
+! default dpi is 96 - prefer multiples thereof
 
 #define FONT Terminus (TTF)
+
+#ifndef SIZE
+#ifndef DPI
+#if WIDTH > 4000
+#define SIZE 36
+#define DPI 192
+#else
 #define SIZE 22
 #define DPI 96
-
+#endif
+#endif
+#endif
 
 ! urvxt setup
 URxvt*termName:             rxvt-256color

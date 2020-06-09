@@ -25,4 +25,11 @@ export POLY_WS_ICON_7="8;%{F$foreground_alt}%{F-} rnd"
 export POLY_WS_ICON_8="9;%{F$foreground_alt}%{F-} rnd"
 
 # start one on every possible active monitor
-polybar main &
+# https://github.com/polybar/polybar/issues/763#issuecomment-331604987
+if type "xrandr"; then
+  for m in $(xrandr --query | grep " connected" | cut -d" " -f1); do
+    MONITOR=$m polybar --reload main &
+  done
+else
+  polybar --reload main &
+fi
