@@ -56,8 +56,6 @@ yay -Syyu --noconfirm \
     ttf-inconsolata \
     xorg \
     xorg-xinit \
-    zsh-syntax-highlighting \
-    zsh-completions \
     openssh \
     rxvt-unicode \
     python-pynvim \
