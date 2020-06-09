@@ -90,7 +90,8 @@ yay -Syyu --noconfirm \
     python2-pynvim \
     npm \
     yarn \
-    nm-connection-editor
+    nm-connection-editor \
+    ctags
 
 # apply theme
 wal --theme base16-gruvbox-hard
