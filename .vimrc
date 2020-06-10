@@ -145,8 +145,8 @@ Plug 'ryanoasis/vim-devicons'
 " Plug 'psliwka/vim-smoothie'
 
 " " --- Git for vim --- "
-Plug 'tpope/vim-fugitive'
-Plug 'mhinz/vim-signify'
+" Plug 'tpope/vim-fugitive'
+" Plug 'mhinz/vim-signify'
 
 " --- File browsing --- "
 Plug 'junegunn/fzf.vim'
@@ -225,3 +225,10 @@ nmap <silent> <leader>tf :TestFile<CR>
 nmap <silent> <leader>ts :TestSuite<CR>
 nmap <silent> <leader>tl :TestLast<CR>
 nmap <silent> <leader>tg :TestVisit<CR>
+
+" configuration for vimdiff
+if &diff
+    map <leader>l :diffget LOCAL<CR>
+    map <leader>b :diffget BASE<CR>
+    map <leader>r :diffget REMOTE<CR>
+endif

@@ -8,7 +8,7 @@ let g:lightline = {
     \ 'colorscheme': 'seoul256',
     \ 'active': {
     \   'left': [['mode', 'paste'], [ 'gitbranch', 'modified']],
-    \   'right': [['lineinfo'], ['percent'], ['readonly', 'linter_warnings', 'linter_errors', 'linter_ok', 'filetype']],
+    \   'right': [['lineinfo'], ['percent'], ['readonly', 'cocstatus', 'filetype']],
     \ },
     \ 'tabline': {
     \   'left': [[ 'separator' ],
@@ -16,51 +16,21 @@ let g:lightline = {
     \   'right': [],
     \ },
     \ 'component_expand': {
-    \   'linter_warnings': 'LightlineLinterWarnings',
-    \   'linter_errors': 'LightlineLinterErrors',
-    \   'linter_ok': 'LightlineLinterOK',
     \   'buffers': 'lightline#bufferline#buffers',
     \ },
     \ 'component_type': {
     \   'readonly': 'error',
-    \   'linter_warnings': 'warning',
-    \   'linter_errors': 'error',
     \   'buffers': 'tabsel',
     \ },
     \ 'component_function': {
     \   'gitbranch': 'fugitive#head',
     \   'bufferinfo': 'lightline#buffer#bufferinfo',
+    \   'cocstatus': 'coc#status',
     \ },
     \ 'component': {
     \   'separator': '',
     \ },
     \ }
-
-
-function! LightlineLinterWarnings() abort
-    let l:counts = ale#statusline#Count(bufnr(''))
-    let l:all_errors = l:counts.error + l:counts.style_error
-    let l:all_non_errors = l:counts.total - l:all_errors
-    return l:counts.total == 0 ? '' : printf('%d ◆', l:all_non_errors)
-endfunction
-
-function! LightlineLinterErrors() abort
-    let l:counts = ale#statusline#Count(bufnr(''))
-    let l:all_errors = l:counts.error + l:counts.style_error
-    let l:all_non_errors = l:counts.total - l:all_errors
-    return l:counts.total == 0 ? '' : printf('%d ✗', l:all_errors)
-endfunction
-
-function! LightlineLinterOK() abort
-    let l:counts = ale#statusline#Count(bufnr(''))
-    let l:all_errors = l:counts.error + l:counts.style_error
-    let l:all_non_errors = l:counts.total - l:all_errors
-    return l:counts.total == 0 ? '✓ ' : ''
-endfunction
-
-augroup updateline
-    autocmd User ALELint call s:MaybeUpdateLightline()
-augroup END
 
 " Update and show lightline but only if it's visible (e.g., not in Goyo)
 function! s:MaybeUpdateLightline()
@@ -68,6 +38,8 @@ function! s:MaybeUpdateLightline()
         call lightline#update()
     end
 endfunction
+
+autocmd User CocStatusChange,CocDiagnosticChange call s:MaybeUpdateLightline()
 
 " Lightline buffer:
 set showtabline=2  " always show tabline
