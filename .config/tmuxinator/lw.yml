@@ -71,3 +71,8 @@ windows:
       layout: even-horizontal
       panes:
         -
+  - mt-api:
+      root: ~/Programming/work/mlt-languagewire-mt-api
+      layout: even-horizontal
+      panes:
+        -
