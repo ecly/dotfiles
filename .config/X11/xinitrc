@@ -1,5 +1,5 @@
 #!/bin/sh
-sh ~/Scripts/wal.sh
+wal -n -R
 [[ -f ~/.Xresources ]] && xrdb -merge -I$HOME ~/.Xresources
 
 # No keyboard beeping
