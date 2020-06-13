@@ -155,9 +155,7 @@ bindsym $mod+Return exec $term -e tmux
 bindsym $mod+Shift+Return exec $term
 bindsym $sup+r exec $term -name ranger -e ranger
 bindsym $mod+r exec $term -name ranger -e ranger
-bindsym $sup+n exec $term -name ncmpcpp -e ncmpcpp; exec --no-startup-id mpc random on; exec --no-startup-id mpc repeat on
 bindsym $sup+t exec $term -name gotop -e gotop
-bindsym $sup+c exec $term -name cava -e cava
 bindsym $sup+b exec firefox
 bindsym $sup+Shift+b exec firefox --private-window
 bindsym $sup+q exec qbittorrent
@@ -252,18 +250,9 @@ bindsym $mod+b exec sh ~/Scripts/rofi_books.sh window
 # Lock screen
 bindsym $sup+l exec --no-startup-id sh ~/Scripts/lock.sh
 
-###--- scripts ran at start ---###
-# Setup triple monitor setup
-#exec --no-startup-id xrandr --auto --output DVI-I-1 --mode 1920x1080 --rate 144 --auto --output HDMI-0 --mode 1920x1080 --rate 60 --left-of DVI-I-1 --auto --output DP-0 --mode 1920x1080 --rate 60 --right-of DVI-I-1 --rotate right
+###--- Scripts ran at start ---###
 
-# Merged nvidia monitor setup with nitrogen as nitrogen won't restore properly till screens are setup
-# Nvidia setup instead of xrandr is to include fix for screen tearing with X and Nvidia proprietary driver
-exec --no-startup-id sh ~/Scripts/nvidia.sh; nitrogen --restore
-
-# Restore wallpaper setup
-#exec --no-startup-id nitrogen --restore
-
-# Wal, dunst and polybar combined - waiting for wal values first
+# dunst and polybar setup
 # Currently wait a bit before executing due to a known bug
 # https://bbs.archlinux.org/viewtopic.php?id=200797
 # Modify sleep time from machine to machine
@@ -275,9 +264,6 @@ exec --no-startup-id sh ~/.config/polybar/launch.sh
 
 # Setup NetworkManager
 exec --no-startup-id nm-applet
-
-# Start Mopidy Server
-exec --no-startup-id mopidy
 
 # Save the eyes with redshift
 exec --no-startup-id redshift -l 59.334591:18.063240

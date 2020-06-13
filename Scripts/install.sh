@@ -19,16 +19,10 @@ yay -Syyu --noconfirm \
     dunst \
     ranger \
     mpv \
-    mpd \
-    mopidy \
-    mopidy-spotify \
-    ncmpcpp \
-    cava \
     neomutt \
     neofetch \
     i3lock \
     maim \
-    nitrogen \
     sxiv \
     firefox \
     weechat \
@@ -69,7 +63,6 @@ yay -Syyu --noconfirm \
     python-jedi \
     urxvt-resize-font \
     fd \
-    feh \
     speedtest-cli \
     pulsemixer \
     python-pip \
