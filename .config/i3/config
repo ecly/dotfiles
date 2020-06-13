@@ -267,7 +267,9 @@ exec --no-startup-id sh ~/Scripts/nvidia.sh; nitrogen --restore
 # Currently wait a bit before executing due to a known bug
 # https://bbs.archlinux.org/viewtopic.php?id=200797
 # Modify sleep time from machine to machine
-exec --no-startup-id sleep 2; sh ~/Scripts/beautify.sh
+exec --no-startup-id sleep 2; sh ~/Scripts/dunst.sh
+exec --no-startup-id sh ~/.config/polybar/launch.sh
+
 
 ###--- Launch Applications/Daemons At Start ---###
 
