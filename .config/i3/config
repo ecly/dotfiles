@@ -65,9 +65,6 @@ for_window [class="(?i)acroread"] focus
 assign [class="(?i)acroread"] 3
 for_window [instance="ncmpcpp"] focus
 assign [instance="ncmpcpp"] 3
-for_window [instance="dance"] focus
-assign [instance="dance"] 3
-assign [instance="cava"] 3
 for_window [class="Spotify"] move to workspace 3
 for_window [class="Spotify"] focus
 
@@ -169,9 +166,6 @@ bindsym $sup+s exec slack
 bindsym $sup+i exec $term -name weechat -e weechat
 bindsym $sup+w exec $term -name nmtui -e nmtui-connect
 bindsym $sup+j exec $term -name todo -e nvim ~/Documents/irl/todo.txt
-
-# All in one music bind -> d for dance
-bindsym $sup+d exec $term -name dance -e sh ~/Scripts/music_mux.sh
 
 ###--- Audo and Music definitions---###
 set $pause mpc toggle
