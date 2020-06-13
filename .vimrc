@@ -145,8 +145,7 @@ Plug 'ryanoasis/vim-devicons'
 " Plug 'psliwka/vim-smoothie'
 
 " " --- Git for vim --- "
-" Plug 'tpope/vim-fugitive'
-" Plug 'mhinz/vim-signify'
+Plug 'tpope/vim-fugitive'
 
 " --- File browsing --- "
 Plug 'junegunn/fzf.vim'
@@ -190,7 +189,6 @@ let g:fzf_action = {
   \ 'ctrl-h': 'split',
   \ 'ctrl-v': 'vsplit' }
 
-
 " Nerdtree binds to make it behave more like ranger
 map <C-n> :NERDTreeToggle<CR>
 let g:NERDTreeDirArrowExpandable = '▶'
@@ -212,23 +210,13 @@ let g:better_whitespace_filetypes_blacklist=['ruby', 'markdown',
 let g:signify_vcs_list = [ 'git']
 " Use NVR for vimtex compilation
 let g:vimtex_compiler_progname = 'nvr'
-
 " Since we use coc for snippets, we unbind ultisnips expansion
 let g:UltiSnipsExpandTrigger="<nop>"
-
 " Ensure that devicons work with lightline-bufferline
 let g:lightline#bufferline#enable_devicons = 1
-
 " vim-test mapping for running tests
 nmap <silent> <leader>tn :TestNearest<CR>
 nmap <silent> <leader>tf :TestFile<CR>
 nmap <silent> <leader>ts :TestSuite<CR>
 nmap <silent> <leader>tl :TestLast<CR>
 nmap <silent> <leader>tg :TestVisit<CR>
-
-" configuration for vimdiff
-if &diff
-    map <leader>l :diffget LOCAL<CR>
-    map <leader>b :diffget BASE<CR>
-    map <leader>r :diffget REMOTE<CR>
-endif
