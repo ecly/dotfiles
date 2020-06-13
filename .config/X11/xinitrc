@@ -1,8 +1,5 @@
 #!/bin/sh
-wal -n -R
+wal -n -R # generate and expose colors with wal based on cache
 [[ -f ~/.Xresources ]] && xrdb -merge -I$HOME ~/.Xresources
-
-# No keyboard beeping
-xset b off
-
+xset b off # No keyboard beeping
 exec i3
