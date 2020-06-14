@@ -11,8 +11,11 @@ HISTSIZE=10000
 SAVEHIST=10000
 HISTFILE="$HOME/.cache/zsh/history"
 
-# Enable desired plugins with oh my zsh
-plugins=(git)
+# Enable desired plugins for oh my zsh
+plugins=(git ssh-agent)
+# configure default added keys for ssh-agent plugin
+zstyle :omz:plugins:ssh-agent identities azure_devops_rsa bitbucket
+
 PROMPT='[%F{1}%n%f@%F{5}%m%f%F{3}%f]%F{6}~%f '
 
 # Setup vi mode
@@ -48,6 +51,7 @@ bindkey -M menuselect 'h' vi-backward-char
 bindkey -M menuselect 'k' vi-up-line-or-history
 bindkey -M menuselect 'l' vi-forward-char
 bindkey -M menuselect 'j' vi-down-line-or-history
+
 bindkey -v '^?' backward-delete-char
 
 bindkey '^R' history-incremental-search-backward
@@ -115,30 +119,22 @@ if [ -f '/home/ecly/.local/share/google-cloud-sdk/path.zsh.inc' ]; then . '/home
 # The next line enables shell command completion for gcloud.
 if [ -f '/home/ecly/.local/share/google-cloud-sdk/completion.zsh.inc' ]; then . '/home/ecly/.local/share/google-cloud-sdk/completion.zsh.inc'; fi
 
-source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+# Get syntax highlighting in .zsh
+if [ -f '/usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh' ]; then . '/usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh'; fi
+# Get auto-suggestions in .zsh
+if [ -f '/usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh' ]; then . '/usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh'; fi
+bindkey '^ ' autosuggest-accept # use ctrl+space to accept auto-suggestions
 
-# https://stackoverflow.com/a/18915067/4000764
-SSH_ENV="$HOME/.ssh/env"
-mkdir -p "$HOME/.ssh/"
-function start_agent {
-    echo "Initialising new SSH agent..."
-    /usr/bin/ssh-agent | sed 's/^echo/#echo/' > "${SSH_ENV}"
-    echo succeeded
-    chmod 600 "${SSH_ENV}"
-    . "${SSH_ENV}" > /dev/null
-    /usr/bin/ssh-add;
-}
-if [ -f "${SSH_ENV}" ]; then
-    . "${SSH_ENV}" > /dev/null
-    #ps ${SSH_AGENT_PID} doesn't work under cywgin
-    ps -ef | grep ${SSH_AGENT_PID} | grep ssh-agent$ > /dev/null || {
-        start_agent;
-    }
-else
-    start_agent;
-fi
-
-# automatically load pyenv
+# Automatically load pyenv
 if _has pyenv; then
     eval "$(pyenv init -)"
 fi
+
+# Initialize oh-my-zsh
+DISABLE_AUTO_UPDATE="true"
+ZSH_CACHE_DIR=$HOME/.cache/oh-my-zsh
+if [[ ! -d $ZSH_CACHE_DIR ]]; then
+  mkdir $ZSH_CACHE_DIR
+fi
+export ZSH=/usr/share/oh-my-zsh/
+if [ -f '$ZSH/oh-my-zsh.sh' ]; then source '$ZSH/oh-my-zsh.sh'; fi
