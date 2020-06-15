@@ -16,6 +16,15 @@ plugins=(git ssh-agent)
 # configure default added keys for ssh-agent plugin
 zstyle :omz:plugins:ssh-agent identities azure_devops_rsa bitbucket
 
+# Initialize oh-my-zsh
+DISABLE_AUTO_UPDATE="true"
+ZSH_CACHE_DIR=$HOME/.cache/oh-my-zsh
+if [[ ! -d $ZSH_CACHE_DIR ]]; then
+  mkdir $ZSH_CACHE_DIR
+fi
+export ZSH=/usr/share/oh-my-zsh
+if [ -f "$ZSH/oh-my-zsh.sh" ]; then source "$ZSH/oh-my-zsh.sh"; fi
+
 PROMPT='[%F{1}%n%f@%F{5}%m%f%F{3}%f]%F{6}~%f '
 
 # Setup vi mode
@@ -130,11 +139,4 @@ if _has pyenv; then
     eval "$(pyenv init -)"
 fi
 
-# Initialize oh-my-zsh
-DISABLE_AUTO_UPDATE="true"
-ZSH_CACHE_DIR=$HOME/.cache/oh-my-zsh
-if [[ ! -d $ZSH_CACHE_DIR ]]; then
-  mkdir $ZSH_CACHE_DIR
-fi
-export ZSH=/usr/share/oh-my-zsh
-if [ -f "$ZSH/oh-my-zsh.sh" ]; then source "$ZSH/oh-my-zsh.sh"; fi
+
