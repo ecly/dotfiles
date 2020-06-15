@@ -136,5 +136,5 @@ ZSH_CACHE_DIR=$HOME/.cache/oh-my-zsh
 if [[ ! -d $ZSH_CACHE_DIR ]]; then
   mkdir $ZSH_CACHE_DIR
 fi
-export ZSH=/usr/share/oh-my-zsh/
-if [ -f '$ZSH/oh-my-zsh.sh' ]; then source '$ZSH/oh-my-zsh.sh'; fi
+export ZSH=/usr/share/oh-my-zsh
+if [ -f "$ZSH/oh-my-zsh.sh" ]; then source "$ZSH/oh-my-zsh.sh"; fi
