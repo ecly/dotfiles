@@ -4,7 +4,7 @@ alias dot='git --git-dir=$HOME/.dots.git/ --work-tree=$HOME' # dotfile handling
 alias shutdown="systemctl poweroff"
 # shellcheck disable=SC2139
 alias {vi,vim}="nvim"
-alias todo="nvim ~/Dropbox/IRL/todo.txt"
+alias todo="nvim ~/Documents/irl/todo.txt"
 alias poly="nohup sh ~/.config/polybar/launch.sh > /dev/null 2>&1 &"
 alias poly_reload="pkill -USR1 polybar"
 alias gsync="grive -p ~/GoogleDrive"
