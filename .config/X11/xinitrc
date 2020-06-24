@@ -1,5 +1,12 @@
 #!/bin/sh
 wal -n -R # generate and expose colors with wal based on cache
-[[ -f ~/.Xresources ]] && xrdb -merge -I$HOME ~/.Xresources
-xset b off # No keyboard beeping
+[[ -f "$HOME/.Xresources" ]] && xrdb -merge -I$HOME "$HOME/.Xresources"
+[[ -f "$HOME/Scripts/keymap.sh" ]] && sh "$HOME/Scripts/keymap.sh"
+
+# when on laptop, with patched xrandr version, set display to perfect 2x scaling
+# https://forums.linuxmint.com/viewtopic.php?t=159064
+PATCHED="$HOME/Scripts/xrandr/xrandr"
+[[ -f $PATCHED ]] && [[ "$HOSTNAME" -eq "trsh" ]] && \
+    $PATCHED --output eDP1 --mode 3840x2160 --scale "0.5x0.5"
+
 exec i3

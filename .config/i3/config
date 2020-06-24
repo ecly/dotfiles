@@ -273,10 +273,6 @@ exec --no-startup-id redshift -l 59.334591:18.063240
 exec --no-startup-id xinput --set-prop 9 'libinput Accel Speed' 0
 #exec --no-startup-id xinput --set-prop 9 'libinput Accel Speed' -0.25
 
-# Map Caps Lock to Esc
-# Allow keyboard toggling using alt + space
-exec --no-startup-id sh ~/Scripts/keymap.sh
-
 # Start xbanish to hide mouse-pointer when typing
 exec --no-startup-id xbanish
 

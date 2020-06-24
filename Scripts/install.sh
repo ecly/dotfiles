@@ -85,7 +85,8 @@ yay -Syyu --noconfirm \
     yarn \
     nm-connection-editor \
     ctags \
-    oh-my-zsh-git
+    oh-my-zsh-git \
+    xss-lock
 
 # apply theme
 wal --theme base16-gruvbox-hard
