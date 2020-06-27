@@ -1,8 +1,9 @@
 {
     "suggest.timeout": 500,
-    "python.pythonPath": "/usr/bin/python3",
-    "python.formatting.provider": "black",
     "java.errors.incompleteClasspath.severity": "ignore",
+    "diagnostic.refreshOnInsertMode": true,
+    "python.formatting.provider": "black",
     "python.linting.enabled": true,
-    "diagnostic.refreshOnInsertMode": true
+    "python.poetryPath": "poetry",
+    "python.jediEnabled": false
 }

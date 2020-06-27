@@ -98,14 +98,12 @@ endif
 " --- Plugin section --- "
 " Coc extensions
 let g:coc_global_extensions = [
-\ 'coc-ultisnips',
 \ 'coc-json',
 \ 'coc-tsserver',
 \ 'coc-html',
 \ 'coc-css',
 \ 'coc-yaml',
 \ 'coc-elixir',
-\ 'coc-snippets',
 \ 'coc-rls',
 \ 'coc-java',
 \ 'coc-omnisharp',
@@ -134,7 +132,6 @@ Plug 'xtal8/traces.vim'
 Plug 'AndrewRadev/splitjoin.vim'
 Plug 'ntpeters/vim-better-whitespace'
 Plug 'Konfekt/FastFold'
-Plug 'SirVer/ultisnips'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'tmux-plugins/vim-tmux-focus-events'
 Plug 'tmux-plugins/vim-tmux'
@@ -210,8 +207,6 @@ let g:better_whitespace_filetypes_blacklist=['ruby', 'markdown',
 let g:signify_vcs_list = [ 'git']
 " Use NVR for vimtex compilation
 let g:vimtex_compiler_progname = 'nvr'
-" Since we use coc for snippets, we unbind ultisnips expansion
-let g:UltiSnipsExpandTrigger="<nop>"
 " Ensure that devicons work with lightline-bufferline
 let g:lightline#bufferline#enable_devicons = 1
 " vim-test mapping for running tests
