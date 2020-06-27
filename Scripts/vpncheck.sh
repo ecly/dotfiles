@@ -5,7 +5,7 @@
 source "${HOME}/.cache/wal/colors.sh"
 foreground_alt=$color2
 
-if ps aux | rg "[o]penvpn" >&/dev/null; then
+if mullvad status | grep "Connected" >&/dev/null; then
     echo %{F$foreground_alt}%{F-} on;
 else
     echo %{F$foreground_alt}%{F-}%{F#f00} off%{F-};
