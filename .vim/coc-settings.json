@@ -1,9 +1,9 @@
 {
-    "suggest.timeout": 500,
+    "suggest.timeout": 5000,
     "java.errors.incompleteClasspath.severity": "ignore",
     "diagnostic.refreshOnInsertMode": true,
     "python.formatting.provider": "black",
     "python.linting.enabled": true,
     "python.poetryPath": "poetry",
-    "python.jediEnabled": false
+    "python.jediEnabled": true
 }
