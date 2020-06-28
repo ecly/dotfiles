@@ -1,7 +1,7 @@
 " https://github.com/fatih/vim-go-tutorial
 augroup gocommands
     autocmd!
-    autocmd BufNewFile,BufRead *.go setlocal noexpandtab tabstop=4 shiftwidth=4 
+    autocmd BufNewFile,BufRead *.go setlocal noexpandtab tabstop=4 shiftwidth=4
 augroup END
 
 nmap <leader>r <Plug>(go-run)

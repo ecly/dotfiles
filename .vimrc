@@ -201,9 +201,6 @@ let g:strip_whitespace_on_save=1
 let g:better_whitespace_filetypes_blacklist=['ruby', 'markdown',
             \ 'diff', 'gitcommit', 'unite', 'qf', 'help']
 
-
-" Only check vim diffs with signify
-let g:signify_vcs_list = [ 'git']
 " Use NVR for vimtex compilation
 let g:vimtex_compiler_progname = 'nvr'
 " Ensure that devicons work with lightline-bufferline
