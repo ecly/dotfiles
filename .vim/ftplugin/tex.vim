@@ -1,14 +1,3 @@
-" Don't do any clever folding
-"let g:Tex_FoldedSections=''
-"let g:Tex_FoldedEnvironments=''
-"let g:Tex_FoldedMisc=''
-
-" Don't conceal symbols
-" let g:tex_conceal = ""
-
-" Use zathura for previewing latex
-let g:livepreview_previewer = 'zathura'
-let g:livepreview_engine = 'latexmk -pdf'
 let g:tex_conceal = ''
 "
 " .tex files are always filetype latex
@@ -22,10 +11,10 @@ let g:polyglot_disabled = ['latex']
 let g:vimtex_view_method = 'zathura'
 let g:vimtex_compiler_progname = 'nvr'
 
-if !exists('g:deoplete#omni#input_patterns')
-  let g:deoplete#omni#input_patterns = {}
-endif
-let g:deoplete#omni#input_patterns.tex = g:vimtex#re#deoplete
+" if !exists('g:deoplete#omni#input_patterns')
+"   let g:deoplete#omni#input_patterns = {}
+" endif
+" let g:deoplete#omni#input_patterns.tex = g:vimtex#re#deoplete
 
 " don't open the quickfix window for warnings
 let g:vimtex_quickfix_open_on_warning = 0

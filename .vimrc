@@ -155,7 +155,6 @@ Plug 'elixir-editors/vim-elixir'
 Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries' }
 " --- Latex and markdown --- "
 Plug 'lervag/vimtex'
-Plug 'xuhdev/vim-latex-live-preview', { 'for': 'tex' }
 Plug 'plasticboy/vim-markdown'
 " Misc.
 Plug 'elzr/vim-json'
