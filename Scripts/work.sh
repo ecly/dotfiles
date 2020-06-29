@@ -5,12 +5,12 @@ sleep 3; \
 
 # patched xrandr for pixel perfect 2x scaling for 4k
 PATCHED="$HOME/Scripts/xrandr/xrandr"
-if [[ -f $PATCHED ]]; then
+if [[ -f $PATCHED ]] && [[ 1 -eq 2 ]]; then
     $PATCHED --output eDP1 --primary --mode 3840x2160 --scale "0.5x0.5"; \
     $PATCHED --output VIRTUAL1 --mode 2560x1440 --right-of eDP1; \
     $PATCHED --output VIRTUAL2 --mode 2560x1440 --right-of VIRTUAL1; \
 else
-    xrandr --output eDP1 --primary --mode 1920x1080; \
+    xrandr --output eDP1 --primary --mode 1920x1080 --scale "1x1"; \
     xrandr --output VIRTUAL1 --mode 2560x1440 --right-of eDP1; \
     xrandr --output VIRTUAL2 --mode 2560x1440 --right-of VIRTUAL1; \
 fi
