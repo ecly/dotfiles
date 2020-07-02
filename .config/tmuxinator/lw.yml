@@ -47,7 +47,7 @@ windows:
       panes:
         - vim todo.txt
   - cli:
-      root: ~/Programming/work/mlt-modern-mt-cli
+      root: ~/Programming/work/mlt-mmt-cli
       layout: even-horizontal
       panes:
         -
@@ -72,7 +72,7 @@ windows:
       panes:
         -
   - mt-api:
-      root: ~/Programming/work/mlt-languagewire-mt-api
+      root: ~/Programming/work/mlt-mt-api
       layout: even-horizontal
       panes:
         -
