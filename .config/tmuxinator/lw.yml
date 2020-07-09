@@ -76,3 +76,8 @@ windows:
       layout: even-horizontal
       panes:
         -
+  - dt-be:
+      root: ~/Programming/work/mlt-direct-translate-backend
+      layout: even-horizontal
+      panes:
+        -
