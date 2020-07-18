@@ -81,3 +81,8 @@ windows:
       layout: even-horizontal
       panes:
         -
+  - exp:
+      root: ~/Programming/work/mlt-mmt-experiments
+      layout: even-horizontal
+      panes:
+        -
