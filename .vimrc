@@ -139,6 +139,7 @@ Plug 'roxma/vim-tmux-clipboard'
 Plug 'chrisbra/csv.vim'
 Plug 'janko/vim-test'
 Plug 'ryanoasis/vim-devicons'
+Plug 'vimwiki/vim-devicons'
 " Plug 'psliwka/vim-smoothie'
 
 " " --- Git for vim --- "
