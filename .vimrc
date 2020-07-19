@@ -139,7 +139,7 @@ Plug 'roxma/vim-tmux-clipboard'
 Plug 'chrisbra/csv.vim'
 Plug 'janko/vim-test'
 Plug 'ryanoasis/vim-devicons'
-Plug 'vimwiki/vim-devicons'
+Plug 'vimwiki/vimwiki'
 " Plug 'psliwka/vim-smoothie'
 
 " " --- Git for vim --- "
@@ -212,3 +212,9 @@ nmap <silent> <leader>tf :TestFile<CR>
 nmap <silent> <leader>ts :TestSuite<CR>
 nmap <silent> <leader>tl :TestLast<CR>
 nmap <silent> <leader>tg :TestVisit<CR>
+
+let g:vimwiki_list = [{'path': '~/Documents/vimwiki/',
+                      \ 'syntax': 'markdown', 'ext': '.md'}]
+
+nmap <silent> <leader><Tab> <Plug>VimwikiNextLink
+nmap <silent> <leader><S-Tab> <Plug>VimwikiPrevLink
