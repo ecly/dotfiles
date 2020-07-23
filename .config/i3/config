@@ -159,7 +159,7 @@ bindsym $sup+t exec $term -name gotop -e gotop
 bindsym $sup+b exec firefox
 bindsym $sup+Shift+b exec firefox --private-window
 bindsym $sup+q exec qbittorrent
-bindsym $sup+m exec $term -name mutt -e sh ~/Scripts/mutt.sh
+bindsym $sup+m exec $term -name mutt -e tmux -2 new-session -A -s mutt 'neomutt'
 bindsym $sup+s exec slack
 bindsym $sup+i exec $term -name weechat -e weechat
 bindsym $sup+w exec $term -name nmtui -e nmtui-connect
