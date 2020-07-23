@@ -20,13 +20,17 @@ yay -Syyu --noconfirm \
     ranger \
     mpv \
     neomutt \
-    neofetch \
     i3lock \
+    xss-lock \
     maim \
     sxiv \
     firefox \
-    weechat \
+    python-pip \
     python-pywal \
+    python-jedi \
+    python2-pynvim \
+    python-pynvim \
+    python-pylint \
     pulseaudio \
     pulseaudio-alsa \
     gotop \
@@ -52,22 +56,15 @@ yay -Syyu --noconfirm \
     xorg-xinit \
     openssh \
     rxvt-unicode \
-    python-pynvim \
     bitwarden-bin \
     fd \
     kbdlight \
     elixir \
     mullvad-vpn \
-    python-pylint \
     ntp \
-    python-jedi \
     urxvt-resize-font \
     fd \
-    speedtest-cli \
     pulsemixer \
-    python-pip \
-    python-regex \
-    python-tqdm \
     zathura \
     zathura-pdf-mupdf \
     libreoffice \
@@ -80,13 +77,11 @@ yay -Syyu --noconfirm \
     biber \
     texlive-lang \
     neovim-remote \
-    python2-pynvim \
     npm \
     yarn \
     nm-connection-editor \
     ctags \
     oh-my-zsh-git \
-    xss-lock \
     git-delta
 
 # apply theme

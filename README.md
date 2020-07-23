@@ -17,13 +17,11 @@ Most applications have styling based on [pywal](https://aur.archlinux.org/packag
 - **File manager:** [ranger](https://github.com/ranger/ranger)  
 - **Media player:** [mpv](https://github.com/mpv-player/mpv)  
 - **Mail client:** [neomutt](https://github.com/neomutt/neomutt)  
-- **System info:** [neofetch](https://github.com/dylanaraps/neofetch)  
 - **Screenlocker:** [i3lock](https://github.com/i3/i3lock)  
 - **Screenshot utility:** [maim](https://github.com/naelstrof/maim)  
 - **Image viewer:** [sxiv](https://github.com/muennich/sxiv)  
 - **Browser:** [firefox](https://www.archlinux.org/packages/extra/x86_64/firefox/)  
 - **Startpage:** [startpage](https://github.com/ecly/startpage)  
-- **IRC Client:** [weechat](https://github.com/weechat/weechat)  
 - **Color theme generation:** [pywal](https://github.com/dylanaraps/pywal)  
 
 ### Additional dependencies:
