@@ -11,6 +11,8 @@ yay -Syyu --noconfirm \
     zsh \
     zsh-completions \
     zsh-syntax-highlighting \
+    python-pip \
+    python-jedi \
     tmux \
     i3-gaps \
     polybar \
@@ -19,7 +21,6 @@ yay -Syyu --noconfirm \
     nodejs-neovim \
     ruby-neovim \
     python2-pynvim \
-    python-pynvim \
     neovim-remote \
     dunst \
     ranger \
@@ -30,10 +31,6 @@ yay -Syyu --noconfirm \
     maim \
     sxiv \
     firefox \
-    python-pip \
-    python-pywal \
-    python-jedi \
-    python-pylint \
     pulseaudio \
     pulseaudio-alsa \
     pulsemixer \
@@ -82,6 +79,14 @@ yay -Syyu --noconfirm \
     oh-my-zsh-git \
     git-delta \
     mons
+
+# Handle Python specific installs
+pip3 install pipx --user
+pipx install pylint
+pipx install pywal
+pipx install jedi
+pipx install jupyterlab
+pipx install black
 
 # apply theme
 wal --theme base16-gruvbox-hard
