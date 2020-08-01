@@ -32,9 +32,6 @@ augroup autos
     autocmd!
     " Set dosini syntax highlighting for config files
     autocmd BufRead,BufNewFile config setf dosini
-    " Ensure all .js files are treated as javascript
-    autocmd BufEnter *.js :setlocal filetype=javascript
-    autocmd FileType typescript set noexpandtab
     " Auto toggle Limelight when using Goyo
     autocmd User GoyoEnter Limelight
     autocmd User GoyoLeave Limelight!
@@ -99,7 +96,6 @@ endif
 " Coc extensions
 let g:coc_global_extensions = [
 \ 'coc-json',
-\ 'coc-tsserver',
 \ 'coc-html',
 \ 'coc-css',
 \ 'coc-yaml',
@@ -123,8 +119,8 @@ Plug 'mengelbrecht/lightline-bufferline'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}"
 
 " Editing and usability
+Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-commentary'
-Plug 'godlygeek/tabular'
 Plug 'tpope/vim-surround'
 Plug 'junegunn/goyo.vim'
 Plug 'junegunn/limelight.vim'
@@ -142,25 +138,17 @@ Plug 'ryanoasis/vim-devicons'
 Plug 'vimwiki/vimwiki'
 " Plug 'psliwka/vim-smoothie'
 
-" " --- Git for vim --- "
-Plug 'tpope/vim-fugitive'
-
 " --- File browsing --- "
 Plug 'junegunn/fzf.vim'
 Plug 'preservim/nerdtree'
 
-" --- Language specific plugs --- "
-" Elixir
+" --- Language/file specific plugs --- "
 Plug 'elixir-editors/vim-elixir'
-" Go
 Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries' }
-" --- Latex and markdown --- "
 Plug 'lervag/vimtex'
 Plug 'plasticboy/vim-markdown'
-" Misc.
 Plug 'elzr/vim-json'
 Plug 'PotatoesMaster/i3-vim-syntax'
-" Initialize plugin system
 call plug#end()
 
 " These need to be after plugin section to function correctly
