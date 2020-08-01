@@ -169,9 +169,9 @@ bindsym $sup+j exec $term -name todo -e nvim ~/Documents/irl/todo.txt
 set $pause mpc toggle
 set $next mpc next
 set $prev mpc prev
-set $inc pamixer -i 5
-set $dec pamixer -d 5
-set $mute pamixer -t
+set $inc pulsemixer --change-volume +5
+set $dec pulsemixer --change-volume -5
+set $mute pulsemixer --togle-mute
 
 ###--- Music/Sound Keybindings ---###
 bindsym $sup+Right exec --no-startup-id $next

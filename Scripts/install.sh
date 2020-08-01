@@ -33,9 +33,9 @@ yay -Syyu --noconfirm \
     python-pylint \
     pulseaudio \
     pulseaudio-alsa \
+    pulsemixer \
     gotop \
     networkmanager \
-    pamixer \
     w3m \
     urlscan \
     xclip \
@@ -64,7 +64,6 @@ yay -Syyu --noconfirm \
     ntp \
     urxvt-resize-font \
     fd \
-    pulsemixer \
     zathura \
     zathura-pdf-mupdf \
     libreoffice \
