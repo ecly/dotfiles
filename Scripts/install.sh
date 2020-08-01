@@ -16,6 +16,11 @@ yay -Syyu --noconfirm \
     polybar \
     rofi \
     neovim \
+    nodejs-neovim \
+    ruby-neovim \
+    python2-pynvim \
+    python-pynvim \
+    neovim-remote \
     dunst \
     ranger \
     mpv \
@@ -28,8 +33,6 @@ yay -Syyu --noconfirm \
     python-pip \
     python-pywal \
     python-jedi \
-    python2-pynvim \
-    python-pynvim \
     python-pylint \
     pulseaudio \
     pulseaudio-alsa \
@@ -51,7 +54,6 @@ yay -Syyu --noconfirm \
     ripgrep \
     tmuxinator \
     xbanish \
-    ttf-inconsolata \
     xorg \
     xorg-xinit \
     openssh \
@@ -70,12 +72,9 @@ yay -Syyu --noconfirm \
     wget \
     zip \
     unzip \
-    nodejs-neovim \
-    ruby-neovim \
     texlive-most \
     biber \
     texlive-lang \
-    neovim-remote \
     npm \
     yarn \
     nm-connection-editor \
