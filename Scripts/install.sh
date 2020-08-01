@@ -86,7 +86,7 @@ pipx install pylint
 pipx install pywal
 pipx install jedi
 pipx install jupyterlab
-pipx install black
+pipx install poetry
 
 # apply theme
 wal --theme base16-gruvbox-hard
