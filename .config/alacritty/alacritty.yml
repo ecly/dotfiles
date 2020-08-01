@@ -1,0 +1,12 @@
+font:
+    normal:
+        family: Terminus (TTF)
+        style: Regular
+    bold:
+        family: Terminus (TTF)
+        style: Bold
+    size: 18
+window:
+    padding:
+        x: 10
+        y: 10
