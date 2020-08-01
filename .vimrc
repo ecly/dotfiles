@@ -35,6 +35,8 @@ augroup autos
     " Auto toggle Limelight when using Goyo
     autocmd User GoyoEnter Limelight
     autocmd User GoyoLeave Limelight!
+    " https://github.com/preservim/nerdtree/wiki/F.A.Q.#how-can-i-make-sure-vim-does-not-open-files-and-other-buffers-on-nerdtree-window
+    autocmd BufEnter * if bufname('#') =~# "^NERD_tree_" && winnr('$') > 1 | b# | endif
 augroup END
 
 " Manual call to Strip whitespace from end of line
@@ -160,6 +162,9 @@ colorscheme wal
 " Fugitive
 nmap gs :vertical Gstatus<CR>
 
+" Avoid vim-plug crashes when calling functions from NERDTree window
+let g:plug_window = 'noautocmd vertical topleft new'
+
 " Settings for fzf.vim
 " https://github.com/junegunn/fzf.vim/issues/47
 " Use :Files from git root if one is present, otherwise just use :files
@@ -179,8 +184,8 @@ let g:fzf_action = {
 map <C-n> :NERDTreeToggle<CR>
 let g:NERDTreeDirArrowExpandable = '▶'
 let g:NERDTreeDirArrowCollapsible = '▼'
-let g:NERDTreeMapOpenSplit='<BS>'
-let g:NERDTreeMapOpenVSplit='\'
+let g:NERDTreeMapOpenSplit='<C-h>'
+let g:NERDTreeMapOpenVSplit='<C-v>'
 let g:NERDTreeMapActivateNode='l'
 let g:NERDTreeMapCloseDir='h'
 
