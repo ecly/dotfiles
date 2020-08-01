@@ -52,4 +52,3 @@ Most applications have styling based on [pywal](https://aur.archlinux.org/packag
 ### Manual setup:
 - VPN setup.
 - Mutt aliases and .details setup.
-- Weechat SASL/Secure setup.

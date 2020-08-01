@@ -80,7 +80,8 @@ yay -Syyu --noconfirm \
     nm-connection-editor \
     ctags \
     oh-my-zsh-git \
-    git-delta
+    git-delta \
+    mons
 
 # apply theme
 wal --theme base16-gruvbox-hard
