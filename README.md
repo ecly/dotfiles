@@ -1,6 +1,7 @@
 # Dotfiles for Arch Linux
-My checklist file when setting up Arch Linux.  
-For management of dotfiles see [this](.config/DOT_MANAGEMENT.md).
+My checklist when setting up Arch Linux.  
+For management of dotfiles see [this](.config/DOT_MANAGEMENT.md).  
+For easy installation of packages see [install.sh](Scripts/install.sh).
 
 **Styling**  
 Most applications have styling based on [pywal](https://aur.archlinux.org/packages/nerd-fonts-terminus/).
