@@ -23,6 +23,7 @@ set incsearch                   " Search as typing
 set concealcursor=              " Never conceal anything on current line
 set undofile                    " Use persistent undofiles
 set lazyredraw                  " Speedup large files and macros
+set updatetime=100              " Default 4000 is a bit high for async updates
 
 " Use comma as leader
 let g:mapleader = ','
