@@ -140,6 +140,7 @@ Plug 'chrisbra/csv.vim'
 Plug 'janko/vim-test'
 Plug 'ryanoasis/vim-devicons'
 Plug 'vimwiki/vimwiki'
+Plug 'cespare/vim-toml'
 " Plug 'psliwka/vim-smoothie'
 
 " --- File browsing --- "
