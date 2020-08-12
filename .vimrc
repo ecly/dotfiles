@@ -141,6 +141,7 @@ Plug 'janko/vim-test'
 Plug 'ryanoasis/vim-devicons'
 Plug 'vimwiki/vimwiki'
 Plug 'cespare/vim-toml'
+Plug 'ekalinin/Dockerfile.vim'
 " Plug 'psliwka/vim-smoothie'
 
 " --- File browsing --- "
