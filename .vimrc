@@ -114,7 +114,7 @@ let g:coc_global_extensions = [
 call plug#begin('~/.vim/plugged')
 
 " --- Theming --- "
-Plug 'dylanaraps/wal'
+Plug 'dylanaraps/wal.vim'
 Plug 'itchyny/lightline.vim'
 Plug 'mengelbrecht/lightline-bufferline'
 
@@ -152,7 +152,7 @@ Plug 'preservim/nerdtree'
 Plug 'elixir-editors/vim-elixir'
 Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries' }
 Plug 'lervag/vimtex'
-Plug 'plasticboy/vim-markdown'
+" Plug 'plasticboy/vim-markdown'
 Plug 'elzr/vim-json'
 Plug 'PotatoesMaster/i3-vim-syntax'
 call plug#end()
