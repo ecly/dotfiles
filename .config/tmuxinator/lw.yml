@@ -41,11 +41,11 @@ root: ~/Programming/work
 # post: tmux -CC attach -t work
 
 windows:
-  - todo:
-      root: ~/Documents/work/language_wire/
+  - wiki:
+      root: ~/Documents/work/vimwiki
       layout: even-horizontal
       panes:
-        - vim todo.txt
+        - vim index.md todo.md
   - cli:
       root: ~/Programming/work/mlt-mmt-cli
       layout: even-horizontal
