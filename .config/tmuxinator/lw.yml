@@ -86,3 +86,7 @@ windows:
       layout: even-horizontal
       panes:
         -
+  - tmpl:
+      root: ~/Programming/work/mlt-python-development
+      layout: even-horizontal
+      panes:
