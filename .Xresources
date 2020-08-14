@@ -32,6 +32,8 @@ URxvt.matcher.button:       1
 URxvt.copyCommand:          xclip -i -selection clipboard
 URxvt.pasteCommand:         xclip -o -selection clipboard
 URxvt.cursorBlink:          0
+! don't alter colors of bold text
+URxvt.intensityStyles:      false
 
 ! urxvt scrolling setup - up and down 10 lines
 URxvt.keysym.Shift-Up:      command:\033]720;10\007
