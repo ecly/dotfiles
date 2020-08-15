@@ -121,7 +121,7 @@ call plug#begin('~/.vim/plugged')
 " --- Theming --- "
 Plug 'itchyny/lightline.vim'
 Plug 'mengelbrecht/lightline-bufferline'
-Plug 'Dave-Elec/gruvbox'
+Plug 'gruvbox-community/gruvbox'
 
 " " --- Completion and syntax --- "
 Plug 'neoclide/coc.nvim', {'branch': 'release'}"
@@ -131,6 +131,7 @@ Plug 'tpope/vim-sleuth'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-surround'
+Plug 'airblade/vim-gitgutter'
 Plug 'junegunn/goyo.vim'
 Plug 'junegunn/limelight.vim'
 Plug 'markonm/traces.vim'
@@ -160,10 +161,9 @@ Plug 'PotatoesMaster/i3-vim-syntax'
 Plug 'cespare/vim-toml'
 Plug 'chrisbra/csv.vim'
 Plug 'ekalinin/Dockerfile.vim'
+Plug 'jeetsukumaran/vim-pythonsense'
 Plug 'vim-python/python-syntax'
 " Plug 'numirias/semshi', {'do': ':UpdateRemotePlugins'}
-Plug 'tmhedberg/SimpylFold'
-Plug 'jeetsukumaran/vim-pythonsense'
 
 call plug#end()
 
@@ -171,7 +171,7 @@ call plug#end()
 syntax enable                   " syntax highlighting on
 filetype plugin indent on       " filetype specific declarations
 let g:gruvbox_contrast_dark = 'hard'
-let g:gruvbox_transparent_bg=1
+let g:gruvbox_sign_column='bg0'
 colorscheme gruvbox
 
 " Avoid vim-plug crashes when calling functions from NERDTree window
