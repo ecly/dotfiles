@@ -61,7 +61,7 @@ yay -Syyu --noconfirm \
     elixir \
     mullvad-vpn \
     ntp \
-    urxvt-resize-font \
+    rxvt-unicode-truecolor \
     fd \
     zathura \
     zathura-pdf-mupdf \
