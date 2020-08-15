@@ -5,7 +5,7 @@ scriptencoding utf-8
 
 " Lightline
 let g:lightline = {
-    \ 'colorscheme': 'seoul256',
+    \ 'colorscheme': 'gruvbox',
     \ 'active': {
     \   'left': [['mode', 'paste'], [ 'gitbranch', 'modified']],
     \   'right': [['lineinfo'], ['percent'], ['readonly', 'cocstatus', 'filetype']],
@@ -80,3 +80,6 @@ let g:lightline_buffer_minfextlen = 3
 
 " reserve length for other component (e.g. info, close)
 let g:lightline_buffer_reservelen = 20
+
+" ensure that lightline-bufferline works with devicons
+let g:lightline#bufferline#enable_devicons = 1

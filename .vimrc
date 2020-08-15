@@ -1,7 +1,7 @@
 set encoding=utf-8
 scriptencoding utf-8
 set noshowmode                  " Lightline shows this already
-set clipboard+=unnamed          " System clipboard
+set clipboard^=unnamed,unnamedplus " Use system clipboard
 set laststatus=2                " Always show status line
 set tabstop=4                   " 4 spaces will do
 set shiftwidth=4                " Control indentation for >> bind
@@ -24,6 +24,10 @@ set concealcursor=              " Never conceal anything on current line
 set undofile                    " Use persistent undofiles
 set lazyredraw                  " Speedup large files and macros
 set updatetime=100              " Default 4000 is a bit high for async updates
+
+if has('termguicolors')
+  set termguicolors             " Use true colors
+endif
 
 " Use comma as leader
 let g:mapleader = ','
@@ -109,14 +113,15 @@ let g:coc_global_extensions = [
 \ 'coc-yaml',
 \ 'coc-vimtex',
 \ 'coc-python',
+\ 'coc-pyright',
 \ ]
 
 call plug#begin('~/.vim/plugged')
 
 " --- Theming --- "
-Plug 'dylanaraps/wal.vim'
 Plug 'itchyny/lightline.vim'
 Plug 'mengelbrecht/lightline-bufferline'
+Plug 'Dave-Elec/gruvbox'
 
 " " --- Completion and syntax --- "
 Plug 'neoclide/coc.nvim', {'branch': 'release'}"
@@ -136,12 +141,10 @@ Plug 'christoomey/vim-tmux-navigator'
 Plug 'tmux-plugins/vim-tmux-focus-events'
 Plug 'tmux-plugins/vim-tmux'
 Plug 'roxma/vim-tmux-clipboard'
-Plug 'chrisbra/csv.vim'
 Plug 'janko/vim-test'
 Plug 'ryanoasis/vim-devicons'
 Plug 'vimwiki/vimwiki'
-Plug 'cespare/vim-toml'
-Plug 'ekalinin/Dockerfile.vim'
+Plug 'junegunn/vim-peekaboo'
 " Plug 'psliwka/vim-smoothie'
 
 " --- File browsing --- "
@@ -152,18 +155,24 @@ Plug 'preservim/nerdtree'
 Plug 'elixir-editors/vim-elixir'
 Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries' }
 Plug 'lervag/vimtex'
-" Plug 'plasticboy/vim-markdown'
 Plug 'elzr/vim-json'
 Plug 'PotatoesMaster/i3-vim-syntax'
+Plug 'cespare/vim-toml'
+Plug 'chrisbra/csv.vim'
+Plug 'ekalinin/Dockerfile.vim'
+Plug 'vim-python/python-syntax'
+" Plug 'numirias/semshi', {'do': ':UpdateRemotePlugins'}
+Plug 'tmhedberg/SimpylFold'
+Plug 'jeetsukumaran/vim-pythonsense'
+
 call plug#end()
 
 " These need to be after plugin section to function correctly
 syntax enable                   " syntax highlighting on
 filetype plugin indent on       " filetype specific declarations
-colorscheme wal
-
-" Fugitive
-nmap gs :vertical Gstatus<CR>
+let g:gruvbox_contrast_dark = 'hard'
+let g:gruvbox_transparent_bg=1
+colorscheme gruvbox
 
 " Avoid vim-plug crashes when calling functions from NERDTree window
 let g:plug_window = 'noautocmd vertical topleft new'
@@ -197,10 +206,6 @@ let g:strip_whitespace_confirm=0
 let g:better_whitespace_enabled=1
 let g:strip_whitespace_on_save=1
 
-" Use NVR for vimtex compilation
-let g:vimtex_compiler_progname = 'nvr'
-" Ensure that devicons work with lightline-bufferline
-let g:lightline#bufferline#enable_devicons = 1
 " vim-test mapping for running tests
 nmap <silent> <leader>tn :TestNearest<CR>
 nmap <silent> <leader>tf :TestFile<CR>
@@ -208,10 +213,29 @@ nmap <silent> <leader>ts :TestSuite<CR>
 nmap <silent> <leader>tl :TestLast<CR>
 nmap <silent> <leader>tg :TestVisit<CR>
 
+" Vimwiki settings
 let g:vimwiki_list = [
   \ {'path': '~/Documents/work/vimwiki/', 'syntax': 'markdown', 'ext': '.md'},
   \ {'path': '~/Documents/irl/vimwiki/', 'syntax': 'markdown', 'ext': '.md'}
   \]
-
 nmap <silent> <leader><Tab> <Plug>VimwikiNextLink
 nmap <silent> <leader><S-Tab> <Plug>VimwikiPrevLink
+let g:python_highlight_all = 1
+
+" --- Latex settings ---
+let g:tex_conceal = ''
+"
+" .tex files are always filetype latex
+let g:tex_flavor = 'latex'
+
+" Vimtex neovim compatability requires `pip3 install neovim-remote`
+let g:vimtex_view_method = 'zathura'
+let g:vimtex_compiler_progname = 'nvr'
+
+" don't open the quickfix window for warnings
+let g:vimtex_quickfix_open_on_warning = 0
+let g:vimtex_quickfix_autoclose_after_keystrokes=2
+let g:vimtex_quickfix_mode=2  " open on errors without focus
+
+" use neovim-remote for callbacks
+let g:vimtex_compiler_progname = 'nvr'
