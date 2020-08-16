@@ -78,6 +78,7 @@ yay -Syyu --noconfirm \
     ctags \
     oh-my-zsh-git \
     git-delta-bin \
+    xdotool \
     mons
 
 # Handle Python specific installs
