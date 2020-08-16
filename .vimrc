@@ -99,6 +99,9 @@ if empty(glob('~/.vim/autoload/plug.vim'))
   autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
 endif
 
+" Explicitly set host programs for pynvim installations
+let g:python3_host_prog = '/usr/bin/python3'
+let g:python_host_prog = '/usr/bin/python2'
 
 " --- Plugin section --- "
 " Coc extensions
@@ -148,7 +151,7 @@ Plug 'janko/vim-test'
 Plug 'ryanoasis/vim-devicons'
 Plug 'vimwiki/vimwiki'
 Plug 'junegunn/vim-peekaboo'
-" Plug 'psliwka/vim-smoothie'
+Plug 'psliwka/vim-smoothie'
 
 " --- File browsing --- "
 Plug 'junegunn/fzf.vim'
@@ -163,11 +166,12 @@ Plug 'PotatoesMaster/i3-vim-syntax'
 Plug 'cespare/vim-toml'
 Plug 'chrisbra/csv.vim'
 Plug 'ekalinin/Dockerfile.vim'
-let g:semshi#mark_selected_nodes=0 " this is coc's job
 Plug 'numirias/semshi', {'do': ':UpdateRemotePlugins'}
+let g:semshi#mark_selected_nodes=0 " this is coc's job
 
 call plug#end()
 
+" --- Theme settings ---
 " These need to be after plugin section to function correctly
 syntax enable                   " syntax highlighting on
 filetype plugin indent on       " filetype specific declarations
@@ -178,7 +182,7 @@ colorscheme gruvbox
 " Avoid vim-plug crashes when calling functions from NERDTree window
 let g:plug_window = 'noautocmd vertical topleft new'
 
-" Settings for fzf.vim
+" --- Fzf settings ---
 " https://github.com/junegunn/fzf.vim/issues/47
 " Use :Files from git root if one is present, otherwise just use :files
 function! s:find_git_root()
@@ -221,7 +225,6 @@ let g:vimwiki_list = [
   \]
 nmap <silent> <leader><Tab> <Plug>VimwikiNextLink
 nmap <silent> <leader><S-Tab> <Plug>VimwikiPrevLink
-let g:python_highlight_all = 1
 
 " --- Latex settings ---
 let g:tex_conceal = ''
