@@ -54,7 +54,6 @@ yay -Syyu --noconfirm \
     xorg \
     xorg-xinit \
     openssh \
-    rxvt-unicode \
     bitwarden-bin \
     fd \
     kbdlight \
@@ -62,6 +61,7 @@ yay -Syyu --noconfirm \
     mullvad-vpn \
     ntp \
     rxvt-unicode-truecolor \
+    alacritty \
     fd \
     zathura \
     zathura-pdf-mupdf \
