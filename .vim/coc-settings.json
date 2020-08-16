@@ -1,4 +1,5 @@
 {
+    "suggest.triggerCompletionWait": 300,
     "suggest.timeout": 5000,
     "java.errors.incompleteClasspath.severity": "ignore",
     "diagnostic.refreshOnInsertMode": true,

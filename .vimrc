@@ -14,7 +14,8 @@ set ignorecase                  " Ignore case when searching
 set smartcase                   " Ignore case if all lowercase
 set visualbell                  " Don't beep
 set noerrorbells                " Don't beep
-set nobackup                    " Don't need swp files
+set nobackup                    " Don't need backup
+set nowritebackup               " Don't need backup
 set noswapfile                  " Don't need swp files
 set showmatch                   " Show matching braces when over one
 set backspace=indent,eol,start  " Allow backspacing everything in insert
@@ -23,7 +24,7 @@ set incsearch                   " Search as typing
 set concealcursor=              " Never conceal anything on current line
 set undofile                    " Use persistent undofiles
 set lazyredraw                  " Speedup large files and macros
-set updatetime=100              " Default 4000 is a bit high for async updates
+set updatetime=300              " Default 4000 is a bit high for async updates
 
 if has('termguicolors')
   set termguicolors             " Use true colors
@@ -113,8 +114,9 @@ let g:coc_global_extensions = [
 \ 'coc-yaml',
 \ 'coc-vimtex',
 \ 'coc-python',
-\ 'coc-pyright',
 \ ]
+" For the time being let's not use coc-pyright
+" \ 'coc-pyright',
 
 call plug#begin('~/.vim/plugged')
 
@@ -161,9 +163,8 @@ Plug 'PotatoesMaster/i3-vim-syntax'
 Plug 'cespare/vim-toml'
 Plug 'chrisbra/csv.vim'
 Plug 'ekalinin/Dockerfile.vim'
-Plug 'jeetsukumaran/vim-pythonsense'
-Plug 'vim-python/python-syntax'
-" Plug 'numirias/semshi', {'do': ':UpdateRemotePlugins'}
+let g:semshi#mark_selected_nodes=0 " this is coc's job
+Plug 'numirias/semshi', {'do': ':UpdateRemotePlugins'}
 
 call plug#end()
 
@@ -224,18 +225,14 @@ let g:python_highlight_all = 1
 
 " --- Latex settings ---
 let g:tex_conceal = ''
-"
 " .tex files are always filetype latex
 let g:tex_flavor = 'latex'
-
 " Vimtex neovim compatability requires `pip3 install neovim-remote`
 let g:vimtex_view_method = 'zathura'
 let g:vimtex_compiler_progname = 'nvr'
-
 " don't open the quickfix window for warnings
 let g:vimtex_quickfix_open_on_warning = 0
 let g:vimtex_quickfix_autoclose_after_keystrokes=2
 let g:vimtex_quickfix_mode=2  " open on errors without focus
-
 " use neovim-remote for callbacks
 let g:vimtex_compiler_progname = 'nvr'
