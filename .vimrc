@@ -128,7 +128,7 @@ Plug 'itchyny/lightline.vim'
 Plug 'mengelbrecht/lightline-bufferline'
 Plug 'gruvbox-community/gruvbox'
 
-" " --- Completion and syntax --- "
+" --- Completion and syntax --- "
 Plug 'neoclide/coc.nvim', {'branch': 'release'}"
 
 " Editing and usability
@@ -151,7 +151,7 @@ Plug 'janko/vim-test'
 Plug 'ryanoasis/vim-devicons'
 Plug 'vimwiki/vimwiki'
 Plug 'junegunn/vim-peekaboo'
-Plug 'psliwka/vim-smoothie'
+" Plug 'psliwka/vim-smoothie'
 
 " --- File browsing --- "
 Plug 'junegunn/fzf.vim'
