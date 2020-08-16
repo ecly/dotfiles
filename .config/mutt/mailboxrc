@@ -12,7 +12,7 @@ set spoolfile = "+INBOX"
 set postponed = "+Drafts"
 set trash = "+Trash"
 set record = "+Sent"
-mailboxes "+INBOX" "+Drafts" "+Trash" "+Sent" "+Archived" "+Junk"
+mailboxes "+INBOX" "+Drafts" "+Trash" "+Sent" "+Archive" "+Junk"
 
 set status_format = "$from: %f [Msgs:%?M?%M/?%m%?n? New:%n?%?o? Old:%o?%?d? Del:%d?%?F? Flag:%F?%?t? Tag:%t?%?p? Post:%p?%?b? Inc:%b?%?l? %l?]"
 
