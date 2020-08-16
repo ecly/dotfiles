@@ -77,7 +77,7 @@ yay -Syyu --noconfirm \
     nm-connection-editor \
     ctags \
     oh-my-zsh-git \
-    git-delta \
+    git-delta-bin \
     mons
 
 # Handle Python specific installs
