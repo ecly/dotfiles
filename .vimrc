@@ -25,22 +25,16 @@ set concealcursor=              " Never conceal anything on current line
 set undofile                    " Use persistent undofiles
 set lazyredraw                  " Speedup large files and macros
 set updatetime=300              " Default 4000 is a bit high for async updates
-
 if has('termguicolors')
   set termguicolors             " Use true colors
 endif
 
-" Use comma as leader
 let g:mapleader = ','
 
-" Commands ran automatically on certain events
 augroup autos
     autocmd!
     " Set dosini syntax highlighting for config files
     autocmd BufRead,BufNewFile config setf dosini
-    " Auto toggle Limelight when using Goyo
-    autocmd User GoyoEnter Limelight
-    autocmd User GoyoLeave Limelight!
     " https://github.com/preservim/nerdtree/wiki/F.A.Q.#how-can-i-make-sure-vim-does-not-open-files-and-other-buffers-on-nerdtree-window
     autocmd BufEnter * if bufname('#') =~# "^NERD_tree_" && winnr('$') > 1 | b# | endif
 augroup END
@@ -66,13 +60,11 @@ nmap <leader>/ :nohlsearch<CR>
 nnoremap <Space><Space> :'{,'}s/\<<C-r>=expand("<cword>")<CR>\>/
 nnoremap <Space>% :%s/\<<C-r>=expand("<cword>")<CR>\>/
 
-" Easy window navigation
+" Easy window/buffer navigation
 map <C-h> <C-w>h
 map <C-j> <C-w>j
 map <C-k> <C-w>k
 map <C-l> <C-w>l
-
-" Buffer navigation
 nnoremap <Tab> :bnext<CR>
 nnoremap <S-Tab> :bprev<CR>
 
@@ -86,11 +78,17 @@ map <C-w>x <C-w>q
 " w!! to write with sudo even if not opened with sudo
 cmap w!! w !sudo tee >/dev/null %
 
-" I constantly mess these up when going fast
+" Address my common mistakes when typing fast
 command WQ wq
 command Wq wq
 command W w
 command Q q
+
+if has('nvim')
+  " Explicitly set host programs for pynvim installations
+  let g:python3_host_prog = '/usr/bin/python3'
+  let g:python_host_prog = '/usr/bin/python2'
+endif
 
 " Auto install Plug if not installed
 if empty(glob('~/.vim/autoload/plug.vim'))
@@ -98,10 +96,6 @@ if empty(glob('~/.vim/autoload/plug.vim'))
     \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
   autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
 endif
-
-" Explicitly set host programs for pynvim installations
-let g:python3_host_prog = '/usr/bin/python3'
-let g:python_host_prog = '/usr/bin/python2'
 
 " --- Plugin section --- "
 " Coc extensions
@@ -128,33 +122,34 @@ Plug 'itchyny/lightline.vim'
 Plug 'mengelbrecht/lightline-bufferline'
 Plug 'gruvbox-community/gruvbox'
 
-" --- Completion and syntax --- "
+" --- Editing and usability --- "
 Plug 'neoclide/coc.nvim', {'branch': 'release'}"
-
-" Editing and usability
 Plug 'tpope/vim-sleuth'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-surround'
 Plug 'airblade/vim-gitgutter'
-Plug 'junegunn/goyo.vim'
-Plug 'junegunn/limelight.vim'
 Plug 'markonm/traces.vim'
 Plug 'AndrewRadev/splitjoin.vim'
 Plug 'ntpeters/vim-better-whitespace'
 Plug 'Konfekt/FastFold'
-Plug 'christoomey/vim-tmux-navigator'
-Plug 'tmux-plugins/vim-tmux-focus-events'
-Plug 'tmux-plugins/vim-tmux'
-Plug 'roxma/vim-tmux-clipboard'
 Plug 'janko/vim-test'
-Plug 'ryanoasis/vim-devicons'
 Plug 'vimwiki/vimwiki'
 Plug 'junegunn/vim-peekaboo'
+Plug 'ms-jpq/chadtree'
 " Plug 'psliwka/vim-smoothie'
 
+" --- Tmux --- "
+Plug 'christoomey/vim-tmux-navigator'
+Plug 'tmux-plugins/vim-tmux-focus-events'
+" Plug 'tmux-plugins/vim-tmux'
+Plug 'roxma/vim-tmux-clipboard'
+
+
 " --- File browsing --- "
+Plug 'ryanoasis/vim-devicons'
 Plug 'junegunn/fzf.vim'
+" Plug 'ms-jpq/chadtree', {'branch': 'chad', 'do': ':UpdateRemotePlugins'}
 Plug 'preservim/nerdtree'
 
 " --- Language/file specific plugs --- "
@@ -171,7 +166,7 @@ let g:semshi#mark_selected_nodes=0 " this is coc's job
 
 call plug#end()
 
-" --- Theme settings ---
+" --- Theme settings --- "
 " These need to be after plugin section to function correctly
 syntax enable                   " syntax highlighting on
 filetype plugin indent on       " filetype specific declarations
@@ -182,7 +177,7 @@ colorscheme gruvbox
 " Avoid vim-plug crashes when calling functions from NERDTree window
 let g:plug_window = 'noautocmd vertical topleft new'
 
-" --- Fzf settings ---
+" --- Fzf settings --- "
 " https://github.com/junegunn/fzf.vim/issues/47
 " Use :Files from git root if one is present, otherwise just use :files
 function! s:find_git_root()
@@ -197,7 +192,8 @@ let g:fzf_action = {
   \ 'ctrl-h': 'split',
   \ 'ctrl-v': 'vsplit' }
 
-" Nerdtree binds to make it behave more like ranger
+" --- Nerdtree settings --- "
+nnoremap <leader>v <cmd>CHADopen<cr>
 map <C-n> :NERDTreeToggle<CR>
 let g:NERDTreeDirArrowExpandable = '▶'
 let g:NERDTreeDirArrowCollapsible = '▼'
@@ -206,19 +202,19 @@ let g:NERDTreeMapOpenVSplit='<C-v>'
 let g:NERDTreeMapActivateNode='l'
 let g:NERDTreeMapCloseDir='h'
 
-" Whitespace settings
+" --- Whitespace settings --- "
 let g:strip_whitespace_confirm=0
 let g:better_whitespace_enabled=1
 let g:strip_whitespace_on_save=1
 
-" vim-test mapping for running tests
+" --- Test settings (vim-test) --- "
 nmap <silent> <leader>tn :TestNearest<CR>
 nmap <silent> <leader>tf :TestFile<CR>
 nmap <silent> <leader>ts :TestSuite<CR>
 nmap <silent> <leader>tl :TestLast<CR>
 nmap <silent> <leader>tg :TestVisit<CR>
 
-" Vimwiki settings
+" --- Vimwiki settings --- "
 let g:vimwiki_list = [
   \ {'path': '~/Documents/work/vimwiki/', 'syntax': 'markdown', 'ext': '.md'},
   \ {'path': '~/Documents/irl/vimwiki/', 'syntax': 'markdown', 'ext': '.md'}
