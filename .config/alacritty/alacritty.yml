@@ -5,8 +5,10 @@ font:
     bold:
         family: Terminus (TTF)
         style: Bold
-    size: 18
+    size: 16.5
 window:
     padding:
         x: 10
         y: 10
+env:
+    TERM: alacritty
