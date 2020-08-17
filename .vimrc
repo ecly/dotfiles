@@ -25,6 +25,8 @@ set concealcursor=              " Never conceal anything on current line
 set undofile                    " Use persistent undofiles
 set lazyredraw                  " Speedup large files and macros
 set updatetime=300              " Default 4000 is a bit high for async updates
+set splitbelow                  " Intuitive default split directions
+set splitright                  " Intuitive default split directions
 if has('termguicolors')
   set termguicolors             " Use true colors
 endif
@@ -38,16 +40,9 @@ augroup autos
     " https://github.com/preservim/nerdtree/wiki/F.A.Q.#how-can-i-make-sure-vim-does-not-open-files-and-other-buffers-on-nerdtree-window
     autocmd BufEnter * if bufname('#') =~# "^NERD_tree_" && winnr('$') > 1 | b# | endif
 augroup END
-
-" Manual call to Strip whitespace from end of line
-nnoremap <leader>T :StripWhitespace<CR>
-
 " Jumps with ` are unpleasant on my keyboard
 nnoremap ' `
 
-" Intuitive split directions
-set splitbelow
-set splitright
 
 " Intuitive behavior for wrapped lines
 nnoremap j gj
@@ -84,8 +79,8 @@ command Wq wq
 command W w
 command Q q
 
+" Explicitly set host programs for pynvim installations
 if has('nvim')
-  " Explicitly set host programs for pynvim installations
   let g:python3_host_prog = '/usr/bin/python3'
   let g:python_host_prog = '/usr/bin/python2'
 endif
@@ -96,9 +91,12 @@ if empty(glob('~/.vim/autoload/plug.vim'))
     \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
   autocmd [autos] VimEnter * PlugInstall --sync | source $MYVIMRC
 endif
+" Use less than default 16 threads for update/install to avoid timeouts
+let g:plug_threads = 1
+" Avoid vim-plug crashes when calling functions from NERDTree window
+let g:plug_window = 'noautocmd vertical topleft new'
 
-" --- Plugin section --- "
-" Coc extensions
+" Coc extensions (currently excluding coc-pyright
 let g:coc_global_extensions = [
 \ 'coc-json',
 \ 'coc-html',
@@ -112,86 +110,66 @@ let g:coc_global_extensions = [
 \ 'coc-vimtex',
 \ 'coc-python',
 \ ]
-" For the time being let's not use coc-pyright
-" \ 'coc-pyright',
 
 call plug#begin('~/.vim/plugged')
+" Completion
+Plug 'neoclide/coc.nvim', {'branch': 'release'}"
 
-" --- Theming --- "
+" Theming
 Plug 'itchyny/lightline.vim'
 Plug 'mengelbrecht/lightline-bufferline'
 Plug 'gruvbox-community/gruvbox'
 
-" --- Editing and usability --- "
-Plug 'neoclide/coc.nvim', {'branch': 'release'}"
-Plug 'tpope/vim-sleuth'
-Plug 'tpope/vim-fugitive'
-Plug 'tpope/vim-commentary'
-Plug 'tpope/vim-surround'
+" Git plugins
 Plug 'airblade/vim-gitgutter'
+Plug 'tpope/vim-fugitive'
+
+" Automatically adjust indents
+Plug 'tpope/vim-sleuth'
+
+" Easy commenting
+Plug 'tpope/vim-commentary'
+
+" Easy change surrounding tokens
+Plug 'tpope/vim-surround'
 Plug 'markonm/traces.vim'
 Plug 'AndrewRadev/splitjoin.vim'
-Plug 'ntpeters/vim-better-whitespace'
+
+" Speed up folding
 Plug 'Konfekt/FastFold'
-Plug 'janko/vim-test'
-Plug 'vimwiki/vimwiki'
-Plug 'junegunn/vim-peekaboo'
+
+" Smooth scrolling in vim
 " Plug 'psliwka/vim-smoothie'
 
-" --- Tmux --- "
+" Peek into registers with @/"
+Plug 'junegunn/vim-peekaboo'
+
+" Handling whitespace
+Plug 'ntpeters/vim-better-whitespace'
+nnoremap <leader>T :StripWhitespace<CR>
+let g:strip_whitespace_confirm=0
+let g:better_whitespace_enabled=1
+let g:strip_whitespace_on_save=1
+
+" Running tests
+Plug 'janko/vim-test'
+nmap <silent> <leader>tn :TestNearest<CR>
+nmap <silent> <leader>tf :TestFile<CR>
+nmap <silent> <leader>ts :TestSuite<CR>
+nmap <silent> <leader>tl :TestLast<CR>
+nmap <silent> <leader>tg :TestVisit<CR>
+
+" Tmux
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'tmux-plugins/vim-tmux-focus-events'
-" Plug 'tmux-plugins/vim-tmux'
 Plug 'roxma/vim-tmux-clipboard'
 
-
-" --- File browsing --- "
+" File browsing
 Plug 'ryanoasis/vim-devicons'
-Plug 'junegunn/fzf.vim'
 Plug 'ms-jpq/chadtree', {'branch': 'chad', 'do': ':UpdateRemotePlugins'}
+
+" NERDTree settings
 Plug 'preservim/nerdtree'
-
-" --- Language/file specific plugs --- "
-Plug 'elixir-editors/vim-elixir'
-Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries' }
-Plug 'lervag/vimtex'
-Plug 'elzr/vim-json'
-Plug 'PotatoesMaster/i3-vim-syntax'
-Plug 'cespare/vim-toml'
-Plug 'chrisbra/csv.vim'
-Plug 'ekalinin/Dockerfile.vim'
-Plug 'numirias/semshi', {'do': ':UpdateRemotePlugins'}
-let g:semshi#mark_selected_nodes=0 " this is coc's job
-
-call plug#end()
-
-" --- Theme settings --- "
-" These need to be after plugin section to function correctly
-syntax enable                   " syntax highlighting on
-filetype plugin indent on       " filetype specific declarations
-let g:gruvbox_contrast_dark = 'hard'
-let g:gruvbox_sign_column='bg0'
-colorscheme gruvbox
-
-" Avoid vim-plug crashes when calling functions from NERDTree window
-let g:plug_window = 'noautocmd vertical topleft new'
-
-" --- Fzf settings --- "
-" https://github.com/junegunn/fzf.vim/issues/47
-" Use :Files from git root if one is present, otherwise just use :files
-function! s:find_git_root()
-  return system('git rev-parse --show-toplevel 2> /dev/null')[:-2]
-endfunction
-
-command! ProjectFiles execute 'Files' s:find_git_root()
-nmap <c-p> :ProjectFiles<CR>
-
-let g:fzf_action = {
-  \ 'ctrl-t': 'tab split',
-  \ 'ctrl-h': 'split',
-  \ 'ctrl-v': 'vsplit' }
-
-" --- Nerdtree settings --- "
 nnoremap <leader>v <cmd>CHADopen<cr>
 map <C-n> :NERDTreeToggle<CR>
 let g:NERDTreeDirArrowExpandable = '▶'
@@ -201,31 +179,33 @@ let g:NERDTreeMapOpenVSplit='<C-v>'
 let g:NERDTreeMapActivateNode='l'
 let g:NERDTreeMapCloseDir='h'
 
-" --- Whitespace settings --- "
-let g:strip_whitespace_confirm=0
-let g:better_whitespace_enabled=1
-let g:strip_whitespace_on_save=1
+" Fzf settings "
+Plug 'junegunn/fzf.vim'
+nmap <c-p> :Files<CR>
+let g:fzf_action = {'ctrl-t': 'tab split','ctrl-h': 'split','ctrl-v': 'vsplit'}
+Plug 'airblade/vim-rooter'
 
-" --- Test settings (vim-test) --- "
-nmap <silent> <leader>tn :TestNearest<CR>
-nmap <silent> <leader>tf :TestFile<CR>
-nmap <silent> <leader>ts :TestSuite<CR>
-nmap <silent> <leader>tl :TestLast<CR>
-nmap <silent> <leader>tg :TestVisit<CR>
+" Some language/file specific plugins
+Plug 'elixir-editors/vim-elixir'
+Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries' }
+Plug 'elzr/vim-json'
+Plug 'PotatoesMaster/i3-vim-syntax'
+Plug 'cespare/vim-toml'
+Plug 'chrisbra/csv.vim'
+Plug 'ekalinin/Dockerfile.vim'
 
-" --- Vimwiki settings --- "
-let g:vimwiki_list = [
-  \ {'path': '~/Documents/work/vimwiki/', 'syntax': 'markdown', 'ext': '.md'},
-  \ {'path': '~/Documents/irl/vimwiki/', 'syntax': 'markdown', 'ext': '.md'}
-  \]
-nmap <silent> <leader><Tab> <Plug>VimwikiNextLink
-nmap <silent> <leader><S-Tab> <Plug>VimwikiPrevLink
+" Markdown
+Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
+nmap <C-s> <Plug>MarkdownPreview
 
-" --- Latex settings ---
+" Python semantic syntax highlighting
+Plug 'numirias/semshi', {'do': ':UpdateRemotePlugins'}
+let g:semshi#mark_selected_nodes=0 " this is coc's job
+
+" Latex settings
+Plug 'lervag/vimtex'
 let g:tex_conceal = ''
-" .tex files are always filetype latex
 let g:tex_flavor = 'latex'
-" Vimtex neovim compatability requires `pip3 install neovim-remote`
 let g:vimtex_view_method = 'zathura'
 let g:vimtex_compiler_progname = 'nvr'
 " don't open the quickfix window for warnings
@@ -234,3 +214,23 @@ let g:vimtex_quickfix_autoclose_after_keystrokes=2
 let g:vimtex_quickfix_mode=2  " open on errors without focus
 " use neovim-remote for callbacks
 let g:vimtex_compiler_progname = 'nvr'
+
+" Vimwiki settings
+Plug 'vimwiki/vimwiki'
+let g:vimwiki_list = [
+  \ {'path': '~/Documents/work/vimwiki/', 'syntax': 'markdown', 'ext': '.md'},
+  \ {'path': '~/Documents/irl/vimwiki/', 'syntax': 'markdown', 'ext': '.md'}
+  \]
+nmap <silent> <leader><Tab> <Plug>VimwikiNextLink
+nmap <silent> <leader><S-Tab> <Plug>VimwikiPrevLink
+
+call plug#end()
+
+" Theming - these need to be after plugin section to function correctly
+" Enable syntax highlighting
+syntax enable
+" Filetype specific declarations
+filetype plugin indent on
+let g:gruvbox_contrast_dark = 'hard'
+let g:gruvbox_sign_column='bg0'
+colorscheme gruvbox
