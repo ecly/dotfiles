@@ -136,7 +136,6 @@ Plug 'Konfekt/FastFold'
 Plug 'janko/vim-test'
 Plug 'vimwiki/vimwiki'
 Plug 'junegunn/vim-peekaboo'
-Plug 'ms-jpq/chadtree'
 " Plug 'psliwka/vim-smoothie'
 
 " --- Tmux --- "
@@ -149,7 +148,7 @@ Plug 'roxma/vim-tmux-clipboard'
 " --- File browsing --- "
 Plug 'ryanoasis/vim-devicons'
 Plug 'junegunn/fzf.vim'
-" Plug 'ms-jpq/chadtree', {'branch': 'chad', 'do': ':UpdateRemotePlugins'}
+Plug 'ms-jpq/chadtree', {'branch': 'chad', 'do': ':UpdateRemotePlugins'}
 Plug 'preservim/nerdtree'
 
 " --- Language/file specific plugs --- "
