@@ -4,10 +4,6 @@ scriptencoding utf-8
 " https://github.com/statico/dotfiles/blob/202e30b23e5216ffb6526cce66a0ef4fa7070456/.vim/vimrc#L406-L453
 " https://github.com/neoclide/coc.nvim/issues/401
 
-" Set warning/error icons for coc_status
-let g:coc_status_error_sign = '✗'
-let g:coc_status_warning_sign = '•'
-
 " Always show tabline
 set showtabline=2
 " Ensure that lightline-bufferline works with devicons
@@ -22,7 +18,7 @@ let g:lightline = {
     \ },
     \ 'tabline': {
     \   'left': [['buffers']],
-    \   'right': [],
+    \   'right': [['close']],
     \ },
     \ 'component_expand': {
     \   'buffers': 'lightline#bufferline#buffers',
@@ -35,10 +31,15 @@ let g:lightline = {
     \ 'component_type': {
     \   'readonly': 'error',
     \   'buffers': 'tabsel',
+    \   'coc_error': 'error',
+    \   'coc_warning': 'warning',
+    \   'coc_info': 'tabsel',
+    \   'coc_hint': 'middle',
+    \   'coc_fix': 'middle',
     \ },
     \ 'component_function': {
     \   'gitbranch': 'fugitive#head',
-    \   'cocstatus': 'coc#status',
+    \   'bufferinfo': 'lightline#buffer#bufferinfo',
     \ },
     \ }
 
@@ -48,15 +49,6 @@ function! s:MaybeUpdateLightline()
         call lightline#update()
     end
 endfunction
-
-let g:lightline.component_type = {
-\   'coc_error'        : 'error',
-\   'coc_warning'      : 'warning',
-\   'coc_info'         : 'tabsel',
-\   'coc_hint'         : 'middle',
-\   'coc_fix'          : 'middle',
-\ }
-
 function! s:lightline_coc_diagnostic(kind, sign) abort
   let info = get(b:, 'coc_diagnostic_info', 0)
   if empty(info) || get(info, a:kind, 0) == 0
