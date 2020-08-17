@@ -18,7 +18,7 @@ let g:lightline = {
     \ },
     \ 'tabline': {
     \   'left': [['buffers']],
-    \   'right': [['close']],
+    \   'right': [],
     \ },
     \ 'component_expand': {
     \   'buffers': 'lightline#bufferline#buffers',
