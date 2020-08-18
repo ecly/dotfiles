@@ -92,7 +92,7 @@ if empty(glob('~/.vim/autoload/plug.vim'))
   autocmd [autos] VimEnter * PlugInstall --sync | source $MYVIMRC
 endif
 " Use less than default 16 threads for update/install to avoid timeouts
-let g:plug_threads = 1
+let g:plug_threads = 4
 " Avoid vim-plug crashes when calling functions from NERDTree window
 let g:plug_window = 'noautocmd vertical topleft new'
 
