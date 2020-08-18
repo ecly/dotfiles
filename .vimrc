@@ -196,6 +196,7 @@ Plug 'ekalinin/Dockerfile.vim'
 
 " Markdown
 Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
+let g:mkdp_auto_close = 0
 nmap <C-s> <Plug>MarkdownPreview
 
 " Python semantic syntax highlighting
