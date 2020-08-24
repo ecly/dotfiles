@@ -6,7 +6,9 @@
     "python.formatting.provider": "black",
     "python.linting.enabled": true,
     "python.linting.pylintEnabled": true,
+    "python.linting.pydocstyleEnabled": true,
     "python.poetryPath": "poetry",
     "python.jediEnabled": false,
-    "python.autoComplete.extraPaths": ["./dags"]
+    "python.autoComplete.extraPaths": ["./dags"],
+    "python.venvPath": "./.venv"
 }
