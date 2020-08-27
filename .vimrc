@@ -86,7 +86,7 @@ endif
 if empty(glob('~/.vim/autoload/plug.vim'))
   silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
     \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-  autocmd [autos] VimEnter * PlugInstall --sync | source $MYVIMRC
+  autocmd autos VimEnter * PlugInstall --sync | source $MYVIMRC
 endif
 " Use less than default 16 threads for update/install to avoid timeouts
 let g:plug_threads = 4
@@ -291,7 +291,8 @@ endfunction
 function! LightlineCocHints() abort
   return s:lightline_coc_diagnostic('hints', '')
 endfunction
-autocmd [autos] User CocStatusChange,CocDiagnosticChange call s:MaybeUpdateLightline()
+
+autocmd autos User CocStatusChange,CocDiagnosticChange call s:MaybeUpdateLightline()
 
 call plug#end()
 
