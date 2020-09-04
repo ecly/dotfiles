@@ -81,13 +81,15 @@ yay -Syyu --noconfirm \
     xdotool \
     mons
 
-# Handle Python specific installs
+# Handle Python specific installs with pipx
 pip3 install pipx --user
+pipx install poetry
+pipx install black
+pipx install pydocstyle
+pipx install isort
 pipx install pylint
 pipx install pywal
-pipx install jedi
 pipx install jupyterlab
-pipx install poetry
 
 # apply theme
 wal --theme base16-gruvbox-hard
