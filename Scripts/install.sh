@@ -79,7 +79,10 @@ yay -Syyu --noconfirm \
     oh-my-zsh-git \
     git-delta-bin \
     xdotool \
-    mons
+    mons \
+    sc-im \
+    ctop-bin
+
 
 # Handle Python specific installs with pipx
 pip3 install pipx --user
