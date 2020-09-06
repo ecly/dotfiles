@@ -44,6 +44,8 @@
     hide = update-index --assume-unchanged
     unhide = update-index --no-assume-unchanged
 [credential]
-	helper = store
+    helper = store
 [pull]
-	rebase = true
+    rebase = true
+[rerere]
+    enabled = true
