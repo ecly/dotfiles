@@ -34,11 +34,14 @@ endif
 let g:mapleader = ','
 
 augroup autos
-    autocmd!
-    " Set dosini syntax highlighting for config files
-    autocmd BufRead,BufNewFile config setf dosini
-    " https://github.com/preservim/nerdtree/wiki/F.A.Q.#how-can-i-make-sure-vim-does-not-open-files-and-other-buffers-on-nerdtree-window
-    autocmd BufEnter * if bufname('#') =~# "^NERD_tree_" && winnr('$') > 1 | b# | endif
+  " Set dosini syntax highlighting for config files
+  autocmd! BufRead,BufNewFile config setf dosini
+  " https://github.com/preservim/nerdtree/wiki/F.A.Q.#how-can-i-make-sure-vim-does-not-open-files-and-other-buffers-on-nerdtree-window
+  autocmd! BufEnter * if bufname('#') =~# "^NERD_tree_" && winnr('$') > 1 | b# | endif
+  " Briefly highlight yanked text (available in neovim >= 5.0
+  if exists('##TextYankPost')
+    autocmd TextYankPost * silent! lua require'vim.highlight'.on_yank("IncSearch", 300)
+  endif
 augroup END
 
 " Jumps with ` are unpleasant on my keyboard
@@ -71,10 +74,10 @@ nnoremap <C-w>\  <C-w>v
 cmap w!! w !sudo tee >/dev/null %
 
 " Address my common mistakes when typing fast
-command WQ wq
-command Wq wq
-command W w
-command Q q
+command! WQ wq
+command! Wq wq
+command! W w
+command! Q q
 
 " Explicitly set host programs for pynvim installations
 if has('nvim')
@@ -85,7 +88,7 @@ endif
 " Auto install Plug if not installed
 if empty(glob('~/.vim/autoload/plug.vim'))
   silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
-    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+        \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
   autocmd autos VimEnter * PlugInstall --sync | source $MYVIMRC
 endif
 " Use less than default 16 threads for update/install to avoid timeouts
@@ -95,18 +98,20 @@ let g:plug_window = 'noautocmd vertical topleft new'
 
 " Coc extensions (currently excluding coc-pyright
 let g:coc_global_extensions = [
-\ 'coc-json',
-\ 'coc-html',
-\ 'coc-css',
-\ 'coc-yaml',
-\ 'coc-elixir',
-\ 'coc-rls',
-\ 'coc-java',
-\ 'coc-omnisharp',
-\ 'coc-yaml',
-\ 'coc-vimtex',
-\ 'coc-python',
-\ ]
+      \ 'coc-json',
+      \ 'coc-html',
+      \ 'coc-css',
+      \ 'coc-yaml',
+      \ 'coc-elixir',
+      \ 'coc-rls',
+      \ 'coc-java',
+      \ 'coc-omnisharp',
+      \ 'coc-yaml',
+      \ 'coc-vimtex',
+      \ 'coc-python',
+      \ 'coc-lists',
+      \ 'coc-snippets',
+      \ ]
 
 call plug#begin('~/.vim/plugged')
 " Completion
@@ -132,6 +137,8 @@ Plug 'AndrewRadev/splitjoin.vim'
 
 " Speed up folding
 Plug 'Konfekt/FastFold'
+
+Plug 'honza/vim-snippets'
 
 " Smooth scrolling in vim
 " Plug 'psliwka/vim-smoothie'
@@ -214,9 +221,9 @@ let g:vimtex_compiler_progname = 'nvr'
 " Vimwiki settings
 Plug 'vimwiki/vimwiki'
 let g:vimwiki_list = [
-  \ {'path': '~/Documents/work/vimwiki/', 'syntax': 'markdown', 'ext': '.md'},
-  \ {'path': '~/Documents/irl/vimwiki/', 'syntax': 'markdown', 'ext': '.md'}
-  \]
+      \ {'path': '~/Documents/work/vimwiki/', 'syntax': 'markdown', 'ext': '.md'},
+      \ {'path': '~/Documents/irl/vimwiki/', 'syntax': 'markdown', 'ext': '.md'}
+      \]
 nmap <silent> <leader><Tab> <Plug>VimwikiNextLink
 nmap <silent> <leader><S-Tab> <Plug>VimwikiPrevLink
 
@@ -234,43 +241,43 @@ let g:lightline#bufferline#enable_devicons = 1
 
 " Lightline
 let g:lightline = {
-    \ 'colorscheme': 'gruvbox',
-    \ 'active': {
-    \   'left': [['mode', 'paste'], ['gitbranch', 'modified']],
-    \   'right': [['lineinfo'], ['percent'], ['coc_error', 'coc_warning', 'coc_info', 'coc_hint', 'coc_fix', 'readonly', 'filetype']],
-    \ },
-    \ 'tabline': {
-    \   'left': [['buffers']],
-    \   'right': [],
-    \ },
-    \ 'component_expand': {
-    \   'buffers': 'lightline#bufferline#buffers',
-    \   'coc_error'        : 'LightlineCocErrors',
-    \   'coc_warning'      : 'LightlineCocWarnings',
-    \   'coc_info'         : 'LightlineCocInfos',
-    \   'coc_hint'         : 'LightlineCocHints',
-    \   'coc_fix'          : 'LightlineCocFixes',
-    \ },
-    \ 'component_type': {
-    \   'readonly': 'error',
-    \   'buffers': 'tabsel',
-    \   'coc_error': 'error',
-    \   'coc_warning': 'warning',
-    \   'coc_info': 'tabsel',
-    \   'coc_hint': 'middle',
-    \   'coc_fix': 'middle',
-    \ },
-    \ 'component_function': {
-    \   'gitbranch': 'fugitive#head',
-    \   'bufferinfo': 'lightline#buffer#bufferinfo',
-    \ },
-    \ }
+      \ 'colorscheme': 'gruvbox',
+      \ 'active': {
+      \   'left': [['mode', 'paste'], ['gitbranch', 'modified']],
+      \   'right': [['lineinfo'], ['percent'], ['coc_error', 'coc_warning', 'coc_info', 'coc_hint', 'coc_fix', 'readonly', 'filetype']],
+      \ },
+      \ 'tabline': {
+      \   'left': [['buffers']],
+      \   'right': [],
+      \ },
+      \ 'component_expand': {
+      \   'buffers': 'lightline#bufferline#buffers',
+      \   'coc_error'        : 'LightlineCocErrors',
+      \   'coc_warning'      : 'LightlineCocWarnings',
+      \   'coc_info'         : 'LightlineCocInfos',
+      \   'coc_hint'         : 'LightlineCocHints',
+      \   'coc_fix'          : 'LightlineCocFixes',
+      \ },
+      \ 'component_type': {
+      \   'readonly': 'error',
+      \   'buffers': 'tabsel',
+      \   'coc_error': 'error',
+      \   'coc_warning': 'warning',
+      \   'coc_info': 'tabsel',
+      \   'coc_hint': 'middle',
+      \   'coc_fix': 'middle',
+      \ },
+      \ 'component_function': {
+      \   'gitbranch': 'fugitive#head',
+      \   'bufferinfo': 'lightline#buffer#bufferinfo',
+      \ },
+      \ }
 
 " Update and show lightline but only if it's visible (e.g., not in Goyo)
 function! s:MaybeUpdateLightline()
-    if exists('#lightline')
-        call lightline#update()
-    end
+  if exists('#lightline')
+    call lightline#update()
+  end
 endfunction
 function! s:lightline_coc_diagnostic(kind, sign) abort
   let info = get(b:, 'coc_diagnostic_info', 0)
@@ -303,5 +310,5 @@ syntax enable
 filetype plugin indent on
 let g:gruvbox_contrast_dark = 'hard'
 let g:gruvbox_sign_column='bg0'
+let g:gruvbox_invert_selection=0
 colorscheme gruvbox
-
