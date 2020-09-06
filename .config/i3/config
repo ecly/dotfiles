@@ -163,7 +163,7 @@ bindsym $sup+m exec $term -name mutt -e tmux -2 new-session -A -s mutt 'neomutt'
 bindsym $sup+s exec slack
 bindsym $sup+i exec $term -name weechat -e weechat
 bindsym $sup+w exec $term -name nmtui -e nmtui-connect
-bindsym $sup+j exec $term -name todo -e nvim ~/Documents/irl/todo.txt
+bindsym $sup+j exec $term -name todo -e nvim ~/Documents/irl/todo.md
 
 ###--- Audo and Music definitions---###
 set $pause mpc toggle
