@@ -301,13 +301,18 @@ endfunction
 
 autocmd autos User CocStatusChange,CocDiagnosticChange call s:MaybeUpdateLightline()
 
+
+Plug 'jpalardy/vim-slime'
+" Use tmux as default target for slime, as well as last pane by default
+let g:slime_target = "tmux"
+let g:slime_default_config = {"socket_name": "default", "target_pane": "{last}"}
+
 call plug#end()
 
 " Theming - these need to be after plugin section to function correctly
-" Enable syntax highlighting
-syntax enable
-" Filetype specific declarations
-filetype plugin indent on
+syntax enable               " Enable syntax highlighting
+filetype plugin indent on   " Filetype specific declarations
+
 let g:gruvbox_contrast_dark = 'hard'
 let g:gruvbox_sign_column='bg0'
 let g:gruvbox_invert_selection=0
