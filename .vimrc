@@ -27,11 +27,13 @@ set lazyredraw                  " Speedup large files and macros
 set updatetime=100              " Default 4000 is a bit high for async updates
 set splitbelow                  " Intuitive default split directions
 set splitright                  " Intuitive default split directions
+set showtabline=2               " Always show tabline
+
 if has('termguicolors')
   set termguicolors             " Use true colors
 endif
 
-let g:mapleader = ','
+let g:mapleader = "\<Space>"
 
 augroup autos
   " Set dosini syntax highlighting for config files
@@ -55,8 +57,8 @@ nnoremap k gk
 nmap <leader>/ :nohlsearch<CR>
 
 " Quick search and replace for block and selection - from romainln minivimrc
-nnoremap <Space><Space> :'{,'}s/\<<C-r>=expand("<cword>")<CR>\>/
-nnoremap <Space>% :%s/\<<C-r>=expand("<cword>")<CR>\>/
+nnoremap <leader><leader> :'{,'}s/\<<C-r>=expand("<cword>")<CR>\>/
+nnoremap <leader>% :%s/\<<C-r>=expand("<cword>")<CR>\>/
 
 " Easy window/buffer navigation
 map <C-h> <C-w>h
@@ -236,8 +238,6 @@ Plug 'mengelbrecht/lightline-bufferline'
 "   https://github.com/statico/dotfiles/blob/202e30b23e5216ffb6526cce66a0ef4fa7070456/.vim/vimrc#L406-L453
 "   https://github.com/neoclide/coc.nvim/issues/401
 
-" Always show tabline
-set showtabline=2
 " Ensure that lightline-bufferline works with devicons
 let g:lightline#bufferline#enable_devicons = 1
 
