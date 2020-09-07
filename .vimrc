@@ -28,6 +28,15 @@ set updatetime=100                  " Default 4000 is a bit high for async updat
 set splitbelow                      " Intuitive default split directions
 set splitright                      " Intuitive default split directions
 set showtabline=2                   " Always show tabline
+set shortmess+=c                    " Don't give ins-completion-menu messages
+
+if has("patch-8.1.1564")
+  " Recently vim can merge signcolumn and number column into one
+  set signcolumn=number
+else
+  set signcolumn=yes
+endif
+
 if has('termguicolors')
   set termguicolors                 " Use true colors
 endif
@@ -74,6 +83,7 @@ augroup autos
     autocmd TextYankPost * silent! lua require'vim.highlight'.on_yank("IncSearch", 300)
   endif
 augroup END
+let g:plug_window = 'noautocmd vertical topleft new'
 
 " Auto install Plug if not installed
 if empty(glob('~/.vim/autoload/plug.vim'))
@@ -126,11 +136,12 @@ Plug 'roxma/vim-tmux-clipboard'
 Plug 'itchyny/lightline.vim'
 Plug 'mengelbrecht/lightline-bufferline'
 Plug 'janko/vim-test'
-" NERDTree settings
 Plug 'preservim/nerdtree'
-" Fzf settings "
 Plug 'junegunn/fzf.vim'
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'airblade/vim-rooter'
+" Use <C-c><C-c> to send chunk to tmux pane
+Plug 'jpalardy/vim-slime'
 " Some language/file specific plugins
 Plug 'elixir-editors/vim-elixir'
 Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries' }
@@ -142,8 +153,6 @@ Plug 'ekalinin/Dockerfile.vim'
 " Preview markdown files with :MarkdownPreview
 Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
 Plug 'numirias/semshi', {'do': ':UpdateRemotePlugins'}
-" Use <C-c><C-c> to send chunk to tmux pane
-Plug 'jpalardy/vim-slime'
 Plug 'lervag/vimtex'
 Plug 'vimwiki/vimwiki'
 call plug#end()
