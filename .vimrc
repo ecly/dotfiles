@@ -1,64 +1,39 @@
 set encoding=utf-8
 scriptencoding utf-8
-set noshowmode                  " Lightline shows this already
-set clipboard^=unnamed,unnamedplus " Use system clipboard
-set laststatus=2                " Always show status line
-set tabstop=4                   " 4 spaces will do
-set shiftwidth=4                " Control indentation for >> bind
-set expandtab                   " Spaces instead of tabs
-set autoindent                  " Always set autoindenting on
-set relativenumber              " Relative line numbers
-set number                      " Hybrid numbering with both rnu and number
-set hidden                      " Hide buffers instead of closing them
-set ignorecase                  " Ignore case when searching
-set smartcase                   " Ignore case if all lowercase
-set visualbell                  " Don't beep
-set noerrorbells                " Don't beep
-set nobackup                    " Don't need backup
-set nowritebackup               " Don't need backup
-set noswapfile                  " Don't need swp files
-set showmatch                   " Show matching braces when over one
-set backspace=indent,eol,start  " Allow backspacing everything in insert
-set hlsearch                    " Highlight searches
-set incsearch                   " Search as typing
-set concealcursor=              " Never conceal anything on current line
-set undofile                    " Use persistent undofiles
-set lazyredraw                  " Speedup large files and macros
-set updatetime=100              " Default 4000 is a bit high for async updates
-set splitbelow                  " Intuitive default split directions
-set splitright                  " Intuitive default split directions
-set showtabline=2               " Always show tabline
-
+set noshowmode                      " Lightline shows this already
+set clipboard^=unnamed,unnamedplus  " Use system clipboard
+set laststatus=2                    " Always show status line
+set tabstop=4                       " 4 spaces will do
+set shiftwidth=4                    " Control indentation for >> bind
+set expandtab                       " Spaces instead of tabs
+set autoindent                      " Always set autoindenting on
+set relativenumber                  " Relative line numbers
+set number                          " Hybrid numbering with both rnu and number
+set hidden                          " Hide buffers instead of closing them
+set ignorecase                      " Ignore case when searching
+set smartcase                       " Ignore case if all lowercase
+set visualbell                      " Don't beep
+set noerrorbells                    " Don't beep
+set nobackup                        " Don't need backup
+set nowritebackup                   " Don't need backup
+set noswapfile                      " Don't need swp files
+set showmatch                       " Show matching braces when over one
+set backspace=indent,eol,start      " Allow backspacing everything in insert
+set hlsearch                        " Highlight searches
+set incsearch                       " Search as typing
+set concealcursor=                  " Never conceal anything on current line
+set undofile                        " Use persistent undofiles
+set lazyredraw                      " Speedup large files and macros
+set updatetime=100                  " Default 4000 is a bit high for async updates
+set splitbelow                      " Intuitive default split directions
+set splitright                      " Intuitive default split directions
+set showtabline=2                   " Always show tabline
 if has('termguicolors')
-  set termguicolors             " Use true colors
+  set termguicolors                 " Use true colors
 endif
 
 let g:mapleader = "\<Space>"
-
-augroup autos
-  " Set dosini syntax highlighting for config files
-  autocmd! BufRead,BufNewFile config setf dosini
-  " https://github.com/preservim/nerdtree/wiki/F.A.Q.#how-can-i-make-sure-vim-does-not-open-files-and-other-buffers-on-nerdtree-window
-  autocmd! BufEnter * if bufname('#') =~# "^NERD_tree_" && winnr('$') > 1 | b# | endif
-  " Briefly highlight yanked text (available in neovim >= 5.0
-  if exists('##TextYankPost')
-    autocmd TextYankPost * silent! lua require'vim.highlight'.on_yank("IncSearch", 300)
-  endif
-augroup END
-
-" Jumps with ` are unpleasant on my keyboard
-nnoremap ' `
-
-" Intuitive behavior for wrapped lines
-nnoremap j gj
-nnoremap k gk
-
-" Bind to clear search
 nmap <leader>/ :nohlsearch<CR>
-
-" Quick search and replace for block and selection - from romainln minivimrc
-nnoremap <leader><leader> :'{,'}s/\<<C-r>=expand("<cword>")<CR>\>/
-nnoremap <leader>% :%s/\<<C-r>=expand("<cword>")<CR>\>/
 
 " Easy window/buffer navigation
 map <C-h> <C-w>h
@@ -81,11 +56,24 @@ command! Wq wq
 command! W w
 command! Q q
 
+" Quick search and replace for block and selection - from romainln minivimrc
+nnoremap <leader><leader> :'{,'}s/\<<C-r>=expand("<cword>")<CR>\>/
+nnoremap <leader>% :%s/\<<C-r>=expand("<cword>")<CR>\>/
+
 " Explicitly set host programs for pynvim installations
 if has('nvim')
   let g:python3_host_prog = '/usr/bin/python3'
   let g:python_host_prog = '/usr/bin/python2'
 endif
+
+augroup autos
+  " https://github.com/preservim/nerdtree/wiki/F.A.Q.#how-can-i-make-sure-vim-does-not-open-files-and-other-buffers-on-nerdtree-window
+  autocmd! BufEnter * if bufname('#') =~# "^NERD_tree_" && winnr('$') > 1 | b# | endif
+  " Briefly highlight yanked text (available in neovim >= 5.0
+  if exists('##TextYankPost')
+    autocmd TextYankPost * silent! lua require'vim.highlight'.on_yank("IncSearch", 300)
+  endif
+augroup END
 
 " Auto install Plug if not installed
 if empty(glob('~/.vim/autoload/plug.vim'))
@@ -93,12 +81,7 @@ if empty(glob('~/.vim/autoload/plug.vim'))
         \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
   autocmd autos VimEnter * PlugInstall --sync | source $MYVIMRC
 endif
-" Use less than default 16 threads for update/install to avoid timeouts
-let g:plug_threads = 4
-" Avoid vim-plug crashes when calling functions from NERDTree window
-let g:plug_window = 'noautocmd vertical topleft new'
 
-" Coc extensions (currently excluding coc-pyright
 let g:coc_global_extensions = [
       \ 'coc-json',
       \ 'coc-html',
@@ -116,81 +99,38 @@ let g:coc_global_extensions = [
       \ ]
 
 call plug#begin('~/.vim/plugged')
-" Completion
-Plug 'neoclide/coc.nvim', {'branch': 'release'}"
-
-" Theming
 Plug 'gruvbox-community/gruvbox'
-
-" Git plugins
-Plug 'airblade/vim-gitgutter'
 Plug 'tpope/vim-fugitive'
-
-" Automatically adjust indents
+" Auto-detect indentation
 Plug 'tpope/vim-sleuth'
-
-" Easy commenting
 Plug 'tpope/vim-commentary'
-
-" Easy change surrounding tokens
 Plug 'tpope/vim-surround'
+" Ability to . repeat some plugin operations
 Plug 'tpope/vim-repeat'
-
+Plug 'airblade/vim-gitgutter'
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+" Highlight matches patterns from Ex commands
 Plug 'markonm/traces.vim'
+" Split/join one-liners with gS/gJ
 Plug 'AndrewRadev/splitjoin.vim'
-
-" Speed up folding
 Plug 'Konfekt/FastFold'
-
 Plug 'honza/vim-snippets'
-
-" Smooth scrolling in vim
 " Plug 'psliwka/vim-smoothie'
-
-" Peek into registers with @/"
+" Peek into registers with @ and \"
 Plug 'junegunn/vim-peekaboo'
-
-" Handling whitespace
 Plug 'ntpeters/vim-better-whitespace'
-nnoremap <leader>T :StripWhitespace<CR>
-let g:strip_whitespace_confirm=0
-let g:better_whitespace_enabled=1
-let g:strip_whitespace_on_save=1
-
-" Running tests
-Plug 'janko/vim-test'
-nmap <silent> <leader>tn :TestNearest<CR>
-nmap <silent> <leader>tf :TestFile<CR>
-nmap <silent> <leader>ts :TestSuite<CR>
-nmap <silent> <leader>tl :TestLast<CR>
-nmap <silent> <leader>tg :TestVisit<CR>
-
-" Tmux
+Plug 'ryanoasis/vim-devicons'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'tmux-plugins/vim-tmux-focus-events'
 Plug 'roxma/vim-tmux-clipboard'
-
-" File browsing
-Plug 'ryanoasis/vim-devicons'
-Plug 'ms-jpq/chadtree', {'branch': 'chad', 'do': ':UpdateRemotePlugins'}
-
+Plug 'itchyny/lightline.vim'
+Plug 'mengelbrecht/lightline-bufferline'
+Plug 'janko/vim-test'
 " NERDTree settings
 Plug 'preservim/nerdtree'
-nnoremap <leader>v <cmd>CHADopen<cr>
-map <C-n> :NERDTreeToggle<CR>
-let g:NERDTreeDirArrowExpandable = '▶'
-let g:NERDTreeDirArrowCollapsible = '▼'
-let g:NERDTreeMapOpenSplit='<C-h>'
-let g:NERDTreeMapOpenVSplit='<C-v>'
-let g:NERDTreeMapActivateNode='l'
-let g:NERDTreeMapCloseDir='h'
-
 " Fzf settings "
 Plug 'junegunn/fzf.vim'
-nmap <c-p> :Files<CR>
-let g:fzf_action = {'ctrl-t': 'tab split','ctrl-h': 'split','ctrl-v': 'vsplit'}
 Plug 'airblade/vim-rooter'
-
 " Some language/file specific plugins
 Plug 'elixir-editors/vim-elixir'
 Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries' }
@@ -199,22 +139,28 @@ Plug 'PotatoesMaster/i3-vim-syntax'
 Plug 'cespare/vim-toml'
 Plug 'chrisbra/csv.vim'
 Plug 'ekalinin/Dockerfile.vim'
-
-" Markdown
+" Preview markdown files with :MarkdownPreview
 Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
-let g:mkdp_auto_close = 0
-nmap <C-s> <Plug>MarkdownPreview
-
-" Python semantic syntax highlighting
 Plug 'numirias/semshi', {'do': ':UpdateRemotePlugins'}
-let g:semshi#mark_selected_nodes=0 " this is coc's job
+" Use <C-c><C-c> to send chunk to tmux pane
+Plug 'jpalardy/vim-slime'
+Plug 'lervag/vimtex'
+Plug 'vimwiki/vimwiki'
+call plug#end()
+
+" Enable syntax highlight and ft-plugins (need to follow Plug section)
+syntax enable
+filetype plugin indent on
+
+let g:gruvbox_contrast_dark = 'hard'
+let g:gruvbox_sign_column='bg0'
+let g:gruvbox_invert_selection=0
+colorscheme gruvbox
 
 " Latex settings
-Plug 'lervag/vimtex'
 let g:tex_conceal = ''
 let g:tex_flavor = 'latex'
 let g:vimtex_view_method = 'zathura'
-" don't open the quickfix window for warnings
 let g:vimtex_quickfix_open_on_warning = 0
 let g:vimtex_quickfix_autoclose_after_keystrokes = 2
 " open on errors without focus
@@ -223,7 +169,6 @@ let g:vimtex_quickfix_mode = 2
 let g:vimtex_compiler_progname = 'nvr'
 
 " Vimwiki settings
-Plug 'vimwiki/vimwiki'
 let g:vimwiki_list = [
       \ {'path': '~/Documents/work/vimwiki/', 'syntax': 'markdown', 'ext': '.md'},
       \ {'path': '~/Documents/irl/vimwiki/', 'syntax': 'markdown', 'ext': '.md'}
@@ -231,17 +176,46 @@ let g:vimwiki_list = [
 nmap <silent> <leader><Tab> <Plug>VimwikiNextLink
 nmap <silent> <leader><S-Tab> <Plug>VimwikiPrevLink
 
+let g:mkdp_auto_close = 0
+nmap <C-s> <Plug>MarkdownPreview
+
+" Fzf settings
+nmap <c-p> :Files<CR>
+let g:fzf_action = {'ctrl-t': 'tab split','ctrl-h': 'split','ctrl-v': 'vsplit'}
+
+" Whitespace settings
+nnoremap <leader>T :StripWhitespace<CR>
+let g:strip_whitespace_confirm=0
+let g:better_whitespace_enabled=1
+let g:strip_whitespace_on_save=1
+
+nmap <silent> <leader>tn :TestNearest<CR>
+nmap <silent> <leader>tf :TestFile<CR>
+nmap <silent> <leader>ts :TestSuite<CR>
+nmap <silent> <leader>tl :TestLast<CR>
+nmap <silent> <leader>tg :TestVisit<CR>
+
+" Semshi should not mark selected nodes as Coc already does this
+let g:semshi#mark_selected_nodes=0
+
+map <C-n> :NERDTreeToggle<CR>
+let g:NERDTreeDirArrowExpandable = '▶'
+let g:NERDTreeDirArrowCollapsible = '▼'
+let g:NERDTreeMapOpenSplit='<C-h>'
+let g:NERDTreeMapOpenVSplit='<C-v>'
+let g:NERDTreeMapActivateNode='l'
+let g:NERDTreeMapCloseDir='h'
+
+let g:slime_target = "tmux"
+let g:slime_default_config = {"socket_name": "default", "target_pane": "{last}"}
+
 " --- Lightline configuration --- "
-Plug 'itchyny/lightline.vim'
-Plug 'mengelbrecht/lightline-bufferline'
 " References:
 "   https://github.com/statico/dotfiles/blob/202e30b23e5216ffb6526cce66a0ef4fa7070456/.vim/vimrc#L406-L453
 "   https://github.com/neoclide/coc.nvim/issues/401
 
 " Ensure that lightline-bufferline works with devicons
 let g:lightline#bufferline#enable_devicons = 1
-
-" Lightline
 let g:lightline = {
       \ 'colorscheme': 'gruvbox',
       \ 'active': {
@@ -300,22 +274,4 @@ endfunction
 function! LightlineCocHints() abort
   return s:lightline_coc_diagnostic('hints', '')
 endfunction
-
 autocmd autos User CocStatusChange,CocDiagnosticChange call s:MaybeUpdateLightline()
-
-
-Plug 'jpalardy/vim-slime'
-" Use tmux as default target for slime, as well as last pane by default
-let g:slime_target = "tmux"
-let g:slime_default_config = {"socket_name": "default", "target_pane": "{last}"}
-
-call plug#end()
-
-" Theming - these need to be after plugin section to function correctly
-syntax enable               " Enable syntax highlighting
-filetype plugin indent on   " Filetype specific declarations
-
-let g:gruvbox_contrast_dark = 'hard'
-let g:gruvbox_sign_column='bg0'
-let g:gruvbox_invert_selection=0
-colorscheme gruvbox
