@@ -132,6 +132,8 @@ Plug 'tpope/vim-commentary'
 
 " Easy change surrounding tokens
 Plug 'tpope/vim-surround'
+Plug 'tpope/vim-repeat'
+
 Plug 'markonm/traces.vim'
 Plug 'AndrewRadev/splitjoin.vim'
 
