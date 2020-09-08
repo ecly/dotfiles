@@ -11,6 +11,7 @@ yay -Syyu --noconfirm \
     zsh \
     zsh-completions \
     zsh-syntax-highlighting \
+    zsh-autosuggestions \
     python-pip \
     python-jedi \
     tmux \
