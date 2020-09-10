@@ -15,30 +15,6 @@
 #endif
 #endif
 
-! urvxt setup
-URxvt*termName:             rxvt-256color
-URxvt*perl-ext-common:      resize-font,selection-to-clipboard,matcher
-URxvt*font:                 xft:FONT:pixelsize=SIZE:style=Regular:antialias=true, \
-                            xft:TerminessTTF Nerd Font Mono:pixelsize=SIZE:style=Medium:antiaalias=true
-URxvt*boldFont:             xft:FONT:pixelsize=SIZE:style=Bold:antialias=true, \
-                            xft:TerminessTTF Nerd Font Mono:pixelsize=SIZE:style=Bold:antiaalias=true
-URxvt*url-launcher:         /usr/bin/firefox
-URxvt*scrollBar:            false
-URxvt.iso14755:             False
-URxvt*dynamicColors:        on
-URxvt.internalBorder:       10
-URxvt.underlineURLs:        true
-URxvt.matcher.button:       1
-URxvt.copyCommand:          xclip -i -selection clipboard
-URxvt.pasteCommand:         xclip -o -selection clipboard
-URxvt.cursorBlink:          0
-! don't alter colors of bold text
-URxvt.intensityStyles:      false
-
-! urxvt scrolling setup - up and down 10 lines
-URxvt.keysym.Shift-Up:      command:\033]720;10\007
-URxvt.keysym.Shift-Down:    command:\033]721;10\007
-
 ! rofi setup
 rofi.color-enabled:         true
 rofi.separator-style:       solid
@@ -56,10 +32,10 @@ rofi.fixed-num-lines:       true
 
 ! general font setup for applications ignoring fontconfig
 ! https://wiki.archlinux.org/index.php/Font_configuration#Fontconfig_configuration
-Xft.autohint:               0
-Xft.antialias:              1
-Xft.hinting:                true
-Xft.hintstyle:              hintfull
-Xft.rgba:                   rgb
-Xft.lcdfilter:              lcddefault
-Xft.dpi:                    DPI
+! Xft.autohint:               0
+! Xft.antialias:              1
+! Xft.hinting:                true
+! Xft.hintstyle:              hintfull
+! Xft.rgba:                   rgb
+! Xft.lcdfilter:              lcddefault
+! Xft.dpi:                    DPI

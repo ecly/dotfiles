@@ -10,7 +10,7 @@
 ###--- Settings---###
 set $mod Mod1
 set $sup Mod4
-set $term urxvt
+set $term alacritty
 
 set $innergap 10
 set $outergap 0
@@ -151,7 +151,14 @@ bindsym $mod+Shift+grave exec i3-msg exit
 bindsym $mod+q kill
 
 ###--- Launch Applications Binds ---###
-bindsym $mod+Return exec $term -e tmux
+
+# We need a small fix to make sure that wal colors are applied correctly
+# specifically when using alacritty -e tmux, see references:
+# https://github.com/dylanaraps/pywal/issues/37
+# https://github.com/dylanaraps/pywal/issues/135
+# https://github.com/alacritty/alacritty/issues/2589
+bindsym $mod+Return exec $term -e /bin/sh -c "cat $HOME/.cache/wal/sequences && tmux"
+
 bindsym $mod+Shift+Return exec $term
 bindsym $sup+r exec $term -name ranger -e ranger
 bindsym $mod+r exec $term -name ranger -e ranger
