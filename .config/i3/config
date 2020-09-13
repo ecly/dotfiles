@@ -153,11 +153,14 @@ bindsym $mod+q kill
 ###--- Launch Applications Binds ---###
 
 # We need a small fix to make sure that wal colors are applied correctly
-# specifically when using alacritty -e tmux, see references:
-# https://github.com/dylanaraps/pywal/issues/37
-# https://github.com/dylanaraps/pywal/issues/135
-# https://github.com/alacritty/alacritty/issues/2589
-bindsym $mod+Return exec $term -e /bin/sh -c "cat $HOME/.cache/wal/sequences && tmux"
+# specifically when using alacritty -e tmux, both fix options below work.
+# References:
+#     https://github.com/dylanaraps/pywal/issues/37
+#     https://github.com/dylanaraps/pywal/issues/135
+#     https://github.com/alacritty/alacritty/issues/2589
+#     https://unix.stackexchange.com/a/561876/240209
+# bindsym $mod+Return exec $term -e /bin/sh -c "cat $HOME/.cache/wal/sequences && tmux"
+bindsym $mod+Return exec $term -e $SHELL -i -c tmux
 
 bindsym $mod+Shift+Return exec $term
 bindsym $sup+r exec $term -name ranger -e ranger
