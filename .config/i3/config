@@ -1,16 +1,9 @@
 # vim:filetype=i3
-# Should you change your keyboard layout some time, delete
-# this file and re-run i3-config-wizard(1).
-
-# Expected to be symlinked to ~/.config/i3/config
-
-# i3 config file (v4)
-# Please see http://i3wm.org/docs/userguide.html for a complete reference!
-
 ###--- Settings---###
 set $mod Mod1
 set $sup Mod4
 set $term alacritty
+set $termexec -e $SHELL -i -c
 
 set $innergap 10
 set $outergap 0
@@ -160,20 +153,20 @@ bindsym $mod+q kill
 #     https://github.com/alacritty/alacritty/issues/2589
 #     https://unix.stackexchange.com/a/561876/240209
 # bindsym $mod+Return exec $term -e /bin/sh -c "cat $HOME/.cache/wal/sequences && tmux"
-bindsym $mod+Return exec $term -e $SHELL -i -c tmux
+bindsym $mod+Return exec $term $termexec tmux
 
 bindsym $mod+Shift+Return exec $term
-bindsym $sup+r exec $term -name ranger -e ranger
-bindsym $mod+r exec $term -name ranger -e ranger
-bindsym $sup+t exec $term -name gotop -e gotop
+bindsym $sup+r exec $term --title ranger $termexec ranger
+bindsym $mod+r exec $term --title ranger $termexec ranger
+bindsym $sup+t exec $term --title gotop $termexec gotop
+bindsym $sup+m exec $term --title mutt $termexec tmux -2 new-session -A -s mutt 'neomutt'
+bindsym $sup+i exec $term --title weechat $termexec weechat
+bindsym $sup+w exec $term --title nmtui $termexec nmtui-connect
+bindsym $sup+j exec $term --title todo $termexec nvim ~/Documents/irl/todo.md
 bindsym $sup+b exec firefox
 bindsym $sup+Shift+b exec firefox --private-window
-bindsym $sup+q exec qbittorrent
-bindsym $sup+m exec $term -name mutt -e tmux -2 new-session -A -s mutt 'neomutt'
 bindsym $sup+s exec slack
-bindsym $sup+i exec $term -name weechat -e weechat
-bindsym $sup+w exec $term -name nmtui -e nmtui-connect
-bindsym $sup+j exec $term -name todo -e nvim ~/Documents/irl/todo.md
+bindsym $sup+q exec qbittorrent
 
 ###--- Audo and Music definitions---###
 set $pause mpc toggle
@@ -293,13 +286,13 @@ exec --no-startup-id xss-lock -l -- sh ~/Scripts/lock.sh
 exec --no-startup-id ~/.local/share/tresorit/tresorit-daemon
 
 ###--- Scratchpad terminal setup ---###
-for_window [instance="scratch"] floating enable
-for_window [instance="scratch"] resize set 800 600
-for_window [instance="scratch"] move position center
-for_window [instance="scratch"] move scratchpad
-exec --no-startup-id $term -name scratch -e tmux
+for_window [title="scratch"] floating enable
+for_window [title="scratch"] resize set 800 600
+for_window [title="scratch"] move position center
+for_window [title="scratch"] move scratchpad
+exec --no-startup-id $term --title scratch $term_common_exec_args tmux
 
-bindsym $mod+u [instance="scratch"] scratchpad show; move position center
+bindsym $mod+u [title="scratch"] scratchpad show; move position center
 
 for_window [instance="(?i)bitwarden"] floating enable
 for_window [instance="(?i)bitwarden"] resize set 1366 768
