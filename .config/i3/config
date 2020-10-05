@@ -226,8 +226,8 @@ bindsym $mod+Shift+r restart
 
 # Resize keybinds
 bindsym $mod+plus resize grow width 10 px or 10 ppt
-bindsym $mod+Shift+plus resize grow height 10 px or 10 ppt
 bindsym $mod+minus resize shrink width 10 px or 10 ppt
+bindsym $mod+Shift+plus resize grow height 10 px or 10 ppt
 bindsym $mod+Shift+minus resize shrink height 10 px or 10 ppt
 
 # Screenshot region/monitor and uniquely identify in picture folder
