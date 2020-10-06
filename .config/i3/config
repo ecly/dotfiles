@@ -189,7 +189,7 @@ bindsym $mod+Shift+i exec --no-startup-id sh ~/Scripts/movesinks.sh 0
 bindsym $mod+p exec --no-startup-id $mute
 bindsym $mod+Up exec --no-startup-id $inc
 bindsym $mod+Down exec --no-startup-id $dec
-bindsym $sup+v exec $term -name pulsemixer -e pulsemixer
+bindsym $sup+v exec $term --title pulsemixer $termexec pulsemixer
 
 ###--- Command Keybindings ---###
 # focus the parent container
@@ -290,7 +290,7 @@ for_window [title="scratch"] floating enable
 for_window [title="scratch"] resize set 800 600
 for_window [title="scratch"] move position center
 for_window [title="scratch"] move scratchpad
-exec --no-startup-id $term --title scratch $term_common_exec_args tmux
+exec --no-startup-id $term --title scratch $termexec tmux
 
 bindsym $mod+u [title="scratch"] scratchpad show; move position center
 
