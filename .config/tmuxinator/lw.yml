@@ -66,8 +66,8 @@ windows:
       layout: even-horizontal
       panes:
         -
-  - trainer:
-      root: ~/Programming/work/mlt-mmtcli-cloud-trainer
+  - lwmt:
+      root: ~/Programming/work/mlt-languagewire-mt
       layout: even-horizontal
       panes:
         -
