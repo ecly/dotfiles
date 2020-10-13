@@ -84,7 +84,7 @@ augroup autos
   autocmd! BufEnter * if bufname('#') =~# "^NERD_tree_" && winnr('$') > 1 | b# | endif
   " Briefly highlight yanked text (available in neovim >= 5.0
   if exists('##TextYankPost')
-    autocmd TextYankPost * silent! lua require'vim.highlight'.on_yank("IncSearch", 300)
+    autocmd TextYankPost * silent! lua require'vim.highlight'.on_yank()
   endif
 augroup END
 let g:plug_window = 'noautocmd vertical topleft new'
