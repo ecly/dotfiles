@@ -6,7 +6,7 @@
     name = ecly
     email = ecly@mailbo"x.or"g
 [core]
-    editor = vim
+    editor = nvim
     autocrlf = input
     pager = delta
 [interactive]
