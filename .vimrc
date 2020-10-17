@@ -29,23 +29,18 @@ set splitbelow                      " Intuitive default split directions
 set splitright                      " Intuitive default split directions
 set showtabline=2                   " Always show tabline
 set shortmess+=c                    " Don't give ins-completion-menu messages
-
-if has("patch-8.1.1564")
-  " Recently vim can merge signcolumn and number column into one
-  set signcolumn=number
-else
-  set signcolumn=yes
-endif
+set completeopt=menuone,noinsert,noselect " Better completion messages
+set signcolumn=yes                  " Always show the sign column
 
 " Support true color
 " https://github.com/alacritty/alacritty/issues/109
 if exists('+termguicolors')
-  let &t_8f="\<Esc>[38;2;%lu;%lu;%lum"
-  let &t_8b="\<Esc>[48;2;%lu;%lu;%lum"
+  let &t_8f='\<Esc>[38;2;%lu;%lu;%lum'
+  let &t_8b='\<Esc>[48;2;%lu;%lu;%lum'
   set termguicolors
 endif
 
-let g:mapleader = "\<Space>"
+let g:mapleader = '\<Space>'
 nmap <leader>/ :nohlsearch<CR>
 
 " Easy window/buffer navigation
@@ -81,7 +76,7 @@ endif
 
 augroup autos
   " https://github.com/preservim/nerdtree/wiki/F.A.Q.#how-can-i-make-sure-vim-does-not-open-files-and-other-buffers-on-nerdtree-window
-  autocmd! BufEnter * if bufname('#') =~# "^NERD_tree_" && winnr('$') > 1 | b# | endif
+  autocmd BufEnter * if bufname('#') =~# "^NERD_tree_" && winnr('$') > 1 | b# | endif
   " Briefly highlight yanked text (available in neovim >= 5.0
   if exists('##TextYankPost')
     autocmd TextYankPost * silent! lua require'vim.highlight'.on_yank()
@@ -96,22 +91,6 @@ if empty(glob('~/.vim/autoload/plug.vim'))
   autocmd autos VimEnter * PlugInstall --sync | source $MYVIMRC
 endif
 
-let g:coc_global_extensions = [
-      \ 'coc-json',
-      \ 'coc-html',
-      \ 'coc-css',
-      \ 'coc-yaml',
-      \ 'coc-elixir',
-      \ 'coc-rls',
-      \ 'coc-java',
-      \ 'coc-omnisharp',
-      \ 'coc-yaml',
-      \ 'coc-vimtex',
-      \ 'coc-python',
-      \ 'coc-lists',
-      \ 'coc-snippets',
-      \ ]
-
 call plug#begin('~/.vim/plugged')
 Plug 'gruvbox-community/gruvbox'
 Plug 'tpope/vim-fugitive'
@@ -122,7 +101,6 @@ Plug 'tpope/vim-surround'
 " Ability to . repeat some plugin operations
 Plug 'tpope/vim-repeat'
 Plug 'airblade/vim-gitgutter'
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
 " Highlight matches patterns from Ex commands
 Plug 'markonm/traces.vim'
 " Split/join one-liners with gS/gJ
@@ -148,7 +126,6 @@ Plug 'airblade/vim-rooter'
 Plug 'jpalardy/vim-slime'
 " Some language/file specific plugins
 Plug 'elixir-editors/vim-elixir'
-Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries' }
 Plug 'elzr/vim-json'
 Plug 'PotatoesMaster/i3-vim-syntax'
 Plug 'cespare/vim-toml'
@@ -156,19 +133,126 @@ Plug 'chrisbra/csv.vim'
 Plug 'ekalinin/Dockerfile.vim'
 " Preview markdown files with :MarkdownPreview
 Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
-Plug 'numirias/semshi', {'do': ':UpdateRemotePlugins'}
 Plug 'lervag/vimtex'
 Plug 'vimwiki/vimwiki'
+" LSP/linting configuration
+Plug 'neovim/nvim-lspconfig'
+Plug 'nvim-lua/diagnostic-nvim'
+Plug 'nvim-lua/completion-nvim'
+Plug 'nvim-treesitter/nvim-treesitter'
+Plug 'nvim-treesitter/nvim-treesitter-textobjects'
+Plug 'dense-analysis/ale'
+Plug 'maximbaz/lightline-ale'
 call plug#end()
 
 " Enable syntax highlight and ft-plugins (need to follow Plug section)
 syntax enable
 filetype plugin indent on
-
 let g:gruvbox_contrast_dark = 'hard'
-let g:gruvbox_sign_column='bg0'
-let g:gruvbox_invert_selection=0
+let g:gruvbox_invert_selection = 0
+let g:gruvbox_italic = 1
+" augroup GruvboxOverrides
+"     autocmd!
+"     autocmd ColorScheme * highlight String guifg=#0f7d09
+" augroup END
 colorscheme gruvbox
+
+
+" Setup all nvim lua specific configuration
+lua << EOF
+-- https://stackoverflow.com/a/40195356/4000764
+function exists(file)
+   local ok, err, code = os.rename(file, file)
+   if not ok then
+      if code == 13 then
+         -- Permission denied, but it exists
+         return true
+      end
+   end
+   return ok, err
+end
+
+-- hacky solution to problem with using jedi both with/without .venv
+-- https://github.com/palantir/python-language-server/issues/872
+jedi_env = exists("./.venv") and "./.venv" or nil
+
+require"nvim_lsp".pyls.setup{
+  cmd = {"pyls", "--verbose", "--log-file", "/tmp/pyls-log.txt"};
+  settings = {
+    pyls = {
+      plugins = {
+        pyflakes = { enabled = false },
+        pycodestyle = { enabled = false },
+        jedi = { extra_paths = {"./dags"}, environment = jedi_env },
+      }
+    }
+  }
+}
+-- setup several out of the box language servers
+require"nvim_lsp".rls.setup{}
+require"nvim_lsp".vimls.setup{}
+require"nvim_lsp".gopls.setup{}
+require"nvim_lsp".elixirls.setup{}
+require"nvim_lsp".dockerls.setup{}
+require"nvim_lsp".bashls.setup{}
+require"nvim_lsp".sqlls.setup{}
+require"nvim_lsp".yamlls.setup{}
+
+require'nvim-treesitter.configs'.setup {
+  ensure_installed = {"python", "bash", "go", "html", "css", "c_sharp", "javascript", "cpp", "rust"},
+  highlight = {
+    enable = true,
+  },
+  textobjects = {
+    select = {
+      enable = true,
+      keymaps = {
+        -- You can use the capture groups defined in textobjects.scm
+        ["af"] = "@function.outer",
+        ["if"] = "@function.inner",
+        ["ac"] = "@class.outer",
+        ["ic"] = "@class.inner",
+      },
+    },
+  },
+}
+EOF
+
+" Configure completion
+inoremap <expr> <Tab>   pumvisible() ? '\<C-n>' : '\<Tab>'
+inoremap <expr> <S-Tab> pumvisible() ? '\<C-p>' : '\<S-Tab>'
+autocmd autos BufEnter * lua require'completion'.on_attach()
+autocmd autos Filetype * setlocal omnifunc=v:lua.vim.lsp.omnifunc
+let g:completion_trigger_on_delete = 1
+
+" Configure LSP and Ale mappings
+nnoremap <silent> gd    <cmd>lua vim.lsp.buf.declaration()<CR>
+nnoremap <silent> <c-]> <cmd>lua vim.lsp.buf.definition()<CR>
+nnoremap <silent> K     <cmd>lua vim.lsp.buf.hover()<CR>
+nnoremap <silent> gD    <cmd>lua vim.lsp.buf.implementation()<CR>
+nnoremap <silent> <c-k> <cmd>lua vim.lsp.buf.signature_help()<CR>
+nnoremap <silent> gt   <cmd>lua vim.lsp.buf.type_definition()<CR>
+nnoremap <silent> gr    <cmd>lua vim.lsp.buf.references()<CR>
+nnoremap <silent> g0    <cmd>lua vim.lsp.buf.document_symbol()<CR>
+nnoremap <silent> gw    <cmd>lua vim.lsp.buf.workspace_symbol()<CR>
+nnoremap <silent> <leader>rn <cmd>lua vim.lsp.buf.rename()<CR>
+
+nmap     <silent> [g    <Plug>(ale_previous)
+nmap     <silent> ]g    <Plug>(ale_next)
+nmap     <silent> <leader>f <Plug>(ale_fix)
+
+" Configure linting overrides with ALE
+let g:ale_virtualtext_cursor = 1
+" Change directory messes with pylint/pyproject.toml compatibility
+" let g:ale_python_pylint_change_directory = 0
+let g:ale_linters = {'python': ['pylint', 'pydocstyle']}
+let g:ale_fixers = {
+  \ '*': ['remove_trailing_lines', 'trim_whitespace',],
+  \ 'python': ['black', 'isort',],
+  \ }
+
+" Don't open peekaboo bar immediately (ms)
+let g:peekaboo_delay = 200
 
 " Latex settings
 let g:tex_conceal = ''
@@ -176,8 +260,6 @@ let g:tex_flavor = 'latex'
 let g:vimtex_view_method = 'zathura'
 let g:vimtex_quickfix_open_on_warning = 0
 let g:vimtex_quickfix_autoclose_after_keystrokes = 2
-" open on errors without focus
-let g:vimtex_quickfix_mode = 2
 " use neovim-remote for callbacks
 let g:vimtex_compiler_progname = 'nvr'
 
@@ -194,22 +276,14 @@ nmap <C-s> <Plug>MarkdownPreview
 
 " Fzf settings
 nmap <c-p> :GFiles<CR>
+nmap <c-P> :Files<CR>
 let g:fzf_action = {'ctrl-t': 'tab split','ctrl-h': 'split','ctrl-v': 'vsplit'}
-
-" Whitespace settings
-nnoremap <leader>T :StripWhitespace<CR>
-let g:strip_whitespace_confirm=0
-let g:better_whitespace_enabled=1
-let g:strip_whitespace_on_save=1
 
 nmap <silent> <leader>tn :TestNearest<CR>
 nmap <silent> <leader>tf :TestFile<CR>
 nmap <silent> <leader>ts :TestSuite<CR>
 nmap <silent> <leader>tl :TestLast<CR>
 nmap <silent> <leader>tg :TestVisit<CR>
-
-" Semshi should not mark selected nodes as Coc already does this
-let g:semshi#mark_selected_nodes=0
 
 map <C-n> :NERDTreeToggle<CR>
 let g:NERDTreeDirArrowExpandable = '▶'
@@ -219,21 +293,25 @@ let g:NERDTreeMapOpenVSplit='<C-v>'
 let g:NERDTreeMapActivateNode='l'
 let g:NERDTreeMapCloseDir='h'
 
-let g:slime_target = "tmux"
-let g:slime_default_config = {"socket_name": "default", "target_pane": "{last}"}
+let g:slime_target = 'tmux'
+let g:slime_default_config = {'socket_name': 'default', 'target_pane': '{last}'}
 
 " --- Lightline configuration --- "
-" References:
-"   https://github.com/statico/dotfiles/blob/202e30b23e5216ffb6526cce66a0ef4fa7070456/.vim/vimrc#L406-L453
-"   https://github.com/neoclide/coc.nvim/issues/401
-
 " Ensure that lightline-bufferline works with devicons
 let g:lightline#bufferline#enable_devicons = 1
+let g:lightline#ale#indicator_checking = ''
+let g:lightline#ale#indicator_infos = ''
+let g:lightline#ale#indicator_warnings = ''
+let g:lightline#ale#indicator_errors = ''
 let g:lightline = {
       \ 'colorscheme': 'gruvbox',
       \ 'active': {
       \   'left': [['mode', 'paste'], ['gitbranch', 'modified']],
-      \   'right': [['lineinfo'], ['percent'], ['coc_error', 'coc_warning', 'coc_info', 'coc_hint', 'coc_fix', 'readonly', 'filetype']],
+      \   'right': [['lineinfo'],
+      \             ['percent'],
+      \             ['linter_checking', 'linter_errors', 'linter_warnings', 'linter_infos'],
+      \             ['readonly', 'filetype'],
+      \            ],
       \ },
       \ 'tabline': {
       \   'left': [['buffers']],
@@ -241,20 +319,18 @@ let g:lightline = {
       \ },
       \ 'component_expand': {
       \   'buffers': 'lightline#bufferline#buffers',
-      \   'coc_error'        : 'LightlineCocErrors',
-      \   'coc_warning'      : 'LightlineCocWarnings',
-      \   'coc_info'         : 'LightlineCocInfos',
-      \   'coc_hint'         : 'LightlineCocHints',
-      \   'coc_fix'          : 'LightlineCocFixes',
+      \   'linter_checking': 'lightline#ale#checking',
+      \   'linter_infos': 'lightline#ale#infos',
+      \   'linter_warnings': 'lightline#ale#warnings',
+      \   'linter_errors': 'lightline#ale#errors',
       \ },
       \ 'component_type': {
       \   'readonly': 'error',
       \   'buffers': 'tabsel',
-      \   'coc_error': 'error',
-      \   'coc_warning': 'warning',
-      \   'coc_info': 'tabsel',
-      \   'coc_hint': 'middle',
-      \   'coc_fix': 'middle',
+      \   'linter_checking': 'right',
+      \   'linter_infos': 'right',
+      \   'linter_warnings': 'warning',
+      \   'linter_errors': 'error',
       \ },
       \ 'component_function': {
       \   'gitbranch': 'fugitive#head',
@@ -268,23 +344,3 @@ function! s:MaybeUpdateLightline()
     call lightline#update()
   end
 endfunction
-function! s:lightline_coc_diagnostic(kind, sign) abort
-  let info = get(b:, 'coc_diagnostic_info', 0)
-  if empty(info) || get(info, a:kind, 0) == 0
-    return ''
-  endif
-  return printf('%s %d', a:sign, info[a:kind])
-endfunction
-function! LightlineCocErrors() abort
-  return s:lightline_coc_diagnostic('error', '✗')
-endfunction
-function! LightlineCocWarnings() abort
-  return s:lightline_coc_diagnostic('warning', '')
-endfunction
-function! LightlineCocInfos() abort
-  return s:lightline_coc_diagnostic('information', '')
-endfunction
-function! LightlineCocHints() abort
-  return s:lightline_coc_diagnostic('hints', '')
-endfunction
-autocmd autos User CocStatusChange,CocDiagnosticChange call s:MaybeUpdateLightline()
