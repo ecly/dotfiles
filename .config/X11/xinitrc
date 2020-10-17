@@ -1,6 +1,6 @@
-#!/bin/sh
+#!/bin/bash
 wal -n -R # generate and expose colors with wal based on cache
-[[ -f "$HOME/.Xresources" ]] && xrdb -merge -I$HOME "$HOME/.Xresources"
+[[ -f "$HOME/.Xresources" ]] && xrdb -merge -I"$HOME" "$HOME/.Xresources"
 [[ -f "$HOME/Scripts/keymap.sh" ]] && sh "$HOME/Scripts/keymap.sh"
 
 # when on laptop, with patched xrandr version, set display to perfect 2x scaling
