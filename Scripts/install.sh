@@ -1,3 +1,4 @@
+#!/bin/bash
 # install yay if not already installed
 if ! command -v yay > /dev/null; then
     git clone https://aur.archlinux.org/yay.git
@@ -87,12 +88,12 @@ yay -Syyu --noconfirm \
 
 # Handle Python specific installs with pipx
 pip3 install pipx --user
+pipx install python-language-server
 pipx install poetry
 pipx install black
-pipx install pydocstyle
 pipx install isort
-pipx install pylint
 pipx install pywal
+pipx install vint
 pipx install jupyterlab
 
 # apply theme
