@@ -18,8 +18,12 @@ export PAGER="less"
 # Don't log duplicate commands.
 export HISTCONTROL=ignoredups
 
-# node environment settings
+# node/npm settings
 export NODE_ENV="development"
+export NPM_PACKAGES="${HOME}/.node"
+export NODE_PATH="$HOME/.node/lib/node_modules:$NODE_PATH"
+export PATH="$NPM_PACKAGES/bin:$PATH"
+export MANPATH="$NPM_PACKAGES/share/man:$(manpath)"
 
 # nltk data directory
 export NLTK_DATA="$HOME/.local/share/nltk_data"

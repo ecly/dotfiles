@@ -89,12 +89,19 @@ yay -Syyu --noconfirm \
 # Handle Python specific installs with pipx
 pip3 install pipx --user
 pipx install python-language-server
+pipx install python-language-server
 pipx install poetry
 pipx install black
 pipx install isort
 pipx install pywal
 pipx install vint
 pipx install jupyterlab
+
+# Install npm specific packages
+npm install -g bash-language-server
+npm install -g vim-language-server
+npm install -g dockerfile-language-server-nodejs
+npm install -g yaml-language-server
 
 # apply theme
 wal --theme base16-gruvbox-hard
