@@ -244,7 +244,7 @@ nmap     <silent> <leader>f <Plug>(ale_fix)
 " Configure linting overrides with ALE
 let g:ale_virtualtext_cursor = 1
 " Change directory messes with pylint/pyproject.toml compatibility
-" let g:ale_python_pylint_change_directory = 0
+let g:ale_python_pylint_change_directory = 0
 let g:ale_linters = {'python': ['pylint', 'pydocstyle']}
 let g:ale_fixers = {
   \ '*': ['remove_trailing_lines', 'trim_whitespace',],
