@@ -269,8 +269,9 @@ let g:vimwiki_list = [
       \ {'path': '~/Documents/work/vimwiki/', 'syntax': 'markdown', 'ext': '.md'},
       \ {'path': '~/Documents/irl/vimwiki/', 'syntax': 'markdown', 'ext': '.md'}
       \]
-" nmap <silent> <leader><Tab> <Plug>VimwikiNextLink
-" nmap <silent> <leader><S-Tab> <Plug>VimwikiPrevLink
+" Avoid VimWiki overlapping with other binds
+nmap <silent> <leader><Tab> <Plug>VimwikiNextLink
+nmap <silent> <leader><S-Tab> <Plug>VimwikiPrevLink
 
 let g:mkdp_auto_close = 0
 nmap <C-s> <Plug>MarkdownPreview
