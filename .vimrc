@@ -277,8 +277,7 @@ let g:mkdp_auto_close = 0
 nmap <C-s> <Plug>MarkdownPreview
 
 " Fzf settings
-nmap <c-p> :GFiles<CR>
-nmap <c-P> :Files<CR>
+nmap <C-p> :GFiles<CR>
 let g:fzf_action = {'ctrl-t': 'tab split','ctrl-h': 'split','ctrl-v': 'vsplit'}
 
 nmap <silent> <leader>tn :TestNearest<CR>
