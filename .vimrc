@@ -218,13 +218,6 @@ require'nvim-treesitter.configs'.setup {
 }
 EOF
 
-" Configure completion
-inoremap <expr> <Tab>   pumvisible() ? '\<C-n>' : '\<Tab>'
-inoremap <expr> <S-Tab> pumvisible() ? '\<C-p>' : '\<S-Tab>'
-autocmd autos BufEnter * lua require'completion'.on_attach()
-autocmd autos Filetype * setlocal omnifunc=v:lua.vim.lsp.omnifunc
-let g:completion_trigger_on_delete = 1
-
 " Configure LSP and Ale mappings
 nnoremap <silent> gd    <cmd>lua vim.lsp.buf.declaration()<CR>
 nnoremap <silent> <c-]> <cmd>lua vim.lsp.buf.definition()<CR>
@@ -240,6 +233,14 @@ nnoremap <silent> <leader>rn <cmd>lua vim.lsp.buf.rename()<CR>
 nmap     <silent> [g    <Plug>(ale_previous)
 nmap     <silent> ]g    <Plug>(ale_next)
 nmap     <silent> <leader>f <Plug>(ale_fix)
+
+" Configure completion
+inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "<Tab>"
+inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "<S-Tab>"
+autocmd autos BufEnter * lua require'completion'.on_attach()
+autocmd autos Filetype * setlocal omnifunc=v:lua.vim.lsp.omnifunc
+let g:completion_trigger_on_delete = 1
+
 
 " Configure linting overrides with ALE
 let g:ale_virtualtext_cursor = 1
@@ -268,8 +269,8 @@ let g:vimwiki_list = [
       \ {'path': '~/Documents/work/vimwiki/', 'syntax': 'markdown', 'ext': '.md'},
       \ {'path': '~/Documents/irl/vimwiki/', 'syntax': 'markdown', 'ext': '.md'}
       \]
-nmap <silent> <leader><Tab> <Plug>VimwikiNextLink
-nmap <silent> <leader><S-Tab> <Plug>VimwikiPrevLink
+" nmap <silent> <leader><Tab> <Plug>VimwikiNextLink
+" nmap <silent> <leader><S-Tab> <Plug>VimwikiPrevLink
 
 let g:mkdp_auto_close = 0
 nmap <C-s> <Plug>MarkdownPreview
