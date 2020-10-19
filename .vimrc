@@ -40,7 +40,7 @@ if exists('+termguicolors')
   set termguicolors
 endif
 
-let g:mapleader = '\<Space>'
+let g:mapleader = "\<Space>"
 nmap <leader>/ :nohlsearch<CR>
 
 " Easy window/buffer navigation
