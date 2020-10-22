@@ -192,13 +192,15 @@ require"nvim_lsp".pyls.setup{
 require"nvim_lsp".rls.setup{}
 require"nvim_lsp".vimls.setup{}
 require"nvim_lsp".gopls.setup{}
-require"nvim_lsp".elixirls.setup{}
 require"nvim_lsp".dockerls.setup{}
 require"nvim_lsp".bashls.setup{}
-require"nvim_lsp".sqlls.setup{}
 require"nvim_lsp".yamlls.setup{}
+-- Below three need some fixing
+-- require"nvim_lsp".jdtls.setup{}
+-- require"nvim_lsp".sqlls.setup{}
+-- require"nvim_lsp".elixirls.setup{}
 
-require'nvim-treesitter.configs'.setup {
+require'nvim-treesitter.configs'.setup{
   ensure_installed = {"python", "bash", "go", "html", "css", "c_sharp", "javascript", "cpp", "rust"},
   highlight = {
     enable = true,
