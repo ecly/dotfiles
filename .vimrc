@@ -151,12 +151,17 @@ filetype plugin indent on
 let g:gruvbox_contrast_dark = 'hard'
 let g:gruvbox_invert_selection = 0
 let g:gruvbox_italic = 1
-" augroup GruvboxOverrides
-"     autocmd!
-"     autocmd ColorScheme * highlight String guifg=#0f7d09
-" augroup END
-colorscheme gruvbox
+augroup ColorSchemeOverrides
+    " Possibly fix color strings being hard to distinguish from functions
+    " autocmd ColorScheme * highlight String guifg=#0f7d09
 
+    " Fix errorneous markdown rendering for reST style python docstrings
+    " on hover. May be resolved by:
+    " https://github.com/palantir/python-language-server/issues/760
+    autocmd ColorSchemeOverrides ColorScheme * highlight markdownError guibg=0
+augroup END
+
+colorscheme gruvbox
 
 " Setup all nvim lua specific configuration
 lua << EOF
@@ -177,7 +182,6 @@ end
 jedi_env = exists("./.venv") and "./.venv" or nil
 
 require"nvim_lsp".pyls.setup{
-  cmd = {"pyls", "--verbose", "--log-file", "/tmp/pyls-log.txt"};
   settings = {
     pyls = {
       plugins = {
