@@ -60,7 +60,7 @@ yay -Syyu --noconfirm \
     fd \
     kbdlight \
     elixir \
-    mullvad-vpn \
+    mullvad-vpn-bin \
     ntp \
     rxvt-unicode-truecolor \
     alacritty \
