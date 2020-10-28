@@ -237,9 +237,9 @@ nnoremap <silent> g0    <cmd>lua vim.lsp.buf.document_symbol()<CR>
 nnoremap <silent> gw    <cmd>lua vim.lsp.buf.workspace_symbol()<CR>
 nnoremap <silent> <leader>rn <cmd>lua vim.lsp.buf.rename()<CR>
 
-nmap     <silent> [g    <Plug>(ale_previous)
+nmap     <silent> [g    <Plug>(ale_previous_wrap)
 nmap     <silent> ]g    <Plug>(ale_next_wrap)
-nmap     <silent> <leader>f <Plug>(ale_fix_wrap)
+nmap     <silent> <leader>f <Plug>(ale_fix)
 
 " Configure completion
 inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "<Tab>"
