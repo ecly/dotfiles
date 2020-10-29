@@ -283,7 +283,7 @@ exec --no-startup-id xbanish
 exec --no-startup-id xss-lock -l -- sh ~/Scripts/lock.sh
 
 # Start Tresorit daemon
-exec --no-startup-id ~/.local/share/tresorit/tresorit-daemon
+exec --no-startup-id tresorit-cli start
 
 ###--- Scratchpad terminal setup ---###
 for_window [title="scratch"] floating enable
