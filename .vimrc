@@ -158,7 +158,10 @@ augroup ColorSchemeOverrides
     " Fix errorneous markdown rendering for reST style python docstrings
     " on hover. May be resolved by:
     " https://github.com/palantir/python-language-server/issues/760
-    autocmd ColorSchemeOverrides ColorScheme * highlight markdownError guibg=0
+    " https://github.com/nvim-lua/completion-nvim/issues/243
+    autocmd ColorSchemeOverrides ColorScheme * highlight markdownError guibg=multiple_cursors_visual
+    autocmd ColorSchemeOverrides ColorScheme * highlight markdownBold guibg=multiple_cursors_visual
+    autocmd ColorSchemeOverrides ColorScheme * highlight markdownItalic guibg=multiple_cursors_visual
 augroup END
 
 colorscheme gruvbox
