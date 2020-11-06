@@ -117,6 +117,9 @@ alias online="python3 ~/Scripts/check_online.py"
 # Connect to workVPN
 alias workvpn="sh ~/Scripts/workvpn.sh"
 
+# Simple screenkey alias with some sane defaults
+alias skey="screenkey -p fixed -g 20%x10%+40%-10%"
+
 # Simpler access to lazydocker
 alias lzd="lazydocker"
 
