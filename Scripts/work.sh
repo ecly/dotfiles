@@ -1,5 +1,5 @@
 #!/bin/bash
-if xrandr | grep --quiet "VIRTUAL2"; then
+if ! xrandr | grep --quiet "VIRTUAL2"; then
     intel-virtual-output; sleep 3
 fi
 sh /home/ecly/Scripts/keymap.sh; \
