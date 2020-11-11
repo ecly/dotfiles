@@ -141,6 +141,7 @@ Plug 'nvim-lua/diagnostic-nvim'
 Plug 'nvim-lua/completion-nvim'
 Plug 'nvim-treesitter/nvim-treesitter'
 Plug 'nvim-treesitter/nvim-treesitter-textobjects'
+Plug 'nvim-treesitter/nvim-treesitter-refactor'
 Plug 'dense-analysis/ale'
 Plug 'maximbaz/lightline-ale'
 call plug#end()
@@ -211,6 +212,9 @@ require'nvim-treesitter.configs'.setup{
   ensure_installed = {"python", "bash", "go", "html", "css", "c_sharp", "javascript", "cpp", "rust"},
   highlight = {
     enable = true,
+  },
+  refactor = {
+    highlight_definitions = { enable = true },
   },
   textobjects = {
     select = {
