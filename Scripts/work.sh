@@ -1,7 +1,8 @@
 #!/bin/bash
+if xrandr | grep --quiet "VIRTUAL2"; then
+    intel-virtual-output; sleep 3
+fi
 sh /home/ecly/Scripts/keymap.sh; \
-intel-virtual-output; \
-sleep 3; \
 
 # patched xrandr for pixel perfect 2x scaling for 4k
 PATCHED="$HOME/Scripts/xrandr/xrandr"
