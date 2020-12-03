@@ -89,7 +89,6 @@ yay -Syyu --noconfirm \
 # Handle Python specific installs with pipx
 pip3 install pipx --user
 pipx install python-language-server
-pipx install python-language-server
 pipx install poetry
 pipx install black
 pipx install isort
