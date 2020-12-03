@@ -185,7 +185,7 @@ end
 -- https://github.com/palantir/python-language-server/issues/872
 jedi_env = exists("./.venv") and "./.venv" or nil
 
-require"nvim_lsp".pyls.setup{
+require"lspconfig".pyls.setup{
   settings = {
     pyls = {
       plugins = {
@@ -197,16 +197,16 @@ require"nvim_lsp".pyls.setup{
   }
 }
 -- setup several out of the box language servers
-require"nvim_lsp".rls.setup{}
-require"nvim_lsp".vimls.setup{}
-require"nvim_lsp".gopls.setup{}
-require"nvim_lsp".dockerls.setup{}
-require"nvim_lsp".bashls.setup{}
-require"nvim_lsp".yamlls.setup{}
+require"lspconfig".rls.setup{}
+require"lspconfig".vimls.setup{}
+require"lspconfig".gopls.setup{}
+require"lspconfig".dockerls.setup{}
+require"lspconfig".bashls.setup{}
+require"lspconfig".yamlls.setup{}
 -- Below three need some fixing
--- require"nvim_lsp".jdtls.setup{}
--- require"nvim_lsp".sqlls.setup{}
--- require"nvim_lsp".elixirls.setup{}
+-- require"lspconfig".jdtls.setup{}
+-- require"lspconfig".sqlls.setup{}
+-- require"lspconfig".elixirls.setup{}
 
 require'nvim-treesitter.configs'.setup{
   ensure_installed = {"python", "bash", "go", "html", "css", "c_sharp", "javascript", "cpp", "rust"},
