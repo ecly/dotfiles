@@ -46,26 +46,6 @@ windows:
       layout: even-horizontal
       panes:
         - vim index.md todo.md
-  - cli:
-      root: ~/Programming/work/mlt-mmt-cli
-      layout: even-horizontal
-      panes:
-        -
-  - modernmt:
-      root: ~/Programming/work/modernmt
-      layout: even-horizontal
-      panes:
-        -
-  - monitor:
-      root: ~/Programming/work/mlt-system-health-monitor
-      layout: even-horizontal
-      panes:
-        -
-  - airflow:
-      root: ~/Programming/work/mlt-airflow-pipelines
-      layout: even-horizontal
-      panes:
-        -
   - lwmt:
       root: ~/Programming/work/mlt-languagewire-mt
       layout: even-horizontal
@@ -76,17 +56,23 @@ windows:
       layout: even-horizontal
       panes:
         -
+  - doctrans:
+      root: ~/Programming/work/mlt-document-translator
+      layout: even-horizontal
+      panes:
+        -
   - dt-be:
       root: ~/Programming/work/mlt-direct-translate-backend
       layout: even-horizontal
       panes:
         -
-  - exp:
-      root: ~/Programming/work/mlt-mmt-experiments
+  - airflow:
+      root: ~/Programming/work/mlt-airflow-pipelines
       layout: even-horizontal
       panes:
         -
-  - tmpl:
-      root: ~/Programming/work/mlt-python-development
+  - mmtcli:
+      root: ~/Programming/work/mlt-mmt-cli
       layout: even-horizontal
       panes:
+        -
