@@ -1,4 +1,6 @@
 #!/bin/bash
+set -e
+
 # install yay if not already installed
 if ! command -v yay > /dev/null; then
     git clone https://aur.archlinux.org/yay.git
@@ -83,7 +85,8 @@ yay -Syyu --noconfirm \
     xdotool \
     mons \
     sc-im \
-    ctop-bin
+    ctop-bin \
+    pyenv
 
 
 # Handle Python specific installs with pipx
@@ -107,6 +110,7 @@ wal --theme base16-gruvbox-hard
 
 # start network manager
 systemctl enable --now NetworkManager
+
 
 # ensure time is correct
 timedatectl set-ntp true
