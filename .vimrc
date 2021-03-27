@@ -146,9 +146,9 @@ Plug 'lervag/vimtex'
 Plug 'vimwiki/vimwiki'
 " LSP/linting configuration
 Plug 'neovim/nvim-lspconfig'
-" Plug 'hrsh7th/nvim-compe'
+Plug 'hrsh7th/nvim-compe'
 Plug 'nvim-lua/diagnostic-nvim'
-Plug 'nvim-lua/completion-nvim'
+" Plug 'nvim-lua/completion-nvim'
 Plug 'nvim-treesitter/nvim-treesitter'
 Plug 'nvim-treesitter/nvim-treesitter-textobjects'
 Plug 'nvim-treesitter/nvim-treesitter-refactor'
@@ -210,6 +210,8 @@ require"lspconfig".pyls.setup{
     }
   }
 }
+
+
 -- setup several out of the box language servers
 require"lspconfig".rls.setup{}
 require"lspconfig".vimls.setup{}
@@ -243,6 +245,31 @@ require'nvim-treesitter.configs'.setup{
     },
   },
 }
+
+-- setup for completion
+require'compe'.setup {
+  enabled = true;
+  autocomplete = true;
+  debug = false;
+  min_length = 1;
+  preselect = 'enable';
+  throttle_time = 80;
+  source_timeout = 200;
+  incomplete_delay = 400;
+  max_abbr_width = 100;
+  max_kind_width = 100;
+  max_menu_width = 100;
+  documentation = true;
+
+  source = {
+    path = true;
+    buffer = true;
+    calc = true;
+    nvim_lsp = true;
+    nvim_lua = true;
+    vsnip = true;
+  };
+}
 EOF
 
 " Configure LSP and Ale mappings
@@ -265,7 +292,7 @@ nmap     <silent> <leader>f <Plug>(ale_fix)
 " Configure completion
 inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "<Tab>"
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "<S-Tab>"
-autocmd autos BufEnter * lua require'completion'.on_attach()
+" autocmd autos BufEnter * lua require'completion'.on_attach()
 autocmd autos Filetype * setlocal omnifunc=v:lua.vim.lsp.omnifunc
 let g:completion_trigger_on_delete = 1
 
