@@ -210,6 +210,13 @@ require"lspconfig".pyls.setup{
     }
   }
 }
+-- require'lspconfig'.pyright.setup{
+--   settings = {
+--     python = {
+--       venvPath = jedi_env,
+--     }
+--   }
+-- }
 
 
 -- setup several out of the box language servers
@@ -220,7 +227,6 @@ require"lspconfig".dockerls.setup{}
 require"lspconfig".bashls.setup{}
 require"lspconfig".yamlls.setup{}
 -- Below three need some fixing
--- require"lspconfig".jdtls.setup{}
 -- require"lspconfig".sqlls.setup{}
 -- require"lspconfig".elixirls.setup{}
 
