@@ -210,6 +210,10 @@ require"lspconfig".pyls.setup{
     }
   }
 }
+-- this configuration almost works, but is missing configuration for
+-- executionEnvironment which seems to not work when provided. If provided
+-- through a pyrightconfig.json, like in: https://github.com/microsoft/pyright/issues/30
+-- then it works
 -- require'lspconfig'.pyright.setup{
 --   settings = {
 --     python = {
