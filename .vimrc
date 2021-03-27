@@ -4,7 +4,7 @@ set noshowmode                      " Lightline shows this already
 set clipboard^=unnamed,unnamedplus  " Use system clipboard
 set laststatus=2                    " Always show status line
 set tabstop=4                       " 4 spaces will do
-set shiftwidth=4                    " Control indentation for >> bind
+set shiftwidth=4                    " Control  for >> bind
 set expandtab                       " Spaces instead of tabs
 set autoindent                      " Always set autoindenting on
 set relativenumber                  " Relative line numbers
@@ -13,6 +13,7 @@ set hidden                          " Hide buffers instead of closing them
 set ignorecase                      " Ignore case when searching
 set smartcase                       " Ignore case if all lowercase
 set visualbell                      " Don't beep
+set t_vb=
 set noerrorbells                    " Don't beep
 set nobackup                        " Don't need backup
 set nowritebackup                   " Don't need backup
@@ -22,6 +23,12 @@ set backspace=indent,eol,start      " Allow backspacing everything in insert
 set hlsearch                        " Highlight searches
 set incsearch                       " Search as typing
 set concealcursor=                  " Never conceal anything on current line
+if !isdirectory($HOME."/.vim")
+    call mkdir($HOME."/.vim", "", 0770)
+endif
+if !isdirectory($HOME."/.vim/undo-dir")
+    call mkdir($HOME."/.vim/undo-dir", "", 0700)
+endif
 set undofile                        " Use persistent undofiles
 set lazyredraw                      " Speedup large files and macros
 set updatetime=100                  " Default 4000 is a bit high for async updates
@@ -96,11 +103,13 @@ Plug 'gruvbox-community/gruvbox'
 Plug 'tpope/vim-fugitive'
 " Auto-detect indentation
 Plug 'tpope/vim-sleuth'
+Plug 'lukas-reineke/indent-blankline.nvim', { 'branch': 'lua' }
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-surround'
 " Ability to . repeat some plugin operations
 Plug 'tpope/vim-repeat'
-Plug 'airblade/vim-gitgutter'
+Plug 'nvim-lua/plenary.nvim'
+Plug 'lewis6991/gitsigns.nvim'
 " Highlight matches patterns from Ex commands
 Plug 'markonm/traces.vim'
 " Split/join one-liners with gS/gJ
@@ -137,6 +146,7 @@ Plug 'lervag/vimtex'
 Plug 'vimwiki/vimwiki'
 " LSP/linting configuration
 Plug 'neovim/nvim-lspconfig'
+" Plug 'hrsh7th/nvim-compe'
 Plug 'nvim-lua/diagnostic-nvim'
 Plug 'nvim-lua/completion-nvim'
 Plug 'nvim-treesitter/nvim-treesitter'
@@ -145,6 +155,9 @@ Plug 'nvim-treesitter/nvim-treesitter-refactor'
 Plug 'dense-analysis/ale'
 Plug 'maximbaz/lightline-ale'
 call plug#end()
+
+" Setup gitsigns with default setup
+lua require('gitsigns').setup()
 
 " Enable syntax highlight and ft-plugins (need to follow Plug section)
 syntax enable
@@ -184,6 +197,7 @@ end
 -- hacky solution to problem with using jedi both with/without .venv
 -- https://github.com/palantir/python-language-server/issues/872
 jedi_env = exists("./.venv") and "./.venv" or nil
+
 
 require"lspconfig".pyls.setup{
   settings = {
@@ -314,10 +328,10 @@ let g:slime_default_config = {'socket_name': 'default', 'target_pane': '{last}'}
 " --- Lightline configuration --- "
 " Ensure that lightline-bufferline works with devicons
 let g:lightline#bufferline#enable_devicons = 1
-let g:lightline#ale#indicator_checking = ''
-let g:lightline#ale#indicator_infos = ''
-let g:lightline#ale#indicator_warnings = ''
-let g:lightline#ale#indicator_errors = ''
+" let g:lightline#ale#indicator_checking = ''
+" let g:lightline#ale#indicator_infos = ''
+" let g:lightline#ale#indicator_warnings = ''
+" let g:lightline#ale#indicator_errors = ''
 let g:lightline = {
       \ 'colorscheme': 'gruvbox',
       \ 'active': {
