@@ -128,8 +128,6 @@ Plug 'itchyny/lightline.vim'
 Plug 'mengelbrecht/lightline-bufferline'
 Plug 'janko/vim-test'
 Plug 'preservim/nerdtree'
-Plug 'junegunn/fzf.vim'
-Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'airblade/vim-rooter'
 " Use <C-c><C-c> to send chunk to tmux pane
 Plug 'jpalardy/vim-slime'
@@ -285,6 +283,19 @@ require'compe'.setup {
     nvim_lua = true;
   };
 }
+
+-- telescope settings
+local actions = require('telescope.actions')
+require'telescope'.setup{
+  defaults = {
+    mappings = {
+      i = {
+        ["\\"] = actions.select_vertical,
+        ["<bs>"] = actions.select_horizontal
+      },
+    },
+  },
+}
 EOF
 
 " Configure LSP and Ale mappings
@@ -348,7 +359,10 @@ nmap <C-s> <Plug>MarkdownPreview
 
 " Filefinder settings
 nmap <C-p> <cmd>Telescope find_files<cr>
-let g:fzf_action = {'ctrl-t': 'tab split','ctrl-h': 'split','ctrl-v': 'vsplit'}
+nmap <leader>ff <cmd>Telescope find_files<cr>
+nmap <leader>fg <cmd>Telescope git_files<cr>
+nnoremap <leader>fb <cmd>Telescope buffers<cr>
+nnoremap <leader>fh <cmd>Telescope help_tags<cr>
 
 nmap <silent> <leader>tn :TestNearest<CR>
 nmap <silent> <leader>tf :TestFile<CR>
