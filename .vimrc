@@ -230,9 +230,12 @@ require"lspconfig".gopls.setup{}
 require"lspconfig".dockerls.setup{}
 require"lspconfig".bashls.setup{}
 require"lspconfig".yamlls.setup{}
--- Below three need some fixing
+require"lspconfig".elixirls.setup{
+    -- based on default arch linux 'elixir-ls' package install
+    cmd = { "/usr/sbin/elixir-ls" };
+}
+-- Below need some fixing
 -- require"lspconfig".sqlls.setup{}
--- require"lspconfig".elixirls.setup{}
 
 require'nvim-treesitter.configs'.setup{
   ensure_installed = {"python", "bash", "go", "html", "css", "c_sharp", "javascript", "cpp", "rust"},
