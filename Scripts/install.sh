@@ -25,6 +25,7 @@ yay -Syyu --noconfirm \
     nodejs-neovim \
     ruby-neovim \
     python2-pynvim \
+    python-pynvim \
     neovim-remote \
     dunst \
     ranger \
@@ -86,7 +87,8 @@ yay -Syyu --noconfirm \
     mons \
     sc-im \
     ctop-bin \
-    pyenv
+    pyenv \
+    elixir-ls
 
 
 # Handle Python specific installs with pipx

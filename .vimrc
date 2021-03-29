@@ -108,6 +108,7 @@ Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-surround'
 " Ability to . repeat some plugin operations
 Plug 'tpope/vim-repeat'
+" Dependency for gitsigns.nvim and telescope.nvim
 Plug 'nvim-lua/plenary.nvim'
 Plug 'lewis6991/gitsigns.nvim'
 " Highlight matches patterns from Ex commands
@@ -115,7 +116,6 @@ Plug 'markonm/traces.vim'
 " Split/join one-liners with gS/gJ
 Plug 'AndrewRadev/splitjoin.vim'
 Plug 'Konfekt/FastFold'
-Plug 'honza/vim-snippets'
 " Plug 'psliwka/vim-smoothie'
 " Peek into registers with @ and \"
 Plug 'junegunn/vim-peekaboo'
@@ -148,6 +148,9 @@ Plug 'vimwiki/vimwiki'
 Plug 'neovim/nvim-lspconfig'
 Plug 'hrsh7th/nvim-compe'
 Plug 'nvim-lua/diagnostic-nvim'
+" Dependency for telescope.nvim
+Plug 'nvim-lua/popup.nvim'
+Plug 'nvim-telescope/telescope.nvim'
 " Plug 'nvim-lua/completion-nvim'
 Plug 'nvim-treesitter/nvim-treesitter'
 Plug 'nvim-treesitter/nvim-treesitter-textobjects'
@@ -280,7 +283,6 @@ require'compe'.setup {
     calc = true;
     nvim_lsp = true;
     nvim_lua = true;
-    vsnip = true;
   };
 }
 EOF
@@ -344,8 +346,8 @@ nmap <silent> <leader><S-Tab> <Plug>VimwikiPrevLink
 let g:mkdp_auto_close = 0
 nmap <C-s> <Plug>MarkdownPreview
 
-" Fzf settings
-nmap <C-p> :GFiles<CR>
+" Filefinder settings
+nmap <C-p> <cmd>Telescope find_files<cr>
 let g:fzf_action = {'ctrl-t': 'tab split','ctrl-h': 'split','ctrl-v': 'vsplit'}
 
 nmap <silent> <leader>tn :TestNearest<CR>
