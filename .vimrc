@@ -290,8 +290,8 @@ require'telescope'.setup{
   defaults = {
     mappings = {
       i = {
-        ["\\"] = actions.select_vertical,
-        ["<bs>"] = actions.select_horizontal
+        ["<C-v>"] = actions.select_vertical,
+        ["<C-h>"] = actions.select_horizontal
       },
     },
   },
