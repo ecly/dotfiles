@@ -100,6 +100,7 @@ endif
 
 call plug#begin('~/.vim/plugged')
 Plug 'gruvbox-community/gruvbox'
+" Plug 'folke/tokyonight.nvim'
 Plug 'tpope/vim-fugitive'
 " Auto-detect indentation
 Plug 'tpope/vim-sleuth'
@@ -124,8 +125,9 @@ Plug 'ryanoasis/vim-devicons'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'tmux-plugins/vim-tmux-focus-events'
 Plug 'roxma/vim-tmux-clipboard'
-Plug 'itchyny/lightline.vim'
-Plug 'mengelbrecht/lightline-bufferline'
+" Plug 'itchyny/lightline.vim'
+" Plug 'mengelbrecht/lightline-bufferline'
+Plug 'hoob3rt/lualine.nvim'
 Plug 'janko/vim-test'
 Plug 'preservim/nerdtree'
 Plug 'airblade/vim-rooter'
@@ -154,7 +156,7 @@ Plug 'nvim-treesitter/nvim-treesitter'
 Plug 'nvim-treesitter/nvim-treesitter-textobjects'
 Plug 'nvim-treesitter/nvim-treesitter-refactor'
 Plug 'dense-analysis/ale'
-Plug 'maximbaz/lightline-ale'
+" Plug 'maximbaz/lightline-ale'
 call plug#end()
 
 " Setup gitsigns with default setup
@@ -296,6 +298,21 @@ require'telescope'.setup{
     },
   },
 }
+
+require('lualine').setup{
+  options = {
+    theme = 'gruvbox',
+  },
+  sections = {
+    lualine_a = {'mode'},
+    lualine_b = {'branch'},
+    lualine_c = {'filename'},
+    lualine_x = {{'diagnostics', sources = {"ale"}}, 'filetype'},
+    lualine_y = {'progress'},
+    lualine_z = {'location'}
+  },
+}
+
 EOF
 
 " Configure LSP and Ale mappings
@@ -380,52 +397,3 @@ let g:NERDTreeMapCloseDir='h'
 
 let g:slime_target = 'tmux'
 let g:slime_default_config = {'socket_name': 'default', 'target_pane': '{last}'}
-
-" --- Lightline configuration --- "
-" Ensure that lightline-bufferline works with devicons
-let g:lightline#bufferline#enable_devicons = 1
-" let g:lightline#ale#indicator_checking = ''
-" let g:lightline#ale#indicator_infos = ''
-" let g:lightline#ale#indicator_warnings = ''
-" let g:lightline#ale#indicator_errors = ''
-let g:lightline = {
-      \ 'colorscheme': 'gruvbox',
-      \ 'active': {
-      \   'left': [['mode', 'paste'], ['gitbranch', 'modified']],
-      \   'right': [['lineinfo'],
-      \             ['percent'],
-      \             ['linter_checking', 'linter_errors', 'linter_warnings', 'linter_infos'],
-      \             ['readonly', 'filetype'],
-      \            ],
-      \ },
-      \ 'tabline': {
-      \   'left': [['buffers']],
-      \   'right': [],
-      \ },
-      \ 'component_expand': {
-      \   'buffers': 'lightline#bufferline#buffers',
-      \   'linter_checking': 'lightline#ale#checking',
-      \   'linter_infos': 'lightline#ale#infos',
-      \   'linter_warnings': 'lightline#ale#warnings',
-      \   'linter_errors': 'lightline#ale#errors',
-      \ },
-      \ 'component_type': {
-      \   'readonly': 'error',
-      \   'buffers': 'tabsel',
-      \   'linter_checking': 'right',
-      \   'linter_infos': 'right',
-      \   'linter_warnings': 'warning',
-      \   'linter_errors': 'error',
-      \ },
-      \ 'component_function': {
-      \   'gitbranch': 'fugitive#head',
-      \   'bufferinfo': 'lightline#buffer#bufferinfo',
-      \ },
-      \ }
-
-" Update and show lightline but only if it's visible (e.g., not in Goyo)
-function! s:MaybeUpdateLightline()
-  if exists('#lightline')
-    call lightline#update()
-  end
-endfunction
