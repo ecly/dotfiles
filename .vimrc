@@ -121,13 +121,12 @@ Plug 'Konfekt/FastFold'
 " Peek into registers with @ and \"
 Plug 'junegunn/vim-peekaboo'
 Plug 'ntpeters/vim-better-whitespace'
-Plug 'ryanoasis/vim-devicons'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'tmux-plugins/vim-tmux-focus-events'
 Plug 'roxma/vim-tmux-clipboard'
-" Plug 'itchyny/lightline.vim'
-" Plug 'mengelbrecht/lightline-bufferline'
 Plug 'hoob3rt/lualine.nvim'
+Plug 'akinsho/nvim-bufferline.lua'
+Plug 'kyazdani42/nvim-web-devicons'
 Plug 'janko/vim-test'
 Plug 'preservim/nerdtree'
 Plug 'airblade/vim-rooter'
@@ -313,6 +312,13 @@ require('lualine').setup{
   },
 }
 
+require('bufferline').setup{
+  options = {
+    show_buffer_close_icons = false,
+    show_close_icon = false,
+  }
+}
+
 EOF
 
 " Configure LSP and Ale mappings
@@ -338,7 +344,6 @@ inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "<S-Tab>"
 " autocmd autos BufEnter * lua require'completion'.on_attach()
 autocmd autos Filetype * setlocal omnifunc=v:lua.vim.lsp.omnifunc
 let g:completion_trigger_on_delete = 1
-
 
 " Configure linting overrides with ALE
 let g:ale_virtualtext_cursor = 1
