@@ -16,21 +16,16 @@ yay -Syyu --noconfirm \
     zsh-syntax-highlighting \
     zsh-autosuggestions \
     python-pip \
-    python-jedi \
     tmux \
     i3-gaps \
     polybar \
     rofi \
     neovim \
-    nodejs-neovim \
-    ruby-neovim \
-    python2-pynvim \
     python-pynvim \
     neovim-remote \
     dunst \
     ranger \
     mpv \
-    neomutt \
     i3lock \
     xss-lock \
     maim \
@@ -41,6 +36,7 @@ yay -Syyu --noconfirm \
     pulsemixer \
     gotop \
     networkmanager \
+    neomutt \
     w3m \
     urlscan \
     xclip \
@@ -65,20 +61,14 @@ yay -Syyu --noconfirm \
     elixir \
     mullvad-vpn-bin \
     ntp \
-    rxvt-unicode-truecolor \
     alacritty \
     fd \
     zathura \
     zathura-pdf-mupdf \
-    libreoffice \
     wget \
     zip \
     unzip \
-    texlive-most \
-    biber \
-    texlive-lang \
     npm \
-    yarn \
     nm-connection-editor \
     ctags \
     oh-my-zsh-git \
@@ -99,20 +89,19 @@ pipx install black
 pipx install isort
 pipx install pywal
 pipx install vint
-pipx install jupyterlab
 
 # Install npm specific packages
 npm install -g bash-language-server
 npm install -g vim-language-server
 npm install -g dockerfile-language-server-nodejs
 npm install -g yaml-language-server
+npm install -g pyright
 
 # apply theme
 wal --theme base16-gruvbox-hard
 
 # start network manager
 systemctl enable --now NetworkManager
-
 
 # ensure time is correct
 timedatectl set-ntp true
@@ -121,11 +110,13 @@ timedatectl set-ntp true
 if [ -e "$1" ]; then
     # setup postgres for development
     yay -S --noconfirm \
-        postgresql \
         spotify \
         noto-fonts-cjk \
-        dbeaver
-
-    runuser -l postgres -c 'initdb -D /var/lib/postgres/data'
-    systemctl enable --now postgresql
+        nodejs-neovim \
+        ruby-neovim \
+        python2-pynvim \
+        libreoffice \
+        texlive-most \
+        biber \
+        texlive-lang 
 fi
