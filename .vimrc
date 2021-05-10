@@ -82,8 +82,6 @@ if has('nvim')
 endif
 
 augroup autos
-  " https://github.com/preservim/nerdtree/wiki/F.A.Q.#how-can-i-make-sure-vim-does-not-open-files-and-other-buffers-on-nerdtree-window
-  autocmd BufEnter * if bufname('#') =~# "^NERD_tree_" && winnr('$') > 1 | b# | endif
   " Briefly highlight yanked text (available in neovim >= 5.0
   if exists('##TextYankPost')
     autocmd TextYankPost * silent! lua require'vim.highlight'.on_yank()
@@ -99,8 +97,9 @@ if empty(glob('~/.vim/autoload/plug.vim'))
 endif
 
 call plug#begin('~/.vim/plugged')
-Plug 'gruvbox-community/gruvbox'
-" Plug 'folke/tokyonight.nvim'
+Plug 'rktjmp/lush.nvim'
+Plug 'npxbr/gruvbox.nvim'
+Plug 'folke/tokyonight.nvim'
 Plug 'tpope/vim-fugitive'
 " Auto-detect indentation
 Plug 'tpope/vim-sleuth'
@@ -128,7 +127,7 @@ Plug 'hoob3rt/lualine.nvim'
 Plug 'akinsho/nvim-bufferline.lua'
 Plug 'kyazdani42/nvim-web-devicons'
 Plug 'janko/vim-test'
-Plug 'preservim/nerdtree'
+Plug 'kyazdani42/nvim-tree.lua'
 Plug 'airblade/vim-rooter'
 " Use <C-c><C-c> to send chunk to tmux pane
 Plug 'jpalardy/vim-slime'
@@ -164,7 +163,7 @@ lua require('gitsigns').setup()
 " Enable syntax highlight and ft-plugins (need to follow Plug section)
 syntax enable
 filetype plugin indent on
-let g:gruvbox_contrast_dark = 'hard'
+" let g:gruvbox_contrast_dark = 'hard'
 let g:gruvbox_invert_selection = 0
 let g:gruvbox_italic = 1
 augroup ColorSchemeOverrides
@@ -175,9 +174,9 @@ augroup ColorSchemeOverrides
     " on hover. May be resolved by:
     " https://github.com/palantir/python-language-server/issues/760
     " https://github.com/nvim-lua/completion-nvim/issues/243
-    autocmd ColorSchemeOverrides ColorScheme * highlight markdownError guibg=multiple_cursors_visual
-    autocmd ColorSchemeOverrides ColorScheme * highlight markdownBold guibg=multiple_cursors_visual
-    autocmd ColorSchemeOverrides ColorScheme * highlight markdownItalic guibg=multiple_cursors_visual
+    " autocmd ColorSchemeOverrides ColorScheme * highlight markdownError guibg=multiple_cursors_visual
+    " autocmd ColorSchemeOverrides ColorScheme * highlight markdownBold guibg=multiple_cursors_visual
+    " autocmd ColorSchemeOverrides ColorScheme * highlight markdownItalic guibg=multiple_cursors_visual
 augroup END
 
 colorscheme gruvbox
@@ -201,28 +200,57 @@ end
 jedi_env = exists("./.venv") and "./.venv" or nil
 
 
-require"lspconfig".pyls.setup{
-  settings = {
-    pyls = {
-      plugins = {
-        pyflakes = { enabled = false },
-        pycodestyle = { enabled = false },
-        jedi = { extra_paths = {"./dags"}, environment = jedi_env },
-      }
-    }
-  }
-}
+-- require"lspconfig".pyls.setup{
+--   settings = {
+--     pyls = {
+--       plugins = {
+--         pyflakes = { enabled = false },
+--         pycodestyle = { enabled = false },
+--         jedi = { extra_paths = {"./dags"}, environment = jedi_env },
+--       }
+--     }
+--   }
+-- }
 -- this configuration almost works, but is missing configuration for
 -- executionEnvironment which seems to not work when provided. If provided
 -- through a pyrightconfig.json, like in: https://github.com/microsoft/pyright/issues/30
 -- then it works
--- require'lspconfig'.pyright.setup{
---   settings = {
---     python = {
---       venvPath = jedi_env,
---     }
---   }
--- }
+require'lspconfig'.pyright.setup{
+  settings = {
+    python = {
+      venvPath = jedi_env,
+    }
+  }
+}
+
+require'lspconfig'.sumneko_lua.setup {
+  cmd = {"lua-language-server"};
+  settings = {
+    Lua = {
+      runtime = {
+        -- Tell the language server which version of Lua you're using (most likely LuaJIT in the case of Neovim)
+        version = 'LuaJIT',
+        -- Setup your lua path
+        path = vim.split(package.path, ';'),
+      },
+      diagnostics = {
+        -- Get the language server to recognize the `vim` global
+        globals = {'vim'},
+      },
+      workspace = {
+        -- Make the server aware of Neovim runtime files
+        library = {
+          [vim.fn.expand('$VIMRUNTIME/lua')] = true,
+          [vim.fn.expand('$VIMRUNTIME/lua/vim/lsp')] = true,
+        },
+      },
+      -- Do not send telemetry data containing a randomized but unique identifier
+      telemetry = {
+        enable = false,
+      },
+    },
+  },
+}
 
 
 -- setup several out of the box language servers
@@ -306,7 +334,7 @@ require('lualine').setup{
     lualine_a = {'mode'},
     lualine_b = {'branch'},
     lualine_c = {'filename'},
-    lualine_x = {{'diagnostics', sources = {"ale"}}, 'filetype'},
+    lualine_x = {{'diagnostics', sources = {"ale", "nvim_lsp"}}, 'filetype'},
     lualine_y = {'progress'},
     lualine_z = {'location'}
   },
@@ -316,6 +344,10 @@ require('bufferline').setup{
   options = {
     show_buffer_close_icons = false,
     show_close_icon = false,
+  },
+  highlights = {
+    fill = {
+    },
   }
 }
 
@@ -392,13 +424,7 @@ nmap <silent> <leader>ts :TestSuite<CR>
 nmap <silent> <leader>tl :TestLast<CR>
 nmap <silent> <leader>tg :TestVisit<CR>
 
-map <C-n> :NERDTreeToggle<CR>
-let g:NERDTreeDirArrowExpandable = '▶'
-let g:NERDTreeDirArrowCollapsible = '▼'
-let g:NERDTreeMapOpenSplit='<C-h>'
-let g:NERDTreeMapOpenVSplit='<C-v>'
-let g:NERDTreeMapActivateNode='l'
-let g:NERDTreeMapCloseDir='h'
+nnoremap <C-n> :NvimTreeToggle<CR>
 
 let g:slime_target = 'tmux'
 let g:slime_default_config = {'socket_name': 'default', 'target_pane': '{last}'}
