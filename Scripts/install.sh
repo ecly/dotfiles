@@ -78,7 +78,8 @@ yay -Syyu --noconfirm \
     sc-im \
     ctop-bin \
     pyenv \
-    elixir-ls
+    elixir-ls \
+    lua-language-server
 
 
 # Handle Python specific installs with pipx
@@ -98,7 +99,7 @@ npm install -g yaml-language-server
 npm install -g pyright
 
 # apply theme
-wal --theme base16-gruvbox-hard
+wal --theme base16-gruvbox-medium
 
 # start network manager
 systemctl enable --now NetworkManager
