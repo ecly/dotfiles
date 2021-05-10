@@ -154,7 +154,7 @@ Plug 'nvim-treesitter/nvim-treesitter'
 Plug 'nvim-treesitter/nvim-treesitter-textobjects'
 Plug 'nvim-treesitter/nvim-treesitter-refactor'
 Plug 'dense-analysis/ale'
-" Plug 'maximbaz/lightline-ale'
+Plug 'folke/which-key.nvim'
 call plug#end()
 
 " Setup gitsigns with default setup
@@ -174,9 +174,9 @@ augroup ColorSchemeOverrides
     " on hover. May be resolved by:
     " https://github.com/palantir/python-language-server/issues/760
     " https://github.com/nvim-lua/completion-nvim/issues/243
-    " autocmd ColorSchemeOverrides ColorScheme * highlight markdownError guibg=multiple_cursors_visual
-    " autocmd ColorSchemeOverrides ColorScheme * highlight markdownBold guibg=multiple_cursors_visual
-    " autocmd ColorSchemeOverrides ColorScheme * highlight markdownItalic guibg=multiple_cursors_visual
+    autocmd ColorSchemeOverrides ColorScheme * highlight markdownError guibg=multiple_cursors_visual
+    autocmd ColorSchemeOverrides ColorScheme * highlight markdownBold guibg=multiple_cursors_visual
+    autocmd ColorSchemeOverrides ColorScheme * highlight markdownItalic guibg=multiple_cursors_visual
 augroup END
 
 colorscheme gruvbox
@@ -346,11 +346,14 @@ require('bufferline').setup{
     show_close_icon = false,
   },
   highlights = {
-    fill = {
-    },
+      fill = {
+        guifg = background_color,
+        guibg = separator_background_color,
+      },
   }
 }
 
+require("which-key").setup{}
 EOF
 
 " Configure LSP and Ale mappings
