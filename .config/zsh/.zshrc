@@ -71,6 +71,9 @@ source "${HOME}/.config/zsh/functionrc"
 # Source completion for tmuxinator
 source "${HOME}/.config/tmuxinator/tmuxinator.zsh"
 
+# Source any machine local configuration
+source "${HOME}/.profile"
+
 # Import colorscheme from 'wal'
 (cat "$HOME/.cache/wal/sequences" &)
 
