@@ -94,6 +94,7 @@ npm install -g vim-language-server
 npm install -g dockerfile-language-server-nodejs
 npm install -g yaml-language-server
 npm install -g pyright
+npm install -g diagnostic-languageserver
 
 # apply theme
 wal --theme base16-gruvbox-medium

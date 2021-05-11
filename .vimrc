@@ -145,7 +145,6 @@ Plug 'vimwiki/vimwiki'
 " LSP/linting configuration
 Plug 'neovim/nvim-lspconfig'
 Plug 'hrsh7th/nvim-compe'
-Plug 'nvim-lua/diagnostic-nvim'
 " Dependency for telescope.nvim
 Plug 'nvim-lua/popup.nvim'
 Plug 'nvim-telescope/telescope.nvim'
@@ -153,7 +152,6 @@ Plug 'nvim-telescope/telescope.nvim'
 Plug 'nvim-treesitter/nvim-treesitter'
 Plug 'nvim-treesitter/nvim-treesitter-textobjects'
 Plug 'nvim-treesitter/nvim-treesitter-refactor'
-Plug 'dense-analysis/ale'
 Plug 'folke/which-key.nvim'
 call plug#end()
 
@@ -199,18 +197,6 @@ end
 -- https://github.com/palantir/python-language-server/issues/872
 jedi_env = exists("./.venv") and "./.venv" or nil
 
-
--- require"lspconfig".pyls.setup{
---   settings = {
---     pyls = {
---       plugins = {
---         pyflakes = { enabled = false },
---         pycodestyle = { enabled = false },
---         jedi = { extra_paths = {"./dags"}, environment = jedi_env },
---       }
---     }
---   }
--- }
 -- this configuration almost works, but is missing configuration for
 -- executionEnvironment which seems to not work when provided. If provided
 -- through a pyrightconfig.json, like in: https://github.com/microsoft/pyright/issues/30
@@ -219,10 +205,77 @@ require'lspconfig'.pyright.setup{
   settings = {
     python = {
       venvPath = jedi_env,
+    },
+    settings = {
+      python = {
+        analysis = {
+          autoSearchPaths = true,
+          useLibraryCodeForTypes = true
+        }
+      }
     }
   }
 }
-
+require'lspconfig'.diagnosticls.setup{
+  filetypes = {
+    'python'
+  },
+  init_options = {
+    linters = {
+      pylint = {
+        sourceName = 'pylint',
+        command = 'pylint',
+        args = {
+          '--output-format',
+          'text',
+          '--score',
+          'no',
+          '--msg-template',
+          '"{line}:{column}:{category}:{msg} ({msg_id}:{symbol})"',
+          '%file'
+        },
+        formatPattern = {
+          '^(\\d+?):(\\d+?):([a-z]+?):(.*)$',
+          {
+            line = 1,
+            column = 2,
+            security = 3,
+            message = 4
+          }
+        },
+        rootPatterns = {'.git', 'pyproject.toml', 'setup.py'},
+        securities = {
+          informational = 'hint',
+          refactor = 'info',
+          convention = 'info',
+          warning = 'warning',
+          error = 'error',
+          fatal = 'error'
+        },
+        offsetColumn = 1,
+        formatLines = 1
+      },
+    },
+    filetypes = {
+      python = 'pylint'
+    },
+    formatters = {
+      black = {
+        command = 'black',
+        args = { '-' },
+        rootPatterns = {'.git', 'pyproject.toml', 'poetry.lock'},
+      },
+      isort = {
+        command = 'isort',
+        args = { '-' },
+        rootPatterns = {'.git', 'pyproject.toml', 'poetry.lock'},
+      },
+    },
+    formatFiletypes = {
+      python = {'black', 'isort'},
+    }
+  }
+}
 require'lspconfig'.sumneko_lua.setup {
   cmd = {"lua-language-server"};
   settings = {
@@ -337,7 +390,7 @@ require('lualine').setup{
     lualine_a = {'mode'},
     lualine_b = {'branch'},
     lualine_c = {'filename'},
-    lualine_x = {{'diagnostics', sources = {"ale", "nvim_lsp"}}, 'filetype'},
+    lualine_x = {{'diagnostics', sources = {"nvim_lsp"}}, 'filetype'},
     lualine_y = {'progress'},
     lualine_z = {'location'}
   },
@@ -357,6 +410,18 @@ require('bufferline').setup{
 }
 
 require("which-key").setup{}
+
+vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
+  vim.lsp.diagnostic.on_publish_diagnostics, {
+    -- Enable underline, use default values
+    underline = true,
+    virtual_text = {
+      spacing = 0,
+      prefix = '■',
+    },
+    update_in_insert = false,
+  }
+)
 EOF
 
 " Configure LSP and Ale mappings
@@ -371,27 +436,22 @@ nnoremap <silent> gr    <cmd>lua vim.lsp.buf.references()<CR>
 nnoremap <silent> g0    <cmd>lua vim.lsp.buf.document_symbol()<CR>
 nnoremap <silent> gw    <cmd>lua vim.lsp.buf.workspace_symbol()<CR>
 nnoremap <silent> <leader>rn <cmd>lua vim.lsp.buf.rename()<CR>
-
-nmap     <silent> [g    <Plug>(ale_previous_wrap)
-nmap     <silent> ]g    <Plug>(ale_next_wrap)
-nmap     <silent> <leader>f <Plug>(ale_fix)
+nnoremap <silent> ]g <cmd>lua vim.lsp.diagnostic.goto_next()<CR>
+nnoremap <silent> [g <cmd>lua vim.lsp.diagnostic.goto_prev()<CR>
+nnoremap <silent> <leader>f <cmd>lua vim.lsp.buf.formatting()<CR>
 
 " Configure completion
-inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "<Tab>"
-inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "<S-Tab>"
+" inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "<Tab>"
+" inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "<S-Tab>"
 " autocmd autos BufEnter * lua require'completion'.on_attach()
 autocmd autos Filetype * setlocal omnifunc=v:lua.vim.lsp.omnifunc
 let g:completion_trigger_on_delete = 1
 
-" Configure linting overrides with ALE
-let g:ale_virtualtext_cursor = 1
-" Change directory messes with pylint/pyproject.toml compatibility
-let g:ale_python_pylint_change_directory = 0
-let g:ale_linters = {'python': ['pylint', 'pydocstyle']}
-let g:ale_fixers = {
-  \ '*': ['remove_trailing_lines', 'trim_whitespace',],
-  \ 'python': ['black', 'isort',],
-  \ }
+" Set signs for LSP Diagnostics
+sign define LspDiagnosticsSignError text= texthl=LspDiagnosticsSignError linehl= numhl=
+sign define LspDiagnosticsSignWarning text=  texthl=LspDiagnosticsSignWarning linehl= numhl=
+sign define LspDiagnosticsSignInformation text= texthl=LspDiagnosticsSignInformation linehl= numhl=
+sign define LspDiagnosticsSignHint text=H texthl=LspDiagnosticsSignHint linehl= numhl=
 
 " Don't open peekaboo bar immediately (ms)
 let g:peekaboo_delay = 200
