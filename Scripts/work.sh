@@ -1,11 +1,14 @@
 #!/bin/bash
-if ! xrandr | grep --quiet "VIRTUAL2"; then
-    intel-virtual-output; sleep 3
+# Test whether intel-virtual-output is running and start it.
+ivo_process=`ps axu |grep 'intel-virtual-output' |egrep -v 'grep'`
+if [ -z "$ivo_process" ]; then
+   optirun intel-virtual-output
+   sleep 3
 fi
-sh /home/ecly/Scripts/keymap.sh; \
+
 
 # patched xrandr for pixel perfect 2x scaling for 4k
-PATCHED="$HOME/Scripts/xrandr/xrandr"
+PATCHED="$HOME/Scripts/xrandr/xrandr"; \
 if [[ -f $PATCHED ]] && [[ 1 -eq 2 ]]; then
     $PATCHED --output eDP1 --primary --mode 3840x2160 --scale "0.5x0.5"; \
     $PATCHED --output VIRTUAL1 --mode 2560x1440 --right-of eDP1; \
@@ -16,7 +19,9 @@ else
     xrandr --output VIRTUAL2 --mode 2560x1440 --right-of VIRTUAL1; \
 fi
 
-sleep 2; \
+sh /home/ecly/Scripts/keymap.sh
+
+sleep 2
 i3-msg "workspace 1 output VIRTUAL1" > /dev/null; \
 i3-msg "workspace 2 output VIRTUAL2" > /dev/null; \
 i3-msg "workspace 3 output eDP1" > /dev/null; \
