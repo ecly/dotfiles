@@ -266,11 +266,14 @@ require"lspconfig".elixirls.setup{
 }
 -- Below need some fixing
 -- require"lspconfig".sqlls.setup{}
-
 require'nvim-treesitter.configs'.setup{
   ensure_installed = {"python", "bash", "go", "html", "css", "c_sharp", "javascript", "cpp", "rust"},
   highlight = {
     enable = true,
+    -- override keyword.operator which otherwise isn't highlighted with gruvbox.nvim/TS combination
+    custom_captures = {
+      ["keyword.operator"] = "Tag",
+    }
   },
   refactor = {
     highlight_definitions = { enable = true },
