@@ -12,9 +12,7 @@ fi
 
 yay -Syyu --noconfirm \
     zsh \
-    zsh-completions \
-    zsh-syntax-highlighting \
-    zsh-autosuggestions \
+    antibody \
     python-pip \
     tmux \
     i3-gaps \
@@ -71,7 +69,6 @@ yay -Syyu --noconfirm \
     npm \
     nm-connection-editor \
     ctags \
-    oh-my-zsh-git \
     git-delta-bin \
     xdotool \
     mons \

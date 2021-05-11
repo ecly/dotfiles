@@ -11,19 +11,10 @@ HISTSIZE=10000
 SAVEHIST=10000
 HISTFILE="$HOME/.cache/zsh/history"
 
-# Enable desired plugins for oh my zsh
-plugins=(git ssh-agent)
-# configure default added keys for ssh-agent plugin
+source <(antibody init)
 zstyle :omz:plugins:ssh-agent identities azure_devops_rsa bitbucket
-
-# Initialize oh-my-zsh
-DISABLE_AUTO_UPDATE="true"
-ZSH_CACHE_DIR=$HOME/.cache/oh-my-zsh
-if [[ ! -d $ZSH_CACHE_DIR ]]; then
-  mkdir $ZSH_CACHE_DIR
-fi
-export ZSH=/usr/share/oh-my-zsh
-if [ -f "$ZSH/oh-my-zsh.sh" ]; then source "$ZSH/oh-my-zsh.sh"; fi
+antibody bundle < ~/.config/zsh/antibody_plugins.txt
+# configure default added keys for ssh-agent plugin
 
 PROMPT='[%F{1}%n%f@%F{5}%m%f%F{3}%f]%F{6}~%f '
 
@@ -128,10 +119,6 @@ if [ -f '/home/ecly/.local/share/google-cloud-sdk/path.zsh.inc' ]; then . '/home
 # The next line enables shell command completion for gcloud.
 if [ -f '/home/ecly/.local/share/google-cloud-sdk/completion.zsh.inc' ]; then . '/home/ecly/.local/share/google-cloud-sdk/completion.zsh.inc'; fi
 
-# Get syntax highlighting in .zsh
-if [ -f '/usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh' ]; then . '/usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh'; fi
-# Get auto-suggestions in .zsh
-if [ -f '/usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh' ]; then . '/usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh'; fi
 bindkey '^ ' autosuggest-accept # use ctrl+space to accept auto-suggestions
 
 # Automatically load pyenv
