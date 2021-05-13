@@ -197,10 +197,11 @@ end
 -- https://github.com/palantir/python-language-server/issues/872
 jedi_env = exists("./.venv") and "./.venv" or nil
 
--- this configuration almost works, but is missing configuration for
+-- This configuration almost works, but is missing configuration for
 -- executionEnvironment which seems to not work when provided. If provided
 -- through a pyrightconfig.json, like in: https://github.com/microsoft/pyright/issues/30
--- then it works
+-- then it works. An alternative is to simply always activate with `poetry shell` which I'm
+-- currently doing using a zsh plugin
 require'lspconfig'.pyright.setup{
   settings = {
     python = {
@@ -396,16 +397,51 @@ require('lualine').setup{
   },
 }
 
+local cfg = require('bufferline/config').get_defaults()
+local bg = cfg.highlights.background.guibg
+local fg = cfg.highlights.background.guifg
+local fill_bg = cfg.highlights.tab_selected.guifg
+
+-- adjust bufferline to with gruvbox in a more subtle way
+-- and synchronize better with signcolumn
 require('bufferline').setup{
   options = {
     show_buffer_close_icons = false,
     show_close_icon = false,
   },
   highlights = {
-      fill = {
-        guifg = background_color,
-        guibg = separator_background_color,
-      },
+    fill = {
+      guibg = fill_bg
+    },
+    background = {
+      guibg = fill_bg,
+    },
+    buffer_selected = {
+      guibg = fill_bg,
+      gui = "bold,italic",
+    },
+    buffer_visible = {
+      guibg = fill_bg
+    },
+    separator = {
+      guifg = fg,
+      guibg = fill_bg
+    },
+    separator_selected = {
+      guifg = fg,
+      guibg = fill_bg
+    },
+    -- make indicator invisble
+    indicator_selected = {
+      guifg = fill_bg,
+      guibg = fill_bg
+    },
+    modified = {
+      guibg = fill_bg
+    },
+    modified_selected = {
+      guibg = fill_bg
+    },
   }
 }
 
