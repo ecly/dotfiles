@@ -36,7 +36,7 @@ set splitbelow                      " Intuitive default split directions
 set splitright                      " Intuitive default split directions
 set showtabline=2                   " Always show tabline
 set shortmess+=c                    " Don't give ins-completion-menu messages
-set completeopt=menuone,noinsert,noselect " Better completion messages
+set completeopt=menuone,noselect,preview " Better completion messages
 set signcolumn=yes                  " Always show the sign column
 
 " Support true color
@@ -99,8 +99,8 @@ endif
 call plug#begin('~/.vim/plugged')
 Plug 'rktjmp/lush.nvim'
 Plug 'npxbr/gruvbox.nvim'
-Plug 'folke/tokyonight.nvim'
 Plug 'tpope/vim-fugitive'
+
 " Auto-detect indentation
 Plug 'tpope/vim-sleuth'
 Plug 'lukas-reineke/indent-blankline.nvim', { 'branch': 'lua' }
@@ -152,11 +152,21 @@ Plug 'nvim-telescope/telescope.nvim'
 Plug 'nvim-treesitter/nvim-treesitter'
 Plug 'nvim-treesitter/nvim-treesitter-textobjects'
 Plug 'nvim-treesitter/nvim-treesitter-refactor'
+" Long list of 'folke' plugins
 Plug 'folke/which-key.nvim'
+Plug 'folke/tokyonight.nvim'
+Plug 'folke/trouble.nvim'
+Plug 'folke/todo-comments.nvim'
+Plug 'folke/lsp-colors.nvim'
+Plug 'glepnir/lspsaga.nvim'
 call plug#end()
 
 " Setup gitsigns with default setup
 lua require('gitsigns').setup()
+lua require('trouble').setup()
+lua require('todo-comments').setup()
+lua require('lsp-colors').setup()
+lua require('lspsaga').init_lsp_saga()
 
 " Enable syntax highlight and ft-plugins (need to follow Plug section)
 syntax enable
@@ -196,27 +206,46 @@ end
 -- hacky solution to problem with using jedi both with/without .venv
 -- https://github.com/palantir/python-language-server/issues/872
 jedi_env = exists("./.venv") and "./.venv" or nil
+require"lspconfig".pyls.setup{
+  settings = {
+    pyls = {
+      plugins = {
+        pyflakes = { enabled = false },
+        pycodestyle = { enabled = false },
+        pylint = { enabled = false },
+        jedi = { extra_paths = {"./dags"}, environment = jedi_env },
+      }
+    }
+  }
+}
 
 -- This configuration almost works, but is missing configuration for
 -- executionEnvironment which seems to not work when provided. If provided
 -- through a pyrightconfig.json, like in: https://github.com/microsoft/pyright/issues/30
 -- then it works. An alternative is to simply always activate with `poetry shell` which I'm
 -- currently doing using a zsh plugin
-require'lspconfig'.pyright.setup{
-  settings = {
-    python = {
-      venvPath = jedi_env,
-    },
-    settings = {
-      python = {
-        analysis = {
-          autoSearchPaths = true,
-          useLibraryCodeForTypes = true
-        }
-      }
-    }
-  }
-}
+-- require'lspconfig'.pyright.setup{
+--   settings = {
+--     python = {
+--       disableLanguageServices = true,
+--       venvPath = jedi_env,
+--     },
+--     disableLanguageServices = true,
+--     settings = {
+--       disableLanguageServices = true,
+--       python = {
+--         disableLanguageServices = true,
+--         analysis = {
+--           autoSearchPaths = true,
+--           useLibraryCodeForTypes = true,
+--           diagnosticSeverityOverrides = {
+--             reportGeneralTypeIssues = "false",
+--           },
+--         }
+--       }
+--     }
+--   }
+-- }
 require'lspconfig'.diagnosticls.setup{
   filetypes = {
     'python'
@@ -460,25 +489,47 @@ vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
 )
 EOF
 
-" Configure LSP and Ale mappings
-" nnoremap <silent> gd    <cmd>lua vim.lsp.buf.declaration()<CR>
-" nnoremap <silent> <c-]> <cmd>lua vim.lsp.buf.definition()<CR>
+" Fix compe documentation view
+highlight link CompeDocumentation Pmenu
+
+" LSPSaga definitions
+nnoremap <silent><leader>ca :Lspsaga code_action<CR>
+vnoremap <silent><leader>ca :<C-U>Lspsaga range_code_action<CR>
+nnoremap <silent> gh :Lspsaga lsp_finder<CR>
+nnoremap <silent> K <cmd>lua require('lspsaga.hover').render_hover_doc()<CR>
+nnoremap <silent>K :Lspsaga hover_doc<CR>
+nnoremap <silent> <C-f> <cmd>lua require('lspsaga.action').smart_scroll_with_saga(1)<CR>
+nnoremap <silent> <C-b> <cmd>lua require('lspsaga.action').smart_scroll_with_saga(-1)<CR>
+nnoremap <silent> gs :Lspsaga signature_help<CR>
+nnoremap <silent>gr :Lspsaga rename<CR>
+nnoremap <silent>rn :Lspsaga rename<CR>
+nnoremap <silent> gD :Lspsaga preview_definition<CR>
+
 nnoremap <silent> gd    <cmd>lua vim.lsp.buf.definition()<CR>
-nnoremap <silent> K     <cmd>lua vim.lsp.buf.hover()<CR>
-nnoremap <silent> gD    <cmd>lua vim.lsp.buf.implementation()<CR>
-nnoremap <silent> <c-k> <cmd>lua vim.lsp.buf.signature_help()<CR>
-nnoremap <silent> gt   <cmd>lua vim.lsp.buf.type_definition()<CR>
-nnoremap <silent> gr    <cmd>lua vim.lsp.buf.references()<CR>
-nnoremap <silent> g0    <cmd>lua vim.lsp.buf.document_symbol()<CR>
-nnoremap <silent> gw    <cmd>lua vim.lsp.buf.workspace_symbol()<CR>
-nnoremap <silent> <leader>rn <cmd>lua vim.lsp.buf.rename()<CR>
 nnoremap <silent> ]g <cmd>lua vim.lsp.diagnostic.goto_next()<CR>
 nnoremap <silent> [g <cmd>lua vim.lsp.diagnostic.goto_prev()<CR>
 nnoremap <silent> <leader>f <cmd>lua vim.lsp.buf.formatting()<CR>
+" nnoremap <silent> gd    <cmd>lua vim.lsp.buf.declaration()<CR>
+" nnoremap <silent> <c-]> <cmd>lua vim.lsp.buf.definition()<CR>
+" nnoremap <silent> K     <cmd>lua vim.lsp.buf.hover()<CR>
+" nnoremap <silent> gD    <cmd>lua vim.lsp.buf.implementation()<CR>
+" nnoremap <silent> <c-k> <cmd>lua vim.lsp.buf.signature_help()<CR>
+" nnoremap <silent> gt   <cmd>lua vim.lsp.buf.type_definition()<CR>
+" nnoremap <silent> gr    <cmd>lua vim.lsp.buf.references()<CR>
+" nnoremap <silent> g0    <cmd>lua vim.lsp.buf.document_symbol()<CR>
+" nnoremap <silent> gw    <cmd>lua vim.lsp.buf.workspace_symbol()<CR>
+" nnoremap <silent> <leader>rn <cmd>lua vim.lsp.buf.rename()<CR>
 
 " Configure completion
-" inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "<Tab>"
-" inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "<S-Tab>"
+inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "<Tab>"
+inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "<S-Tab>"
+
+inoremap <silent><expr> <C-Space> compe#complete()
+inoremap <silent><expr> <CR>      compe#confirm('<CR>')
+inoremap <silent><expr> <C-e>     compe#close('<C-e>')
+inoremap <silent><expr> <C-f>     compe#scroll({ 'delta': +4 })
+inoremap <silent><expr> <C-d>     compe#scroll({ 'delta': -4 })
+
 " autocmd autos BufEnter * lua require'completion'.on_attach()
 autocmd autos Filetype * setlocal omnifunc=v:lua.vim.lsp.omnifunc
 let g:completion_trigger_on_delete = 1

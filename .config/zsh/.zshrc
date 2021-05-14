@@ -12,9 +12,13 @@ SAVEHIST=10000
 HISTFILE="$HOME/.cache/zsh/history"
 
 source <(antibody init)
-zstyle :omz:plugins:ssh-agent identities azure_devops_rsa bitbucket
-antibody bundle < ~/.config/zsh/antibody_plugins.txt
+
 # configure default added keys for ssh-agent plugin
+zstyle :omz:plugins:ssh-agent identities azure_devops_rsa bitbucket
+# avoid problematic behavior with zsh-poetry plugin overrides
+ZSH_POETRY_OVERRIDE_SHELL=0
+
+antibody bundle < ~/.config/zsh/antibody_plugins.txt
 
 PROMPT='[%F{1}%n%f@%F{5}%m%f%F{3}%f]%F{6}~%f '
 
