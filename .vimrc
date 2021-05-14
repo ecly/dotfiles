@@ -119,6 +119,7 @@ Plug 'Konfekt/FastFold'
 " Plug 'psliwka/vim-smoothie'
 " Peek into registers with @ and \"
 Plug 'junegunn/vim-peekaboo'
+Plug 'editorconfig/editorconfig-vim'
 Plug 'ntpeters/vim-better-whitespace'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'tmux-plugins/vim-tmux-focus-events'
@@ -212,7 +213,8 @@ require"lspconfig".pyls.setup{
       plugins = {
         pyflakes = { enabled = false },
         pycodestyle = { enabled = false },
-        pylint = { enabled = false },
+        pylint = { enabled = true },
+        pydocstyle = { enabled = true },
         jedi = { extra_paths = {"./dags"}, environment = jedi_env },
       }
     }
@@ -287,7 +289,8 @@ require'lspconfig'.diagnosticls.setup{
       },
     },
     filetypes = {
-      python = 'pylint'
+      -- disabled until venv support added
+      -- python = 'pylint'
     },
     formatters = {
       black = {
