@@ -117,5 +117,5 @@ if [ -e "$1" ]; then
         libreoffice \
         texlive-most \
         biber \
-        texlive-lang 
+        texlive-lang
 fi
