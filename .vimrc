@@ -204,112 +204,31 @@ function exists(file)
    return ok, err
 end
 
--- hacky solution to problem with using jedi both with/without .venv
+-- hacky solution to problem with using jedi/pylint both with/without .venv
 -- https://github.com/palantir/python-language-server/issues/872
-jedi_env = exists("./.venv") and "./.venv" or nil
-require"lspconfig".pyls.setup{
+jedi_env = exists("./.venv/") and "./.venv" or nil
+pylint_bin = exists("./.venv/bin/pylint") and "./.venv/bin/pylint" or "pylint"
+black_bin = exists("./.venv/bin/black") and "./.venv/bin/black" or "black"
+isort_bin = exists("./.venv/bin/isort") and "./.venv/bin/isort" or "isort"
+
+require("lspconfig").pyls.setup({
+  enable = true,
   settings = {
+    configurationSources = { "pydocstyle", "pylint" },
     pyls = {
       plugins = {
-        pyflakes = { enabled = false },
-        pycodestyle = { enabled = false },
-        pylint = { enabled = true },
+        pylint = { enabled = true, executable = pylint_bin },
         pydocstyle = { enabled = true },
-        jedi = { extra_paths = {"./dags"}, environment = jedi_env },
+        jedi = { extra_paths = {"./dags"}, environment = jedi_env, enabled = true },
+        pyls_mypy = { enabled = true, live_mode = false },
+        pyls_black = { enabled = true },
+        pyls_isort = { enabled = true },
       }
     }
   }
-}
+})
 
--- This configuration almost works, but is missing configuration for
--- executionEnvironment which seems to not work when provided. If provided
--- through a pyrightconfig.json, like in: https://github.com/microsoft/pyright/issues/30
--- then it works. An alternative is to simply always activate with `poetry shell` which I'm
--- currently doing using a zsh plugin
--- require'lspconfig'.pyright.setup{
---   settings = {
---     python = {
---       disableLanguageServices = true,
---       venvPath = jedi_env,
---     },
---     disableLanguageServices = true,
---     settings = {
---       disableLanguageServices = true,
---       python = {
---         disableLanguageServices = true,
---         analysis = {
---           autoSearchPaths = true,
---           useLibraryCodeForTypes = true,
---           diagnosticSeverityOverrides = {
---             reportGeneralTypeIssues = "false",
---           },
---         }
---       }
---     }
---   }
--- }
-require'lspconfig'.diagnosticls.setup{
-  filetypes = {
-    'python'
-  },
-  init_options = {
-    linters = {
-      pylint = {
-        sourceName = 'pylint',
-        command = 'pylint',
-        args = {
-          '--output-format',
-          'text',
-          '--score',
-          'no',
-          '--msg-template',
-          '"{line}:{column}:{category}:{msg} ({msg_id}:{symbol})"',
-          '%file'
-        },
-        formatPattern = {
-          '^(\\d+?):(\\d+?):([a-z]+?):(.*)$',
-          {
-            line = 1,
-            column = 2,
-            security = 3,
-            message = 4
-          }
-        },
-        rootPatterns = {'.git', 'pyproject.toml', 'setup.py'},
-        securities = {
-          informational = 'hint',
-          refactor = 'info',
-          convention = 'info',
-          warning = 'warning',
-          error = 'error',
-          fatal = 'error'
-        },
-        offsetColumn = 1,
-        formatLines = 1
-      },
-    },
-    filetypes = {
-      -- disabled until venv support added
-      -- python = 'pylint'
-    },
-    formatters = {
-      black = {
-        command = 'black',
-        args = { '-' },
-        rootPatterns = {'.git', 'pyproject.toml', 'poetry.lock'},
-      },
-      isort = {
-        command = 'isort',
-        args = { '-' },
-        rootPatterns = {'.git', 'pyproject.toml', 'poetry.lock'},
-      },
-    },
-    formatFiletypes = {
-      python = {'black', 'isort'},
-    }
-  }
-}
-require'lspconfig'.sumneko_lua.setup {
+require('lspconfig').sumneko_lua.setup({
   cmd = {"lua-language-server"};
   settings = {
     Lua = {
@@ -336,11 +255,11 @@ require'lspconfig'.sumneko_lua.setup {
       },
     },
   },
-}
+})
 
 
 -- setup several out of the box language servers
-require"lspconfig".rls.setup{}
+require("lspconfig").rls.setup{}
 require"lspconfig".vimls.setup{}
 require"lspconfig".gopls.setup{}
 require"lspconfig".dockerls.setup{}
@@ -422,7 +341,7 @@ require('lualine').setup{
   sections = {
     lualine_a = {'mode'},
     lualine_b = {'branch'},
-    lualine_c = {'filename'},
+    -- lualine_c = {'filename'},
     lualine_x = {{'diagnostics', sources = {"nvim_lsp"}}, 'filetype'},
     lualine_y = {'progress'},
     lualine_z = {'location'}
