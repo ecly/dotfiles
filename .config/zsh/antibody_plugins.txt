@@ -7,4 +7,5 @@ zsh-users/zsh-syntax-highlighting
 zsh-users/zsh-autosuggestions
 zsh-users/zsh-completions
 
-darvid/zsh-poetry
+# struggling with boot time and some edge cases when leaving poetry env
+# darvid/zsh-poetry
