@@ -160,6 +160,7 @@ Plug 'folke/trouble.nvim'
 Plug 'folke/todo-comments.nvim'
 Plug 'folke/lsp-colors.nvim'
 Plug 'glepnir/lspsaga.nvim'
+Plug 'sindrets/diffview.nvim'
 call plug#end()
 
 " Setup gitsigns with default setup
@@ -214,11 +215,11 @@ isort_bin = exists("./.venv/bin/isort") and "./.venv/bin/isort" or "isort"
 require("lspconfig").pyls.setup({
   enable = true,
   settings = {
-    configurationSources = { "pydocstyle", "pylint" },
+    configurationSources = { "pydocstyle", "pylint", "mypy" },
     pyls = {
       plugins = {
         pylint = { enabled = true, executable = pylint_bin },
-        pydocstyle = { enabled = true },
+        pydocstyle = { enabled = true, addIgnore = {"D100", "D101", "D103", "D104", "D401"} },
         jedi = { extra_paths = {"./dags"}, environment = jedi_env, enabled = true },
         pyls_mypy = { enabled = true, live_mode = false },
         pyls_black = { enabled = true },
