@@ -218,8 +218,8 @@ require("lspconfig").pyls.setup({
     configurationSources = { "pydocstyle", "pylint", "mypy" },
     pyls = {
       plugins = {
-        pylint = { enabled = true, executable = pylint_bin },
-        pydocstyle = { enabled = true, addIgnore = {"D100", "D101", "D103", "D104", "D401"} },
+        pylint = { enabled = true, executable = pylint_bin, args = {"--disable missing-module-docstring"} },
+        pydocstyle = { enabled = true, convention = "pep257", addIgnore = {"D100", "D101", "D103", "D104", "D401"} },
         jedi = { extra_paths = {"./dags"}, environment = jedi_env, enabled = true },
         pyls_mypy = { enabled = true, live_mode = false },
         pyls_black = { enabled = true },
