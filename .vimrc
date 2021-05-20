@@ -219,7 +219,7 @@ require("lspconfig").pyls.setup({
     pyls = {
       plugins = {
         pylint = { enabled = true, executable = pylint_bin, args = {"--disable missing-module-docstring"} },
-        pydocstyle = { enabled = true, convention = "pep257", addIgnore = {"D100", "D101", "D103", "D104", "D401"} },
+        pydocstyle = { enabled = true, convention = "pep257", addIgnore = {"D100", "D101", "D102", "D103", "D104", "D401"} },
         jedi = { extra_paths = {"./dags"}, environment = jedi_env, enabled = true },
         pyls_mypy = { enabled = true, live_mode = false },
         pyls_black = { enabled = true },
@@ -273,7 +273,30 @@ require"lspconfig".elixirls.setup{
 -- Below need some fixing
 -- require"lspconfig".sqlls.setup{}
 require'nvim-treesitter.configs'.setup{
-  ensure_installed = {"python", "bash", "go", "html", "css", "c_sharp", "javascript", "cpp", "rust"},
+  ensure_installed = {
+    "python",
+    "bash",
+    "go",
+    "c_sharp",
+    "c",
+    "cpp",
+    "elixir",
+    "haskell",
+    "cpp",
+    "lua",
+    "java",
+    "javascript",
+    "typescript",
+    "rust",
+    "html",
+    "css",
+    "yaml",
+    "json",
+    "dockerfile",
+    "comment",
+    "regex",
+    "latex",
+  },
   highlight = {
     enable = true,
     -- override keyword.operator which otherwise isn't highlighted with gruvbox.nvim/TS combination
