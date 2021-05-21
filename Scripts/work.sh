@@ -1,22 +1,25 @@
 #!/bin/bash
 # Test whether intel-virtual-output is running and start it.
-ivo_process=`ps axu |grep 'intel-virtual-output' |egrep -v 'grep'`
-if [ -z "$ivo_process" ]; then
-   optirun intel-virtual-output
-   sleep 3
+ivo_process=`pgrep intel-virtual-asdf`
+if [ ! -z "$ivo_process" ]; then
+    kill -9 $ivo_process
+    sleep 1
+    make sure that vsync is disabled
+    vblank_mode=0 optirun -b primus intel-virtual-output
+    sleep 3
 fi
 
 
 # patched xrandr for pixel perfect 2x scaling for 4k
-PATCHED="$HOME/Scripts/xrandr/xrandr"; \
+PATCHED="$HOME/Scripts/xrandr/xrandr"
 if [[ -f $PATCHED ]] && [[ 1 -eq 2 ]]; then
     $PATCHED --output eDP1 --primary --mode 3840x2160 --scale "0.5x0.5"; \
     $PATCHED --output VIRTUAL1 --mode 2560x1440 --right-of eDP1; \
-    $PATCHED --output VIRTUAL2 --mode 2560x1440 --right-of VIRTUAL1; \
+    $PATCHED --output VIRTUAL2 --mode 2560x1440 --right-of VIRTUAL1
 else
     xrandr --output eDP1 --primary --mode 1920x1080 --scale "1x1"; \
     xrandr --output VIRTUAL1 --mode 2560x1440 --right-of eDP1; \
-    xrandr --output VIRTUAL2 --mode 2560x1440 --right-of VIRTUAL1; \
+    xrandr --output VIRTUAL2 --mode 2560x1440 --right-of VIRTUAL1
 fi
 
 sh /home/ecly/Scripts/keymap.sh
