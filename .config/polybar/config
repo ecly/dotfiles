@@ -37,8 +37,6 @@ foreground = ${colors.foreground}
 line-size = 2
 line-color = #f00
 
-border-left = 0
-border-size = 0
 border-color = #00000000
 
 padding-left = 1
@@ -59,7 +57,7 @@ modules-right = vpncheck cpu memory pulseaudio keyboard battery
 ;fix tray position
 ;override-redirect = true
 tray-detached = false
-tray-position =
+tray-position = none
 tray-offset-x = 0
 tray-offset-y = 0
 tray-maxsize = 26
