@@ -16,7 +16,7 @@ fi
 echo "Starting IVO..."
 vblank_mode=0 primusrun intel-virtual-output
 sleep 3
-echo "Stareted IVO.
+echo "Started IVO.
 
 echo "Setting up displays with XRANDR..."
 # patched xrandr for pixel perfect 2x scaling for 4k
