@@ -486,6 +486,11 @@ sign define LspDiagnosticsSignWarning text=  texthl=LspDiagnosticsSignWarning
 sign define LspDiagnosticsSignInformation text= texthl=LspDiagnosticsSignInformation linehl= numhl=
 sign define LspDiagnosticsSignHint text=H texthl=LspDiagnosticsSignHint linehl= numhl=
 
+" Auto strip whitespace
+let g:better_whitespace_enabled=1
+let g:strip_whitespace_on_save=1
+nnoremap <silent> <leader>T :StripWhitespace<CR>
+
 " Don't open peekaboo bar immediately (ms)
 let g:peekaboo_delay = 200
 
