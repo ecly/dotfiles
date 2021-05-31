@@ -16,7 +16,7 @@ fi
 echo "Starting IVO..."
 vblank_mode=0 primusrun intel-virtual-output
 sleep 3
-echo "Started IVO.
+echo "Started IVO."
 
 echo "Setting up displays with XRANDR..."
 # patched xrandr for pixel perfect 2x scaling for 4k
@@ -45,7 +45,7 @@ i3-msg "workspace 2, move workspace to output VIRTUAL2" > /dev/null; \
 i3-msg "workspace 3, move workspace to output eDP1" > /dev/null; \
 i3-msg "workspace 4, move workspace to output VIRTUAL1" > /dev/null
 
-echo "Setting up polybar..."""
+echo "Setting up polybar..."
 nohup sh ~/.config/polybar/launch.sh > /dev/null 2>&1 &
 
 echo "Finished!"
