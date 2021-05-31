@@ -59,6 +59,11 @@ export CARGO_HOME="$HOME/.local/share/cargo"
 export WEECHAT_HOME="$HOME/.config/weechat"
 export PYTHONSTARTUP="$HOME/.config/pythonrc"
 
+# Add pyenv specific ENVVARs following documentation
+export PYENV_ROOT="$HOME/.pyenv"
+export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init --path)"
+
 if [ -z "$DISPLAY" ] && [ -n "$XDG_VTNR" ] && [ "$XDG_VTNR" -eq 1 ]; then
   exec startx "$HOME/.config/X11/xinitrc"
 fi
