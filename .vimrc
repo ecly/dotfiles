@@ -372,10 +372,12 @@ require('lualine').setup{
   },
 }
 
-local cfg = require('bufferline/config').get_defaults()
-local bg = cfg.highlights.background.guibg
-local fg = cfg.highlights.background.guifg
-local fill_bg = cfg.highlights.tab_selected.guifg
+local cfg = require('bufferline.config')
+cfg.set() -- trigger default generation
+local colors = cfg.get("highlights")
+local bg = colors.background.guibg
+local fg = colors.background.guifg
+local fill_bg = colors.tab_selected.guifg
 
 -- adjust bufferline to with gruvbox in a more subtle way
 -- and synchronize better with signcolumn
