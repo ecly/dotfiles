@@ -2,14 +2,15 @@
 
 # If IVO is already running, we kill the existing instance
 # reusing the existing one seems to cause instability
-ivo_process=`pgrep intel-virtual-asdf`
+ivo_process=`pgrep intel-virtual`
 set -e
 if [ ! -z "$ivo_process" ]; then
     echo "Killing existing IVO process"
     kill -9 "$ivo_process"
-    sleep 1
+    sleep 3
     echo "Turning off GPU with bbswitch"
     sudo tee /proc/acpi/bbswitch <<< OFF
+    sleep 3
 fi
 
 # make sure that vsync is disabled
