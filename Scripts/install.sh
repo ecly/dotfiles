@@ -81,8 +81,8 @@ yay -Syyu --noconfirm \
 
 # Handle Python specific installs with pipx
 pip3 install pipx --user
-pipx install "python-language-server[pydocstyle,pylint]" \
-    && pipx inject python-language-server pyls-mypy "pyls-isort==0.2.0" pyls-black
+pipx install "python-language-server[all]" \
+    && pipx inject python-language-server pyls-mypy "pyls-isort==0.2.0" pyls-black future
 pipx install poetry
 pipx install black
 pipx install isort
