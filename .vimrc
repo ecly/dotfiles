@@ -213,7 +213,7 @@ black_bin = exists("./.venv/bin/black") and "./.venv/bin/black" or "black"
 isort_bin = exists("./.venv/bin/isort") and "./.venv/bin/isort" or "isort"
 
 require("lspconfig").pyls.setup({
-  cmd = {"pyls"},
+  cmd = {"pyls", "--log-file", "/home/ecly/pyls.log"},
   enable = true,
   settings = {
     configurationSources = { "pydocstyle", "pylint", "mypy" },
@@ -227,7 +227,7 @@ require("lspconfig").pyls.setup({
         pycodestyle = { enabled = false },
         yapf = { enabled = false },
         mccabe = { enabled = false },
-        pyls_mypy = { enabled = true, live_mode = false },
+        pyls_mypy = { enabled = false, live_mode = false },
         pyls_black = { enabled = true },
         pyls_isort = { enabled = true },
       }
