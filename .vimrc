@@ -23,12 +23,10 @@ set backspace=indent,eol,start      " Allow backspacing everything in insert
 set hlsearch                        " Highlight searches
 set incsearch                       " Search as typing
 set concealcursor=                  " Never conceal anything on current line
-if !isdirectory($HOME."/.vim")
-    call mkdir($HOME."/.vim", "", 0770)
+if !isdirectory("/tmp/vim-undo")
+    call mkdir("/tmp/vim-undo", "", 0700)
 endif
-if !isdirectory($HOME."/.vim/undo-dir")
-    call mkdir($HOME."/.vim/undo-dir", "", 0700)
-endif
+set undodir=/tmp/vim-undo
 set undofile                        " Use persistent undofiles
 set lazyredraw                      " Speedup large files and macros
 set updatetime=100                  " Default 4000 is a bit high for async updates
@@ -39,7 +37,7 @@ set shortmess+=c                    " Don't give ins-completion-menu messages
 set completeopt=menuone,noselect,preview " Better completion messages
 set signcolumn=yes                  " Always show the sign column
 
-" Support true color
+" True color support
 " https://github.com/alacritty/alacritty/issues/109
 if exists('+termguicolors')
   let &t_8f='\<Esc>[38;2;%lu;%lu;%lum'
