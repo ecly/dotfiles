@@ -103,7 +103,7 @@ Plug 'tpope/vim-fugitive'
 
 " Auto-detect indentation
 Plug 'tpope/vim-sleuth'
-Plug 'lukas-reineke/indent-blankline.nvim', { 'branch': 'lua' }
+Plug 'lukas-reineke/indent-blankline.nvim'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-surround'
 " Ability to . repeat some plugin operations
@@ -497,6 +497,7 @@ sign define LspDiagnosticsSignHint text=H texthl=LspDiagnosticsSignHint linehl= 
 " Auto strip whitespace
 let g:better_whitespace_enabled=1
 let g:strip_whitespace_on_save=1
+let g:strip_whitespace_confirm=0
 nnoremap <silent> <leader>T :StripWhitespace<CR>
 
 " Don't open peekaboo bar immediately (ms)
