@@ -237,12 +237,19 @@ bindsym $mod+Shift+z exec --no-startup-id sh ~/Scripts/screenshot_monitor.sh
 # Setup work monitor setup
 bindsym $sup+9 exec --no-startup-id sh ~/Scripts/work.sh
 # Reset monitor config
-bindsym $sup+0 exec --no-startup-id \
-    xrandr --output VIRTUAL1 --off && \
-    xrandr --output VIRTUAL2 --off && \
-    xrandr --output VIRTUAL3 --off && \
-    xrandr --output VIRTUAL4 --off && \
-    xrandr --output eDP1 --auto --primary && \
+bindsym $sup+0 exec --no-startup-id $HOME/Scripts/xrandr/xrandr \
+    --output VIRTUAL1 --off \
+    --output VIRTUAL2 --off \
+    --output VIRTUAL3 --off \
+    --output VIRTUAL4 --off \
+    --output DP-1.2 --off \
+    --output DP-1.3 --off \
+    --output DP-2 --primary --crtc 0 --transform none \
+    --output DP-2 --mode 3840x2160 \
+    --output DP-2 --panning 0x0  \
+    --output DP-2 --scale 0.5x0.5 \
+    --output DP-2 --fb 1920x1080 && \
+    sleep 1 && \
     sh ~/.config/polybar/launch.sh
 
 # Rofi keybinds
