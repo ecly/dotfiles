@@ -205,19 +205,30 @@ function exists(file)
    return ok, err
 end
 
+
+local lsputil = require('lspconfig/util')
+-- For poetry venv with non-static path see
+-- https://github.com/python-lsp/python-lsp-server/pull/68
+-- function get_python_venv()
+--     if vim.env.VIRTUAL_ENV then return vim.env.VIRTUAL_ENV end
+--
+--     local match = vim.fn.glob(lsputil.path.join(vim.fn.getcwd(), 'Pipfile'))
+--     if match ~= '' then return vim.fn.trim(vim.fn.system('PIPENV_PIPFILE=' .. match .. ' pipenv --venv')) end
+--
+--     match = vim.fn.glob(lsputil.path.join(vim.fn.getcwd(), 'poetry.lock'))
+--     if match ~= '' then return vim.fn.trim(vim.fn.system('poetry env info -p')) end
+-- end
+
 -- hacky solution to problem with using jedi/pylint both with/without .venv
 -- https://github.com/palantir/python-language-server/issues/872
-jedi_env = exists("./.venv/") and "./.venv" or nil
-pylint_bin = exists("./.venv/bin/pylint") and "./.venv/bin/pylint" or "pylint"
-black_bin = exists("./.venv/bin/black") and "./.venv/bin/black" or "black"
-isort_bin = exists("./.venv/bin/isort") and "./.venv/bin/isort" or "isort"
-
-require("lspconfig").pyls.setup({
-  cmd = {"pyls", "--log-file", "/home/ecly/pyls.log"},
+venv = exists("./.venv/") and "./.venv" or nil
+require("lspconfig").pylsp.setup({
+  cmd = {"pylsp", "--log-file", "/home/ecly/pylsp.log", "-v"},
+  cmd_env = {VIRTUAL_ENV = venv, PATH = lsputil.path.join(venv, 'bin') .. ':' .. vim.env.PATH},
   enable = true,
   settings = {
     configurationSources = { "pydocstyle", "pylint", "mypy" },
-    pyls = {
+    pylsp = {
       plugins = {
         pylint = { enabled = true, executable = pylint_bin, args = {"--disable=missing-module-docstring"} },
         pydocstyle = { enabled = true, convention = "pep257", addIgnore = {"D100", "D101", "D102", "D103", "D104", "D401"} },
@@ -379,7 +390,7 @@ require('lualine').setup{
 }
 
 local cfg = require('bufferline.config')
-cfg.set() -- trigger default generation
+cfg.update_highlights() -- trigger default generation
 local colors = cfg.get("highlights")
 local bg = colors.background.guibg
 local fg = colors.background.guifg
