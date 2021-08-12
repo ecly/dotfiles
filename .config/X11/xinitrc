@@ -7,6 +7,6 @@ wal -n -R # generate and expose colors with wal based on cache
 # https://forums.linuxmint.com/viewtopic.php?t=159064
 PATCHED="$HOME/Scripts/xrandr/xrandr"
 [[ -f $PATCHED ]] && [[ "$HOSTNAME" -eq "trsh" ]] && \
-    $PATCHED --output eDP1 --mode 3840x2160 --scale "0.5x0.5"
+    $PATCHED --output DP-2 --mode 3840x2160 --scale "0.5x0.5"
 
 exec i3

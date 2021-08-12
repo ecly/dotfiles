@@ -38,4 +38,4 @@ rofi.fixed-num-lines:       true
 ! Xft.hintstyle:              hintfull
 ! Xft.rgba:                   rgb
 ! Xft.lcdfilter:              lcddefault
-! Xft.dpi:                    DPI
+Xft.dpi:                    96
