@@ -222,6 +222,7 @@ local lsputil = require('lspconfig/util')
 -- hacky solution to problem with using jedi/pylint both with/without .venv
 -- https://github.com/palantir/python-language-server/issues/872
 venv = exists("./.venv/") and "./.venv" or nil
+pylint_bin = exists("./.venv/bin/pylint") and "./.venv/bin/pylint" or "pylint"
 require("lspconfig").pylsp.setup({
   cmd = {"pylsp", "--log-file", "/home/ecly/pylsp.log", "-v"},
   cmd_env = {VIRTUAL_ENV = venv, PATH = lsputil.path.join(venv, 'bin') .. ':' .. vim.env.PATH},
@@ -232,7 +233,7 @@ require("lspconfig").pylsp.setup({
       plugins = {
         pylint = { enabled = true, executable = pylint_bin, args = {"--disable=missing-module-docstring"} },
         pydocstyle = { enabled = true, convention = "pep257", addIgnore = {"D100", "D101", "D102", "D103", "D104", "D401"} },
-        jedi = { extra_paths = {"./dags"}, environment = jedi_env, enabled = true },
+        jedi = { extra_paths = {"./dags"}, environment = venv, enabled = true },
         rope = { enabled = false },
         pyflakes = { enabled = false },
         pycodestyle = { enabled = false },
