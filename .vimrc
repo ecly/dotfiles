@@ -168,7 +168,7 @@ lua require('gitsigns').setup()
 lua require('trouble').setup()
 lua require('todo-comments').setup()
 lua require('lsp-colors').setup()
-lua require('lspsaga').init_lsp_saga()
+lua require('lspsaga').init_lsp_saga({rename_action_keys = {quit = '<ESC>', exec = '<CR>'}})
 
 " Enable syntax highlight and ft-plugins (need to follow Plug section)
 syntax enable
@@ -228,8 +228,8 @@ require("lspconfig").pylsp.setup({
   cmd_env = {VIRTUAL_ENV = venv, PATH = lsputil.path.join(venv, 'bin') .. ':' .. vim.env.PATH},
   enable = true,
   settings = {
-    configurationSources = { "pydocstyle", "pylint", "mypy" },
     pylsp = {
+      configurationSources = { "pydocstyle", "pylint" },
       plugins = {
         pylint = { enabled = true, executable = pylint_bin, args = {"--disable=missing-module-docstring"} },
         pydocstyle = { enabled = true, convention = "pep257", addIgnore = {"D100", "D101", "D102", "D103", "D104", "D401"} },
@@ -239,9 +239,9 @@ require("lspconfig").pylsp.setup({
         pycodestyle = { enabled = false },
         yapf = { enabled = false },
         mccabe = { enabled = false },
-        pyls_mypy = { enabled = false, live_mode = false },
-        pyls_black = { enabled = true },
-        pyls_isort = { enabled = true },
+        pylsp_mypy = { enabled = false, live_mode = false },
+        pylsp_black = { enabled = true },
+        pylsp_isort = { enabled = true },
       }
     }
   }
