@@ -7,10 +7,13 @@ THIRD_SCREEN="DP-1.3"
 echo "Setting up displays with XRANDR..."
 # patched xrandr for pixel perfect 2x scaling for 4k
 PATCHED="$HOME/Scripts/xrandr/xrandr"
-$PATCHED \
-    --output "$NATIVE_SCREEN" --primary --crtc 0 --transform none --mode 3840x2160 \
-    --output "$SECOND_SCREEN" --crtc 1 --transform none --mode 2560x1440 --right-of "$NATIVE_SCREEN" \
-    --output "$THIRD_SCREEN" --crtc 2 --transform none --mode 2560x1440 --right-of "$SECOND_SCREEN"
+
+if xrandr | grep -q "$SECOND_SCREEN disconnected"; then
+    $PATCHED \
+        --output "$NATIVE_SCREEN" --primary --crtc 0 --transform none --mode 3840x2160 \
+        --output "$SECOND_SCREEN" --crtc 1 --transform none --mode 2560x1440 --right-of "$NATIVE_SCREEN" \
+        --output "$THIRD_SCREEN" --crtc 2 --transform none --mode 2560x1440 --right-of "$SECOND_SCREEN"
+fi
 # autorandr --load docked
 
 echo "Setting up keymap..."
