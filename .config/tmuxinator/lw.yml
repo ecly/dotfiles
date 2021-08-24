@@ -71,8 +71,18 @@ windows:
       layout: even-horizontal
       panes:
         -
-  - mmtcli:
-      root: ~/Programming/work/mlt-mmt-cli
+  - shm:
+      root: ~/Programming/work/mlt-system-health-monitor
+      layout: even-horizontal
+      panes:
+        -
+  - mlt-utils:
+      root: ~/Programming/work/mlt-utils
+      layout: even-horizontal
+      panes:
+        -
+  - dp:
+      root: ~/Programming/work/mlt-dynamic-pricing
       layout: even-horizontal
       panes:
         -
