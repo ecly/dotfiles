@@ -4,11 +4,11 @@ set -e
 NATIVE_SCREEN="DP-2"
 SECOND_SCREEN="DP-1.2"
 THIRD_SCREEN="DP-1.3"
-echo "Setting up displays with XRANDR..."
 # patched xrandr for pixel perfect 2x scaling for 4k
 PATCHED="$HOME/Scripts/xrandr/xrandr"
 
-if xrandr | grep -q "$SECOND_SCREEN disconnected"; then
+if ! xrandr --listmonitors | grep -q "$SECOND_SCREEN"; then
+    echo "Setting up displays with XRANDR..."
     $PATCHED \
         --output "$NATIVE_SCREEN" --primary --crtc 0 --transform none --mode 3840x2160 \
         --output "$SECOND_SCREEN" --crtc 1 --transform none --mode 2560x1440 --right-of "$NATIVE_SCREEN" \
