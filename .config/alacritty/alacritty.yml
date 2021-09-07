@@ -5,6 +5,9 @@ font:
     bold:
         family: Terminus (TTF)
         style: Bold
+    italic:
+        family: Terminus (TTF)
+        style: Italic
     size: 16.5
     offset:
         x: 0
