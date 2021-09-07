@@ -120,7 +120,6 @@ Plug 'junegunn/vim-peekaboo'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'ntpeters/vim-better-whitespace'
 Plug 'christoomey/vim-tmux-navigator'
-Plug 'tmux-plugins/vim-tmux-focus-events'
 Plug 'roxma/vim-tmux-clipboard'
 Plug 'hoob3rt/lualine.nvim'
 Plug 'akinsho/nvim-bufferline.lua'
@@ -159,9 +158,13 @@ Plug 'folke/todo-comments.nvim'
 Plug 'folke/lsp-colors.nvim'
 Plug 'glepnir/lspsaga.nvim'
 Plug 'sindrets/diffview.nvim'
+" :SymbolsOutline to get overview of symbols in file
+Plug 'simrat39/symbols-outline.nvim'
+Plug 'L3MON4D3/LuaSnip'
+Plug 'onsails/lspkind-nvim'
 call plug#end()
 
-" Setup gitsigns with default setup
+" Configure several trivially configured lua plugins
 lua require('gitsigns').setup()
 lua require('trouble').setup()
 lua require('todo-comments').setup()
@@ -237,7 +240,7 @@ require("lspconfig").pylsp.setup({
         pycodestyle = { enabled = false },
         yapf = { enabled = false },
         mccabe = { enabled = false },
-        pylsp_mypy = { enabled = false, live_mode = false },
+        pylsp_mypy = { enabled = true, live_mode = false, strict = false},
         pylsp_black = { enabled = true },
         pylsp_isort = { enabled = true },
       }
@@ -358,6 +361,7 @@ require'compe'.setup {
     calc = true;
     nvim_lsp = true;
     nvim_lua = true;
+    luasnip = true;
   };
 }
 
@@ -451,6 +455,43 @@ vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
     update_in_insert = false,
   }
 )
+
+require('lspkind').init({
+  symbol_map = {
+    Class = "∴",
+    Color = "",
+    Constant = "",
+    Constructor = '⬡',
+    -- Constructor = 'ᲃ',
+    -- Constructor = '⌬',
+    -- Constructor = '⎔',
+    -- Constructor = '⚙',
+    Enum = "",
+    EnumMember = "",
+    Event = "",
+    Field = '🠶',
+    -- Field = '→',
+    -- Field = '∴',
+    File = "",
+    Folder = "",
+    Function = "",
+    Interface = "",
+    Keyword = "",
+    Method = "",
+    Module = "",
+    Operator = "",
+    Property = '∷',
+    -- Property = '::',
+    Reference = "",
+    Snippet = "",
+    Struct = '',
+    Text = "",
+    TypeParameter = "",
+    Unit = '()',
+    Value = "",
+    Variable = "",
+  },
+})
 EOF
 
 " Fix compe documentation view
@@ -459,15 +500,15 @@ highlight link CompeDocumentation Pmenu
 " LSPSaga definitions
 nnoremap <silent><leader>ca :Lspsaga code_action<CR>
 vnoremap <silent><leader>ca :<C-U>Lspsaga range_code_action<CR>
-nnoremap <silent> gh :Lspsaga lsp_finder<CR>
-nnoremap <silent> K <cmd>lua require('lspsaga.hover').render_hover_doc()<CR>
+nnoremap <silent>gh :Lspsaga lsp_finder<CR>
+nnoremap <silent>K <cmd>lua require('lspsaga.hover').render_hover_doc()<CR>
 nnoremap <silent>K :Lspsaga hover_doc<CR>
 nnoremap <silent> <C-f> <cmd>lua require('lspsaga.action').smart_scroll_with_saga(1)<CR>
 nnoremap <silent> <C-b> <cmd>lua require('lspsaga.action').smart_scroll_with_saga(-1)<CR>
-nnoremap <silent> gs :Lspsaga signature_help<CR>
-nnoremap <silent>gr :Lspsaga rename<CR>
+nnoremap <silent>gs :Lspsaga signature_help<CR>
+nnoremap <silent>gr <cmd>lua vim.lsp.buf.references()<CR>
 nnoremap <silent>rn :Lspsaga rename<CR>
-nnoremap <silent> gD :Lspsaga preview_definition<CR>
+nnoremap <silent>gD :Lspsaga preview_definition<CR>
 
 nnoremap <silent> gd    <cmd>lua vim.lsp.buf.definition()<CR>
 nnoremap <silent> ]g <cmd>lua vim.lsp.diagnostic.goto_next()<CR>
