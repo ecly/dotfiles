@@ -240,7 +240,7 @@ require("lspconfig").pylsp.setup({
         pycodestyle = { enabled = false },
         yapf = { enabled = false },
         mccabe = { enabled = false },
-        pylsp_mypy = { enabled = true, live_mode = false, strict = false},
+        pylsp_mypy = { enabled = false, live_mode = false, strict = false},
         pylsp_black = { enabled = true },
         pylsp_isort = { enabled = true },
       }
