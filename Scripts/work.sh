@@ -10,9 +10,9 @@ PATCHED="$HOME/Scripts/xrandr/xrandr"
 if ! xrandr --listmonitors | grep -q "$SECOND_SCREEN"; then
     echo "Setting up displays with XRANDR..."
     $PATCHED \
-        --output "$NATIVE_SCREEN" --primary --crtc 0 --transform none --mode 3840x2160 \
-        --output "$SECOND_SCREEN" --crtc 1 --transform none --mode 2560x1440 --right-of "$NATIVE_SCREEN" \
-        --output "$THIRD_SCREEN" --crtc 2 --transform none --mode 2560x1440 --right-of "$SECOND_SCREEN"
+        --output "$NATIVE_SCREEN" --primary --crtc 0 --transform none --scale 1x1 --mode 3840x2160 \
+        --output "$SECOND_SCREEN" --crtc 1 --transform none --scale 1x1 --mode 2560x1440 --right-of "$NATIVE_SCREEN" \
+        --output "$THIRD_SCREEN" --crtc 2 --transform none --scale 1x1 --mode 2560x1440 --right-of "$SECOND_SCREEN"
 fi
 # autorandr --load docked
 
