@@ -167,9 +167,9 @@ call plug#end()
 " Configure several trivially configured lua plugins
 lua require('gitsigns').setup()
 lua require('trouble').setup()
-lua require('todo-comments').setup()
 lua require('lsp-colors').setup()
 lua require('lspsaga').init_lsp_saga({rename_action_keys = {quit = '<ESC>', exec = '<CR>'}})
+lua require('todo-comments').setup()
 
 " Enable syntax highlight and ft-plugins (need to follow Plug section)
 syntax enable
@@ -393,7 +393,8 @@ require('lualine').setup{
 }
 
 local cfg = require('bufferline.config')
-cfg.update_highlights() -- trigger default generation
+cfg.set() -- ensure base cfg is created
+cfg.update_highlights() -- trigger default color generation
 local colors = cfg.get("highlights")
 local bg = colors.background.guibg
 local fg = colors.background.guifg
