@@ -142,7 +142,10 @@ Plug 'lervag/vimtex'
 Plug 'vimwiki/vimwiki'
 " LSP/linting configuration
 Plug 'neovim/nvim-lspconfig'
-Plug 'hrsh7th/nvim-compe'
+Plug 'hrsh7th/nvim-cmp'
+Plug 'hrsh7th/cmp-nvim-lsp'
+Plug 'saadparwaiz1/cmp_luasnip'
+Plug 'L3MON4D3/LuaSnip'
 " Dependency for telescope.nvim
 Plug 'nvim-lua/popup.nvim'
 Plug 'nvim-telescope/telescope.nvim'
@@ -156,11 +159,9 @@ Plug 'folke/tokyonight.nvim'
 Plug 'folke/trouble.nvim'
 Plug 'folke/todo-comments.nvim'
 Plug 'folke/lsp-colors.nvim'
-Plug 'glepnir/lspsaga.nvim'
 Plug 'sindrets/diffview.nvim'
 " :SymbolsOutline to get overview of symbols in file
 Plug 'simrat39/symbols-outline.nvim'
-Plug 'L3MON4D3/LuaSnip'
 Plug 'onsails/lspkind-nvim'
 call plug#end()
 
@@ -168,7 +169,6 @@ call plug#end()
 lua require('gitsigns').setup()
 lua require('trouble').setup()
 lua require('lsp-colors').setup()
-lua require('lspsaga').init_lsp_saga({rename_action_keys = {quit = '<ESC>', exec = '<CR>'}})
 lua require('todo-comments').setup()
 
 " Enable syntax highlight and ft-plugins (need to follow Plug section)
@@ -194,6 +194,10 @@ colorscheme gruvbox
 
 " Setup all nvim lua specific configuration
 lua << EOF
+local nvim_lsp = require 'lspconfig'
+local capabilities = vim.lsp.protocol.make_client_capabilities()
+capabilities = require('cmp_nvim_lsp').update_capabilities(capabilities)
+
 -- https://stackoverflow.com/a/40195356/4000764
 function exists(file)
    local ok, err, code = os.rename(file, file)
@@ -224,8 +228,9 @@ local lsputil = require('lspconfig/util')
 -- https://github.com/palantir/python-language-server/issues/872
 venv = exists("./.venv/") and "./.venv" or nil
 pylint_bin = exists("./.venv/bin/pylint") and "./.venv/bin/pylint" or "pylint"
-require("lspconfig").pylsp.setup({
+nvim_lsp.pylsp.setup({
   cmd = {"pylsp", "--log-file", "/home/ecly/pylsp.log", "-v"},
+  capabilities = capabilities,
   cmd_env = {VIRTUAL_ENV = venv, PATH = lsputil.path.join(venv, 'bin') .. ':' .. vim.env.PATH},
   enable = true,
   settings = {
@@ -248,46 +253,55 @@ require("lspconfig").pylsp.setup({
   }
 })
 
-require('lspconfig').sumneko_lua.setup({
-  cmd = {"lua-language-server"};
+-- Make runtime files discoverable to the server
+local runtime_path = vim.split(package.path, ';')
+table.insert(runtime_path, 'lua/?.lua')
+table.insert(runtime_path, 'lua/?/init.lua')
+
+require('lspconfig').sumneko_lua.setup {
+  cmd = {"lua-language-server"},
+  capabilities = capabilities,
   settings = {
     Lua = {
       runtime = {
-        -- Tell the language server which version of Lua you're using (most likely LuaJIT in the case of Neovim)
         version = 'LuaJIT',
         -- Setup your lua path
-        path = vim.split(package.path, ';'),
+        path = runtime_path,
       },
       diagnostics = {
         -- Get the language server to recognize the `vim` global
-        globals = {'vim'},
+        globals = { 'vim' },
       },
       workspace = {
         -- Make the server aware of Neovim runtime files
-        library = {
-          [vim.fn.expand('$VIMRUNTIME/lua')] = true,
-          [vim.fn.expand('$VIMRUNTIME/lua/vim/lsp')] = true,
-        },
+        library = vim.api.nvim_get_runtime_file('', true),
       },
-      -- Do not send telemetry data containing a randomized but unique identifier
       telemetry = {
         enable = false,
       },
     },
   },
-})
-
+}
 
 -- setup several out of the box language servers
-require("lspconfig").rls.setup{}
+local servers = { 'rls', 'vimls', 'gopls', 'dockerls', 'bashls', 'yamlls' }
+for _, lsp in ipairs(servers) do
+  nvim_lsp[lsp].setup {
+    on_attach = on_attach,
+    capabilities = capabilities,
+  }
+end
+require"lspconfig".rls.setup{}
 require"lspconfig".vimls.setup{}
 require"lspconfig".gopls.setup{}
 require"lspconfig".dockerls.setup{}
 require"lspconfig".bashls.setup{}
 require"lspconfig".yamlls.setup{}
+
 require"lspconfig".elixirls.setup{
     -- based on default arch linux 'elixir-ls' package install
-    cmd = { "/usr/sbin/elixir-ls" };
+  capabilities = capabilities,
+  cmd = { "/usr/sbin/elixir-ls" }
 }
 -- Below need some fixing
 -- require"lspconfig".sqlls.setup{}
@@ -340,29 +354,66 @@ require'nvim-treesitter.configs'.setup{
   },
 }
 
--- setup for completion
-require'compe'.setup {
-  enabled = true;
-  autocomplete = true;
-  debug = false;
-  min_length = 1;
-  preselect = 'enable';
-  throttle_time = 80;
-  source_timeout = 200;
-  incomplete_delay = 400;
-  max_abbr_width = 100;
-  max_kind_width = 100;
-  max_menu_width = 100;
-  documentation = true;
+-- completion
+local luasnip = require'luasnip'
+local cmp = require'cmp'
+local lspkind = require'lspkind'
+cmp.setup {
+  snippet = {
+    expand = function(args)
+      require('luasnip').lsp_expand(args.body)
+    end,
+  },
+  formatting = {
+    format = function(entry, vim_item)
+      -- fancy icons and a name of kind
+      vim_item.kind = require("lspkind").presets.default[vim_item.kind] .. " " .. vim_item.kind
 
-  source = {
-    path = true;
-    buffer = true;
-    calc = true;
-    nvim_lsp = true;
-    nvim_lua = true;
-    luasnip = true;
-  };
+      -- set a name for each source
+      vim_item.menu = ({
+        buffer = "[Buffer]",
+        nvim_lsp = "[LSP]",
+        luasnip = "[LuaSnip]",
+        nvim_lua = "[Lua]",
+        latex_symbols = "[Latex]",
+      })[entry.source.name]
+      return vim_item
+    end,
+  },
+  mapping = {
+    ['<C-p>'] = cmp.mapping.select_prev_item(),
+    ['<C-n>'] = cmp.mapping.select_next_item(),
+    ['<C-d>'] = cmp.mapping.scroll_docs(-4),
+    ['<C-f>'] = cmp.mapping.scroll_docs(4),
+    ['<C-Space>'] = cmp.mapping.complete(),
+    ['<C-e>'] = cmp.mapping.close(),
+    ['<CR>'] = cmp.mapping.confirm {
+      behavior = cmp.ConfirmBehavior.Replace,
+      select = true,
+    },
+    ['<Tab>'] = function(fallback)
+      if vim.fn.pumvisible() == 1 then
+        vim.fn.feedkeys(vim.api.nvim_replace_termcodes('<C-n>', true, true, true), 'n')
+      elseif luasnip.expand_or_jumpable() then
+        vim.fn.feedkeys(vim.api.nvim_replace_termcodes('<Plug>luasnip-expand-or-jump', true, true, true), '')
+      else
+        fallback()
+      end
+    end,
+    ['<S-Tab>'] = function(fallback)
+      if vim.fn.pumvisible() == 1 then
+        vim.fn.feedkeys(vim.api.nvim_replace_termcodes('<C-p>', true, true, true), 'n')
+      elseif luasnip.jumpable(-1) then
+        vim.fn.feedkeys(vim.api.nvim_replace_termcodes('<Plug>luasnip-jump-prev', true, true, true), '')
+      else
+        fallback()
+      end
+    end,
+  },
+  sources = {
+    { name = 'nvim_lsp' },
+    { name = 'luasnip' },
+  },
 }
 
 -- telescope settings
@@ -498,33 +549,21 @@ EOF
 " Fix compe documentation view
 highlight link CompeDocumentation Pmenu
 
-" LSPSaga definitions
-nnoremap <silent><leader>ca :Lspsaga code_action<CR>
-vnoremap <silent><leader>ca :<C-U>Lspsaga range_code_action<CR>
-nnoremap <silent>gh :Lspsaga lsp_finder<CR>
-nnoremap <silent>K <cmd>lua require('lspsaga.hover').render_hover_doc()<CR>
-nnoremap <silent>K :Lspsaga hover_doc<CR>
-nnoremap <silent> <C-f> <cmd>lua require('lspsaga.action').smart_scroll_with_saga(1)<CR>
-nnoremap <silent> <C-b> <cmd>lua require('lspsaga.action').smart_scroll_with_saga(-1)<CR>
-nnoremap <silent>gs :Lspsaga signature_help<CR>
+nnoremap <silent>K <cmd>lua vim.lsp.buf.hover()<CR>
+nnoremap <silent><C-k> <cmd>lua vim.lsp.buf.signature_help()<CR>
+nnoremap <silent><leader>ca <cmd>lua vim.lsp.buf.code_action()<CR>
 nnoremap <silent>gr <cmd>lua vim.lsp.buf.references()<CR>
-nnoremap <silent>rn :Lspsaga rename<CR>
-nnoremap <silent>gD :Lspsaga preview_definition<CR>
+nnoremap <silent>rn <cmd>lua vim.lsp.buf.rename()<CR>
 
-nnoremap <silent> gd    <cmd>lua vim.lsp.buf.definition()<CR>
+nnoremap <silent> gi <cmd>lua vim.lsp.buf.implementation()<CR>
+nnoremap <silent> gd <cmd>lua vim.lsp.buf.definition()<CR>
+nnoremap <silent> gD <cmd>lua vim.lsp.buf.declaration()<CR>
+nnoremap <silent> gt <cmd>lua vim.lsp.buf.type_definition()<CR>
 nnoremap <silent> ]g <cmd>lua vim.lsp.diagnostic.goto_next()<CR>
 nnoremap <silent> [g <cmd>lua vim.lsp.diagnostic.goto_prev()<CR>
 nnoremap <silent> <leader>f <cmd>lua vim.lsp.buf.formatting()<CR>
-" nnoremap <silent> gd    <cmd>lua vim.lsp.buf.declaration()<CR>
-" nnoremap <silent> <c-]> <cmd>lua vim.lsp.buf.definition()<CR>
-" nnoremap <silent> K     <cmd>lua vim.lsp.buf.hover()<CR>
-" nnoremap <silent> gD    <cmd>lua vim.lsp.buf.implementation()<CR>
-" nnoremap <silent> <c-k> <cmd>lua vim.lsp.buf.signature_help()<CR>
-" nnoremap <silent> gt   <cmd>lua vim.lsp.buf.type_definition()<CR>
-" nnoremap <silent> gr    <cmd>lua vim.lsp.buf.references()<CR>
-" nnoremap <silent> g0    <cmd>lua vim.lsp.buf.document_symbol()<CR>
-" nnoremap <silent> gw    <cmd>lua vim.lsp.buf.workspace_symbol()<CR>
-" nnoremap <silent> <leader>rn <cmd>lua vim.lsp.buf.rename()<CR>
+nnoremap <silent> g0    <cmd>lua vim.lsp.buf.document_symbol()<CR>
+nnoremap <silent> gw    <cmd>lua vim.lsp.buf.workspace_symbol()<CR>
 
 " Configure completion
 inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "<Tab>"
@@ -536,7 +575,6 @@ inoremap <silent><expr> <C-e>     compe#close('<C-e>')
 inoremap <silent><expr> <C-f>     compe#scroll({ 'delta': +4 })
 inoremap <silent><expr> <C-d>     compe#scroll({ 'delta': -4 })
 
-" autocmd autos BufEnter * lua require'completion'.on_attach()
 autocmd autos Filetype * setlocal omnifunc=v:lua.vim.lsp.omnifunc
 let g:completion_trigger_on_delete = 1
 
