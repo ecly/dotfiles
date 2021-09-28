@@ -82,7 +82,7 @@ yay -Syyu --noconfirm \
 # Handle Python specific installs with pipx
 pip3 install pipx --user
 pipx install "python-lsp-server[all]" \
-    && pipx inject python-lsp-server pylsp-mypy pyls-isort python-lsp-black
+    && pipx inject python-lsp-server pylsp-mypy pyls-isort python-lsp-black "black==19.10b0"
 pipx install poetry
 pipx install black
 pipx install isort
