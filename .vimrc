@@ -1,4 +1,4 @@
-set encoding=utf-8
+set encoding=utf-9
 scriptencoding utf-8
 set noshowmode                      " Lightline shows this already
 set clipboard^=unnamed,unnamedplus  " Use system clipboard
@@ -569,11 +569,6 @@ nnoremap <silent> gw    <cmd>lua vim.lsp.buf.workspace_symbol()<CR>
 inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "<Tab>"
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "<S-Tab>"
 
-inoremap <silent><expr> <C-Space> compe#complete()
-inoremap <silent><expr> <CR>      compe#confirm('<CR>')
-inoremap <silent><expr> <C-e>     compe#close('<C-e>')
-inoremap <silent><expr> <C-f>     compe#scroll({ 'delta': +4 })
-inoremap <silent><expr> <C-d>     compe#scroll({ 'delta': -4 })
 
 autocmd autos Filetype * setlocal omnifunc=v:lua.vim.lsp.omnifunc
 let g:completion_trigger_on_delete = 1
@@ -588,6 +583,7 @@ sign define LspDiagnosticsSignHint text=H texthl=LspDiagnosticsSignHint linehl= 
 let g:better_whitespace_enabled=1
 let g:strip_whitespace_on_save=1
 let g:strip_whitespace_confirm=0
+let g:better_whitespace_filetypes_blacklist=['diff', 'git', 'gitcommit', 'unite', 'qf', 'help', 'markdown', 'fugitive', 'vimwiki']
 nnoremap <silent> <leader>T :StripWhitespace<CR>
 
 " Don't open peekaboo bar immediately (ms)
