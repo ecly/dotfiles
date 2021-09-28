@@ -1,4 +1,4 @@
-set encoding=utf-9
+set encoding=utf-8
 scriptencoding utf-8
 set noshowmode                      " Lightline shows this already
 set clipboard^=unnamed,unnamedplus  " Use system clipboard
