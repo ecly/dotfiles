@@ -96,7 +96,7 @@ endif
 
 call plug#begin('~/.vim/plugged')
 Plug 'rktjmp/lush.nvim'
-Plug 'npxbr/gruvbox.nvim'
+Plug 'ellisonleao/gruvbox.nvim'
 Plug 'tpope/vim-fugitive'
 
 " Auto-detect indentation
@@ -142,6 +142,9 @@ Plug 'lervag/vimtex'
 Plug 'vimwiki/vimwiki'
 " LSP/linting configuration
 Plug 'neovim/nvim-lspconfig'
+" normally glepnir/lspsaga.nvim
+" see: https://github.com/glepnir/lspsaga.nvim/issues/241
+Plug 'tami5/lspsaga.nvim'
 Plug 'hrsh7th/nvim-cmp'
 Plug 'hrsh7th/cmp-nvim-lsp'
 Plug 'saadparwaiz1/cmp_luasnip'
@@ -284,25 +287,21 @@ require('lspconfig').sumneko_lua.setup {
 }
 
 -- setup several out of the box language servers
-local servers = { 'rls', 'vimls', 'gopls', 'dockerls', 'bashls', 'yamlls' }
+-- vimls currently disabled due to missing support
+local servers = { 'rls', 'gopls', 'dockerls', 'bashls', 'yamlls' }
 for _, lsp in ipairs(servers) do
   nvim_lsp[lsp].setup {
     on_attach = on_attach,
     capabilities = capabilities,
   }
 end
-require"lspconfig".rls.setup{}
-require"lspconfig".vimls.setup{}
-require"lspconfig".gopls.setup{}
-require"lspconfig".dockerls.setup{}
-require"lspconfig".bashls.setup{}
-require"lspconfig".yamlls.setup{}
 
 require"lspconfig".elixirls.setup{
     -- based on default arch linux 'elixir-ls' package install
   capabilities = capabilities,
   cmd = { "/usr/sbin/elixir-ls" }
 }
+
 -- Below need some fixing
 -- require"lspconfig".sqlls.setup{}
 require'nvim-treesitter.configs'.setup{
@@ -359,11 +358,6 @@ local luasnip = require'luasnip'
 local cmp = require'cmp'
 local lspkind = require'lspkind'
 cmp.setup {
-  snippet = {
-    expand = function(args)
-      require('luasnip').lsp_expand(args.body)
-    end,
-  },
   formatting = {
     format = function(entry, vim_item)
       -- fancy icons and a name of kind
@@ -380,6 +374,16 @@ cmp.setup {
       return vim_item
     end,
   },
+  snippet = {
+    expand = function(args)
+      require('luasnip').lsp_expand(args.body)
+    end,
+  },
+  snippet = {
+    expand = function(args)
+      require('luasnip').lsp_expand(args.body)
+    end,
+  },
   mapping = {
     ['<C-p>'] = cmp.mapping.select_prev_item(),
     ['<C-n>'] = cmp.mapping.select_next_item(),
@@ -392,19 +396,19 @@ cmp.setup {
       select = true,
     },
     ['<Tab>'] = function(fallback)
-      if vim.fn.pumvisible() == 1 then
-        vim.fn.feedkeys(vim.api.nvim_replace_termcodes('<C-n>', true, true, true), 'n')
+      if cmp.visible() then
+        cmp.select_next_item()
       elseif luasnip.expand_or_jumpable() then
-        vim.fn.feedkeys(vim.api.nvim_replace_termcodes('<Plug>luasnip-expand-or-jump', true, true, true), '')
+        luasnip.expand_or_jump()
       else
         fallback()
       end
     end,
     ['<S-Tab>'] = function(fallback)
-      if vim.fn.pumvisible() == 1 then
-        vim.fn.feedkeys(vim.api.nvim_replace_termcodes('<C-p>', true, true, true), 'n')
+      if cmp.visible() then
+        cmp.select_prev_item()
       elseif luasnip.jumpable(-1) then
-        vim.fn.feedkeys(vim.api.nvim_replace_termcodes('<Plug>luasnip-jump-prev', true, true, true), '')
+        luasnip.jump(-1)
       else
         fallback()
       end
@@ -544,12 +548,16 @@ require('lspkind').init({
     Variable = "",
   },
 })
+
+require'lspsaga'.init_lsp_saga()
+require'nvim-tree'.setup()
 EOF
 
 " Fix compe documentation view
 highlight link CompeDocumentation Pmenu
-
-nnoremap <silent>K <cmd>lua vim.lsp.buf.hover()<CR>
+" nnoremap <silent>K :Lspsaga hover_doc<CR>
+nnoremap <silent> K <cmd>lua require('lspsaga.hover').render_hover_doc()<CR>
+" nnoremap <silent>K <cmd>lua vim.lsp.buf.hover()<CR>
 nnoremap <silent><C-k> <cmd>lua vim.lsp.buf.signature_help()<CR>
 nnoremap <silent><leader>ca <cmd>lua vim.lsp.buf.code_action()<CR>
 nnoremap <silent>gr <cmd>lua vim.lsp.buf.references()<CR>
