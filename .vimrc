@@ -147,6 +147,7 @@ Plug 'neovim/nvim-lspconfig'
 Plug 'tami5/lspsaga.nvim'
 Plug 'hrsh7th/nvim-cmp'
 Plug 'hrsh7th/cmp-nvim-lsp'
+Plug 'hrsh7th/cmp-buffer'
 Plug 'saadparwaiz1/cmp_luasnip'
 Plug 'L3MON4D3/LuaSnip'
 " Dependency for telescope.nvim
@@ -188,9 +189,9 @@ augroup ColorSchemeOverrides
     " on hover. May be resolved by:
     " https://github.com/palantir/python-language-server/issues/760
     " https://github.com/nvim-lua/completion-nvim/issues/243
-    autocmd ColorSchemeOverrides ColorScheme * highlight markdownError guibg=multiple_cursors_visual
-    autocmd ColorSchemeOverrides ColorScheme * highlight markdownBold guibg=multiple_cursors_visual
-    autocmd ColorSchemeOverrides ColorScheme * highlight markdownItalic guibg=multiple_cursors_visual
+    " autocmd ColorSchemeOverrides ColorScheme * highlight markdownError guibg=multiple_cursors_visual
+    " autocmd ColorSchemeOverrides ColorScheme * highlight markdownBold guibg=multiple_cursors_visual
+    " autocmd ColorSchemeOverrides ColorScheme * highlight markdownItalic guibg=multiple_cursors_visual
 augroup END
 
 colorscheme gruvbox
@@ -241,7 +242,7 @@ nvim_lsp.pylsp.setup({
       configurationSources = { "pydocstyle", "pylint" },
       plugins = {
         pylint = { enabled = true, executable = pylint_bin, args = {"--disable=missing-module-docstring"} },
-        pydocstyle = { enabled = true, convention = "pep257", addIgnore = {"D100", "D101", "D102", "D103", "D104", "D401"} },
+        pydocstyle = { enabled = true },
         jedi = { extra_paths = {"./dags"}, environment = venv, enabled = true },
         rope = { enabled = false },
         pyflakes = { enabled = false },
@@ -417,6 +418,7 @@ cmp.setup {
   sources = {
     { name = 'nvim_lsp' },
     { name = 'luasnip' },
+    { name = 'buffer', keyword_length = 5 },
   },
 }
 
