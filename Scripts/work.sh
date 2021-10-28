@@ -25,10 +25,14 @@ i3-msg "workspace 1 output $SECOND_SCREEN" > /dev/null; \
 i3-msg "workspace 2 output $THIRD_SCREEN" > /dev/null; \
 i3-msg "workspace 3 output $NATIVE_SCREEN" > /dev/null; \
 i3-msg "workspace 4 output $SECOND_SCREEN" > /dev/null; \
-i3-msg "workspace 1, move workspace to output $SECOND_SCREEN" > /dev/null; \
-i3-msg "workspace 2, move workspace to output $THIRD_SCREEN" > /dev/null; \
-i3-msg "workspace 3, move workspace to output $NATIVE_SCREEN" > /dev/null
-i3-msg "workspace 4, move workspace to output $SECOND_SCREEN" > /dev/null
+
+# These commands fail if already configured correctly
+set +e
+i3-msg "workspace 1, move workspace to output $SECOND_SCREEN" > /dev/null 2>&1
+i3-msg "workspace 2, move workspace to output $THIRD_SCREEN" > /dev/null 2>&1
+i3-msg "workspace 3, move workspace to output $NATIVE_SCREEN" > /dev/null 2>&1
+i3-msg "workspace 4, move workspace to output $SECOND_SCREEN" > /dev/null 2>&1
+set -e
 
 echo "Setting up polybar..."
 nohup sh ~/.config/polybar/launch.sh > /dev/null 2>&1 &
