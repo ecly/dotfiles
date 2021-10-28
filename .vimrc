@@ -148,7 +148,9 @@ Plug 'tami5/lspsaga.nvim'
 Plug 'hrsh7th/nvim-cmp'
 Plug 'hrsh7th/cmp-nvim-lsp'
 Plug 'hrsh7th/cmp-buffer'
+Plug 'hrsh7th/cmp-path'
 Plug 'saadparwaiz1/cmp_luasnip'
+Plug 'lukas-reineke/cmp-under-comparator'
 Plug 'L3MON4D3/LuaSnip'
 " Dependency for telescope.nvim
 Plug 'nvim-lua/popup.nvim'
@@ -419,6 +421,19 @@ cmp.setup {
     { name = 'nvim_lsp' },
     { name = 'luasnip' },
     { name = 'buffer', keyword_length = 5 },
+    { name = 'path' },
+  },
+  sorting = {
+      comparators = {
+          cmp.config.compare.offset,
+          cmp.config.compare.exact,
+          cmp.config.compare.score,
+          require "cmp-under-comparator".under,
+          cmp.config.compare.kind,
+          cmp.config.compare.sort_text,
+          cmp.config.compare.length,
+          cmp.config.compare.order,
+      },
   },
 }
 
