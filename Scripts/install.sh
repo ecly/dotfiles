@@ -80,11 +80,12 @@ yay -Syyu --noconfirm \
 
 
 # Handle Python specific installs with pipx
+BLACK_VERSION="19.10b0"
 pip3 install pipx --user
 pipx install "python-lsp-server[all]" \
-    && pipx inject python-lsp-server pylsp-mypy pyls-isort python-lsp-black "black==19.10b0"
+    && pipx inject python-lsp-server pylsp-mypy pyls-isort python-lsp-black "black==$BLACK_VERSION"
 pipx install poetry
-pipx install black
+pipx install "black==$BLACK_VERSION"
 pipx install isort
 pipx install pywal
 pipx install vint
