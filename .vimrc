@@ -150,6 +150,7 @@ Plug 'hrsh7th/cmp-nvim-lsp'
 Plug 'hrsh7th/cmp-buffer'
 Plug 'hrsh7th/cmp-path'
 Plug 'saadparwaiz1/cmp_luasnip'
+Plug 'hrsh7th/cmp-nvim-lua'
 Plug 'lukas-reineke/cmp-under-comparator'
 Plug 'L3MON4D3/LuaSnip'
 " Dependency for telescope.nvim
@@ -169,6 +170,9 @@ Plug 'sindrets/diffview.nvim'
 " :SymbolsOutline to get overview of symbols in file
 Plug 'simrat39/symbols-outline.nvim'
 Plug 'onsails/lspkind-nvim'
+
+" Testing out copilot
+Plug 'github/copilot.vim'
 call plug#end()
 
 " Configure several trivially configured lua plugins
@@ -422,6 +426,7 @@ cmp.setup {
     { name = 'luasnip' },
     { name = 'buffer', keyword_length = 5 },
     { name = 'path' },
+    { name = 'nvim_lua' },
   },
   sorting = {
       comparators = {
@@ -651,7 +656,10 @@ nmap <silent> <leader>ts :TestSuite<CR>
 nmap <silent> <leader>tl :TestLast<CR>
 nmap <silent> <leader>tg :TestVisit<CR>
 
-
-
 let g:slime_target = 'tmux'
 let g:slime_default_config = {'socket_name': 'default', 'target_pane': '{last}'}
+
+imap <silent><script><expr> <C-J> copilot#Accept("\<CR>")
+let g:copilot_no_tab_map = v:true
+
+
