@@ -247,8 +247,8 @@ nvim_lsp.pylsp.setup({
     pylsp = {
       configurationSources = { "pydocstyle", "pylint" },
       plugins = {
-        pylint = { enabled = true, executable = pylint_bin, args = {"--disable=missing-module-docstring"} },
-        pydocstyle = { enabled = true },
+        pylint = { enabled = false, executable = pylint_bin, args = {"--disable=missing-module-docstring"} },
+        pydocstyle = { enabled = false },
         jedi = { extra_paths = {"./dags"}, environment = venv, enabled = true },
         rope = { enabled = false },
         pyflakes = { enabled = false },
