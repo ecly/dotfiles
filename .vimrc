@@ -173,6 +173,7 @@ Plug 'onsails/lspkind-nvim'
 
 " Testing out copilot
 Plug 'github/copilot.vim'
+Plug 'jose-elias-alvarez/null-ls.nvim'
 call plug#end()
 
 " Configure several trivially configured lua plugins
@@ -222,22 +223,7 @@ end
 
 
 local lsputil = require('lspconfig/util')
--- For poetry venv with non-static path see
--- https://github.com/python-lsp/python-lsp-server/pull/68
--- function get_python_venv()
---     if vim.env.VIRTUAL_ENV then return vim.env.VIRTUAL_ENV end
---
---     local match = vim.fn.glob(lsputil.path.join(vim.fn.getcwd(), 'Pipfile'))
---     if match ~= '' then return vim.fn.trim(vim.fn.system('PIPENV_PIPFILE=' .. match .. ' pipenv --venv')) end
---
---     match = vim.fn.glob(lsputil.path.join(vim.fn.getcwd(), 'poetry.lock'))
---     if match ~= '' then return vim.fn.trim(vim.fn.system('poetry env info -p')) end
--- end
-
--- hacky solution to problem with using jedi/pylint both with/without .venv
--- https://github.com/palantir/python-language-server/issues/872
 venv = exists("./.venv/") and "./.venv" or nil
-pylint_bin = exists("./.venv/bin/pylint") and "./.venv/bin/pylint" or "pylint"
 nvim_lsp.pylsp.setup({
   cmd = {"pylsp", "--log-file", "/home/ecly/pylsp.log", "-v"},
   capabilities = capabilities,
@@ -245,23 +231,36 @@ nvim_lsp.pylsp.setup({
   enable = true,
   settings = {
     pylsp = {
-      configurationSources = { "pydocstyle", "pylint" },
+      configurationSources = {},
       plugins = {
-        pylint = { enabled = false, executable = pylint_bin, args = {"--disable=missing-module-docstring"} },
-        pydocstyle = { enabled = false },
         jedi = { extra_paths = {"./dags"}, environment = venv, enabled = true },
+        pydocstyle = { enabled = false },
+        pylint = { enabled = false },
         rope = { enabled = false },
         pyflakes = { enabled = false },
         pycodestyle = { enabled = false },
         yapf = { enabled = false },
         mccabe = { enabled = false },
-        pylsp_mypy = { enabled = false, live_mode = false, strict = false},
-        pylsp_black = { enabled = true },
-        pylsp_isort = { enabled = true },
+        pylsp_mypy = { enabled = false },
+        pylsp_black = { enabled = false },
+        pylsp_isort = { enabled = false },
       }
     }
   }
 })
+
+-- configure null_ls as general purpose linter
+require("null-ls").config({
+    sources = {
+        require("null-ls").builtins.diagnostics.pylint.with({
+          prefer_local = ".venv/bin",
+        }),
+    },
+})
+require("lspconfig")["null-ls"].setup({
+    on_attach = my_custom_on_attach,
+})
+-- require("lspconfig")["null-ls"].setup()
 
 -- Make runtime files discoverable to the server
 local runtime_path = vim.split(package.path, ';')
@@ -298,7 +297,6 @@ require('lspconfig').sumneko_lua.setup {
 local servers = { 'rls', 'gopls', 'dockerls', 'bashls', 'yamlls' }
 for _, lsp in ipairs(servers) do
   nvim_lsp[lsp].setup {
-    on_attach = on_attach,
     capabilities = capabilities,
   }
 end
