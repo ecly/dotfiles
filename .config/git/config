@@ -3,8 +3,8 @@
     clean = git media clean %f
     smudge = git media smudge %f
 [user]
-    name = ecly
-    email = ecly@mailbo"x.or"g
+	name = Emil Lynegaard
+	email = eml@languagewire.com
 [core]
     editor = nvim
     autocrlf = input
