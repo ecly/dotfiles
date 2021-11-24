@@ -207,6 +207,8 @@ colorscheme gruvbox
 lua << EOF
 local nvim_lsp = require 'lspconfig'
 local capabilities = vim.lsp.protocol.make_client_capabilities()
+local lsputil = require('lspconfig/util')
+local on_attach = lsputil.on_attach
 capabilities = require('cmp_nvim_lsp').update_capabilities(capabilities)
 
 -- https://stackoverflow.com/a/40195356/4000764
@@ -221,12 +223,13 @@ function exists(file)
    return ok, err
 end
 
-
-local lsputil = require('lspconfig/util')
 venv = exists("./.venv/") and "./.venv" or nil
 nvim_lsp.pylsp.setup({
   cmd = {"pylsp", "--log-file", "/home/ecly/pylsp.log", "-v"},
   capabilities = capabilities,
+  on_attach = function(client, bufnr)
+      client.resolved_capabilities.document_formatting = false
+  end,
   cmd_env = {VIRTUAL_ENV = venv, PATH = lsputil.path.join(venv, 'bin') .. ':' .. vim.env.PATH},
   enable = true,
   settings = {
@@ -255,12 +258,25 @@ require("null-ls").config({
         require("null-ls").builtins.diagnostics.pylint.with({
           prefer_local = ".venv/bin",
         }),
+        require("null-ls").builtins.formatting.black.with({
+          prefer_local = ".venv/bin",
+          cwd = function(params)
+            return require("lspconfig")["pylsp"].get_root_dir(params.bufname)
+          end,
+        }),
+        require("null-ls").builtins.formatting.isort.with({
+          prefer_local = ".venv/bin",
+          cwd = function(params)
+            return require("lspconfig")["pylsp"].get_root_dir(params.bufname)
+          end,
+        }),
+
     },
 })
 require("lspconfig")["null-ls"].setup({
-    on_attach = my_custom_on_attach,
+  capabilities = capabilities,
+  on_attach = on_attach,
 })
--- require("lspconfig")["null-ls"].setup()
 
 -- Make runtime files discoverable to the server
 local runtime_path = vim.split(package.path, ';')
@@ -298,6 +314,7 @@ local servers = { 'rls', 'gopls', 'dockerls', 'bashls', 'yamlls' }
 for _, lsp in ipairs(servers) do
   nvim_lsp[lsp].setup {
     capabilities = capabilities,
+    on_attach = on_attach,
   }
 end
 
