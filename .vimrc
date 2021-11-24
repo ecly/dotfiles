@@ -172,7 +172,7 @@ Plug 'simrat39/symbols-outline.nvim'
 Plug 'onsails/lspkind-nvim'
 
 " Testing out copilot
-Plug 'github/copilot.vim'
+" Plug 'github/copilot.vim'
 Plug 'jose-elias-alvarez/null-ls.nvim'
 call plug#end()
 
