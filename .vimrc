@@ -587,7 +587,11 @@ require('lspkind').init({
 })
 
 require'lspsaga'.init_lsp_saga()
-require'nvim-tree'.setup()
+require'nvim-tree'.setup({
+  git = {
+    ignore = True
+  }
+})
 EOF
 
 " Fix compe documentation view
@@ -662,7 +666,6 @@ nmap <leader>fg <cmd>Telescope git_files<cr>
 nnoremap <leader>fb <cmd>Telescope buffers<cr>
 nnoremap <leader>fh <cmd>Telescope help_tags<cr>
 
-let g:nvim_tree_gitignore = 1
 nnoremap <C-n> :NvimTreeToggle<CR>
 
 nmap <silent> <leader>tn :TestNearest<CR>
