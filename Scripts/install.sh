@@ -76,7 +76,8 @@ yay -Syyu --noconfirm \
     ctop-bin \
     pyenv \
     elixir-ls \
-    lua-language-server
+    lua-language-server \
+    terraform-ls
 
 
 # Handle Python specific installs with pipx
