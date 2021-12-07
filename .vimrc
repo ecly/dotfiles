@@ -368,8 +368,11 @@ require'nvim-treesitter.configs'.setup{
     "lua",
     "python",
     "regex",
+    "ruby",
     "rust",
+    "toml",
     "typescript",
+    "vim",
     "yaml",
   },
   highlight = {
