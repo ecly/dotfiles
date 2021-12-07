@@ -45,6 +45,26 @@ if exists('+termguicolors')
   set termguicolors
 endif
 
+" Only use wsl32yank if in WSL context
+let uname = substitute(system('uname'),'\n','','')
+if uname == 'Linux'
+    let lines = readfile("/proc/version")
+    if lines[0] =~ "Microsoft"
+      let g:clipboard = {
+            \   'name': 'win32yank-wsl',
+            \   'copy': {
+            \      '+': 'win32yank.exe -i --crlf',
+            \      '*': 'win32yank.exe -i --crlf',
+            \    },
+            \   'paste': {
+            \      '+': 'win32yank.exe -o --lf',
+            \      '*': 'win32yank.exe -o --lf',
+            \   },
+            \   'cache_enabled': 0,
+            \ }
+    endif
+endif
+
 let g:mapleader = "\<Space>"
 nmap <leader>/ :nohlsearch<CR>
 
@@ -257,6 +277,7 @@ require("null-ls").config({
     sources = {
         require("null-ls").builtins.diagnostics.pylint.with({
           prefer_local = ".venv/bin",
+          extra_args = { "-d", "missing-function-docstring", "-d", "invalid-name", "-d", "missing-module-docstring"}
         }),
         require("null-ls").builtins.formatting.black.with({
           prefer_local = ".venv/bin",
@@ -310,7 +331,7 @@ require('lspconfig').sumneko_lua.setup {
 
 -- setup several out of the box language servers
 -- vimls currently disabled due to missing support
-local servers = { 'rls', 'gopls', 'dockerls', 'bashls', 'yamlls' }
+local servers = { 'rls', 'gopls', 'dockerls', 'bashls', 'yamlls', 'terraformls' }
 for _, lsp in ipairs(servers) do
   nvim_lsp[lsp].setup {
     capabilities = capabilities,
@@ -328,28 +349,28 @@ require"lspconfig".elixirls.setup{
 -- require"lspconfig".sqlls.setup{}
 require'nvim-treesitter.configs'.setup{
   ensure_installed = {
-    "python",
     "bash",
-    "go",
-    "c_sharp",
     "c",
+    "c_sharp",
+    "comment",
     "cpp",
+    "cpp",
+    "css",
+    "dockerfile",
     "elixir",
+    "go",
     "haskell",
-    "cpp",
-    "lua",
+    "html",
     "java",
     "javascript",
-    "typescript",
-    "rust",
-    "html",
-    "css",
-    "yaml",
     "json",
-    "dockerfile",
-    "comment",
-    "regex",
     "latex",
+    "lua",
+    "python",
+    "regex",
+    "rust",
+    "typescript",
+    "yaml",
   },
   highlight = {
     enable = true,
