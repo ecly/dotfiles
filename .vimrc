@@ -273,7 +273,7 @@ nvim_lsp.pylsp.setup({
 })
 
 -- configure null_ls as general purpose linter
-require("null-ls").config({
+require("null-ls").setup({
     sources = {
         require("null-ls").builtins.diagnostics.pylint.with({
           prefer_local = ".venv/bin",
@@ -294,7 +294,7 @@ require("null-ls").config({
 
     },
 })
-require("lspconfig")["null-ls"].setup({
+require("null-ls").setup({
   capabilities = capabilities,
   on_attach = on_attach,
 })
@@ -502,7 +502,7 @@ require('lualine').setup{
     lualine_a = {'mode'},
     lualine_b = {'branch'},
     -- lualine_c = {'filename'},
-    lualine_x = {{'diagnostics', sources = {"nvim_lsp"}}, 'filetype'},
+    lualine_x = {{'diagnostics', sources = {"nvim_diagnostic"}}, 'filetype'},
     lualine_y = {'progress'},
     lualine_z = {'location'}
   },
