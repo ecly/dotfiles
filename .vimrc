@@ -277,7 +277,14 @@ require("null-ls").setup({
     sources = {
         require("null-ls").builtins.diagnostics.pylint.with({
           prefer_local = ".venv/bin",
-          extra_args = { "-d", "missing-function-docstring", "-d", "invalid-name", "-d", "missing-module-docstring", "-d", "missing-class-docstring"}
+          extra_args = {
+            "-d", "missing-function-docstring",
+            "-d", "invalid-name",
+            "-d", "missing-module-docstring",
+            "-d", "missing-class-docstring",
+            "-d", "W1514", -- open without explicit encoding
+            "-d", "too-few-public-methods",
+          }
         }),
         require("null-ls").builtins.formatting.black.with({
           prefer_local = ".venv/bin",
