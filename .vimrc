@@ -373,6 +373,7 @@ require'nvim-treesitter.configs'.setup{
     "json",
     "latex",
     "lua",
+    "markdown",
     "python",
     "regex",
     "ruby",
