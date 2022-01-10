@@ -10,6 +10,8 @@ set folder = "imaps://outlook.office365.com/"
 # smtp settings
 set smtp_url = "smtp://$my_work_email@outlook.office365.com:587/"
 set smtp_pass = "$my_work_password"
+set ssl_force_tls = yes
+set smtp_authenticators = "login"
 
 set from = "$my_work_email"
 set realname = "$my_name"
