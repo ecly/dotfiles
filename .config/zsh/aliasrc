@@ -58,7 +58,7 @@ alias u="urxvt"
 alias {vl,more,most,view}="vless"
 
 # Config editing binds
-alias cfv="vim ~/.vimrc"
+alias cfv="vim ~/.config/nvim/init.lua"
 alias cfi="vim ~/.config/i3/config"
 alias cfr="vim ~/.config/ranger/rc.conf"
 alias cfm="vim ~/.config/mutt/muttrc"
