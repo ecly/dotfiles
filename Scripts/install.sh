@@ -1,4 +1,4 @@
-#!/bin/bash
+!/bin/bash
 set -e
 
 # install yay if not already installed
@@ -77,6 +77,7 @@ yay -Syyu --noconfirm \
     pyenv \
     elixir-ls \
     lua-language-server \
+    lua-format \
     terraform-ls
 
 
