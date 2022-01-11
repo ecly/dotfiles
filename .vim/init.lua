@@ -64,15 +64,12 @@ require('packer').startup(function()
     } ]]
 
     use({
-      "https://git.sr.ht/~whynothugo/lsp_lines.nvim",
-      config = function()
-        require("lsp_lines").register_lsp_virtual_lines()
-      end,
+        "https://git.sr.ht/~whynothugo/lsp_lines.nvim",
+        config = function()
+            require("lsp_lines").register_lsp_virtual_lines()
+        end
     })
-    vim.diagnostic.config({
-      virtual_text = false,
-    })
-
+    vim.diagnostic.config({virtual_text = false})
 
     -- Code action UI
     -- use 'kosayoda/nvim-lightbulb'
@@ -105,24 +102,17 @@ require('packer').startup(function()
     -- When pressing key combinations
     use 'folke/which-key.nvim'
     use({
-      "folke/trouble.nvim",
-      config = function()
-        require("trouble").setup()
-      end,
+        "folke/trouble.nvim",
+        config = function() require("trouble").setup() end
     })
     use {
-      "folke/todo-comments.nvim",
-      requires = "nvim-lua/plenary.nvim",
-      config = function()
-        require("todo-comments").setup {
-        }
-      end
+        "folke/todo-comments.nvim",
+        requires = "nvim-lua/plenary.nvim",
+        config = function() require("todo-comments").setup {} end
     }
     use({
-      "folke/lsp-colors.nvim",
-      config = function()
-        require('lsp-colors').setup()
-      end,
+        "folke/lsp-colors.nvim",
+        config = function() require('lsp-colors').setup() end
     })
 
     -- Filepicker (Among other things)
@@ -255,7 +245,6 @@ vim.cmd [[filetype plugin on]]
 vim.cmd [[colorscheme gruvbox]]
 vim.g.gruvbox_italic = 1
 
-
 -- Base Keybindings
 map('', '<Space>', '<Nop>')
 vim.g.mapleader = ' '
@@ -374,7 +363,8 @@ local on_attach = function(_, bufnr)
     bmap(bufnr, 'n', 'gD', '<cmd>lua vim.lsp.buf.declaration()<CR>', opts)
     bmap(bufnr, 'n', 'K', '<cmd>lua vim.lsp.buf.hover()<CR>', opts)
     bmap(bufnr, 'n', 'gi', '<cmd>lua vim.lsp.buf.implementation()<CR>', opts)
-    bmap(bufnr, 'n', '<C-k>', '<cmd>lua vim.lsp.buf.signature_help()<CR>', opts)
+    bmap(bufnr, 'n', '<leader>si', '<cmd>lua vim.lsp.buf.signature_help()<CR>',
+         opts)
     bmap(bufnr, 'n', '<leader>wa',
          '<cmd>lua vim.lsp.buf.add_workspace_folder()<CR>', opts)
     bmap(bufnr, 'n', '<leader>wr',
@@ -446,10 +436,10 @@ local venv = exists("./.venv/") and "./.venv" or nil
 lspconfig.pylsp.setup({
     cmd = {"pylsp", "--log-file", "/home/ecly/pylsp.log", "-v"},
     capabilities = capabilities,
-    on_attach = on_attach,
-    -- on_attach = function(client, bufnr)
-    --     client.resolved_capabilities.document_formatting = false
-    -- end,
+    on_attach = function(client, bufnr)
+        client.resolved_capabilities.document_formatting = false
+        on_attach(client, bufnr)
+    end,
     cmd_env = {
         VIRTUAL_ENV = venv,
         PATH = require'lspconfig/util'.path.join(venv, 'bin') .. ':' ..
