@@ -55,21 +55,13 @@ require('packer').startup(function()
     use 'onsails/lspkind-nvim'
 
     -- Add git related info in the signs columns and popups
-    --[[ use {
+    use {
         'lewis6991/gitsigns.nvim',
         requires = {'nvim-lua/plenary.nvim'},
         config = function()
             require('gitsigns').setup()
         end
-    } ]]
-
-    use({
-        "https://git.sr.ht/~whynothugo/lsp_lines.nvim",
-        config = function()
-            require("lsp_lines").register_lsp_virtual_lines()
-        end
-    })
-    vim.diagnostic.config({virtual_text = false})
+    }
 
     -- Code action UI
     -- use 'kosayoda/nvim-lightbulb'
@@ -79,7 +71,7 @@ require('packer').startup(function()
     use 'jose-elias-alvarez/null-ls.nvim'
 
     -- Some beautification of built-in LSP
-    -- use 'glepnir/lspsaga.nvim'
+    use 'glepnir/lspsaga.nvim'
 
     -- Language/file specific plugins
     use 'elixir-editors/vim-elixir'
