@@ -698,6 +698,9 @@ vim.g.vimwiki_list = {
     {path = '~/Documents/work/vimwiki/', syntax = 'markdown', ext = '.md'},
     {path = '~/Documents/irl/vimwiki/', syntax = 'markdown', ext = '.md'}
 }
+-- Avoid VimWiki default binds overlapping with other binds
+map('n', '<leader><Tab>', '<Plug>VimwikiNextLink')
+map('n', '<leader><S-Tab>', '<Plug>VimwikiPrevLink')
 
 -- Latex settings
 vim.g.tex_conceal = ''
