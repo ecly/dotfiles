@@ -58,27 +58,36 @@ require('packer').startup(function()
     use {
         'lewis6991/gitsigns.nvim',
         requires = {'nvim-lua/plenary.nvim'},
-        config = function()
-            require('gitsigns').setup()
-        end
+        config = function() require('gitsigns').setup() end
     }
-
-    -- Code action UI
-    -- use 'kosayoda/nvim-lightbulb'
-    -- vim.cmd [[autocmd CursorHold,CursorHoldI * lua require'nvim-lightbulb'.update_lightbulb()]]
 
     -- Extra plugin for null-ls
     use 'jose-elias-alvarez/null-ls.nvim'
 
     -- Some beautification of built-in LSP
-    use 'glepnir/lspsaga.nvim'
+    use {
+        'glepnir/lspsaga.nvim',
+        config = function()
+            require('lspsaga').init_lsp_saga {
+                -- I'd rather use lightbulb or built-in for code action
+                code_action_prompt = {enable = false, sign = false}
+            }
+        end
+    }
+
+    use {
+        'kosayoda/nvim-lightbulb',
+        config = function()
+            vim.cmd [[autocmd CursorHold,CursorHoldI * lua require'nvim-lightbulb'.update_lightbulb()]]
+        end
+    }
 
     -- Language/file specific plugins
     use 'elixir-editors/vim-elixir'
     use 'elzr/vim-json'
     use 'PotatoesMaster/i3-vim-syntax'
     use 'cespare/vim-toml'
-    use 'chrisbra/csv.vim'
+    use {'chrisbra/csv.vim', ft = {"tsv", "csv"}}
     use 'ekalinin/Dockerfile.vim'
     use {
         "iamcco/markdown-preview.nvim",
@@ -91,12 +100,15 @@ require('packer').startup(function()
     -- SymbolsOutline to get overview of symbols in file
     --  use 'simrat39/symbols-outline.nvim'
 
-    -- When pressing key combinations
-    use 'folke/which-key.nvim'
-    use({
+    use {
+        'folke/which-key.nvim',
+        config = function() require("which-key").setup {} end
+    }
+    use {
         "folke/trouble.nvim",
-        config = function() require("trouble").setup() end
-    })
+        requires = "kyazdani42/nvim-web-devicons",
+        config = function() require("trouble").setup {} end
+    }
     use {
         "folke/todo-comments.nvim",
         requires = "nvim-lua/plenary.nvim",
@@ -104,15 +116,16 @@ require('packer').startup(function()
     }
     use({
         "folke/lsp-colors.nvim",
-        config = function() require('lsp-colors').setup() end
+        config = function() require('lsp-colors').setup {} end
     })
 
     -- Filepicker (Among other things)
     use {'nvim-telescope/telescope.nvim', requires = {'nvim-lua/plenary.nvim'}}
 
-    --  Treesitter plugins
+    -- Treesitter plugins
     use 'nvim-treesitter/nvim-treesitter'
-    use 'nvim-treesitter/nvim-treesitter-textobjects'
+
+    -- use 'nvim-treesitter/nvim-treesitter-textobjects'
     use 'nvim-treesitter/nvim-treesitter-refactor'
 
     -- Tmux configuration
@@ -341,10 +354,6 @@ require('nvim-treesitter.configs').setup {
         }
     }
 }
--- Configure several trivially configured lua plugins
--- TODO: https://github.com/folke/which-key.nvim/issues/226
--- require("which-key").setup{}
--- require('lspsaga').init_lsp_saga() -- TODO
 
 -- LSP settings
 local lspconfig = require 'lspconfig'
