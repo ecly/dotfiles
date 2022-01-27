@@ -150,6 +150,7 @@ require('packer').startup(function()
 
     -- Automatic tags management
     use 'ludovicchabant/vim-gutentags'
+    vim.g.gutentags_cache_dir = "~/.cache/gutentags"
 
     -- Easy commenting with gcc
     use 'b3nj5m1n/kommentary'
