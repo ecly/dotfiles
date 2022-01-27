@@ -91,6 +91,7 @@ pipx install "black==$BLACK_VERSION"
 pipx install isort
 pipx install pywal
 pipx install vint
+pipx install pylint
 
 # Install npm specific packages
 npm install -g bash-language-server
