@@ -62,7 +62,7 @@ windows:
       panes:
         -
   - dt-be:
-      root: ~/Programming/work/mlt-direct-translate-backend
+      root: ~/Programming/work/mlt-lwt-backend
       layout: even-horizontal
       panes:
         -
