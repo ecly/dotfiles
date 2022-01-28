@@ -120,6 +120,10 @@ if _has fzf && _has rg; then
     bindkey '^P' fzf-open-file-or-dir
 fi
 
+# https://gehrcke.de/2021/11/gcloud-on-python-3-10-module-collections-has-no-attribute-mapping/
+# Use Python 2 for gcloud SDK until they fix support for 3.10
+export CLOUDSDK_PYTHON="/usr/bin/python2"
+
 # The next line updates PATH for the Google Cloud SDK.
 if [ -f '/home/ecly/.local/share/google-cloud-sdk/path.zsh.inc' ]; then . '/home/ecly/.local/share/google-cloud-sdk/path.zsh.inc'; fi
 
