@@ -1,6 +1,11 @@
 #!/bin/bash
 # ALIASES
+
+# alias for dotfiles handling, also making sure that zsh completion works
 alias dot='git --git-dir=$HOME/.dots.git/ --work-tree=$HOME' # dotfile handling
+compdef dot='git'
+setopt complete_aliases
+
 alias shutdown="systemctl poweroff"
 # shellcheck disable=SC2139
 alias {vi,vim}="nvim"
