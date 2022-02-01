@@ -124,8 +124,7 @@ require('packer').startup(function()
 
     -- Treesitter plugins
     use 'nvim-treesitter/nvim-treesitter'
-
-    -- use 'nvim-treesitter/nvim-treesitter-textobjects'
+    use 'nvim-treesitter/nvim-treesitter-textobjects'
     use 'nvim-treesitter/nvim-treesitter-refactor'
 
     -- Tmux configuration
@@ -159,7 +158,15 @@ require('packer').startup(function()
     use {
         'kyazdani42/nvim-tree.lua',
         requires = {'kyazdani42/nvim-web-devicons'},
-        config = function() require'nvim-tree'.setup {} end
+        config = function()
+            require'nvim-tree'.setup {
+                git = {enabled = true, ignore = true},
+                view = {
+                    auto_resize = true
+                    -- mappings = {list = {{key = "<Tab>", action = "preview"}}}
+                }
+            }
+        end
     }
 
     -- Update vim settings based on .editorconfig
@@ -672,11 +679,6 @@ vim.lsp.handlers["textDocument/publishDiagnostics"] =
         update_in_insert = false
     })
 
--- Configuration for Nvim Tree
-require('nvim-tree').setup({git = {ignore = true}})
-map('n', '<C-n>', ':NvimTreeToggle<CR>')
-map('n', '<leader>r', ':NvimTreeRfresh<CR>')
-
 -- Whitespace settings
 vim.g.better_whitespace_enabled = 1
 vim.g.strip_whitespace_on_save = 1
@@ -719,6 +721,10 @@ map('n', '<leader>tf', ':UltestFile<CR>')
 map('n', '<leader>ts', ':UltestSuite<CR>')
 map('n', '<leader>sv', ':source $MYVIMRC<CR>')
 
+-- Nvim-tree bindings
+map('n', '<leader>r', ':NvimTreeRefresh<CR>')
+map('n', '<C-n>', ':NvimTreeToggle<CR>')
+
 -- Use wsl32yank if in WSL context
 vim.cmd [[
     let uname = substitute(system('uname'),'\n','','')
@@ -740,3 +746,5 @@ vim.cmd [[
         endif
     endif
 ]]
+
+
