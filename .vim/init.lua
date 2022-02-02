@@ -493,7 +493,7 @@ require("null-ls").setup({
                 "-d", "too-few-public-methods"
             }
         }), require("null-ls").builtins.formatting.black.with({
-            prefer_local = ".venv/bin",
+            -- prefer_local = ".venv/bin",
             cwd = function(params)
                 return require("lspconfig")["pylsp"]
                            .get_root_dir(params.bufname)
