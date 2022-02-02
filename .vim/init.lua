@@ -481,18 +481,27 @@ lspconfig.pylsp.setup({
 
 -- null-ls as general purpose linter
 require("null-ls").setup({
+    -- debug = true,
     capabilities = capabilities,
     on_attach = on_attach,
     sources = {
         require("null-ls").builtins.diagnostics.pylint.with({
             prefer_local = ".venv/bin",
+            -- pylint is slow for big projects, let's give it up to 10s
+            timeout = 10000,
             extra_args = {
                 "-d", "missing-function-docstring", "-d", "invalid-name", "-d",
                 "missing-module-docstring", "-d", "missing-class-docstring",
                 "-d", "W1514", -- open without explicit encoding
                 "-d", "too-few-public-methods"
-            }
+            },
+            cwd = function(params)
+                return require("lspconfig")["pylsp"]
+                           .get_root_dir(params.bufname)
+            end
         }), require("null-ls").builtins.formatting.black.with({
+            -- still use versions that don't support --stdin-filename at work
+            -- so in the meantime will use global
             -- prefer_local = ".venv/bin",
             cwd = function(params)
                 return require("lspconfig")["pylsp"]
