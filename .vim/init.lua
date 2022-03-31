@@ -6,8 +6,27 @@ local function map(mode, lhs, rhs, opts)
     vim.api.nvim_set_keymap(mode, lhs, rhs, options)
 end
 
--- https://stackoverflow.com/a/40195356/4000764
+function _G.abbreviate_or_noop(input, output)
+    -- https://stackoverflow.com/a/69951171
+    local cmdtype = vim.fn.getcmdtype()
+    local cmdline = vim.fn.getcmdline()
+
+    if (cmdtype == ":" and cmdline == input) then
+        return output
+    else
+        return input
+    end
+end
+
+local function alias_command(input, output)
+    -- https://stackoverflow.com/a/69951171
+    vim.api.nvim_command("cabbrev <expr> " .. input .. " " ..
+                             "v:lua.abbreviate_or_noop('" .. input .. "', '" ..
+                             output .. "')")
+end
+
 local function exists(file)
+    -- https://stackoverflow.com/a/40195356/4000764
     local ok, err, code = os.rename(file, file)
     if not ok then
         if code == 13 then
@@ -277,10 +296,10 @@ map('', '<S-Tab>', ':bprev<CR>')
 -- Use :w!! to write with sudo even if not opened with
 map('c', 'w!!', 'w !sudo tee >/dev/null %')
 -- Address a few common mistakes I make when typing fast
-map('c', 'WQ', 'wq')
-map('c', 'Wq', 'wq')
-map('c', 'W', 'w')
-map('c', 'Q', 'q')
+alias_command('WQ', 'wq')
+alias_command('Wq', 'wq')
+alias_command('W', 'w')
+alias_command('Q', 'q')
 -- Clever replacement bindings courtesy of romainl
 map('n', '<leader><leader>', [[ :'{,'}s/\<<C-r>=expand("<cword>")<CR>\>/ ]])
 map('n', '<leader>%', [[ :%s/\<<C-r>=expand("<cword>")<CR>\>/ ]])
@@ -755,5 +774,3 @@ vim.cmd [[
         endif
     endif
 ]]
-
-
