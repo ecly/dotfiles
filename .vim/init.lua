@@ -58,7 +58,7 @@ require('packer').startup(function()
     use 'wbthomason/packer.nvim'
 
     -- Colorscheme configuration
-    use {"ellisonleao/gruvbox.nvim", requires = {"rktjmp/lush.nvim"}}
+    use {'ellisonleao/gruvbox.nvim', commit="dc6bae9"}
     use 'folke/tokyonight.nvim'
 
     -- LSP Setup
@@ -274,7 +274,8 @@ vim.o.termguicolors = true
 vim.o.t_8f = "[38;2;%lu;%lu;%lum"
 vim.o.t_8b = "[48;2;%lu;%lu;%lum"
 vim.cmd [[filetype plugin on]]
-vim.cmd [[colorscheme gruvbox]]
+vim.opt.background = "dark"
+vim.cmd([[colorscheme gruvbox]])
 vim.g.gruvbox_italic = 1
 
 -- Base Keybindings
