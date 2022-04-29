@@ -179,11 +179,11 @@ require('packer').startup(function()
         requires = {'kyazdani42/nvim-web-devicons'},
         config = function()
             require'nvim-tree'.setup {
-                git = {enabled = true, ignore = true},
-                view = {
-                    auto_resize = true
+                git = {enable = true, ignore = true},
+                -- view = {
+                    -- auto_resize = true
                     -- mappings = {list = {{key = "<Tab>", action = "preview"}}}
-                }
+                -- }
             }
         end
     }
