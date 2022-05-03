@@ -94,13 +94,6 @@ require('packer').startup(function()
         end
     }
 
-    use {
-        'kosayoda/nvim-lightbulb',
-        config = function()
-            vim.cmd [[autocmd CursorHold,CursorHoldI * lua require'nvim-lightbulb'.update_lightbulb()]]
-        end
-    }
-
     -- Language/file specific plugins
     use 'elixir-editors/vim-elixir'
     use 'elzr/vim-json'
@@ -115,9 +108,6 @@ require('packer').startup(function()
     }
     use 'lervag/vimtex'
     use 'vimwiki/vimwiki'
-
-    -- SymbolsOutline to get overview of symbols in file
-    --  use 'simrat39/symbols-outline.nvim'
 
     use {
         'folke/which-key.nvim',
