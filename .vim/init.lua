@@ -205,6 +205,8 @@ require('packer').startup(function()
         requires = {"vim-test/vim-test"},
         run = ":UpdateRemotePlugins"
     }
+    -- Ensure test nearest can be used for integration tests in my projects
+    vim.g['test#python#pytest#options'] = "--integration"
 end)
 
 -- Use system clipboard
@@ -736,7 +738,7 @@ vim.g.vimtex_compiler_progname = 'nvr'
 
 -- Ultest settings/keybinds
 map('n', '<leader>tn', ':UltestNearest<CR>')
-map('n', '<leader>tf', ':UltestFile<CR>')
+map('n', '<leader>tf', ':Ultest<CR>')
 map('n', '<leader>ts', ':UltestSuite<CR>')
 map('n', '<leader>sv', ':source $MYVIMRC<CR>')
 
