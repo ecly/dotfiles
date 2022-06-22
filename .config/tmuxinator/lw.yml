@@ -51,18 +51,8 @@ windows:
       layout: even-horizontal
       panes:
         -
-  - mt-api:
+  - mtapi:
       root: ~/Programming/work/mlt-mt-api
-      layout: even-horizontal
-      panes:
-        -
-  - doctrans:
-      root: ~/Programming/work/mlt-document-translator
-      layout: even-horizontal
-      panes:
-        -
-  - dt-be:
-      root: ~/Programming/work/mlt-lwt-backend
       layout: even-horizontal
       panes:
         -
@@ -71,18 +61,38 @@ windows:
       layout: even-horizontal
       panes:
         -
+  - dp:
+      root: ~/Programming/work/mlt-dynamic-pricing
+      layout: even-horizontal
+      panes:
+        -
+  - utils:
+      root: ~/Programming/work/mlt-utils
+      layout: even-horizontal
+      panes:
+        -
   - shm:
       root: ~/Programming/work/mlt-system-health-monitor
       layout: even-horizontal
       panes:
         -
-  - mlt-utils:
+  - utils:
       root: ~/Programming/work/mlt-utils
       layout: even-horizontal
       panes:
         -
-  - dp:
-      root: ~/Programming/work/mlt-dynamic-pricing
+  - lwtbe:
+      root: ~/Programming/work/mlt-lwt-backend
+      layout: even-horizontal
+      panes:
+        -
+  - doctrans:
+      root: ~/Programming/work/mlt-document-translator
+      layout: even-horizontal
+      panes:
+        -
+  - caption:
+      root: ~/Programming/work/mlt-captioning
       layout: even-horizontal
       panes:
         -
