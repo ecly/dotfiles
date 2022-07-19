@@ -87,10 +87,7 @@ require('packer').startup(function()
     use {
         'glepnir/lspsaga.nvim',
         config = function()
-            require('lspsaga').init_lsp_saga {
-                -- I'd rather use lightbulb or built-in for code action
-                code_action_prompt = {enable = false, sign = false}
-            }
+            require('lspsaga').init_lsp_saga {}
         end
     }
 
@@ -206,7 +203,8 @@ require('packer').startup(function()
         "nvim-lua/plenary.nvim",
         "nvim-treesitter/nvim-treesitter",
         "antoinemadec/FixCursorHold.nvim",
-          "nvim-neotest/neotest-python"
+        "mfussenegger/nvim-dap",
+        "nvim-neotest/neotest-python"
       }
     }
     require("neotest").setup({
@@ -219,7 +217,7 @@ require('packer').startup(function()
 end)
 
 -- Use system clipboard
-vim.o.clipboard = vim.o.clipboard .. "unnamedplus"
+vim.cmd [[set clipboard+=unnamedplus]]
 -- Enable mouse mode
 vim.o.mouse = "a"
 -- Enable break indent
@@ -746,10 +744,13 @@ vim.g.vimtex_quickfix_autoclose_after_keystrokes = 2
 vim.g.vimtex_compiler_progname = 'nvr'
 
 -- Ultest settings/keybinds
-map('n', '<leader>tn', ':UltestNearest<CR>')
-map('n', '<leader>tf', ':Ultest<CR>')
-map('n', '<leader>ts', ':UltestSuite<CR>')
-map('n', '<leader>sv', ':source $MYVIMRC<CR>')
+map('n', '<leader>tn', ':lua require("neotest").run.run()<CR>')
+map('n', '<leader>td', ':lua require("neotest").run.run({strategy = "dap"})<CR>')
+map('n', '<leader>tf', ':lua require("neotest").run.run(vim.fn.expand("%"))<CR>')
+map('n', '<leader>ts', ':lua require("neotest").run.run({suite=true})<CR>')
+
+-- Re-source vimrc
+map('n', '<leader>sv', ':luafile $MYVIMRC<CR>')
 
 -- Nvim-tree bindings
 map('n', '<leader>r', ':NvimTreeRefresh<CR>')
