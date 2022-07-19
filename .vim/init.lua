@@ -204,17 +204,26 @@ require('packer').startup(function()
         "nvim-treesitter/nvim-treesitter",
         "antoinemadec/FixCursorHold.nvim",
         "mfussenegger/nvim-dap",
-        "nvim-neotest/neotest-python"
+        "nvim-neotest/neotest-python",
+        "nvim-neotest/neotest-plenary"
       }
     }
-    require("neotest").setup({
-      adapters = {
-        require("neotest-python")({
-            args = {"--integration"},
-        })
-      }
-    })
 end)
+
+require("neotest").setup({
+  output = {
+    enabled = true,
+    open_on_run = true,
+  },
+  adapters = {
+    require("neotest-python")({
+        args = {"--integration"},
+        dap = { justMyCode = false, console = "integratedTerminal" },
+        runner = "pytest",
+    }),
+    require("neotest-plenary"),
+  }
+})
 
 -- Use system clipboard
 vim.cmd [[set clipboard+=unnamedplus]]
@@ -567,7 +576,7 @@ cmp.setup {
     mapping = {
         ['<C-p>'] = cmp.mapping.select_prev_item(),
         ['<C-n>'] = cmp.mapping.select_next_item(),
-        ['<C-d>'] = cmp.mapping.scroll_docs(-4),
+        ['<C-b>'] = cmp.mapping.scroll_docs(-4),
         ['<C-f>'] = cmp.mapping.scroll_docs(4),
         ['<C-Space>'] = cmp.mapping.complete(),
         ['<C-e>'] = cmp.mapping.close(),
