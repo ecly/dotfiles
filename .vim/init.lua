@@ -203,27 +203,32 @@ require('packer').startup(function()
         "nvim-lua/plenary.nvim",
         "nvim-treesitter/nvim-treesitter",
         "antoinemadec/FixCursorHold.nvim",
-        "mfussenegger/nvim-dap",
         "nvim-neotest/neotest-python",
-        "nvim-neotest/neotest-plenary"
+        "nvim-neotest/neotest-plenary",
+        -- Debug setup
+        "mfussenegger/nvim-dap",
+        "mfussenegger/nvim-dap-python",
       }
     }
-end)
 
-require("neotest").setup({
-  output = {
-    enabled = true,
-    open_on_run = true,
-  },
-  adapters = {
-    require("neotest-python")({
-        args = {"--integration"},
-        dap = { justMyCode = false, console = "integratedTerminal" },
-        runner = "pytest",
-    }),
-    require("neotest-plenary"),
-  }
-})
+    require("neotest").setup({
+      output = {
+        enabled = true,
+        open_on_run = true,
+      },
+      adapters = {
+        require("neotest-python")({
+            args = {"--integration"},
+            dap = { justMyCode = false, console = "integratedTerminal" },
+            runner = "pytest",
+        }),
+        require("neotest-plenary"),
+      }
+    })
+    -- TODO still not working perfectly and missing some keybinds
+    require('dap-python').setup('.venv/bin/python')
+    require('dap-python').test_runner = 'pytest'
+end)
 
 -- Use system clipboard
 vim.cmd [[set clipboard+=unnamedplus]]
@@ -578,7 +583,7 @@ cmp.setup {
         ['<C-n>'] = cmp.mapping.select_next_item(),
         ['<C-b>'] = cmp.mapping.scroll_docs(-4),
         ['<C-f>'] = cmp.mapping.scroll_docs(4),
-        ['<C-Space>'] = cmp.mapping.complete(),
+        ['<C-Space>'] = cmp.mapping.complete({}),
         ['<C-e>'] = cmp.mapping.close(),
         ['<CR>'] = cmp.mapping.confirm {
             behavior = cmp.ConfirmBehavior.Replace,
@@ -684,7 +689,7 @@ require('lualine').setup {
 
 -- Configure bufferline
 local cfg = require('bufferline.config')
-cfg.set() -- ensure base cfg is created
+cfg.set({}) -- ensure base cfg is created
 cfg.update_highlights() -- trigger default color generation
 local colors = cfg.get("highlights")
 local fg = colors.background.guifg
