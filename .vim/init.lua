@@ -201,12 +201,21 @@ require('packer').startup(function()
 
     -- Unit test handling
     use {
-        "rcarriga/vim-ultest",
-        requires = {"vim-test/vim-test"},
-        run = ":UpdateRemotePlugins"
+      "nvim-neotest/neotest",
+      requires = {
+        "nvim-lua/plenary.nvim",
+        "nvim-treesitter/nvim-treesitter",
+        "antoinemadec/FixCursorHold.nvim",
+          "nvim-neotest/neotest-python"
+      }
     }
-    -- Ensure test nearest can be used for integration tests in my projects
-    vim.g['test#python#pytest#options'] = "--integration"
+    require("neotest").setup({
+      adapters = {
+        require("neotest-python")({
+            args = {"--integration"},
+        })
+      }
+    })
 end)
 
 -- Use system clipboard
