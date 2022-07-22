@@ -429,8 +429,8 @@ local on_attach = function(_, bufnr)
     bmap(bufnr, 'n', '<leader>so',
          [[<cmd>lua require('telescope.builtin').lsp_document_symbols()<CR>]],
          opts)
-    bmap(bufnr, 'n', '<leader>f', '<cmd>lua vim.lsp.buf.formatting()<CR>', opts)
-    vim.cmd [[ command! Format execute 'lua vim.lsp.buf.formatting()' ]]
+    bmap(bufnr, 'n', '<leader>f', '<cmd>lua vim.lsp.buf.format({async = true})<CR>', opts)
+    vim.cmd [[ command! Format execute 'lua vim.lsp.buf.format({async = true})' ]]
 end
 
 -- nvim-cmp supports additional completion capabilities
@@ -479,7 +479,7 @@ lspconfig.pylsp.setup({
     cmd = {"pylsp", "--log-file", "/home/ecly/pylsp.log", "-v"},
     capabilities = capabilities,
     on_attach = function(client, bufnr)
-        client.server_capabilities.document_formatting = false
+        client.server_capabilities.documentFormattingProvider = false
         on_attach(client, bufnr)
     end,
     cmd_env = {
