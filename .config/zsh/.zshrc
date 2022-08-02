@@ -87,6 +87,11 @@ if [ -e /usr/share/fzf/key-bindings.zsh ]; then
     source /usr/share/fzf/completion.zsh
 fi
 
+# NVM sourcing: https://aur.archlinux.org/packages/nvm
+if [ -e /usr/share/nvm/init-nvm.sh ]; then
+  source /usr/share/nvm/init-nvm.sh
+fi
+
 # Use ag for fzf
 # Uses same command for all binds - could make this for ALT_C
 # Utility function to determine whether command is executable or aliased.
