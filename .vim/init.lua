@@ -53,6 +53,11 @@ vim.cmd [[
   augroup end
 ]]
 
+-- Don't auto break my lines
+vim.cmd [[
+    set formatoptions=cqronlj
+]]
+
 local use = require('packer').use
 require('packer').startup(function()
     use 'wbthomason/packer.nvim'
