@@ -63,7 +63,7 @@ require('packer').startup(function()
     use 'wbthomason/packer.nvim'
 
     -- Colorscheme configuration
-    use {'ellisonleao/gruvbox.nvim', commit="dc6bae9"}
+    use {'ellisonleao/gruvbox.nvim', commit = "dc6bae9"}
     use 'folke/tokyonight.nvim'
 
     -- LSP Setup
@@ -91,9 +91,7 @@ require('packer').startup(function()
     -- Some beautification of built-in LSP
     use {
         'glepnir/lspsaga.nvim',
-        config = function()
-            require('lspsaga').init_lsp_saga {}
-        end
+        config = function() require('lspsaga').init_lsp_saga {} end
     }
 
     -- Language/file specific plugins
@@ -171,10 +169,10 @@ require('packer').startup(function()
         requires = {'kyazdani42/nvim-web-devicons'},
         config = function()
             require'nvim-tree'.setup {
-                git = {enable = true, ignore = true},
+                git = {enable = true, ignore = true}
                 -- view = {
-                    -- auto_resize = true
-                    -- mappings = {list = {{key = "<Tab>", action = "preview"}}}
+                -- auto_resize = true
+                -- mappings = {list = {{key = "<Tab>", action = "preview"}}}
                 -- }
             }
         end
@@ -203,32 +201,24 @@ require('packer').startup(function()
 
     -- Unit test handling
     use {
-      "nvim-neotest/neotest",
-      requires = {
-        "nvim-lua/plenary.nvim",
-        "nvim-treesitter/nvim-treesitter",
-        "antoinemadec/FixCursorHold.nvim",
-        "nvim-neotest/neotest-python",
-        "nvim-neotest/neotest-plenary",
-        -- Debug setup
-        "mfussenegger/nvim-dap",
-        "mfussenegger/nvim-dap-python",
-      }
+        "nvim-neotest/neotest",
+        requires = {
+            "nvim-lua/plenary.nvim", "nvim-treesitter/nvim-treesitter",
+            "antoinemadec/FixCursorHold.nvim", "nvim-neotest/neotest-python",
+            "nvim-neotest/neotest-plenary", -- Debug setup
+            "mfussenegger/nvim-dap", "mfussenegger/nvim-dap-python"
+        }
     }
 
     require("neotest").setup({
-      output = {
-        enabled = true,
-        open_on_run = true,
-      },
-      adapters = {
-        require("neotest-python")({
-            args = {"--integration"},
-            dap = { justMyCode = false, console = "integratedTerminal" },
-            runner = "pytest",
-        }),
-        require("neotest-plenary"),
-      }
+        output = {enabled = true, open_on_run = true},
+        adapters = {
+            require("neotest-python")({
+                args = {"--integration"},
+                dap = {justMyCode = false, console = "integratedTerminal"},
+                runner = "pytest"
+            }), require("neotest-plenary")
+        }
     })
     -- TODO still not working perfectly and missing some keybinds
     require('dap-python').setup('.venv/bin/python')
@@ -434,7 +424,8 @@ local on_attach = function(_, bufnr)
     bmap(bufnr, 'n', '<leader>so',
          [[<cmd>lua require('telescope.builtin').lsp_document_symbols()<CR>]],
          opts)
-    bmap(bufnr, 'n', '<leader>f', '<cmd>lua vim.lsp.buf.format({async = true})<CR>', opts)
+    bmap(bufnr, 'n', '<leader>f',
+         '<cmd>lua vim.lsp.buf.format({async = true})<CR>', opts)
     vim.cmd [[ command! Format execute 'lua vim.lsp.buf.format({async = true})' ]]
 end
 
@@ -678,6 +669,8 @@ map('n', '<C-p>', [[<cmd> lua require('telescope.builtin').find_files()<CR>]])
 map('n', '<leader>fg',
     [[<cmd> lua require('telescope.builtin').git_files()<CR>]])
 map('n', '<leader>fb', [[<cmd> lua require('telescope.builtin').buffers()<CR>]])
+map('n', '<leader>fr',
+    [[<cmd> lua require('telescope.builtin').live_grep()<CR>]])
 
 -- Configure statusline
 require('lualine').setup {
