@@ -153,8 +153,14 @@ require('packer').startup(function()
     -- Tpope plugins
     use 'tpope/vim-fugitive' -- Git commands in nvim
     use 'tpope/vim-rhubarb' -- Fugitive-companion to interact with github
-    use 'tpope/vim-surround'
     use 'tpope/vim-repeat'
+
+    use({
+        "kylechui/nvim-surround",
+        config = function()
+            require("nvim-surround").setup({})
+        end
+    })
 
     -- Automatic tags management
     use 'ludovicchabant/vim-gutentags'
