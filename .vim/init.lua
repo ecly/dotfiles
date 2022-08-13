@@ -695,24 +695,24 @@ local cfg = require('bufferline.config')
 cfg.set({}) -- ensure base cfg is created
 cfg.update_highlights() -- trigger default color generation
 local colors = cfg.get("highlights")
-local fg = colors.background.guifg
-local fill_bg = colors.tab_selected.guifg
+local fg = colors.background.fg
+local fill_bg = colors.tab_selected.fg
 
 -- Adjust bufferline to with gruvbox in a more subtle way
 -- and synchronize better with signcolumn
 require('bufferline').setup {
     options = {show_buffer_close_icons = false, show_close_icon = false},
     highlights = {
-        fill = {guibg = fill_bg},
-        background = {guibg = fill_bg},
-        buffer_selected = {guibg = fill_bg, gui = "bold,italic"},
-        buffer_visible = {guibg = fill_bg},
-        separator = {guifg = fg, guibg = fill_bg},
-        separator_selected = {guifg = fg, guibg = fill_bg},
+        fill = { bg = fill_bg},
+        background = { bg = fill_bg},
+        buffer_selected = { bg = fill_bg, bold = true, italic = true },
+        buffer_visible = { bg = fill_bg},
+        separator = {fg = fg,  bg = fill_bg},
+        separator_selected = {fg = fg,  bg = fill_bg},
         -- make indicator invisble
-        indicator_selected = {guifg = fill_bg, guibg = fill_bg},
-        modified = {guibg = fill_bg},
-        modified_selected = {guibg = fill_bg}
+        indicator_selected = {fg = fill_bg,  bg = fill_bg},
+        modified = { bg = fill_bg},
+        modified_selected = { bg = fill_bg}
     }
 }
 
