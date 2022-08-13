@@ -161,7 +161,12 @@ require('packer').startup(function()
     vim.g.gutentags_cache_dir = "~/.cache/gutentags"
 
     -- Easy commenting with gcc
-    use 'b3nj5m1n/kommentary'
+    use {
+        'numToStr/Comment.nvim',
+        config = function()
+            require('Comment').setup()
+        end
+}
 
     -- File tree browser
     use {
