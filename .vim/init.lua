@@ -60,26 +60,23 @@ vim.cmd [[
 
 local use = require('packer').use
 require('packer').startup(function()
-    use 'wbthomason/packer.nvim'
+    use {'wbthomason/packer.nvim'}
 
     -- Colorscheme configuration
     use {'ellisonleao/gruvbox.nvim', commit = "dc6bae9"}
-    use 'folke/tokyonight.nvim'
+    use {'folke/tokyonight.nvim'}
 
     -- LSP Setup
-    use 'neovim/nvim-lspconfig'
-    use 'onsails/lspkind-nvim' -- fancy icons for cmp
+    use {'neovim/nvim-lspconfig'}
+    use {'onsails/lspkind-nvim'} -- fancy icons for cmp
     use {
         'hrsh7th/nvim-cmp', -- auto-completions
         requires = {
-            use 'hrsh7th/cmp-nvim-lsp',
-            use 'hrsh7th/cmp-path',
-            use 'hrsh7th/cmp-buffer',
-            use 'hrsh7th/cmp-nvim-lua',
+            use 'hrsh7th/cmp-nvim-lsp', use 'hrsh7th/cmp-path',
+            use 'hrsh7th/cmp-buffer', use 'hrsh7th/cmp-nvim-lua',
             use 'lukas-reineke/cmp-under-comparator',
-            use 'saadparwaiz1/cmp_luasnip',
-            use 'L3MON4D3/LuaSnip',
-            'onsails/lspkind-nvim',
+            use 'saadparwaiz1/cmp_luasnip', use 'L3MON4D3/LuaSnip',
+            'onsails/lspkind-nvim'
         },
         config = function()
             local luasnip = require 'luasnip'
@@ -119,12 +116,17 @@ require('packer').startup(function()
                 }
             })
             cmp.setup {
-                snippet = {expand = function(args) luasnip.lsp_expand(args.body) end},
+                snippet = {
+                    expand = function(args)
+                        luasnip.lsp_expand(args.body)
+                    end
+                },
                 formatting = {
                     format = function(entry, vim_item)
                         -- fancy icons and a name of kind
-                        vim_item.kind = lspkind.presets.default[vim_item.kind] ..
-                                            " " .. vim_item.kind
+                        vim_item.kind =
+                            lspkind.presets.default[vim_item.kind] .. " " ..
+                                vim_item.kind
                         -- set a name for each source
                         vim_item.menu = ({
                             buffer = "[Buffer]",
@@ -174,7 +176,8 @@ require('packer').startup(function()
                 sorting = {
                     comparators = {
                         cmp.config.compare.offset, cmp.config.compare.exact,
-                        cmp.config.compare.score, require"cmp-under-comparator".under,
+                        cmp.config.compare.score,
+                        require"cmp-under-comparator".under,
                         cmp.config.compare.kind, cmp.config.compare.sort_text,
                         cmp.config.compare.length, cmp.config.compare.order
                     }
@@ -192,7 +195,7 @@ require('packer').startup(function()
     }
 
     -- Extra plugin for null-ls
-    use 'jose-elias-alvarez/null-ls.nvim'
+    use {'jose-elias-alvarez/null-ls.nvim'}
 
     -- Some beautification of built-in LSP
     use {
@@ -201,12 +204,12 @@ require('packer').startup(function()
     }
 
     -- Language/file specific plugins
-    use 'elixir-editors/vim-elixir'
-    use 'elzr/vim-json'
-    use 'PotatoesMaster/i3-vim-syntax'
-    use 'cespare/vim-toml'
+    use {'elixir-editors/vim-elixir'}
+    use {'elzr/vim-json'}
+    use {'PotatoesMaster/i3-vim-syntax'}
+    use {'cespare/vim-toml'}
     use {'chrisbra/csv.vim', ft = {"tsv", "csv"}}
-    use 'ekalinin/Dockerfile.vim'
+    use {'ekalinin/Dockerfile.vim'}
     use {
         "iamcco/markdown-preview.nvim",
         ft = "markdown",
@@ -234,8 +237,16 @@ require('packer').startup(function()
         'vimwiki/vimwiki',
         config = function()
             vim.g.vimwiki_list = {
-                {path = '~/Documents/work/vimwiki/', syntax = 'markdown', ext = '.md'},
-                {path = '~/Documents/irl/vimwiki/', syntax = 'markdown', ext = '.md'}
+                {
+                    path = '~/Documents/work/vimwiki/',
+                    syntax = 'markdown',
+                    ext = '.md'
+                },
+                {
+                    path = '~/Documents/irl/vimwiki/',
+                    syntax = 'markdown',
+                    ext = '.md'
+                }
             }
             -- Avoid VimWiki default binds overlapping with other binds
             map('n', '<leader><Tab>', '<Plug>VimwikiNextLink')
@@ -364,15 +375,18 @@ require('packer').startup(function()
     }
 
     -- Tmux configuration
-    use 'christoomey/vim-tmux-navigator'
-    use 'roxma/vim-tmux-clipboard'
+    use {'christoomey/vim-tmux-navigator'}
+    use {'roxma/vim-tmux-clipboard'}
     -- <C-c><C-c> to send chunk to tmux pane
     use {
         'jpalardy/vim-slime',
         config = function()
             -- Tmux configuration for slime
             vim.g.slime_target = 'tmux'
-            vim.g.slime_default_config = {socket_name = 'default', target_pane = '{last}'}
+            vim.g.slime_default_config = {
+                socket_name = 'default',
+                target_pane = '{last}'
+            }
         end
     }
 
@@ -450,9 +464,9 @@ require('packer').startup(function()
     })
 
     -- Tpope plugins
-    use 'tpope/vim-fugitive' -- Git commands in nvim
-    use 'tpope/vim-rhubarb' -- Fugitive-companion to interact with github
-    use 'tpope/vim-repeat'
+    use {'tpope/vim-fugitive'} -- Git commands in nvim
+    use {'tpope/vim-rhubarb'} -- Fugitive-companion to interact with github
+    use {'tpope/vim-repeat'}
 
     use({
         "kylechui/nvim-surround",
@@ -510,17 +524,17 @@ require('packer').startup(function()
     }
 
     -- Split/join one-liners with gS/gJ
-    use 'AndrewRadev/splitjoin.vim'
-    use 'Konfekt/FastFold'
+    use {'AndrewRadev/splitjoin.vim'}
+    use {'Konfekt/FastFold'}
 
     -- Highlight matches patterns from Ex commands
-    use 'markonm/traces.vim'
+    use {'markonm/traces.vim'}
 
     -- Automatically detect sensible root directory
-    use 'airblade/vim-rooter'
+    use {'airblade/vim-rooter'}
 
     -- Nice diffview for vim with DiffviewOpen
-    use 'sindrets/diffview.nvim'
+    use {'sindrets/diffview.nvim'}
 
     -- Unit test handling
     use {
@@ -540,7 +554,10 @@ require('packer').startup(function()
                 adapters = {
                     require("neotest-python")({
                         args = {"--integration"},
-                        dap = {justMyCode = false, console = "integratedTerminal"},
+                        dap = {
+                            justMyCode = false,
+                            console = "integratedTerminal"
+                        },
                         runner = "pytest"
                     }), require("neotest-plenary")
                 }
@@ -551,10 +568,10 @@ require('packer').startup(function()
                 ':lua require("neotest").run.run({strategy = "dap"})<CR>')
             map('n', '<leader>tf',
                 ':lua require("neotest").run.run(vim.fn.expand("%"))<CR>')
-            map('n', '<leader>ts', ':lua require("neotest").run.run({suite=true})<CR>')
+            map('n', '<leader>ts',
+                ':lua require("neotest").run.run({suite=true})<CR>')
         end
     }
-
 
 end)
 
@@ -823,7 +840,6 @@ require"lspconfig".elixirls.setup {
     on_attach = on_attach,
     cmd = {"/usr/sbin/elixir-ls"}
 }
-
 
 vim.lsp.handlers["textDocument/publishDiagnostics"] =
     vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, {
