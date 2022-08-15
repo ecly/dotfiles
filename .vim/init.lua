@@ -276,11 +276,14 @@ require('packer').startup(function()
     -- Filepicker (Among other things)
     use {
         'nvim-telescope/telescope.nvim',
-        requires = {'nvim-lua/plenary.nvim'},
+        requires = {
+            'nvim-lua/plenary.nvim',
+            {'nvim-telescope/telescope-fzf-native.nvim', run = 'make'}
+        },
         config = function()
             -- Telescope settings
             local actions = require('telescope.actions')
-            require'telescope'.setup {
+            require('telescope').setup {
                 defaults = {
                     mappings = {
                         i = {
@@ -288,8 +291,17 @@ require('packer').startup(function()
                             ["<C-h>"] = actions.select_horizontal
                         }
                     }
+                },
+                extensions = {
+                    fzf = {
+                        fuzzy = true,
+                        override_generic_sorter = true,
+                        override_file_sorter = true,
+                        case_mode = "smart_case"
+                    }
                 }
             }
+            require('telescope').load_extension('fzf')
             map('n', '<C-p>',
                 [[<cmd> lua require('telescope.builtin').find_files()<CR>]])
             map('n', '<leader>fg',
