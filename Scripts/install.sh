@@ -69,7 +69,7 @@ yay -Syyu --noconfirm \
     npm \
     nm-connection-editor \
     ctags \
-    git-delta-bin \
+    git-delta \
     xdotool \
     mons \
     sc-im \

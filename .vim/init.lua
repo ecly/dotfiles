@@ -659,8 +659,10 @@ vim.o.undofile = true
 vim.o.completeopt = 'menuone,noselect,preview'
 -- Lightline shows this already
 vim.o.showmode = false
--- Always show status line
-vim.o.laststatus = 2
+-- Show last status
+vim.o.laststatus = 3
+-- Show command at all time until flicker is fixed with neovim 0.8
+vim.o.cmdheight = 1
 -- Indentation configuration
 vim.o.tabstop = 4
 vim.o.shiftwidth = 4
