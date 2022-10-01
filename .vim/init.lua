@@ -256,13 +256,6 @@ require('packer').startup(function()
         end
     }
 
-    -- Outline symbols in pane and show currentl location in winbar
-    use {'simrat39/symbols-outline.nvim',
-        config = function()
-            require("symbols-outline").setup()
-        end
-    }
-
     -- Language/file specific plugins
     use {'elixir-editors/vim-elixir'}
     use {'elzr/vim-json'}
