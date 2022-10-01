@@ -78,7 +78,8 @@ yay -Syyu --noconfirm \
     elixir-ls \
     lua-language-server \
     lua-format \
-    terraform-ls
+    terraform-ls \
+    ncdu
 
 
 # Handle Python specific installs with pipx
