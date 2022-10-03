@@ -11,6 +11,8 @@ HISTSIZE=10000
 SAVEHIST=10000
 HISTFILE="$HOME/.cache/zsh/history"
 
+# ensure this is set before antibody inits
+CLOUDSDK_HOME="$HOME/.local/share/google-cloud-sdk"
 source <(antibody init)
 
 # configure default added keys for ssh-agent plugin
@@ -124,10 +126,6 @@ if _has fzf && _has rg; then
     zle     -N   fzf-open-file-or-dir
     bindkey '^P' fzf-open-file-or-dir
 fi
-
-# https://gehrcke.de/2021/11/gcloud-on-python-3-10-module-collections-has-no-attribute-mapping/
-# Use Python 2 for gcloud SDK until they fix support for 3.10
-export CLOUDSDK_PYTHON="/usr/bin/python2"
 
 # The next line updates PATH for the Google Cloud SDK.
 if [ -f '/home/ecly/.local/share/google-cloud-sdk/path.zsh.inc' ]; then . '/home/ecly/.local/share/google-cloud-sdk/path.zsh.inc'; fi
