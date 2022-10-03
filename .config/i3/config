@@ -20,6 +20,9 @@ focus_follows_mouse no
 # Window border
 new_window pixel 3
 default_border pixel 3
+default_floating_border pixel 3
+hide_edge_borders both
+for_window [all] border pixel 3  # workaround for https://github.com/i3/i3/issues/5149
 
 # Setup gaps
 gaps inner $innergap
