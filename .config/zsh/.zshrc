@@ -140,4 +140,5 @@ if _has pyenv; then
     eval "$(pyenv init -)"
 fi
 
-
+# fix poetry nonsense: https://github.com/python-poetry/poetry/issues/2692
+export PYTHON_KEYRING_BACKEND="keyring.backends.null.Keyring"
