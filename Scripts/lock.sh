@@ -6,7 +6,7 @@ tmpbg='/tmp/screen.png'
 (( $# )) && { icon=$1; }
 
 maim "$tmpbg"
-convert "$tmpbg" -scale 5% -scale 2000% "$tmpbg"
+convert "$tmpbg" -scale 2% -scale 5000% "$tmpbg"
 mpc pause
 
 #add icon (not the greatest with multiple monitors
