@@ -68,7 +68,11 @@ require('packer').startup(function()
     use {'folke/tokyonight.nvim'}
 
     -- LSP Setup
-    use {'neovim/nvim-lspconfig'}
+    use {
+        "williamboman/mason.nvim", "williamboman/mason-lspconfig.nvim",
+        "neovim/nvim-lspconfig"
+    }
+
     use {'onsails/lspkind-nvim'} -- fancy icons for cmp
     use {
         'hrsh7th/nvim-cmp', -- auto-completions
@@ -83,39 +87,15 @@ require('packer').startup(function()
             local luasnip = require 'luasnip'
             local cmp = require 'cmp'
             local lspkind = require('lspkind')
-            lspkind.init({
-                symbol_map = {
-                    Class = "∴",
-                    Color = "",
-                    Constant = "",
-                    -- Constructor = '⬡',
-                    Constructor = 'ᲃ',
-                    Enum = "",
-                    EnumMember = "",
-                    Event = "",
-                    Field = '🠶',
-                    -- Field = '→',
-                    -- Field = '∴',
-                    File = "",
-                    Folder = "",
-                    Function = "",
-                    Interface = "",
-                    Keyword = "",
-                    Method = "",
-                    Module = "",
-                    Operator = "",
-                    Property = '∷',
-                    -- Property = '::',
-                    Reference = "",
-                    Snippet = "",
-                    Struct = '',
-                    Text = "",
-                    TypeParameter = "",
-                    Unit = '()',
-                    Value = "",
-                    Variable = ""
+            cmp.setup {
+                formatting = {
+                    format = lspkind.cmp_format({
+                        mode = 'symbol', -- show only symbol annotations
+                        maxwidth = 50, -- prevent the popup from showing more than provided characters (e.g 50 will not show more than 50 characters)
+                        ellipsis_char = '...'
+                    })
                 }
-            })
+            }
             cmp.setup {
                 snippet = {
                     expand = function(args)
@@ -201,10 +181,8 @@ require('packer').startup(function()
     -- Some beautification of built-in LSP
     use {
         'glepnir/lspsaga.nvim',
-	branch = "main",
-        config = function()
-	    require('lspsaga').setup({})
-        end
+        branch = "main",
+        config = function() require('lspsaga').setup({}) end
     }
 
     -- Language/file specific plugins
@@ -667,7 +645,7 @@ require("gruvbox").setup({
     contrast = "", -- can be "hard", "soft" or empty string
     palette_overrides = {},
     dim_inactive = false,
-    transparent_mode = false,
+    transparent_mode = false
 })
 vim.cmd([[colorscheme gruvbox]])
 
