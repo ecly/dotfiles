@@ -93,14 +93,6 @@ pipx install pywal
 pipx install vint
 pipx install pylint
 
-# Install npm specific packages
-npm install -g bash-language-server
-npm install -g vim-language-server
-npm install -g dockerfile-language-server-nodejs
-npm install -g yaml-language-server
-npm install -g pyright
-npm install -g diagnostic-languageserver
-
 # apply theme
 wal --theme base16-gruvbox-medium
 
