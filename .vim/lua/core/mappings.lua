@@ -2,13 +2,6 @@ local map = vim.keymap.set
 local default_options = { silent = true, noremap = true }
 local expr_options = { expr = true, silent = true }
 
-local alias_command = function(input, output)
-    -- https://stackoverflow.com/a/69951171
-    vim.api.nvim_command("cabbrev <expr> " .. input .. " " ..
-                             "v:lua.abbreviate_or_noop('" .. input .. "', '" ..
-                             output .. "')")
-end
-
 -- Paste over currently selected text without yanking it
 map("v", "p", '"_dp', default_options)
 map("v", "P", '"_dP', default_options)
@@ -111,13 +104,6 @@ wk.register({
   l = {
     f = {'<cmd>lua vim.lsp.buf.format({async = true})<CR>', "Format" }
   },
--- [d', '<cmd>lua vim.diagnostic.goto_prev()<CR>', opts)
---     bmap(bufnr, 'n', ']d', '<cmd>lua vim.diagnostic.goto_next()<CR>', opts)
-
---     bmap(bufnr, 'n', '<leader>e', '<cmd>lua vim.diagnostic.open_float()<CR>',
---          opts)
---     bmap(bufnr, 'n', '<leader>q', '<cmd>lua vim.diagnostic.setloclist()<CR>',
---          opts)
 }, { prefix = "<leader>" })
 
 
