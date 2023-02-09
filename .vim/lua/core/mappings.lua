@@ -7,7 +7,7 @@ map("v", "p", '"_dp', default_options)
 map("v", "P", '"_dP', default_options)
 
 -- Navigate buffers with tab
-map("n", "<tab>", ":bnext<CR>", default_options)
+map("n", "<Tab>", ":bnext<CR>", default_options)
 map("n", "<S-tab>", ":bprev<CR>", default_options)
 
 -- Resource VIMRC

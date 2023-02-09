@@ -14,6 +14,7 @@
   "csv.vim": { "branch": "master", "commit": "fb159987bb430bb61e07928d132e4487e54a82ef" },
   "diffview.nvim": { "branch": "main", "commit": "11827d46e939b4748dbdb7e0df4982a63bd59d26" },
   "editorconfig-vim": { "branch": "master", "commit": "1d54632f7fcad38df8e428f349bc58b15af4b206" },
+  "friendly-snippets": { "branch": "main", "commit": "a6f7a1609addb4e57daa6bedc300f77f8d225ab7" },
   "gitsigns.nvim": { "branch": "main", "commit": "ec4742a7eebf68bec663041d359b95637242b5c3" },
   "gruvbox.nvim": { "branch": "main", "commit": "b9d23a64dc8f22b4af8fa708d9fcbffbbf5747c6" },
   "i3-vim-syntax": { "branch": "master", "commit": "affe37e89911c47831cb5b87697ac70e48bb3e0f" },
