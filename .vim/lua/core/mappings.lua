@@ -6,10 +6,6 @@ local expr_options = {expr = true, silent = true}
 map("v", "p", '"_dp', default_options)
 map("v", "P", '"_dP', default_options)
 
--- Navigate buffers with tab
-map("n", "<Tab>", ":bnext<CR>", default_options)
-map("n", "<S-tab>", ":bprev<CR>", default_options)
-
 -- Resource VIMRC
 map('n', '<leader>sv', ':luafile $MYVIMRC<CR>', default_options)
 
@@ -140,5 +136,7 @@ wk.register({
     },
     ["[d"] = {
         '<cmd>lua vim.diagnostic.goto_prev()<CR>', "Go to previous diagnostic"
-    }
+    },
+    ["<Tab>"] = {'<Plug>(cokeline-focus-next)', "Go to next buffer"},
+    ["<S-Tab>"] = {'<Plug>(cokeline-focus-next)', "Go to previous buffer"}
 })
