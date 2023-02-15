@@ -16,6 +16,8 @@ local M = {
                          i = {
                              ["<C-v>"] = actions.select_vertical,
                              ["<C-h>"] = actions.select_horizontal,
+                             ["<C-->"] = actions.select_horizontal,
+                             ["<C-\\>"] = actions.select_vertical,
                          }
                      }
                  },

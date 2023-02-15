@@ -21,6 +21,7 @@ local M = {
         'hrsh7th/vim-vsnip', 'onsails/lspkind-nvim',
         'hrsh7th/cmp-calc', 'hrsh7th/cmp-nvim-lsp-signature-help'
     },
+    event = "InsertEnter",
     config = function()
         local cmp = require 'cmp'
         local lspkind = require('lspkind')
