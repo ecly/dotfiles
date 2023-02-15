@@ -149,5 +149,5 @@ wk.register({
         '<cmd>lua vim.diagnostic.goto_prev()<CR>', "Go to previous diagnostic"
     },
     ["<Tab>"] = {'<Plug>(cokeline-focus-next)', "Go to next buffer"},
-    ["<S-Tab>"] = {'<Plug>(cokeline-focus-next)', "Go to previous buffer"}
+    ["<S-Tab>"] = {'<Plug>(cokeline-focus-prev)', "Go to previous buffer"}
 })
