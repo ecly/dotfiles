@@ -79,7 +79,7 @@ wk.register({
         },
         s = {'<cmd>require("neotest").run.run({suite=true})<CR>', "Run suite"}
     },
-    s = {i = {'<cmd>lua vim.lsp.buf.signature_help()<CR>', "Signature help"}},
+    S = {'<cmd>lua vim.lsp.buf.signature_help()<CR>', "Signature help"},
     w = {
         name = "Workspace",
         a = {'<cmd>lua vim.lsp.buf.add_workspace_folder()<CR>', 'Add workspace'},
@@ -101,6 +101,17 @@ wk.register({
         D = {'<cmd>lua vim.lsp.buf.declaration()<CR>', "Go to declaration"},
         i = {
             '<cmd>lua vim.lsp.buf.implementation()<CR>', "Go to implementation"
+        },
+        h = {
+            name = "Git",
+            s = {":Gitsigns stage_hunk<CR>", "Stage hunk"},
+            r = {":Gitsigns reset_hunk<CR>", "Reset hunk"},
+            S = {":Gitsigns stage_buffer<CR>", "Stage buffer"},
+            p = {":Gitsigns preview_hunk<CR>", "Preview hunk"},
+            u = {":Gitsigns undo_stage_hunk<CR>", "Undo stage hunk"},
+            b = {":Gitsigns blame_line<CR>", "Blame line"},
+            d = {":Gitsigns diffthis<CR>", "Diff this"}
+
         }
     },
     c = {
