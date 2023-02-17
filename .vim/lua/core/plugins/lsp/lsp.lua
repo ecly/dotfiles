@@ -13,7 +13,7 @@ local servers = {
   "marksman",
   -- "pyright", -- not currently working
   "pylsp",
-  "sumneko_lua",
+  "lua_ls",
   "terraformls",
   "texlab",
   "tsserver",
