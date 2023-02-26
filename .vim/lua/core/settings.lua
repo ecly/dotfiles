@@ -15,7 +15,7 @@ M.mason_tool_installer_ensure_installed = {
     "json-lsp", "marksman", "typescript-language-server", "texlab",
     "lua-language-server", "pyright", "python-lsp-server", "terraform-ls",
     "yaml-language-server", -- Formatter
-    "black", "prettier", "stylua", "shfmt", "isort", -- Linter
+    "black", "prettier", "stylua", "shfmt", "isort", "pylint", "ruff", -- Linter
     "pydocstyle", "eslint_d", "shellcheck", "tflint", "yamllint", "mypy", -- DAP
     "debugpy"
 }
