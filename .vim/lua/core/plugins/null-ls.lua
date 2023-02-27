@@ -19,7 +19,7 @@ local M = {
                         "-d", "missing-function-docstring", "-d",
                         "invalid-name", "-d", "missing-module-docstring", "-d",
                         "missing-class-docstring", "-d", "W1514", -- open without explicit encoding
-                        "-d", "too-few-public-methods"
+                        "-d", "too-few-public-methods", "-d", "line-too-long",
                     }
                 }), nls.builtins.formatting.black.with({
                     cwd = function(params)
