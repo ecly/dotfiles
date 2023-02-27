@@ -3,10 +3,12 @@ local M = {
         'nvim-treesitter/nvim-treesitter',
         dependencies = {
             'nvim-treesitter/nvim-treesitter-textobjects',
-            'nvim-treesitter/nvim-treesitter-refactor'
+            'nvim-treesitter/nvim-treesitter-refactor',
+            'nvim-treesitter/nvim-treesitter-context'
         },
         config = function()
             local settings = require("core.settings")
+            require'treesitter-context'.setup({})
             require('nvim-treesitter.configs').setup {
                 ensure_installed = settings.treesitter_ensure_installed,
                 highlight = {
@@ -15,6 +17,8 @@ local M = {
                     custom_captures = {["keyword.operator"] = "Tag"}
                 },
                 refactor = {highlight_definitions = {enable = true}},
+                indent = { enable = true, disable = { "python" } },
+                context_commentstring = { enable = true, enable_autocmd = false },
                 incremental_selection = {
                     enable = true,
                     keymaps = {
