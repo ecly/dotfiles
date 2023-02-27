@@ -32,7 +32,7 @@ local M = {
                     end,
                     prefer_local = ".venv/bin"
                 }), nls.builtins.formatting.lua_format.with({}),
-                nls.builtins.diagnostics.ruff
+                nls.builtins.diagnostics.ruff.with({extra_args={"--ignore", "E501"}}) -- ignore line length
             }
         })
     end
