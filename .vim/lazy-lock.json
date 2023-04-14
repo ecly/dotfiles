@@ -73,7 +73,7 @@
   "vim-startuptime": { "branch": "master", "commit": "c9da356b59eb30dfca6cd573b63d0e81c0a24ff9" },
   "vim-toml": { "branch": "main", "commit": "d36caa6b1cf508a4df1c691f915572fc02143258" },
   "vim-vsnip": { "branch": "master", "commit": "7753ba9c10429c29d25abfd11b4c60b76718c438" },
-  "vimtex": { "branch": "master", "commit": "e8542f26b45e489fe7cfa7894737ccb0fe937fcd" },
+  "vimtex": { "branch": "master", "commit": "c7b1cf1dd6747cef5340d74455061461c0f2eab5" },
   "vimwiki": { "branch": "dev", "commit": "71edcf6802eeb724ca679547d5cb7a8eadf0cfcb" },
   "which-key.nvim": { "branch": "main", "commit": "4b73390eec680b4c061ea175eb32c0ff3412271d" }
 }
