@@ -1,5 +1,6 @@
 local M = {
     "folke/noice.nvim",
+    enabled = true,
     dependencies = {
         -- if you lazy-load any plugin below, make sure to add proper `module="..."` entries
         "MunifTanjim/nui.nvim", -- OPTIONAL:
@@ -24,7 +25,8 @@ local M = {
                 bottom_search = true,
                 command_palette = true,
                 long_message_to_split = true,
-                inc_rename = true
+                inc_rename = true,
+                lsp_doc_border = false,
             },
             cmdline = {view = "cmdline"}
         })
