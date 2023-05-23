@@ -62,6 +62,11 @@ export PYTHONSTARTUP="$HOME/.config/pythonrc"
 # Add pyenv specific ENVVARs following documentation
 export PYENV_ROOT="$HOME/.pyenv"
 export PATH="$PYENV_ROOT/bin:$PATH"
+
+if whence brew >/dev/null; then
+  export PATH="/opt/homebrew/bin:$PATH"
+  eval "$(/opt/homebrew/bin/brew shellenv)"
+fi
 eval "$(pyenv init --path)"
 
 if [ -z "$DISPLAY" ] && [ -n "$XDG_VTNR" ] && [ "$XDG_VTNR" -eq 1 ]; then
