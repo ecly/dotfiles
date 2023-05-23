@@ -17,7 +17,7 @@ fi
 # autorandr --load docked
 
 echo "Setting up keymap..."
-sh /home/ecly/Scripts/keymap.sh
+sh "$HOME/Scripts/keymap.sh"
 
 echo "Setting up i3 workspaces..."
 sleep 2
