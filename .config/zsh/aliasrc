@@ -16,6 +16,8 @@ alias gsync="grive -p ~/GoogleDrive"
 alias imgur="sh ~/Scripts/imgur.sh"
 alias mutt="sh ~/Scripts/mutt.sh"
 alias evince="evince 2>/dev/null"
+# replace antibody with next gen version of it
+alias antibody="antidote"
 
 # .Xresources handling - reload, merge
 alias xm="xrdb -merge ~/.Xresources"
@@ -28,18 +30,16 @@ alias tree="ls -R | grep ":$" | sed -e 's/:$//' -e 's/[^-][^\/]*\//--/g' -e 's/^
 alias ftree="find | sed 's|[^/]*/|- |g'"
 
 # Detect which `ls` flavor is in use
-if ls --color > /dev/null 2>&1; then # GNU `ls`
+if ls --human-readable > /dev/null 2>&1; then # GNU `ls`
   colorflag='--color'
+  alias ls="ls ${colorflag} --human-readable --group-directories-first --classify"
 else # OS X `ls`
   colorflag='-G'
+  alias ls="ls ${colorflag}"
 fi
-
-# ask when deleting multiple
-alias rm="rm -I"
 
 # Basic colored ls
 # shellcheck disable=SC2139
-alias ls="ls ${colorflag} --human-readable --group-directories-first --classify"
 
 # List all files colorized in long format
 # shellcheck disable=SC2139
@@ -52,6 +52,9 @@ alias la="ls -laF ${colorflag}"
 # List only directories
 # shellcheck disable=SC2139
 alias lsd="ls -lF ${colorflag} | grep --color=never '^d'"
+
+# ask when deleting multiple
+alias rm="rm -I"
 
 # Some shorthand launching
 alias t="tmux"
