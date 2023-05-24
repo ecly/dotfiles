@@ -1,3 +1,8 @@
+# ensure brew is initialized if available
+if whence brew >/dev/null; then
+  eval "$(/opt/homebrew/bin/brew shellenv)"
+fi
+
 export PATH="$HOME/.cargo/bin:$PATH"
 
 # Used as directory for binaries for vim go plugin
@@ -59,15 +64,10 @@ export CARGO_HOME="$HOME/.local/share/cargo"
 export WEECHAT_HOME="$HOME/.config/weechat"
 export PYTHONSTARTUP="$HOME/.config/pythonrc"
 
+
 # Add pyenv specific ENVVARs following documentation
 export PYENV_ROOT="$HOME/.pyenv"
 export PATH="$PYENV_ROOT/bin:$PATH"
-
-if whence brew >/dev/null; then
-  export PATH="/opt/homebrew/bin:$PATH"
-  eval "$(/opt/homebrew/bin/brew shellenv)"
-fi
-eval "$(pyenv init --path)"
 
 if [ -z "$DISPLAY" ] && [ -n "$XDG_VTNR" ] && [ "$XDG_VTNR" -eq 1 ]; then
   exec startx "$HOME/.config/X11/xinitrc"
