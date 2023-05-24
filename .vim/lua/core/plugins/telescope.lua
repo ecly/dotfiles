@@ -1,9 +1,15 @@
 -- quick fuzzy lookup of files
+--
+if vim.fn.has('macunix') then
+    FZF_BUILD_CMD = "arch -arm64 make"
+else
+    FZF_BUILD_CMD = "make"
+end
 local M = {
          'nvim-telescope/telescope.nvim',
          dependencies = {
              'nvim-lua/plenary.nvim',
-             {'nvim-telescope/telescope-fzf-native.nvim', build = 'cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build'}
+             {'nvim-telescope/telescope-fzf-native.nvim', build = FZF_BUILD_CMD}
          },
          config = function()
              -- Telescope settings
