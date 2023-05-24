@@ -66,11 +66,6 @@ windows:
       layout: even-horizontal
       panes:
         -
-  - utils:
-      root: ~/Programming/work/mlt-utils
-      layout: even-horizontal
-      panes:
-        -
   - shm:
       root: ~/Programming/work/mlt-system-health-monitor
       layout: even-horizontal
