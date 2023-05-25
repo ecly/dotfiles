@@ -4,44 +4,7 @@ local M = {
     config = function()
         require("barbecue").setup({
             symbols = {separator = ""},
-            -- icons from https://github.com/glepnir/lspsaga.nvim/blob/main/lua/lspsaga/lspkind.lua
-            kinds = {
-                File = ' ',
-                Module = ' ',
-                Namespace = ' ',
-                Package = ' ',
-                Class = ' ',
-                Method = ' ',
-                Property = ' ',
-                Field = ' ',
-                Constructor = ' ',
-                Enum = '了',
-                Interface = ' ',
-                Function = ' ',
-                Variable = ' ',
-                Constant = ' ',
-                String = ' ',
-                Number = ' ',
-                Boolean = ' ',
-                Array = ' ',
-                Object = ' ',
-                Key = ' ',
-                Null = ' ',
-                EnumMember = ' ',
-                Struct = ' ',
-                Event = ' ',
-                Operator = ' ',
-                TypeParameter = ' ',
-                TypeAlias = ' ',
-                Parameter = ' ',
-                StaticMethod = 'ﴂ ',
-                Macro = ' ',
-                Text = ' ',
-                Snippet = ' ',
-                Folder = ' ',
-                Unit = ' ',
-                Value = ' '
-            }
+            -- icons defaulted from https://github.com/glepnir/lspsaga.nvim/blob/main/lua/lspsaga/lspkind.lua
         })
     end
 }

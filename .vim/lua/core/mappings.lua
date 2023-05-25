@@ -119,7 +119,7 @@ wk.register({
         a = {'<cmd>lua vim.lsp.buf.code_action()<CR>', 'Action'},
         f = {'<cmd>lua vim.lsp.buf.format({async = true})<CR>', "Format"},
         r = {'<cmd>lua vim.lsp.buf.rename()<CR>', 'Rename'},
-        t = {"<cmd>StripWhitespace<CR>"}
+        t = {"<cmd>StripWhitespace<CR>", "Strip whitespace"}
     },
     l = {
         name = "LSP",
