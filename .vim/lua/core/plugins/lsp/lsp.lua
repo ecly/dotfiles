@@ -43,7 +43,6 @@ end
 
 local venv = utils.exists("./.venv/") and "./.venv" or nil
 nvim_lsp.pylsp.setup({
-    cmd = { "pylsp", "--log-file", "/home/ecly/pylsp.log", "-v" },
     capabilities = capabilities,
     on_attach = function(client, _)
         client.server_capabilities.documentFormattingProvider = false
