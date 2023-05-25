@@ -11,16 +11,30 @@ HISTSIZE=10000
 SAVEHIST=10000
 HISTFILE="$HOME/.cache/zsh/history"
 
-# ensure this is set before antibody inits
-CLOUDSDK_HOME="$HOME/.local/share/google-cloud-sdk"
-source <(antibody init)
+_has() {
+  return $( whence $1 >/dev/null )
+}
+
+# ensure this is set before antidote inits
+export CLOUDSDK_HOME="$HOME/.local/share/google-cloud-sdk"
+
+if _has antibody; then
+    ZSH_PLUGIN_MGR="antibody"
+    ZSH_PLUGIN_LOAD_CMD="antibody bundle < $HOME/.config/zsh/antibody_plugins.txt"
+    source <(antibody init)
+else
+    ZSH_PLUGIN_MGR="antidote"
+    ZSH_PLUGIN_LOAD_CMD="antidote load $HOME/.config/zsh/antibody_plugins.txt"
+    # currently only using antidote for mac
+    source /opt/homebrew/opt/antidote/share/antidote/antidote.zsh
+fi
 
 # configure default added keys for ssh-agent plugin
 zstyle :omz:plugins:ssh-agent identities azure_devops_rsa bitbucket
 # avoid problematic behavior with zsh-poetry plugin overrides
 ZSH_POETRY_OVERRIDE_SHELL=0
 
-antibody bundle < ~/.config/zsh/antibody_plugins.txt
+eval $ZSH_PLUGIN_LOAD_CMD
 
 PROMPT='[%F{1}%n%f@%F{5}%m%f%F{3}%f]%F{6}~%f '
 
@@ -97,9 +111,6 @@ fi
 # Use ag for fzf
 # Uses same command for all binds - could make this for ALT_C
 # Utility function to determine whether command is executable or aliased.
-_has() {
-  return $( whence $1 >/dev/null )
-}
 if _has fzf && _has rg; then
     export FZF_DEFAULT_COMMAND='rg --files --follow --glob "!.git/*"'
     export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
@@ -128,10 +139,10 @@ if _has fzf && _has rg; then
 fi
 
 # The next line updates PATH for the Google Cloud SDK.
-if [ -f '/home/ecly/.local/share/google-cloud-sdk/path.zsh.inc' ]; then . '/home/ecly/.local/share/google-cloud-sdk/path.zsh.inc'; fi
+if [ -f "$HOME/.local/share/google-cloud-sdk/path.zsh.inc" ]; then . "$HOME/.local/share/google-cloud-sdk/path.zsh.inc"; fi
 
 # The next line enables shell command completion for gcloud.
-if [ -f '/home/ecly/.local/share/google-cloud-sdk/completion.zsh.inc' ]; then . '/home/ecly/.local/share/google-cloud-sdk/completion.zsh.inc'; fi
+if [ -f "$HOME/.local/share/google-cloud-sdk/completion.zsh.inc" ]; then . "$HOME/.local/share/google-cloud-sdk/completion.zsh.inc"; fi
 
 bindkey '^ ' autosuggest-accept # use ctrl+space to accept auto-suggestions
 
