@@ -136,9 +136,5 @@ alias lzd="lazydocker"
 alias weechat="weechat -d '$HOME/.config/weechat'"
 alias wget="wget --hsts-file='$HOME/.cache/wget-hsts'"
 
-# Get current powerdraw in watts
-# https://unix.stackexchange.com/questions/10418/how-to-find-power-draw-in-watts
-alias powerdraw="awk '{print \$1*10^-6 \"W\"}' /sys/class/power_supply/BAT0/power_now"
-
 # Create new floating scratchpad for i3
 alias scratch="alacritty --title scratch -e zsh -i -c tmux> /dev/null 2>&1 & disown"
