@@ -42,7 +42,7 @@ vim.o.hlsearch = true -- Highlight searches
 vim.o.incsearch = true -- Search as typing
 vim.o.concealcursor = nil -- Never conceal anything on current line
 -- Persistent undo handling
-vim.o.undodir = "/tmp/vim-undo"
+vim.o.undodir = vim.fn.expand('$HOME/.cache/nvim/undodir')
 vim.o.undofile = true
 vim.o.lazyredraw = true -- Speedup large files and macros
 vim.o.updatetime = 100 -- Default 4000 is a bit high for async updates
@@ -59,7 +59,6 @@ vim.o.t_8f = "[38;2;%lu;%lu;%lum"
 vim.o.t_8b = "[48;2;%lu;%lu;%lum"
 vim.cmd [[filetype plugin on]]
 vim.opt.background = "dark"
-
 
 -- Don't auto break my lines
 vim.cmd [[
