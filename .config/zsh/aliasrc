@@ -77,6 +77,8 @@ alias cfz="vim ~/.config/zsh/.zshrc"
 alias cft="vim ~/.tmux.conf"
 alias cfa="vim ~/.config/zsh/aliasrc"
 alias cfc="vim ~/.config/alacritty/alacritty.yml"
+alias cfy="vim ~/.yabairc"
+alias cfs="vim ~/.skhdrc"
 
 # Used for toggling colors for playing csgo
 alias csgo="sh ~/Scripts/vibrance.sh"
