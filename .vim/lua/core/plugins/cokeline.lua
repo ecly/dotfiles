@@ -128,7 +128,6 @@ local M = {
           components.unique_prefix,
           components.filename,
           components.diagnostics,
-          components.two_spaces,
           components.close_or_unsaved,
           components.space,
         }
