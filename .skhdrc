@@ -1,0 +1,180 @@
+#  NOTE(koekeishiya): A list of all built-in modifier and literal keywords can
+#                     be found at https://github.com/koekeishiya/skhd/issues/1
+#
+#                     A hotkey is written according to the following rules:
+#
+#                       hotkey       = <mode> '<' <action> | <action>
+#
+#                       mode         = 'name of mode' | <mode> ',' <mode>
+#
+#                       action       = <keysym> '[' <proc_map_lst> ']' | <keysym> '->' '[' <proc_map_lst> ']'
+#                                      <keysym> ':' <command>          | <keysym> '->' ':' <command>
+#                                      <keysym> ';' <mode>             | <keysym> '->' ';' <mode>
+#
+#                       keysym       = <mod> '-' <key> | <key>
+#
+#                       mod          = 'modifier keyword' | <mod> '+' <mod>
+#
+#                       key          = <literal> | <keycode>
+#
+#                       literal      = 'single letter or built-in keyword'
+#
+#                       keycode      = 'apple keyboard kVK_<Key> values (0x3C)'
+#
+#                       proc_map_lst = * <proc_map>
+#
+#                       proc_map     = <string> ':' <command> | <string>     '~' |
+#                                      '*'      ':' <command> | '*'          '~'
+#
+#                       string       = '"' 'sequence of characters' '"'
+#
+#                       command      = command is executed through '$SHELL -c' and
+#                                      follows valid shell syntax. if the $SHELL environment
+#                                      variable is not set, it will default to '/bin/bash'.
+#                                      when bash is used, the ';' delimeter can be specified
+#                                      to chain commands.
+#
+#                                      to allow a command to extend into multiple lines,
+#                                      prepend '\' at the end of the previous line.
+#
+#                                      an EOL character signifies the end of the bind.
+#
+#                       ->           = keypress is not consumed by skhd
+#
+#                       *            = matches every application not specified in <proc_map_lst>
+#
+#                       ~            = application is unbound and keypress is forwarded per usual, when specified in a <proc_map>
+#
+#  NOTE(koekeishiya): A mode is declared according to the following rules:
+#
+#                       mode_decl = '::' <name> '@' ':' <command> | '::' <name> ':' <command> |
+#                                   '::' <name> '@'               | '::' <name>
+#
+#                       name      = desired name for this mode,
+#
+#                       @         = capture keypresses regardless of being bound to an action
+#
+#                       command   = command is executed through '$SHELL -c' and
+#                                   follows valid shell syntax. if the $SHELL environment
+#                                   variable is not set, it will default to '/bin/bash'.
+#                                   when bash is used, the ';' delimeter can be specified
+#                                   to chain commands.
+#
+#                                   to allow a command to extend into multiple lines,
+#                                   prepend '\' at the end of the previous line.
+#
+#                                   an EOL character signifies the end of the bind.
+
+# add an on_enter command to the default mode
+# :: default : yabai -m config active_window_border_color 0xff775759
+#
+# defines a new mode 'test' with an on_enter command, that captures keypresses
+# :: test @ : yabai -m config active_window_border_color 0xff24ccaa
+#
+# from 'default' mode, activate mode 'test'
+# cmd - x ; test
+#
+# from 'test' mode, activate mode 'default'
+# test < cmd - x ; default
+#
+# launch a new terminal instance when in either 'default' or 'test' mode
+# default, test < cmd - return : open -na /Applications/Terminal.app
+
+# application specific bindings
+#
+# cmd - n [
+#     "kitty"       : echo "hello kitty"
+#     *             : echo "hello everyone"
+#     "qutebrowser" : echo "hello qutebrowser"
+#     "terminal"    ~
+#     "finder"      : false
+# ]
+
+# specify a file that should be included as an additional config-file.
+# treated as an absolutepath if the filename begins with '/' otherwise
+# the file is relative to the path of the config-file it was loaded from.
+#
+# .load "/Users/Koe/.config/partial_skhdrc"
+# .load "partial_skhdrc"
+
+# prevent skhd from monitoring events for specific applications.
+#
+# .blacklist [
+#    "kitty"
+#    "terminal"
+#    "qutebrowser"
+# ]
+# open terminal, blazingly fast compared to iTerm/Hyper
+cmd + shift - s : open /Applications/Spotify.app
+cmd + shift - b : open -na /Applications/Firefox.app
+alt - return : open -na /Applications/Alacritty.app
+alt - r : open -na /Applications/Alacritty.app --args --command ranger
+
+# change window layout
+alt - e : yabai -m space --layout bsp
+alt - t : yabai -m space --layout float
+alt - s : yabai -m space --layout stack
+
+# focus window in bsp mode
+alt - h: yabai -m window --focus west
+alt - j: yabai -m window --focus south
+alt - k: yabai -m window --focus north
+alt - l: yabai -m window --focus east
+
+# shift window in current workspace (multi screen support)
+# reference: https://cbrgm.net/post/2021-05-5-setup-macos/
+alt + shift - h : yabai -m window --swap west || $(yabai -m window --display west; yabai -m display --focus west)
+alt + shift - j : yabai -m window --swap south || $(yabai -m window --display south; yabai -m display --focus south)
+alt + shift - k : yabai -m window --swap north || $(yabai -m window --display north; yabai -m display --focus north)
+alt + shift - l : yabai -m window --swap east || $(yabai -m window --display east; yabai -m display --focus east)
+
+# configure insertion point of new window
+alt + ctrl - h : yabai -m window --insert west
+alt + ctrl - j : yabai -m window --insert south
+alt + ctrl - k : yabai -m window --insert north
+alt + ctrl - l : yabai -m window --insert east
+alt - backspace: yabai -m window --insert south
+alt - 0x2A: yabai -m window --insert east
+
+
+alt + shift - g: yabai -m space --toggle padding
+
+# close current window
+alt - q : yabai -m window --close
+
+# enter fullscreen mode for the focused container
+alt - f : yabai -m window --toggle zoom-fullscreen
+
+# toggle window native fullscreen
+alt + shift - f : yabai -m window --toggle native-fullscreen
+
+alt - 1 : yabai -m space --focus 1
+alt - 2 : yabai -m space --focus 2
+alt - 3 : yabai -m space --focus 3
+alt - 4 : yabai -m space --focus 4
+alt - 5 : yabai -m space --focus 5
+alt - 6 : yabai -m space --focus 6
+alt - 7 : yabai -m space --focus 7
+alt - 8 : yabai -m space --focus 8
+alt - 9 : yabai -m space --focus 9
+alt - 0 : yabai -m space --focus 10
+
+# move window to space and move focus to said space
+alt + shift - 1 : yabai -m window --space  1; yabai -m space --focus 1
+alt + shift - 2 : yabai -m window --space  2; yabai -m space --focus 2
+alt + shift - 3 : yabai -m window --space  3; yabai -m space --focus 3
+alt + shift - 4 : yabai -m window --space  4; yabai -m space --focus 4
+alt + shift - 5 : yabai -m window --space  5; yabai -m space --focus 5
+alt + shift - 6 : yabai -m window --space  6; yabai -m space --focus 6
+alt + shift - 7 : yabai -m window --space  7; yabai -m space --focus 7
+alt + shift - 8 : yabai -m window --space  8; yabai -m space --focus 8
+alt + shift - 9 : yabai -m window --space  9; yabai -m space --focus 9
+
+# restart yabai
+ctrl + alt + cmd - r : yabai --restart-service
+
+# resize windows, 0x18 = plus, 0x1B minus
+alt - 0x18 : yabai -m window west --resize right:-20:0 2> /dev/null || yabai -m window --resize right:-20:0
+alt - 0x1B : yabai -m window east --resize left:20:0 2> /dev/null || yabai -m window --resize left:20:0
+alt + shift - 0x18 : yabai -m window north --resize bottom:0:20 2> /dev/null || yabai -m window --resize bottom:0:20
+alt + shift - 0x1B : yabai -m window south --resize top:0:-20 2> /dev/null || yabai -m window --resize top:0:-20
