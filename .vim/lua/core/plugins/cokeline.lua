@@ -94,8 +94,8 @@ local M = {
         diagnostics = {
           text = function(buffer)
             return
-              (buffer.diagnostics.errors ~= 0 and ' 󰅚 ' .. buffer.diagnostics.errors)
-              or (buffer.diagnostics.warnings ~= 0 and ' 󰀪 ' .. buffer.diagnostics.warnings)
+              (buffer.diagnostics.errors ~= 0 and ' E' .. buffer.diagnostics.errors)
+              or (buffer.diagnostics.warnings ~= 0 and ' W' .. buffer.diagnostics.warnings)
               or ''
           end,
           fg = function(buffer)

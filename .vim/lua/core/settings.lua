@@ -6,7 +6,7 @@ M.treesitter_ensure_installed = {
     "bash", "c", "c_sharp", "comment", "cpp", "cpp", "css", "dockerfile",
     "elixir", "go", "haskell", "hcl", "html", "java", "javascript", "json",
     "latex", "lua", "markdown", "markdown_inline", "query", "python", "regex",
-    "ruby", "rust", "toml", "typescript", "vim", "yaml"
+    "ruby", "rust", "toml", "typescript", "vim", "yaml", "terraform"
 }
 
 M.mason_tool_installer_ensure_installed = {
