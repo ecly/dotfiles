@@ -52,10 +52,10 @@ yabai -m rule --add app='^Cisco' manage=off
 
 
 # Web browsers
-yabai -m rule --add app="^Google Chrome|Firefox|Safari$" space=1
+yabai -m rule --add app="^(Google Chrome|Firefox|Safari)$" space=1
 # yabai -m rule --add app="^(Alacritty)$" space=2
 yabai -m rule --add app="^(Spotify)$" space=3
 yabai -m rule --add app="^(Microsoft Teams|Microsoft Outlook)$" space=4
-yabai -m rule --add app="^(Signal|Mail|Messages|Notes)$" space=5
+yabai -m rule --add app="^(Signal|Mail|Messages|Notes|Discord)$" space=5
 
 echo "yabai configuration loaded.."
