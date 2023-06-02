@@ -46,9 +46,10 @@ yabai -m rule --add app='^System Information$' manage=off
 yabai -m rule --add app='^System Preferences$' manage=off
 yabai -m rule --add app='^System Settings$' manage=off
 yabai -m rule --add title='Preferences$' manage=off
-# float vpn
-yabai -m rule --add app='^Cisco' manage=off
 
+# float certain applications
+yabai -m rule --add app='^Cisco' manage=off
+yabai -m rule --add app='^Bitwarden$' manage=off
 
 
 # Web browsers
