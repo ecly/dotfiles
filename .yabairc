@@ -6,13 +6,33 @@ sudo yabai --load-sa
 
 # current config copied from
 # https://cbrgm.net/post/2021-05-5-setup-macos/
+#
+function setup_space {
+  local idx="$1"
+  local name="$2"
+  local space=
+  echo "setup space $idx : $name"
+
+  space=$(yabai -m query --spaces --space "$idx")
+  if [ -z "$space" ]; then
+    yabai -m space --create
+  fi
+
+  yabai -m space "$idx" --label "$name"
+}
+
+setup_space 1 music
+setup_space 2 web
+setup_space 3 work
+setup_space 4 code
+setup_space 5 personal
 
 
 # bar settings
 yabai -m config top_padding 0
 
 # global settings
-yabai -m config mouse_follows_focus          off
+yabai -m config mouse_follows_focus          on
 yabai -m config focus_follows_mouse          off
 
 yabai -m config window_placement             second_child
@@ -40,7 +60,6 @@ yabai -m config left_padding                 10
 yabai -m config right_padding                10
 yabai -m config window_gap                   10
 
-
 # float system preferences
 yabai -m rule --add app='^System Information$' manage=off
 yabai -m rule --add app='^Microsoft Teams$' manage=off
@@ -52,12 +71,10 @@ yabai -m rule --add title='Preferences$' manage=off
 yabai -m rule --add app='^Cisco' manage=off
 yabai -m rule --add app='^Bitwarden$' manage=off
 
-
 # Web browsers
-yabai -m rule --add app="^(Google Chrome|Firefox|Safari)$" space=1
-# yabai -m rule --add app="^(Alacritty)$" space=2
-yabai -m rule --add app="^(Spotify)$" space=3
-yabai -m rule --add app="^(Microsoft Teams|Microsoft Outlook)$" space=4
+yabai -m rule --add app="^(Spotify)$" space=1
+yabai -m rule --add app="^(Google Chrome|Firefox|Safari)$" space=2
+yabai -m rule --add app="^(Microsoft Teams|Microsoft Outlook)$" space=3
 yabai -m rule --add app="^(Signal|Mail|Messages|Notes|Discord)$" space=5
 
 echo "yabai configuration loaded.."
