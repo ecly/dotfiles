@@ -1,12 +1,12 @@
 font:
     normal:
-        family: Terminus (TTF)
+        family: "Terminess Nerd Font"
         style: Regular
     bold:
-        family: Terminus (TTF)
+        family: "Terminus (TTF)"
         style: Bold
     italic:
-        family: Terminus (TTF)
+        family: "Terminus (TTF)"
         style: Italic
     size: 16.5
     offset:
@@ -20,7 +20,7 @@ window:
         x: 10
         y: 10
 env:
-    TERM: alacritty
+    TERM: xterm-256color
 hints:
     enabled:
         - regex: "(ipfs:|ipns:|magnet:|mailto:|gemini:|gopher:|https:|http:|news:|file:|git:|ssh:|ftp:)\
