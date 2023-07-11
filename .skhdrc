@@ -116,10 +116,12 @@ alt - t : yabai -m space --layout float
 alt - s : yabai -m space --layout stack
 
 # focus window in bsp mode
-alt - h: yabai -m window --focus west
+alt - h : yabai -m window --focus west || yabai -m display --focus west
+#alt - h: yabai -m window --focus west
 alt - j: yabai -m window --focus south
 alt - k: yabai -m window --focus north
-alt - l: yabai -m window --focus east
+# alt - l: yabai -m window --focus east
+alt - l : yabai -m window --focus east || yabai -m display --focus east
 
 # shift window in current workspace (multi screen support)
 # reference: https://cbrgm.net/post/2021-05-5-setup-macos/
