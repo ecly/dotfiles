@@ -109,7 +109,7 @@ cmd + shift - s : open /Applications/Spotify.app
 cmd + shift - b : open -na /Applications/Firefox.app
 alt - return : open -na /Applications/Alacritty.app
 alt - r : open -na /Applications/Alacritty.app --args --command ranger
-alt - m : open -na /Applications/Raycast.app
+# alt + shift - m : open -na /Applications/Raycast.app
 
 # change window layout
 alt - e : yabai -m space --layout bsp
