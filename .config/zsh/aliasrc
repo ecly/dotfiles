@@ -19,7 +19,7 @@ alias evince="evince 2>/dev/null"
 # replace antibody with next gen version of it
 alias antibody="antidote"
 # https://github.com/ranger/ranger/issues/2608
-alias ranger="TERM=xterm-256color ranger"
+alias ranger="ranger"
 
 # .Xresources handling - reload, merge
 alias xm="xrdb -merge ~/.Xresources"
