@@ -25,7 +25,6 @@ require("mason").setup({})
 require("mason-lspconfig").setup({
     automatic_installation = true,
 })
-
 for _, lsp in ipairs(servers) do
     nvim_lsp[lsp].setup({
         on_attach = function(client, bufnr)
@@ -40,6 +39,11 @@ for _, lsp in ipairs(servers) do
         flags = { debounce_text_changes = 150 },
     })
 end
+
+nvim_lsp.yamlls.setup({
+    -- don't complain about key ordering in yaml
+    settings = { yaml = { keyOrdering = false, } }
+})
 
 local venv = utils.exists("./.venv/") and "./.venv" or nil
 nvim_lsp.pylsp.setup({

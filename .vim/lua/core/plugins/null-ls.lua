@@ -19,7 +19,7 @@ local M = {
                         "-d", "missing-function-docstring", "-d",
                         "invalid-name", "-d", "missing-module-docstring", "-d",
                         "missing-class-docstring", "-d", "W1514", -- open without explicit encoding
-                        "-d", "too-few-public-methods", "-d", "line-too-long",
+                        "-d", "too-few-public-methods", "-d", "line-too-long"
                     }
                 }), nls.builtins.formatting.black.with({
                     cwd = function(params)
@@ -32,7 +32,12 @@ local M = {
                     end,
                     prefer_local = ".venv/bin"
                 }), nls.builtins.formatting.lua_format.with({}),
-                nls.builtins.diagnostics.ruff.with({extra_args={"--ignore", "E501"}}) -- ignore line length
+                nls.builtins.diagnostics.ruff.with({
+                    extra_args = {
+                        "--ignore E501", -- ignore line length
+                        "--ignore E741" -- ignore ambiguous variable name
+                    }
+                })
             }
         })
     end
