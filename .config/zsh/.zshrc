@@ -36,7 +36,10 @@ ZSH_POETRY_OVERRIDE_SHELL=0
 
 eval $ZSH_PLUGIN_LOAD_CMD
 
-PROMPT='[%F{1}%n%f@%F{5}%m%f%F{3}%f]%F{6}~%f '
+# shorten long hostnames with dashes (typically followed by an ID
+# to everything up until the dash
+short_hostname="$(hostname|sed -e 's/-.*//')"
+PROMPT="[%F{1}%n%f@%F{5}${short_hostname}%f%F{3}%f]%F{6}~%f "
 
 # Setup vi mode
 bindkey -v
