@@ -1,5 +1,8 @@
 -- Use system clipboard
 vim.cmd [[set clipboard+=unnamedplus]]
+-- Disable netrw as we use NvimTree instead
+vim.g.loaded_netrw = 1
+vim.g.loaded_netrwPlugin = 1
 -- Enable mouse mode
 vim.o.mouse = "a"
 -- Enable break indent
