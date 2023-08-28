@@ -1,5 +1,4 @@
 -- fast tree view for file navigation
-local map = require('core.utils').map
 local M = {
     'kyazdani42/nvim-tree.lua',
     dependencies = {'nvim-tree/nvim-web-devicons'},
