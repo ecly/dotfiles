@@ -86,8 +86,8 @@ windows:
       layout: even-horizontal
       panes:
         -
-  - caption:
-      root: ~/Programming/work/mlt-captioning
+  - llms:
+      root: ~/Programming/work/mlt-llms-discovery
       layout: even-horizontal
       panes:
         -
