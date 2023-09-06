@@ -106,7 +106,8 @@
 # ]
 # open terminal, blazingly fast compared to iTerm/Hyper
 cmd + shift - s : open /Applications/Spotify.app
-cmd + shift - b : open -na /Applications/Firefox.app
+cmd - b : open -na /Applications/Firefox.app
+cmd + shift - b : firefox --private-window
 alt - return : open -na /Applications/Alacritty.app
 alt - r : open -na /Applications/Alacritty.app --args --command ranger
 # alt + shift - m : open -na /Applications/Raycast.app
