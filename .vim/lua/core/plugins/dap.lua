@@ -1,3 +1,6 @@
+local utils = require("core.utils")
+local venv = utils.exists("./.venv/") and "./.venv" or nil
+
 -- debugging setup
 local M = {
   {

@@ -68,7 +68,7 @@ yabai -m rule --add title='Preferences$' manage=off
 
 # float certain applications
 yabai -m rule --add app='^Cisco' manage=off
-yabai -m rule --add app='^Bitwarden$' manage=off
+#yabai -m rule --add app='^Bitwarden$' manage=off
 
 # Web browsers
 yabai -m rule --add app="^(Spotify)$" space=^1
@@ -76,5 +76,9 @@ yabai -m rule --add app="^(Google Chrome|Firefox|Safari)$" space=^2
 yabai -m rule --add app="^(Microsoft Teams|Microsoft Outlook)$" space=^3
 yabai -m rule --add app="^(Alacritty)$" space=^4
 # yabai -m rule --add app="^(Signal|Mail|Messages|Notes|Discord)$" space=5
+
+# Bitwarden on top
+yabai -m rule --add app="^Bitwarden$" sticky=on layer=above manage=off
+
 
 echo "yabai configuration loaded.."
