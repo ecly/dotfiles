@@ -83,15 +83,15 @@ yay -Syyu --noconfirm \
 
 
 # Handle Python specific installs with pipx
+pyenv install 3.11.5
+pyenv global 3.11.5
+pyenv shell 3.11.5
 pip3 install pipx --user
 pipx install "python-lsp-server[all]" \
     && pipx inject python-lsp-server pylsp-mypy pyls-isort python-lsp-black black"
 pipx install poetry
-pipx install "black==$BLACK_VERSION"
-pipx install isort
 pipx install pywal
 pipx install vint
-pipx install pylint
 
 # apply theme
 wal --theme base16-gruvbox-medium
