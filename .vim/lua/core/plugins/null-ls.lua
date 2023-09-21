@@ -36,7 +36,11 @@ local M = {
                     extra_args = {
                         "--ignore E501", -- ignore line length
                         "--ignore E741" -- ignore ambiguous variable name
-                    }
+                    },
+                    prefer_local = ".venv/bin"
+                }),
+                nls.builtins.diagnostics.mypy.with({
+                    prefer_local = ".venv/bin"
                 })
             }
         })
