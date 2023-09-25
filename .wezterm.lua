@@ -16,7 +16,7 @@ end
 config.color_scheme = 'Gruvbox dark, medium (base16)'
 
 -- Hide the tab bar
-config.enable_tab_bar = false
+config.hide_tab_bar_if_only_one_tab = true
 
 -- Don't resize the window when adjusting dfont size
 config.adjust_window_size_when_changing_font_size = false
