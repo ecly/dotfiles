@@ -30,7 +30,8 @@ else
 fi
 
 # configure default added keys for ssh-agent plugin
-zstyle :omz:plugins:ssh-agent identities azure_devops_rsa bitbucket
+# add key names after identities to auto add
+# zstyle :omz:plugins:ssh-agent identities <add key name>
 # avoid problematic behavior with zsh-poetry plugin overrides
 ZSH_POETRY_OVERRIDE_SHELL=0
 
