@@ -42,7 +42,7 @@ root: ~/Programming/work
 
 windows:
   - wiki:
-      root: ~/Documents/work/vimwiki
+      root: ~/Documents/work/language_wire/vimwiki
       layout: even-horizontal
       panes:
         - vim index.md todo.md
