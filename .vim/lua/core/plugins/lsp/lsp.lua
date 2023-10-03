@@ -46,6 +46,7 @@ nvim_lsp.yamlls.setup({
 })
 
 local venv = utils.exists("./.venv/") and "./.venv" or nil
+
 nvim_lsp.pylsp.setup({
     capabilities = capabilities,
     on_attach = function(client, _)
@@ -63,7 +64,7 @@ nvim_lsp.pylsp.setup({
             configurationSources = {},
             plugins = {
                 jedi = {
-                    extra_paths = { "./dags" },
+                    extra_paths = { "./dags", "./pkgs/py/", "./apps" },
                     environment = venv,
                     enabled = true
                 },
