@@ -112,6 +112,11 @@ if [ -e /usr/share/nvm/init-nvm.sh ]; then
   source /usr/share/nvm/init-nvm.sh
 fi
 
+# Setup NVM following homebrew instructions
+  export NVM_DIR="$HOME/.nvm"
+[ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"  # This loads nvm
+[ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"  #
+
 # Use ag for fzf
 # Uses same command for all binds - could make this for ALT_C
 # Utility function to determine whether command is executable or aliased.
@@ -157,3 +162,7 @@ fi
 
 # fix poetry nonsense: https://github.com/python-poetry/poetry/issues/2692
 export PYTHON_KEYRING_BACKEND="keyring.backends.null.Keyring"
+
+
+# support direnv for local envvar loading
+eval "$(direnv hook zsh)"
