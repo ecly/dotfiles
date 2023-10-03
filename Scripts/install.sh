@@ -19,7 +19,7 @@ if [[ "$OSTYPE" == "darwin"* ]]; then
         bitwarden \
         ca-certificates \
         cmake \
-        universal-ctags \
+        direnv \ 
         discord \
         docker \
         docker-completion \
@@ -42,11 +42,10 @@ if [[ "$OSTYPE" == "darwin"* ]]; then
         tmuxinator \
         tree-sitter \
         tresort \
+        universal-ctags \
         unnaturalscrollwheels \
         wezterm \
-        wget \
-
-
+        wget
 else
     # install yay if not already installed
     if ! command -v yay > /dev/null; then
