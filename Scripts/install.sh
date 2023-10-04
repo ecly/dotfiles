@@ -1,9 +1,8 @@
-!/bin/bash
+#!/bin/bash
 set -e
 
 
-if [[ "$OSTYPE" == "darwin"* ]]; then
-
+if [ "$(uname)" == "Darwin" ]; then
     if ! command -v brew > /dev/null; then
         /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
         source ~/.zprofile
@@ -19,7 +18,7 @@ if [[ "$OSTYPE" == "darwin"* ]]; then
         bitwarden \
         ca-certificates \
         cmake \
-        direnv \ 
+        direnv \
         discord \
         docker \
         docker-completion \
@@ -46,6 +45,11 @@ if [[ "$OSTYPE" == "darwin"* ]]; then
         unnaturalscrollwheels \
         wezterm \
         wget
+
+    # set up docker compose symlins (as suggested by brew)
+    mkdir -p ~/.docker/cli-plugins
+    ln -sfn /opt/homebrew/opt/docker-compose/bin/docker-compose ~/.docker/cli-plugins/docker-compose
+
 else
     # install yay if not already installed
     if ! command -v yay > /dev/null; then

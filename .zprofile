@@ -51,7 +51,6 @@ export RUSTUP_HOME="$HOME/.config/rustup"
 export PYLINTHOME="$HOME/.cache/pylint"
 export IPYTHONDIR="$HOME/.config/jupyter"
 export JUPYTER_CONFIG_DIR="$HOME/.config/jupyter"
-export DOCKER_CONFIG="$HOME/.config/docker"
 export LESSHISTFILE=-
 export MYSQL_HISTFILE="$HOME/.cache/mysql_history"
 # ensure creation of necessary folders for config
