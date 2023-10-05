@@ -49,6 +49,12 @@ local M = {
                 '*.pdf', '*.doc', '*.docx', '*.ppt', '*.pptx',
                 }
 
+          local utils = require("core.utils")
+          local homebrew_exe_path = "/opt/homebrew/bin/ctags"
+          if utils.exists(homebrew_exe_path) then
+            vim.g.gutentags_ctags_executable = homebrew_exe_path
+          end
+
           vim.g.gutentags_add_default_project_roots = false
           vim.g.gutentags_project_root = {'package.json', '.git', 'poetry.lock', 'pyproject.toml'}
           vim.g.gutentags_cache_dir = vim.fn.expand('~/.cache/nvim/ctags/')
