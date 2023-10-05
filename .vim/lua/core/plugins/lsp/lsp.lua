@@ -64,7 +64,7 @@ nvim_lsp.pylsp.setup({
             configurationSources = {},
             plugins = {
                 jedi = {
-                    extra_paths = { "./dags", "./pkgs/py/", "./apps" },
+                    extra_paths = { "./dags", "./pkgs/py/", "./apps", "./proto/gen/pydantic"},
                     environment = venv,
                     enabled = true
                 },
