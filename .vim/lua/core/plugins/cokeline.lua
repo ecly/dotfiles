@@ -131,7 +131,22 @@ local M = {
           components.space,
           components.close_or_unsaved,
           components.space,
-        }
+        },
+
+        sidebar = {
+          filetype = {'NvimTree', 'neo-tree'},
+          components = {
+            {
+              text = function(buf)
+                return buf.filetype
+              end,
+              fg = yellow,
+              bg = function() return get_hex('NvimTreeNormal', 'bg') end,
+              bold = true,
+            },
+          }
+        },
+
       })
     end
 }
