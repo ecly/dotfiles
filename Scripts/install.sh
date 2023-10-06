@@ -20,10 +20,9 @@ if [ "$(uname)" == "Darwin" ]; then
     brew install direnv
     brew install discord
     brew install --cask docker
-    brew install docker-completion
     brew install docker-compose
     brew install fd
-    brew install firefox
+    brew install --cask firefox
     brew install fzf
     brew install git-delta
     brew install gnu-sed
@@ -31,18 +30,19 @@ if [ "$(uname)" == "Darwin" ]; then
     brew install neovim
     brew install neovim-remote
     brew install nvm
+    brew install npm
     brew install protobuf
     brew install pyenv
     brew install ripgrep
-    brew install signal
-    brew install spotify
+    brew install --cask signal
+    brew install --cask spotify
     brew install tmux
     brew install tmuxinator
     brew install tree-sitter
     brew install --cask tresorit
     brew install universal-ctags
-    brew install unnaturalscrollwheels
-    brew install wezterm
+    brew install --cask unnaturalscrollwheels
+    brew install --cask wezterm
     brew install wget
 
     # set up docker compose symlins (as suggested by brew)
@@ -130,6 +130,25 @@ else
         zathura-pdf-mupdf \
         zip \
         zsh
+
+    # start network manager
+    systemctl enable --now NetworkManager
+
+    # ensure time is correct
+    timedatectl set-ntp true
+
+    # additional optional setup
+    if [ -e "$1" ]; then
+        # setup postgres for development
+        yay -S --noconfirm \
+            spotify \
+            noto-fonts-cjk \
+            nodejs-neovim \
+            ruby-neovim \
+            python2-pynvim \
+            libreoffice \
+            texlive
+    fi
 fi
 
 
@@ -137,7 +156,7 @@ fi
 pyenv install 3.11.5
 pyenv global 3.11.5
 pyenv shell 3.11.5
-pip3 install pipx --user
+pip3 install pipx
 pipx install poetry
 pipx install pywal
 pipx install vint
@@ -146,24 +165,6 @@ pipx install pywal
 # apply theme
 wal --theme base16-gruvbox-medium
 
-# start network manager
-systemctl enable --now NetworkManager
-
-# ensure time is correct
-timedatectl set-ntp true
-
-# additional optional setup
-if [ -e "$1" ]; then
-    # setup postgres for development
-    yay -S --noconfirm \
-        spotify \
-        noto-fonts-cjk \
-        nodejs-neovim \
-        ruby-neovim \
-        python2-pynvim \
-        libreoffice \
-        texlive
-fi
-
 mkdir -p ~/.cache/zsh
 touch ~/.cache/zsh/history
+mkdir -p ~/.ssh
