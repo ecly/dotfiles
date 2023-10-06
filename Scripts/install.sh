@@ -3,54 +3,54 @@ set -e
 
 
 if [ "$(uname)" == "Darwin" ]; then
+    echo "Installing for macOS"
+
     if ! command -v brew > /dev/null; then
         /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
         source ~/.zprofile
     fi
 
-    python
-
     brew install koekeishiya/formulae/skhd
 
-    brew install \
-        antidote \
-        betterdisplay \
-        bitwarden \
-        ca-certificates \
-        cmake \
-        direnv \
-        discord \
-        docker \
-        docker-completion \
-        docker-compose \
-        fd \
-        firefox \
-        fzf \
-        git-delta \
-        gnu-sed \
-        ncdu \
-        neovim \
-        neovim-remote \
-        nvm \
-        protobuf \
-        pyenv \
-        ripgrep \
-        signal \
-        spotify \
-        tmux \
-        tmuxinator \
-        tree-sitter \
-        tresort \
-        universal-ctags \
-        unnaturalscrollwheels \
-        wezterm \
-        wget
+    brew install antidote
+    brew install betterdisplay
+    brew install bitwarden
+    brew install ca-certificates
+    brew install cmake
+    brew install direnv
+    brew install discord
+    brew install --cask docker
+    brew install docker-completion
+    brew install docker-compose
+    brew install fd
+    brew install firefox
+    brew install fzf
+    brew install git-delta
+    brew install gnu-sed
+    brew install ncdu
+    brew install neovim
+    brew install neovim-remote
+    brew install nvm
+    brew install protobuf
+    brew install pyenv
+    brew install ripgrep
+    brew install signal
+    brew install spotify
+    brew install tmux
+    brew install tmuxinator
+    brew install tree-sitter
+    brew install --cask tresorit
+    brew install universal-ctags
+    brew install unnaturalscrollwheels
+    brew install wezterm
+    brew install wget
 
     # set up docker compose symlins (as suggested by brew)
     mkdir -p ~/.docker/cli-plugins
     ln -sfn /opt/homebrew/opt/docker-compose/bin/docker-compose ~/.docker/cli-plugins/docker-compose
-
 else
+    echo "Installing for macOS"
+
     # install yay if not already installed
     if ! command -v yay > /dev/null; then
         git clone https://aur.archlinux.org/yay.git
@@ -70,7 +70,6 @@ else
         dunst \
         elixir \
         elixir-ls \
-        fd \
         fd \
         ffmpegthumbnailer \
         firefox \
@@ -130,7 +129,7 @@ else
         zathura \
         zathura-pdf-mupdf \
         zip \
-        zsh \
+        zsh
 fi
 
 
@@ -163,9 +162,7 @@ if [ -e "$1" ]; then
         ruby-neovim \
         python2-pynvim \
         libreoffice \
-        texlive-most \
-        biber \
-        texlive-lang
+        texlive
 fi
 
 mkdir -p ~/.cache/zsh

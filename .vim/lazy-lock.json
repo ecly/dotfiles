@@ -22,7 +22,7 @@
   "gruvbox.nvim": { "branch": "main", "commit": "a569160337aa309db4cfe21ba4e088f0e6676fb4" },
   "i3-vim-syntax": { "branch": "master", "commit": "affe37e89911c47831cb5b87697ac70e48bb3e0f" },
   "indent-blankline.nvim": { "branch": "master", "commit": "da789082a43e2bb8930c7be0e265ce37768394d8" },
-  "lazy.nvim": { "branch": "main", "commit": "64cb9b16f6d4f1c395de4ec672d9d79fffb5c3b4" },
+  "lazy.nvim": { "branch": "main", "commit": "6687afae42b72fb660bfae2bd0eb98e77156829b" },
   "lspkind-nvim": { "branch": "master", "commit": "57610d5ab560c073c465d6faf0c19f200cb67e6e" },
   "lspsaga.nvim": { "branch": "main", "commit": "6c513efee85a7968b58402b6082e65aba002ddc6" },
   "lualine.nvim": { "branch": "master", "commit": "45e27ca739c7be6c49e5496d14fcf45a303c3a63" },
