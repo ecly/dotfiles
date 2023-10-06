@@ -13,7 +13,7 @@ M.mason_tool_installer_ensure_installed = {
     -- LSP
     "bash-language-server", "dockerfile-language-server", "elixir-ls",
     "json-lsp", "marksman", "typescript-language-server", "texlab",
-    "lua-language-server", "pyright", "python-lsp-server", "terraform-ls",
+    "lua-language-server", "python-lsp-server", "terraform-ls",
     "yaml-language-server", -- Formatter
     "black", "prettier", "stylua", "shfmt", "isort", "pylint", "ruff", -- Linter
     "pydocstyle", "eslint_d", "shellcheck", "tflint", "yamllint", "mypy", -- DAP

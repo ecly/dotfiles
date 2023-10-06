@@ -161,6 +161,7 @@ pipx install poetry
 pipx install pywal
 pipx install vint
 pipx install pywal
+pipx install ranger-fm
 
 # apply theme
 wal --theme base16-gruvbox-medium
