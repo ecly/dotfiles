@@ -2,6 +2,7 @@
 local M = {
     'willothy/nvim-cokeline',
     dependencies = {'nvim-tree/nvim-web-devicons'},
+    branch = "main",
     config = function()
       local get_hex = require('cokeline.hlgroups').get_hl_attr
       local mappings = require('cokeline/mappings')
