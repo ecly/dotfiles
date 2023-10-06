@@ -22,6 +22,7 @@ function setup_space {
 
 setup_space 1 music
 setup_space 2 web
+yabai -m config --space 2 layout stack
 setup_space 3 work
 setup_space 4 code
 setup_space 5 personal
@@ -71,10 +72,10 @@ yabai -m rule --add app='^Cisco' manage=off
 #yabai -m rule --add app='^Bitwarden$' manage=off
 
 # Web browsers
-yabai -m rule --add app="^(Spotify)$" space=^1
-yabai -m rule --add app="^(Google Chrome|Firefox|Safari)$" space=^2
-yabai -m rule --add app="^(Microsoft Teams|Microsoft Outlook)$" space=^3
-yabai -m rule --add app="^(Alacritty)$" space=^4
+yabai -m rule --add app="^(Firefox|Safari)$" space=^1
+yabai -m rule --add app="^(Wezterm|WezTerm)$" space=^2
+yabai -m rule --add app="^(Spotify|Asana)$" space=^3
+yabai -m rule --add app="^(Slack|Mail.app|Mail|Google Chrome)$" space=^4
 # yabai -m rule --add app="^(Signal|Mail|Messages|Notes|Discord)$" space=5
 
 # Bitwarden on top
