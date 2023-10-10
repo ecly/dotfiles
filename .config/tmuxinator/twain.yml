@@ -50,13 +50,18 @@ windows:
       layout: even-horizontal
       panes:
         - vim index.md todo.md
+  - infra:
+      root: ~/Programming/work/infra
+      layout: even-horizontal
+      panes:
+        -
   - twain:
       root: ~/Programming/work/twain
       layout: even-horizontal
       panes:
         -
-  - infra:
-      root: ~/Programming/work/infra
+  - twain-remote:
+      root: ~/Programming/work/twain
       layout: even-horizontal
       panes:
         -

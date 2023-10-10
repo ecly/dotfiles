@@ -111,7 +111,7 @@ cmd + shift - b : firefox --private-window
 alt - return : open -na /Applications/Alacritty.app
 alt - r : open -na /Applications/Alacritty.app --args --command ranger
 alt + shift - u : open /Applications/Bitwarden.app
-# alt + shift - m : open -na /Applications/Raycast.app
+alt + shift - m : open -na /Applications/Raycast.app
 
 # change window layout
 alt - e : yabai -m space --layout bsp
