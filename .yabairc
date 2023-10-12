@@ -20,12 +20,12 @@ function setup_space {
   yabai -m space "$idx" --label "$name"
 }
 
-setup_space 1 music
-setup_space 2 web
-yabai -m config --space 2 layout stack
-setup_space 3 work
-setup_space 4 code
-setup_space 5 personal
+setup_space 1 web
+setup_space 2 code
+setup_space 3 misc
+yabai -m config --space 3 layout stack
+setup_space 4 communication
+setup_space 5 project
 
 
 # bar settings
@@ -72,11 +72,12 @@ yabai -m rule --add app='^Cisco' manage=off
 #yabai -m rule --add app='^Bitwarden$' manage=off
 
 # Web browsers
-yabai -m rule --add app="^(Firefox|Safari)$" space=^1
+yabai -m rule --add app="^(Firefox)$" space=^1
 yabai -m rule --add app="^(Wezterm|WezTerm)$" space=^2
-yabai -m rule --add app="^(Spotify|Asana)$" space=^3
-yabai -m rule --add app="^(Slack|Mail.app|Mail|Google Chrome|Google Meet)$" space=^4
-# yabai -m rule --add app="^(Signal|Mail|Messages|Notes|Discord)$" space=5
+yabai -m rule --add app="^(Spotify|Mail.app|Mail|Discord|Messages|Signal)$" space=^3
+yabai -m rule --add app="^(Slack|Google Meet)$" space=^4
+yabai -m rule --add app="^(Google Chrome|Asana)$" space=^5
+yabai -m rule --add app="^(Safari)$" space=^6
 
 # Bitwarden on top
 yabai -m rule --add app="^Bitwarden$" sticky=on layer=above manage=off
