@@ -8,7 +8,11 @@ local M = {
         },
         config = function()
             local settings = require("core.settings")
-            require'treesitter-context'.setup({})
+            require'treesitter-context'.setup({
+                  max_lines = 3,
+                  multiline_threshold = 1,
+                  min_window_height = 20,
+            })
             require('nvim-treesitter.configs').setup {
                 ensure_installed = settings.treesitter_ensure_installed,
                 highlight = {

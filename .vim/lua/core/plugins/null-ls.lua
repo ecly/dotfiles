@@ -6,15 +6,16 @@ local M = {
         local nls = require("null-ls")
         local utils = require("core.utils")
         local pylint_args = {
-            "-d", "missing-function-docstring", "-d",
-            "invalid-name", "-d", "missing-module-docstring", "-d",
-            "missing-class-docstring", "-d", "W1514", -- open without explicit encoding
-            "-d", "too-few-public-methods", "-d", "line-too-long",
+            "-d", "missing-function-docstring", "-d", "invalid-name", "-d",
+            "missing-module-docstring", "-d", "missing-class-docstring", "-d",
+            "W1514", -- open without explicit encoding
+            "-d", "too-few-public-methods", "-d", "line-too-long"
         }
 
         -- some umbrella project magic for work
         if utils.exists("./apps/") then
-            table.insert(pylint_args, "--init-hook 'import sys; sys.path.append(\"./apps\")")
+            table.insert(pylint_args,
+                         "--init-hook 'import sys; sys.path.append(\"./apps\")")
         end
 
         nls.setup({
@@ -28,7 +29,7 @@ local M = {
                     method = nls.methods.DIAGNOSTICS_ON_SAVE,
                     -- pylint is slow for big projects, let's give it up to 10s
                     timeout = 10000,
-                    extra_args = pylint_args,
+                    extra_args = pylint_args
                 }), nls.builtins.formatting.black.with({
                     cwd = function(params)
                         return vim.fn.fnamemodify(params.bufname, ':h')
@@ -46,12 +47,9 @@ local M = {
                         "--ignore E741" -- ignore ambiguous variable name
                     },
                     prefer_local = ".venv/bin"
-                }),
-                nls.builtins.diagnostics.mypy.with({
+                }), nls.builtins.diagnostics.mypy.with({
                     prefer_local = ".venv/bin",
-                    extra_args = {
-                        "--ignore-missing-imports"
-                    }
+                    extra_args = {"--ignore-missing-imports"}
                 })
             }
         })
