@@ -11,7 +11,7 @@ if wezterm.config_builder then
 end
 
 config.font = wezterm.font('Terminess Nerd Font')
-config.font_size = 12
+config.font_size = 16
 
 -- This is where you actually apply your config choices
 
