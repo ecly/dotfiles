@@ -45,6 +45,9 @@ if [ "$(uname)" == "Darwin" ]; then
     brew install --cask wezterm
     brew install wget
 
+    brew tap homebrew/cask-fonts
+    brew install font-terminess-ttf-nerd-font
+
     # set up docker compose symlins (as suggested by brew)
     mkdir -p ~/.docker/cli-plugins
     ln -sfn /opt/homebrew/opt/docker-compose/bin/docker-compose ~/.docker/cli-plugins/docker-compose
