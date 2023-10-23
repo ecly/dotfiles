@@ -12,6 +12,7 @@ local servers = {
     "jsonls",
     "marksman",
     -- "pyright", -- not currently working
+    "gopls",
     "pylsp",
     "lua_ls",
     "terraformls",
