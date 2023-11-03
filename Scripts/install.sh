@@ -44,6 +44,7 @@ if [ "$(uname)" == "Darwin" ]; then
     brew install --cask unnaturalscrollwheels
     brew install --cask wezterm
     brew install wget
+    brew install highlight
 
     brew tap homebrew/cask-fonts
     brew install font-terminess-ttf-nerd-font
