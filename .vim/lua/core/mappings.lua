@@ -70,14 +70,14 @@ wk.register({
         name = "Test",
         n = {'<cmd>lua require("neotest").run.run()<CR>', "Run nearest"},
         d = {
-            '<cmd>require("neotest").run.run({strategy = "dap"})<CR>',
+            '<cmd>lua require("neotest").run.run({strategy = "dap"})<CR>',
             "Debug nearest"
         },
         f = {
-            '<cmd>require("neotest").run.run(vim.fn.expand("%"))<CR>',
+            '<cmd>lua require("neotest").run.run(vim.fn.expand("%"))<CR>',
             "Run file"
         },
-        s = {'<cmd>require("neotest").run.run({suite=true})<CR>', "Run suite"}
+        s = {'<cmd>lua require("neotest").run.run({suite=true})<CR>', "Run suite"}
     },
     S = {'<cmd>lua vim.lsp.buf.signature_help()<CR>', "Signature help"},
     w = {
