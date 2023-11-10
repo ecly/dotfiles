@@ -25,10 +25,12 @@ setup_space 2 code
 setup_space 3 plan
 setup_space 4 communication
 setup_space 5 apple
-yabai -m config --space 5 layout float
-setup_space 6 fun
+setup_space 6 music
 yabai -m config --space 6 layout float
-setup_space 7 stream
+setup_space 7 games
+yabai -m config --space 7 layout float
+setup_space 8 stream
+yabai -m config --space 8 layout float
 
 
 # bar settings
@@ -81,7 +83,8 @@ yabai -m rule --add app="^(Google Chrome|Asana)$" space=^3
 yabai -m rule --add app="^(Slack|Google Meet)$" space=^4
 yabai -m rule --add app="^(Mail|Calendar)$" space=^5
 yabai -m rule --add app="^(Spotify|Messages|Signal|Messenger)$" space=^6
-yabai -m rule --add app="^(Safari|Discord)$" space=^7
+yabai -m rule --add app="^(Discord|Battle.net|Hearthstone|Riot Client|League of Legends)$" space=^7
+yabai -m rule --add app="^(Safari)$" space=^8
 
 # Bitwarden on top
 yabai -m rule --add app="^Bitwarden$" sticky=on layer=above manage=off
