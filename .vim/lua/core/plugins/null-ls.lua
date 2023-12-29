@@ -1,6 +1,6 @@
 -- generic lsp supporting integration with many different tools
 local M = {
-    "jose-elias-alvarez/null-ls.nvim",
+    "nvimtools/none-ls.nvim",
     dependencies = {"nvim-lua/plenary.nvim"},
     config = function()
         local nls = require("null-ls")
@@ -30,16 +30,6 @@ local M = {
                     -- pylint is slow for big projects, let's give it up to 10s
                     timeout = 10000,
                     extra_args = pylint_args
-                }), nls.builtins.formatting.black.with({
-                    cwd = function(params)
-                        return vim.fn.fnamemodify(params.bufname, ':h')
-                    end,
-                    prefer_local = ".venv/bin"
-                }), nls.builtins.formatting.isort.with({
-                    cwd = function(params)
-                        return vim.fn.fnamemodify(params.bufname, ':h')
-                    end,
-                    prefer_local = {".venv/bin", "venv/bin"}
                 }), nls.builtins.formatting.lua_format.with({}),
                 nls.builtins.diagnostics.ruff.with({
                     extra_args = {
@@ -56,4 +46,4 @@ local M = {
     end
 }
 
-return M
+return {}
