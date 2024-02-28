@@ -83,7 +83,7 @@ local M = {
             }),
             sources = cmp.config.sources({
                 {name = 'nvim_lsp'}, {name = 'vsnip'},
-                {name = 'buffer', keyword_length = 5}, {name = 'path'},
+                {name = 'buffer', keyword_length = 3}, {name = 'path'},
                 {name = 'nvim_lua'}, {name = 'nvim_lsp_signature_help'}
             }),
             sorting = {

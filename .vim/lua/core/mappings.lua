@@ -62,6 +62,7 @@ wk.register({
 		g = { "<cmd>Telescope git_files<CR>", "Find git files" },
 		b = { "<cmd>Telescope buffers<CR>", "Find buffer" },
 		r = { "<cmd>Telescope live_grep<CR>", "Find live grep" },
+		n = { "<cmd>NvimTreeFindFile<CR>", "Find current file in tree" },
 	},
 	t = {
 		name = "Test",
@@ -100,16 +101,16 @@ wk.register({
 			"<cmd>lua vim.lsp.buf.implementation()<CR>",
 			"Go to implementation",
 		},
-		h = {
-			name = "Git",
-			s = { ":Gitsigns stage_hunk<CR>", "Stage hunk" },
+		s = {
+			name = "Git stage",
+			h = { ":Gitsigns stage_hunk<CR>", "Stage hunk" },
 			r = { ":Gitsigns reset_hunk<CR>", "Reset hunk" },
-			S = { ":Gitsigns stage_buffer<CR>", "Stage buffer" },
+			b = { ":Gitsigns stage_buffer<CR>", "Stage buffer" },
 			p = { ":Gitsigns preview_hunk<CR>", "Preview hunk" },
-			u = { ":Gitsigns undo_stage_hunk<CR>", "Undo stage hunk" },
-			b = { ":Gitsigns blame_line<CR>", "Blame line" },
-			d = { ":Gitsigns diffthis<CR>", "Diff this" },
+			u = { ":Gitsigns undo_stage_hunk<CR>", "Undo stage hunk" }
 		},
+		b = { ":Gitsigns blame_line<CR>", "Blame line" },
+		t = { ":Gitsigns diffthis<CR>", "Diff this" },
 	},
 	c = {
 		name = "Code",
