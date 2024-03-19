@@ -4,7 +4,7 @@ local M = {
         dependencies = {
             "nvim-lua/plenary.nvim", "nvim-treesitter/nvim-treesitter",
             "antoinemadec/FixCursorHold.nvim", "nvim-neotest/neotest-python",
-            "nvim-neotest/neotest-go",
+            "nvim-neotest/neotest-go", 'nvim-neotest/nvim-nio',
             "nvim-neotest/neotest-plenary", -- Debug setup
             "mfussenegger/nvim-dap", "mfussenegger/nvim-dap-python"
         },
@@ -17,7 +17,8 @@ local M = {
                 adapters = {
                     require("neotest-go"),
                     require("neotest-python")({
-                        args = {"--integration", "--integration-skip-ready"},
+                        python = ".venv/bin/python",
+                        args = {"--integration"},
                         dap = {
                             justMyCode = false,
                             console = "integratedTerminal"
