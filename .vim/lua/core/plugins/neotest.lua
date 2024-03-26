@@ -10,6 +10,8 @@ local M = {
         },
         config = function()
             -- TODO still not working perfectly and missing some keybinds
+            local cwd = vim.fn.getcwd()
+            local args = string.find(cwd, "twain") and {"--integration", "--corrector-integration"} or {}
             require('dap-python').setup('.venv/bin/python')
             require('dap-python').test_runner = 'pytest'
             require("neotest").setup({
@@ -18,7 +20,7 @@ local M = {
                     require("neotest-go"),
                     require("neotest-python")({
                         python = ".venv/bin/python",
-                        args = {"--integration"},
+                        args = args,
                         dap = {
                             justMyCode = false,
                             console = "integratedTerminal"
