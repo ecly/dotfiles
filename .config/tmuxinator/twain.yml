@@ -60,8 +60,13 @@ windows:
       layout: even-horizontal
       panes:
         -
-  - twain-remote:
-      root: ~/Programming/work/twain
+  - twain-2:
+      root: ~/Programming/work/twain_2nd
+      layout: even-horizontal
+      panes:
+        -
+  - fe:
+      root: ~/Programming/work/twain_2nd
       layout: even-horizontal
       panes:
         -
