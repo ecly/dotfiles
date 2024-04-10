@@ -83,7 +83,7 @@ yabai -m rule --add app="^(Google Chrome|Asana)$" space=^3
 yabai -m rule --add app="^(Slack|Google Meet)$" space=^4
 yabai -m rule --add app="^(Mail|Calendar)$" space=^5
 yabai -m rule --add app="^(Spotify|Messages|Signal|Messenger)$" space=^6
-yabai -m rule --add app="^(Discord|Battle.net|Hearthstone|Riot Client|League of Legends)$" space=^7
+yabai -m rule --add app="^(Discord|Battle.net|Hearthstone|Riot Client|League of Legends|League of Legends (TM) Client)$" space=^7
 yabai -m rule --add app="^(Safari)$" space=^8
 
 # Bitwarden on top
