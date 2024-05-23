@@ -72,6 +72,10 @@ if venv then
 		pylint_cfg.executable = "./.venv/bin/pylint"
 	end
 end
+local cmd_env = {}
+if venv then
+	cmd_env = { VIRTUAL_ENV = venv, PATH = lsputil.path.join(venv, "bin") .. ":" .. vim.env.PATH }
+end
 
 nvim_lsp.pylsp.setup({
 	capabilities = capabilities,
@@ -79,7 +83,7 @@ nvim_lsp.pylsp.setup({
 		client.server_capabilities.documentFormattingProvider = false
 		client.server_capabilities.documentRangeFormattingProvider = false
 	end,
-	cmd_env = { VIRTUAL_ENV = venv, PATH = lsputil.path.join(venv, "bin") .. ":" .. vim.env.PATH },
+	cmd_env = cmd_env,
 	enable = true,
 	settings = {
 		pylsp = {
