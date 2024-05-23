@@ -142,7 +142,7 @@ alt - backspace: yabai -m window --insert south
 alt - 0x2A: yabai -m window --insert east
 
 
-alt + shift - g: yabai -m space --toggle padding
+alt + shift - g: yabai -m space --toggle padding --toggle gap
 
 # close current window
 alt - q : yabai -m window --close
