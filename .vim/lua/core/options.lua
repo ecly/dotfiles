@@ -32,7 +32,6 @@ vim.o.ignorecase = true
 vim.o.smartcase = true
 -- Don't beep
 vim.o.visualbell = true -- Don't beep
-vim.o.t_vb = nil
 vim.o.errorbells = false -- Don't beep
 -- Don't backup
 vim.o.backup = false
@@ -58,8 +57,6 @@ vim.o.signcolumn = 'yes' -- Always show signcolumn
 
 -- Set colorscheme and true colors
 vim.o.termguicolors = true
-vim.o.t_8f = "[38;2;%lu;%lu;%lum"
-vim.o.t_8b = "[48;2;%lu;%lu;%lum"
 vim.cmd [[filetype plugin on]]
 vim.opt.background = "dark"
 
