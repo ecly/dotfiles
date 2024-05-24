@@ -34,20 +34,20 @@ local M = {
 		local venv = utils.exists("./.venv/") and "./.venv" or nil
 		if venv then
 			if utils.exists("./.venv/bin/mypy") then
-				vim.notify_once("Running `mypy` in .venv")
+				-- vim.notify_once("Running `mypy` in .venv")
 				mypy.cmd = ".venv/bin/python"
 				mypy.args = vim.list_extend({ "-m", "mypy" }, mypy.args)
 			else
-				vim.notify_once("Running `mypy` without .venv")
+				-- vim.notify_once("Running `mypy` without .venv")
 			end
 
 			if utils.exists("./.venv/bin/ruff") then
-				vim.notify_once("Running `ruff` in .venv")
+				-- vim.notify_once("Running `ruff` in .venv")
 				local ruff = require("lint").linters.ruff
 				ruff.cmd = ".venv/bin/python"
 				ruff.args = vim.list_extend({ "-m", "ruff" }, ruff.args)
 			else
-				vim.notify_once("Running `ruff` without .venv")
+				-- vim.notify_once("Running `ruff` without .venv")
 			end
 		end
 
