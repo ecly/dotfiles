@@ -40,6 +40,8 @@ export ERL_AFLAGS="-kernel shell_history enabled"
 export BEERHOME="$HOME/.local/share/beer_2.0/"
 export MMTHOME="$HOME/Programming/work/modernmt/"
 
+export XDG_CONFIG_HOME="$HOME/.config"
+
 # disable dotnet telemtry
 export DOTNET_CLI_TELEMETRY_OPTOUT=1
 
