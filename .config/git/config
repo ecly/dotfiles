@@ -3,8 +3,8 @@
     clean = git media clean %f
     smudge = git media smudge %f
 [user]
-	name = Emil Lynegaard
-	email = ecly@mailbox.org
+    name = Emil Lynegaard
+    email = ecly@mailbox.org
 [core]
     editor = nvim
     autocrlf = input
@@ -12,6 +12,7 @@
 [interactive]
     diffFilter = delta --color-only
 [delta]
+    navigate = True # use n and N to move between diff sections
     features = side-by-side line-numbers decorations
     whitespace-error-style = 22 reverse
 [delta "decorations"]
@@ -19,6 +20,7 @@
     file-style = bold yellow ul
 [diff]
     tool = vimdiff
+    colorMoved = default
 [branch]
     autosetuprebase = always
 [merge]

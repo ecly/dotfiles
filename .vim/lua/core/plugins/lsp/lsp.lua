@@ -17,7 +17,7 @@ local servers = {
 	"lua_ls",
 	"terraformls",
 	"texlab",
-	"tsserver",
+	"ts_ls",
 	"yamlls",
 }
 
