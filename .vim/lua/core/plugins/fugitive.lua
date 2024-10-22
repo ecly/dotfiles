@@ -1,2 +1,2 @@
 -- lots of built-in git goodies
-return {'tpope/vim-fugitive'}
+return {'tpope/vim-fugitive', lazy = true}

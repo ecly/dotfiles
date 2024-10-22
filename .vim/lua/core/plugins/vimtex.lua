@@ -1,6 +1,7 @@
 -- latex ft support including visualization/make
 local M = {
     'lervag/vimtex',
+    ft = {"tex"},
     config = function()
         -- Latex settings
         vim.g.tex_conceal = ''
