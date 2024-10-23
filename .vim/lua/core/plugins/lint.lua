@@ -37,13 +37,14 @@ local M = {
             end
         end
 
-		-- Run all linters on write/read.
+        -- Run all linters on write/read.
         vim.api.nvim_create_autocmd({"BufWritePost", "BufReadPost"}, {
             callback = function() require("lint").try_lint() end
         })
 
-		-- Run only fast linters when leaving insert.
+        -- Run only fast linters when leaving insert.
         vim.api.nvim_create_autocmd({"InsertLeave"}, {
+            pattern = {"*.py"},
             callback = function() require("lint").try_lint("ruff") end
         })
     end
