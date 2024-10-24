@@ -1,7 +1,7 @@
 -- better tag support
 local M = {
     'ludovicchabant/vim-gutentags',
-    lazy = true,
+    event = "VeryLazy",
     config = function()
         -- https://www.reddit.com/r/vim/comments/d77t6j/guide_how_to_setup_ctags_with_gutentags_properly/
         vim.g.gutentags_ctags_exclude = {

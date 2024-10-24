@@ -3,7 +3,7 @@ local M = {
     dependencies = {"SmiteshP/nvim-navic", "nvim-tree/nvim-web-devicons"},
     config = function()
         require("barbecue").setup({
-            symbols = {separator = ""},
+            symbols = {separator = ""}
             -- icons defaulted from https://github.com/glepnir/lspsaga.nvim/blob/main/lua/lspsaga/lspkind.lua
         })
     end

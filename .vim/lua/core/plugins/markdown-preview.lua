@@ -1,7 +1,8 @@
 -- preview markdown in browser, synchronized with nvim
 local M = {
     "iamcco/markdown-preview.nvim",
-    ft = "markdown",
+    ft = {"markdown"},
+    event = "VeryLazy",
     build = "cd app && yarn install",
     config = function()
         -- MarkdownPreview settings

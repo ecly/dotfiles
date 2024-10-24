@@ -1,6 +1,6 @@
 local M = {
     "stevearc/conform.nvim",
-    lazy = true,
+    event = "VeryLazy",
     config = function()
         require("conform").setup({
             formatters_by_ft = {
