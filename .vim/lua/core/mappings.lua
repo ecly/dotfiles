@@ -19,6 +19,9 @@ map("n", "j", "v:count == 0 ? 'gj' : 'j'", expr_options)
 -- Use :w!! to write with sudo even if not opened with
 map("c", "w!!", "w !sudo tee >/dev/null %", default_options)
 
+
+map("c", "BD", [[<cmd> lua require("cokeline.buffers").get_current().delete()<CR>]], default_options)
+
 -- Clever replacement bindings courtesy of romainl
 map("n", "<leader><leader>", [[ :'{,'}s/\<<C-r>=expand("<cword>")<CR>\>/ ]],
     default_options)
@@ -55,6 +58,7 @@ map("n", "<leader>r", ":NvimTreeRefresh<CR>", default_options)
 map("n", "<C-s>", ":MarkdownPreview<CR>", default_options)
 map("n", "<leader><Tab>", "<Plug>VimwikiNextLink", default_options)
 map("n", "<leader><S-Tab>", "<Plug>VimwikiPrevLink", default_options)
+
 
 wk.add({
     { "<leader>-", ":hsplit<CR>", desc = "Split horizontally" },

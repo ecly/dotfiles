@@ -2,7 +2,6 @@
 local M = {
     "kyazdani42/nvim-tree.lua",
     dependencies = {"nvim-tree/nvim-web-devicons"},
-    event = "VeryLazy",
     config = function()
         require("nvim-tree").setup({
             git = {enable = true, ignore = true},
