@@ -1,0 +1,18 @@
+[tool.ruff.lint]
+select = ["B", "D3", "E", "F"]
+
+# add checks for breakpoints + prints + implicit str concat
+extend-select = ["T100", "T20", "ISC002", "ISC001"]
+
+# Never enforce `E501` (line length violations). This should be handled by formatters.
+ignore = ["E501"]
+
+[tool.ruff.lint.flake8-implicit-str-concat]
+# Disallow multi-line implicit str concat, which can often be a missing comma.
+allow-multiline = false
+
+[tool.ruff.lint.flake8-bugbear]
+# Allow default arguments like, e.g., `data: List[str] = fastapi.Query(None)`.
+# Reference: https://github.com/openzim/_python-bootstrap/issues/16
+extend-immutable-calls = ["fastapi.Depends", "fastapi.Query"]
+ocstring-code-line-length = "dynamic"
