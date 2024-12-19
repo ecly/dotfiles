@@ -28,6 +28,7 @@ local M = {
         "hrsh7th/cmp-nvim-lsp-signature-help"
     },
     event = "InsertEnter",
+    enabled = true,
     config = function()
         local cmp = require("cmp")
         local lspkind = require("lspkind")

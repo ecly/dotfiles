@@ -2,9 +2,15 @@ local nvim_lsp = require("lspconfig")
 local lsp_utils = require("core.plugins.lsp.utils")
 local utils = require("core.utils")
 
-local capabilities = vim.lsp.protocol.make_client_capabilities()
--- enable completion with cmp
-capabilities = require("cmp_nvim_lsp").default_capabilities(capabilities)
+-- setup capabilities with blink
+local has_cmp, cmp_nvim_lsp = pcall(require, "cmp_nvim_lsp")
+local has_blink, blink = pcall(require, "blink.cmp")
+local capabilities = vim.tbl_deep_extend("force", {}, vim.lsp.protocol
+                                             .make_client_capabilities(),
+                                         has_cmp and
+                                             cmp_nvim_lsp.default_capabilities() or
+                                             {}, has_blink and
+                                             blink.get_lsp_capabilities() or {})
 
 local servers = {
     "bashls", "dockerls", "jsonls", "marksman",
