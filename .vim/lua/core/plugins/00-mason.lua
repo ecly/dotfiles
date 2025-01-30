@@ -11,7 +11,10 @@ local M = {
     },
     config = function()
         require("mason").setup({})
-        require("mason-lspconfig").setup({automatic_installation = true})
+        require("mason-lspconfig").setup({
+            automatic_installation = true,
+            ensure_installed = settings.mason_lspconfig_installer_ensure_installed
+        })
         require("mason-tool-installer").setup({
             ensure_installed = settings.mason_tool_installer_ensure_installed,
             -- if set to true this will check each tool for updates. If updates

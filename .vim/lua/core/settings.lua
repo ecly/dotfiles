@@ -35,36 +35,42 @@ M.treesitter_ensure_installed = {
 	"yaml",
 	"terraform",
 }
+M.mason_lspconfig_installer_ensure_installed = {
+	-- LSP
+	"bashls",
+	"dockerls",
+	"elixirls",
+	"jsonls",
+	"marksman",
+	"vtsls",
+	"texlab",
+	"lua_ls",
+	"pylsp",
+	"terraformls",
+	"gopls",
+	"buf_ls",
+	"yamlls",
+}
 
 M.mason_tool_installer_ensure_installed = {
-	-- LSP
-	"bash-language-server",
-	"dockerfile-language-server",
-	"elixir-ls",
-	"json-lsp",
-	"marksman",
-	"typescript-language-server",
-	"texlab",
-	"lua-language-server",
-	"python-lsp-server",
-	"terraform-ls",
-	"gopls",
-	"buf-language-server",
-	"yaml-language-server", -- Formatter
+	-- Formatter
 	"black",
 	"stylua",
 	"luaformatter",
 	"prettier",
 	"shfmt",
 	"isort",
+	-- Linter
 	"pylint",
-	"ruff", -- Linter
+	"ruff",
+	"tflint",
 	"pydocstyle",
 	"eslint_d",
 	"shellcheck",
 	"tflint",
 	"yamllint",
-	"mypy", -- DAP
+	 -- DAP
+	"mypy",
 	"debugpy",
 }
 

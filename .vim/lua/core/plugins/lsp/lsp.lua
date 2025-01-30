@@ -15,7 +15,7 @@ local capabilities = vim.tbl_deep_extend("force", {}, vim.lsp.protocol
 local servers = {
     "bashls", "dockerls", "jsonls", "marksman",
     -- "pyright", -- not currently working
-    "gopls", "pylsp", "lua_ls", "terraformls", "texlab", "ts_ls", "yamlls"
+    "gopls", "pylsp", "lua_ls", "terraformls", "texlab", "ts_ls", "yamlls", "buf_ls", "tflint"
 }
 
 -- we disable the providers because mason takes care of it
