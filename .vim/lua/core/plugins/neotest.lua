@@ -8,7 +8,7 @@ local M = {
         -- Debug setup
         "mfussenegger/nvim-dap", "mfussenegger/nvim-dap-python"
     },
-    event = "Lazy",
+    event = "VeryLazy",
     config = function()
         -- TODO still not working perfectly and missing some keybinds
         local cwd = vim.fn.getcwd()
