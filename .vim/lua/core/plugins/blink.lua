@@ -56,12 +56,12 @@ local M = {
             },
             -- experimental signature help support
             -- -- signature = {enabled = true},
+            cmdline = {sources = {}},
             sources = {
                 default = {
                     "lsp", "path", "snippets", "buffer", "nvim_lua",
                     "nvim_lsp_signature_help"
                 },
-                cmdline = {},
                 providers = {
                     nvim_lua = {
                         name = "nvim_lua",
@@ -116,10 +116,7 @@ local M = {
                 }
             }
         },
-        opts_extend = {
-            "sources.completion.enabled_providers", "sources.compat",
-            "sources.default"
-        }
+        opts_extend = {"sources.default"}
     }
 }
 
