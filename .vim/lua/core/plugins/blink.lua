@@ -19,11 +19,12 @@ local M = {
             {"saghen/blink.compat", opts = {}}, "hrsh7th/cmp-buffer",
             "hrsh7th/cmp-nvim-lua", "lukas-reineke/cmp-under-comparator",
             "onsails/lspkind-nvim", "hrsh7th/cmp-calc",
-            "hrsh7th/cmp-nvim-lsp-signature-help", "fang2hou/blink-copilot",
-            {
-                "zbirenbaum/copilot.lua",
-                opts = {max_completions = 1, max_attempts = 2}
-            }
+            "hrsh7th/cmp-nvim-lsp-signature-help"
+            -- "fang2hou/blink-copilot",
+            -- {
+            --     "zbirenbaum/copilot.lua",
+            --     opts = {max_completions = 1, max_attempts = 2}
+            -- }
         },
         event = "InsertEnter",
         opts = {
@@ -71,17 +72,17 @@ local M = {
                         name = "nvim_lsp_signature_help",
                         module = "blink.compat.source"
                     },
-                    copilot = {
-                        name = "copilot",
-                        module = "blink-copilot",
-                        score_offset = 100,
-                        async = true,
-                        opts = {
-                            -- Local options override global ones
-                            -- Final settings: max_completions = 3, max_attempts = 2, kind = "Copilot"
-                            max_completions = 3 -- Override global max_completions
-                        }
-                    }
+                    -- copilot = {
+                    --     name = "copilot",
+                    --     module = "blink-copilot",
+                    --     score_offset = 100,
+                    --     async = true,
+                    --     opts = {
+                    --         -- Local options override global ones
+                    --         -- Final settings: max_completions = 3, max_attempts = 2, kind = "Copilot"
+                    --         max_completions = 3 -- Override global max_completions
+                    --     }
+                    -- }
                 }
             },
 
@@ -89,31 +90,31 @@ local M = {
                 ["<Tab>"] = {"select_next", "fallback"},
                 ["<S-Tab>"] = {"select_prev", "fallback"},
                 ["<Enter>"] = {"select_and_accept", "fallback"},
-                ["<C-y>"] = {
-                    function()
-                        local copilot = require 'copilot.suggestion'
-                        if copilot.is_visible() then
-                            copilot.accept()
-                        end
-                    end, "fallback"
-                },
-                ["<C-]>"] = {
-                    function()
-                        local copilot = require 'copilot.suggestion'
-                        if copilot.is_visible() then
-                            copilot.next()
-                        end
-                    end, "fallback"
-                },
-                -- this one seems to not work at the moment
-                ["<C-[>"] = {
-                    function()
-                        local copilot = require 'copilot.suggestion'
-                        if copilot.is_visible() then
-                            copilot.prev()
-                        end
-                    end, "fallback"
-                }
+                -- ["<C-y>"] = {
+                --     function()
+                --         local copilot = require 'copilot.suggestion'
+                --         if copilot.is_visible() then
+                --             copilot.accept()
+                --         end
+                --     end, "fallback"
+                -- },
+                -- ["<C-]>"] = {
+                --     function()
+                --         local copilot = require 'copilot.suggestion'
+                --         if copilot.is_visible() then
+                --             copilot.next()
+                --         end
+                --     end, "fallback"
+                -- },
+                -- -- this one seems to not work at the moment
+                -- ["<C-[>"] = {
+                --     function()
+                --         local copilot = require 'copilot.suggestion'
+                --         if copilot.is_visible() then
+                --             copilot.prev()
+                --         end
+                --     end, "fallback"
+                -- }
             }
         },
         opts_extend = {"sources.default"}
