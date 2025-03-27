@@ -57,7 +57,7 @@ local M = {
             },
             -- experimental signature help support
             -- -- signature = {enabled = true},
-            cmdline = {sources = {}},
+            cmdline = {enabled = true},
             sources = {
                 default = {
                     "lsp", "path", "snippets", "buffer", "nvim_lua",
@@ -71,7 +71,7 @@ local M = {
                     nvim_lsp_signature_help = {
                         name = "nvim_lsp_signature_help",
                         module = "blink.compat.source"
-                    },
+                    }
                     -- copilot = {
                     --     name = "copilot",
                     --     module = "blink-copilot",
@@ -89,7 +89,7 @@ local M = {
             keymap = {
                 ["<Tab>"] = {"select_next", "fallback"},
                 ["<S-Tab>"] = {"select_prev", "fallback"},
-                ["<Enter>"] = {"select_and_accept", "fallback"},
+                ["<Enter>"] = {"select_and_accept", "fallback"}
                 -- ["<C-y>"] = {
                 --     function()
                 --         local copilot = require 'copilot.suggestion'
