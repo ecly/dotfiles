@@ -55,6 +55,9 @@ vim.o.showtabline = 2 -- Always show tabline
 vim.o.shortmess = vim.o.shortmess .. 'c' -- Don't give ins-completion-menu messages
 vim.o.signcolumn = 'yes' -- Always show signcolumn
 
+-- Use virtual text for diagnostics
+vim.diagnostic.config({ virtual_text = true })
+
 -- Set colorscheme and true colors
 vim.o.termguicolors = true
 vim.cmd [[filetype plugin on]]
