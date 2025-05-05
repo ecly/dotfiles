@@ -103,10 +103,12 @@
 #    "kitty"
 #    "terminal"
 #    "qutebrowser"
+#    "wezterm"
 # ]
 # open terminal, blazingly fast compared to iTerm/Hyper
-cmd + shift - s : open /Applications/Spotify.app
-cmd - b : open -na /Applications/Firefox.app
+cmd + shift - s : open /System/Applications/Music.app
+cmd + shift - m : open /System/Applications/Mail.app
+cmd - b : open -na /Applications/Zen.app
 cmd + shift - b : firefox --private-window
 alt - return : open -na /Applications/WezTerm.app
 alt - r : open -na /Applications/Alacritty.app --args --command ranger
@@ -119,12 +121,12 @@ alt - t : yabai -m space --layout float
 alt - s : yabai -m space --layout stack
 
 # focus window in bsp mode
-alt - h : yabai -m window --focus west || yabai -m display --focus west || yabai -m window --focus stack.prev
+alt - h : yabai -m window --focus west || yabai -m window --focus stack.prev ||  yabai -m display --focus west
 #alt - h: yabai -m window --focus west
 alt - j: yabai -m window --focus south
 alt - k: yabai -m window --focus north
 # alt - l: yabai -m window --focus east
-alt - l : yabai -m window --focus east || yabai -m display --focus east || yabai -m window --focus stack.next
+alt - l : yabai -m window --focus east || yabai -m window --focus stack.next || yabai -m display --focus east
 
 # shift window in current workspace (multi screen support)
 # reference: https://cbrgm.net/post/2021-05-5-setup-macos/

@@ -22,10 +22,11 @@ function setup_space {
 
 setup_space 1 web
 setup_space 2 code
-setup_space 3 plan
+setup_space 3 music
 setup_space 4 communication
-setup_space 5 apple
-setup_space 6 music
+yabai -m config --space 4 layout stack
+setup_space 5 personal
+setup_space 6 misc
 yabai -m config --space 6 layout float
 setup_space 7 games
 yabai -m config --space 7 layout float
@@ -74,20 +75,19 @@ yabai -m rule --add title='Preferences$' manage=off
 
 # float certain applications
 yabai -m rule --add app='^Cisco' manage=off
-#yabai -m rule --add app='^Bitwarden$' manage=off
-
-# Web browsers
-yabai -m rule --add app="^(Firefox)$" space=^1
-yabai -m rule --add app="^(Wezterm|WezTerm)$" space=^2
-yabai -m rule --add app="^(Google Chrome|Asana)$" space=^3
-yabai -m rule --add app="^(Slack|Google Meet)$" space=^4
-yabai -m rule --add app="^(Mail|Calendar)$" space=^5
-yabai -m rule --add app="^(Spotify|Messages|Signal|Messenger)$" space=^6
-yabai -m rule --add app="^(Discord|Battle.net|World of Warcraft|Hearthstone|Riot Client|League of Legends|League of Legends (TM) Client)$" space=^7
-yabai -m rule --add app="^(Safari)$" space=^8
 
 # Bitwarden on top
 yabai -m rule --add app="^Bitwarden$" sticky=on layer=above manage=off
+
+# Web browsers
+yabai -m rule --add app="^(Firefox|Zen)$" space=^1
+yabai -m rule --add app="^(Wezterm|WezTerm|Terminal)$" space=^2
+yabai -m rule --add app="^(Spotify|Music)$" space=^3
+yabai -m rule --add app="^(Slack|Mail|Calendar)$" space=^4
+yabai -m rule --add app="^(Signal|Messages|Messenger)$" space=^5
+yabai -m rule --add app="^(Discord|Battle.net|World of Warcraft|Hearthstone|Riot Client|League of Legends|League of Legends (TM) Client)$" space=^7
+yabai -m rule --add app="^(Safari)$" space=^8
+
 
 
 echo "yabai configuration loaded.."
