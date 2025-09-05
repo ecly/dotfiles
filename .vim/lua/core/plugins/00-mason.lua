@@ -2,11 +2,15 @@
 local settings = require("core.settings")
 
 local M = {
-    "williamboman/mason.nvim",
+    "mason-org/mason.nvim",
+    -- For now pin version until mason-tool-installer supports 2.0
+    -- https://github.com/LazyVim/LazyVim/issues/6039#issuecomment-2856227817
+    version = "^1.0.0",
     event = "VeryLazy",
     cmd = "Mason",
     dependencies = {
-        "williamboman/mason-lspconfig.nvim",
+        -- https://github.com/LazyVim/LazyVim/issues/6039#issuecomment-2856227817
+        {"mason-org/mason-lspconfig.nvim", version = "^1.0.0"},
         "WhoIsSethDaniel/mason-tool-installer.nvim"
     },
     config = function()

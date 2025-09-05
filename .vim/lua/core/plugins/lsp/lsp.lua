@@ -13,9 +13,10 @@ local capabilities = vim.tbl_deep_extend("force", {}, vim.lsp.protocol
                                              blink.get_lsp_capabilities() or {})
 
 local servers = {
-    "bashls", "dockerls", "jsonls", "marksman",
+    "bashls", "dockerls", "jsonls", "marksman", "elixirls",
     -- "pyright", -- not currently working
-    "gopls", "pylsp", "lua_ls", "terraformls", "texlab", "ts_ls", "yamlls", "buf_ls", "tflint"
+    "gopls", "pylsp", "lua_ls", "terraformls", "texlab", "ts_ls", "yamlls",
+    "buf_ls", "tflint"
 }
 
 -- we disable the providers because mason takes care of it
