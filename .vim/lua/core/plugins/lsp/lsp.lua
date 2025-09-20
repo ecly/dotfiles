@@ -25,10 +25,8 @@ vim.g.loaded_python3_provider = 0
 vim.g.loaded_ruby_provider = 0
 vim.g.loaded_perl_provider = 0
 -- this needs to be called before setting up lsps
-require("mason").setup({})
-require("mason-lspconfig").setup({automatic_installation = true})
 for _, lsp in ipairs(servers) do
-    nvim_lsp[lsp].setup({
+    vim.lsp.enable(lsp, {
         on_attach = function(client, bufnr)
             lsp_utils.custom_lsp_attach(client, bufnr)
         end,
@@ -42,7 +40,7 @@ for _, lsp in ipairs(servers) do
     })
 end
 
-nvim_lsp.yamlls.setup({
+vim.lsp.config("yamlls", {
     -- don't complain about key ordering in yaml
     settings = {yaml = {keyOrdering = false}}
 })
@@ -71,7 +69,7 @@ if venv then
     }
 end
 
-nvim_lsp.pylsp.setup({
+vim.lsp.config("pylsp", {
     capabilities = capabilities,
     on_attach = function(client, _)
         client.server_capabilities.documentFormattingProvider = false
