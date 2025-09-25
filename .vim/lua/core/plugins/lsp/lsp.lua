@@ -23,9 +23,10 @@ local servers = {
 vim.g.loaded_python3_provider = 0
 vim.g.loaded_ruby_provider = 0
 vim.g.loaded_perl_provider = 0
+
 -- this needs to be called before setting up lsps
-require("mason").setup({})
-require("mason-lspconfig").setup({automatic_installation = true})
+-- to ensure the right config is available.
+require("mason").setup()
 for _, lsp in ipairs(servers) do
     vim.lsp.enable(lsp, {
         on_attach = function(client, bufnr)

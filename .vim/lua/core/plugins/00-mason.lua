@@ -1,12 +1,12 @@
 -- easy installation of lsps and integration with nvim
+vim.notify_once("Setting up mason")
 local settings = require("core.settings")
 
 local M = {
     "mason-org/mason.nvim",
     version = "*",
-    event = "VeryLazy",
     cmd = "Mason",
-    dependencies = {{"mason-org/mason-lspconfig.nvim"}},
+    dependencies = {"mason-org/mason-lspconfig.nvim", "neovim/nvim-lspconfig"},
     config = function()
         require("mason").setup({})
         require("mason-lspconfig").setup({
