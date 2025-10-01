@@ -59,6 +59,15 @@ map("n", "<C-s>", ":MarkdownPreview<CR>", default_options)
 map("n", "<leader><Tab>", "<Plug>VimwikiNextLink", default_options)
 map("n", "<leader><S-Tab>", "<Plug>VimwikiPrevLink", default_options)
 
+-- Extra vim-slime bindings to send buffer paths.
+map("n", "<C-c>f", function()
+    vim.cmd('SlimeSend11 ' .. vim.fn.shellescape(vim.fn.expand('%')))
+end, {desc = "Slime send buffer relative path"})
+
+map("n", "<C-c>F", function()
+    vim.cmd('SlimeSend1 ' .. vim.fn.shellescape(vim.fn.expand('%:p')))
+end, {desc = "Slime send buffer path to tmux target"})
+
 wk.add({
     {"<leader>-", ":hsplit<CR>", desc = "Split horizontally"}, {
         "<leader>D",
