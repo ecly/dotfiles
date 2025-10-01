@@ -1,0 +1,50 @@
+# Alacritty configuration in TOML format
+
+# Font configuration
+[font]
+size = 20
+builtin_box_drawing = true
+
+# Normal (regular) font face
+[font.normal]
+family = "Terminess Nerd Font"
+
+# Bold font face
+[font.bold]
+family = "Terminess Nerd Font"
+style = "Bold"
+
+# Italic font face
+[font.italic]
+family = "Terminess Nerd Font"
+style = "Italic"
+
+# Font offsets
+[font.offset]
+x = 0
+y = 0
+
+[font.glyph_offset]
+x = 0
+y = 0
+
+# Window configuration
+[window]
+padding.x = 10
+padding.y = 10
+decorations = "none"
+
+# Environment variables
+[env]
+TERM = "xterm-256color"
+
+# URL hints configuration
+[[hints.enabled]]
+# The regex for matching URLs.
+regex = "(ipfs:|ipns:|magnet:|mailto:|gemini:|gopher:|https:|http:|news:|file:|git:|ssh:|ftp:)[^\\u0000-\\u001F\\u007F-\\u009F<>\"\\s{-}\\^⟨⟩`]+"
+
+# The command to execute when a hint is triggered.
+command = "open -na"
+
+# Post-processing cleans up the matched string before sending to the command.
+post_processing = true
