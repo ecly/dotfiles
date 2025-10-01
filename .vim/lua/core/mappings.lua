@@ -61,7 +61,7 @@ map("n", "<leader><S-Tab>", "<Plug>VimwikiPrevLink", default_options)
 
 -- Extra vim-slime bindings to send buffer paths.
 map("n", "<C-c>f", function()
-    vim.cmd('SlimeSend11 ' .. vim.fn.shellescape(vim.fn.expand('%')))
+    vim.cmd('SlimeSend1 ' .. vim.fn.shellescape(vim.fn.expand('%')))
 end, {desc = "Slime send buffer relative path"})
 
 map("n", "<C-c>F", function()
