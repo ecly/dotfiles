@@ -52,26 +52,4 @@ M.mason_lspconfig_installer_ensure_installed = {
 	"yamlls",
 }
 
-M.mason_tool_installer_ensure_installed = {
-	-- Formatter
-	"black",
-	"stylua",
-	"luaformatter",
-	"prettier",
-	"shfmt",
-	"isort",
-	-- Linter
-	"pylint",
-	"ruff",
-	"tflint",
-	"pydocstyle",
-	"eslint_d",
-	"shellcheck",
-	"tflint",
-	"yamllint",
-	 -- DAP
-	"mypy",
-	"debugpy",
-}
-
 return M

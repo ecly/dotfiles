@@ -100,7 +100,8 @@ vim.lsp.config("pylsp", {
                 pylsp_black = {enabled = false},
                 pylsp_isort = {enabled = false},
                 pylsp_mypy = {enabled = false},
-                pylsp_ruff = {enabled = false}
+                pylsp_ruff = {enabled = false},
+                ruff = {enabled = false}
             }
         }
     }
