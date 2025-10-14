@@ -45,7 +45,7 @@ M.mason_lspconfig_installer_ensure_installed = {
 	"vtsls",
 	"texlab",
 	"lua_ls",
-	"pylsp",
+	"basedpyright",
 	"terraformls",
 	"gopls",
 	"buf_ls",

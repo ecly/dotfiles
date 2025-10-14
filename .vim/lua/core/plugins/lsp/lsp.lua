@@ -11,12 +11,8 @@ local capabilities = vim.tbl_deep_extend("force", {}, vim.lsp.protocol
                                              {}, has_blink and
                                              blink.get_lsp_capabilities() or {})
 
-local servers = {
-    "bashls", "dockerls", "jsonls", "marksman", "elixirls",
-    -- "pyright", -- not currently working
-    "gopls", "pylsp", "lua_ls", "terraformls", "texlab", "ts_ls", "yamlls",
-    "buf_ls", "tflint"
-}
+local settings = require("core.settings")
+local servers = settings.mason_lspconfig_installer_ensure_installed
 
 -- we disable the providers because mason takes care of it
 -- mason takes care of the setup of the lsp.
@@ -49,20 +45,6 @@ vim.lsp.config("yamlls", {
 
 local lsputil = require("lspconfig/util")
 local venv = utils.exists("./.venv/") and "./.venv" or nil
-local pylint_cfg = {
-    enabled = false,
-    args = {
-        "-d", "missing-function-docstring", "-d", "invalid-name", "-d",
-        "missing-module-docstring", "-d", "missing-class-docstring", "-d",
-        "W1514", -- open without explicit encoding
-        "-d", "too-few-public-methods", "-d", "line-too-long"
-    }
-}
-if venv then
-    if utils.exists("./.venv/bin/pylint") then
-        pylint_cfg.executable = "./.venv/bin/pylint"
-    end
-end
 local cmd_env = {}
 if venv then
     cmd_env = {
@@ -71,37 +53,25 @@ if venv then
     }
 end
 
-vim.lsp.config("pylsp", {
+vim.lsp.config("basedpyright", {
     capabilities = capabilities,
     on_attach = function(client, _)
         client.server_capabilities.documentFormattingProvider = false
         client.server_capabilities.documentRangeFormattingProvider = false
     end,
     cmd_env = cmd_env,
-    enable = true,
+    enable = false,
     settings = {
-        pylsp = {
-            configurationSources = {},
-            plugins = {
-                jedi = {
-                    extra_paths = {
-                        "./dags", "./pkgs/py/", "./apps", "./proto/gen/pydantic"
-                    },
-                    environment = venv,
-                    enabled = true
-                },
-                pydocstyle = {enabled = false},
-                pylint = pylint_cfg,
-                rope = {enabled = false},
-                pyflakes = {enabled = false},
-                pycodestyle = {enabled = false},
-                yapf = {enabled = false},
-                mccabe = {enabled = false},
-                pylsp_black = {enabled = false},
-                pylsp_isort = {enabled = false},
-                pylsp_mypy = {enabled = false},
-                pylsp_ruff = {enabled = false},
-                ruff = {enabled = false}
+        venvPath = venv,
+        -- Settings available here:
+        -- https://docs.basedpyright.com/latest/configuration/language-server-settings/
+        basedpyright = {
+            analysis = {
+                typeCheckingMode = "basic",
+                ignore = {"./proto/gen/pydantic", "pkgs/py/twain/models.py"},
+                extraPaths = {
+                    "./dags", "./pkgs/py/", "./apps", "./proto/gen/pydantic"
+                }
             }
         }
     }
