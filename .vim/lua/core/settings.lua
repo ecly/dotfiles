@@ -48,7 +48,7 @@ M.mason_lspconfig_installer_ensure_installed = {
 	"basedpyright",
 	"terraformls",
 	"gopls",
-	"buf_ls",
+	"protols",
 	"yamlls",
 }
 

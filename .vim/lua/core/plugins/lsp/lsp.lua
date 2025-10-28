@@ -57,6 +57,15 @@ if venv then
     }
 end
 
+vim.lsp.config("protols", {
+    capabilities = capabilities,
+    on_attach = function(client, _)
+        client.server_capabilities.documentFormattingProvider = false
+        client.server_capabilities.documentRangeFormattingProvider = false
+    end,
+    init_options = {include_paths = {"proto/vendor", "proto/schemas"}}
+})
+
 vim.lsp.config("basedpyright", {
     capabilities = capabilities,
     on_attach = function(client, _)
