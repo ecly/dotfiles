@@ -14,6 +14,10 @@ local capabilities = vim.tbl_deep_extend("force", {}, vim.lsp.protocol
 local settings = require("core.settings")
 local servers = settings.mason_lspconfig_installer_ensure_installed
 
+-- Only enable logging if necessary. It can cause slow performance when file grows too big.
+-- https://github.com/LazyVim/LazyVim/discussions/326#discussioncomment-11454517
+vim.lsp.set_log_level("off")
+
 -- we disable the providers because mason takes care of it
 -- mason takes care of the setup of the lsp.
 vim.g.loaded_python3_provider = 0
