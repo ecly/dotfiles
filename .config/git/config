@@ -40,6 +40,7 @@
     interactive = auto
     grep = auto
 [alias]
+    wt = worktree
     co = checkout
     mt = mergetool
     st = status -sb
