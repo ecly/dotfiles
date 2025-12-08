@@ -1,4 +1,6 @@
-# Dotfiles for Arch Linux
+# Dotfiles for macOS and Arch Linux
+
+## Arch Linux
 My checklist when setting up Arch Linux.  
 For management of dotfiles see [this](.config/DOT_MANAGEMENT.md).  
 For easy installation of packages see [install.sh](Scripts/install.sh).
@@ -6,7 +8,7 @@ For easy installation of packages see [install.sh](Scripts/install.sh).
 **Styling**  
 Most applications have styling based on [pywal](https://aur.archlinux.org/packages/nerd-fonts-terminus/).
 
-## Primary setup:
+### Primary setup:
 - **Shell:** [zsh](https://github.com/zsh-users/zsh)  
 - **Terminal emulator:** [urxvt](https://github.com/exg/rxvt-unicode)  
 - **Terminal multiplexer:** [tmux](https://github.com/tmux/tmux)  
@@ -24,9 +26,16 @@ Most applications have styling based on [pywal](https://aur.archlinux.org/packag
 - **Browser:** [firefox](https://www.archlinux.org/packages/extra/x86_64/firefox/)  
 - **Color theme generation:** [pywal](https://github.com/dylanaraps/pywal)  
 
-### Additional dependencies:
+#### Additional dependencies:
 Additional dependencies such as fonts are installed as part of [install.sh](Scripts/install.sh).
 
-### Manual setup:
+#### Manual setup:
 - VPN setup.
 - Mutt aliases and .details setup.
+
+## macOS
+To be described, but essentially:
+
+1. Install homebrew
+2. Run `Scripts/install.sh`
+3. Fix everything that breaks.
