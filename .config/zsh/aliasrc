@@ -1,5 +1,4 @@
 #!/bin/bash
-# ALIASES
 
 # alias for dotfiles handling, also making sure that zsh completion works
 alias dot='git --git-dir=$HOME/.dots.git/ --work-tree=$HOME' # dotfile handling
@@ -32,36 +31,27 @@ alias tree="ls -R | grep ":$" | sed -e 's/:$//' -e 's/[^-][^\/]*\//--/g' -e 's/^
 alias ftree="find | sed 's|[^/]*/|- |g'"
 
 # Detect which `ls` flavor is in use
-if ls --human-readable > /dev/null 2>&1; then # GNU `ls`
-  colorflag='--color'
-  alias ls="ls ${colorflag} --human-readable --group-directories-first --classify"
+if ls --human-readable >/dev/null 2>&1; then # GNU `ls`
+    colorflag='--color'
+    alias ls='ls ${colorflag} --human-readable --group-directories-first --classify'
 else # OS X `ls`
-  colorflag='-G'
-  alias ls="ls ${colorflag}"
+    colorflag='-G'
+    alias ls='ls ${colorflag}'
 fi
 
 # Basic colored ls
-# shellcheck disable=SC2139
-
 # List all files colorized in long format
 # shellcheck disable=SC2139
 alias l="ls -lF ${colorflag}"
-
 # List all files colorized in long format, including dot files
 # shellcheck disable=SC2139
 alias la="ls -laF ${colorflag}"
-
 # List only directories
 # shellcheck disable=SC2139
 alias lsd="ls -lF ${colorflag} | grep --color=never '^d'"
 
-# ask when deleting multiple
+# Ask when deleting multiple
 alias rm="rm -I"
-
-# Some shorthand launching
-alias t="tmux"
-alias ta="tmux attach-session"
-alias u="urxvt"
 
 # All pagers except less bound to vless
 # shellcheck disable=SC2139
@@ -106,39 +96,29 @@ alias ...="cd ../.."
 alias ....="cd ../../.."
 alias .....="cd ../../../.."
 
-# Creating scratch pad in case it was deleted (depends on i3 config)
-alias scratch="urxvt -name scratch -e tmux & disown"
-
 # Remove all local branches that 'gone' on the remote. Lanuguage dependent
 # https://stackoverflow.com/questions/7726949/remove-local-branches-no-longer-on-remote/38404202#38404202
 # shellcheck disable=SC2139
 alias gprune="git fetch -p && git branch --merged | egrep -v '(^\*|master|dev|develop|development)' | xargs git branch -d"
 
 # Shortcut for running work script
-alias mirror="sh ~/Scripts/mirror_display.sh"
-alias work="sh ~/Scripts/work.sh"
-alias workvpn="sh ~/Scripts/work_vpn.sh"
-alias vm="sh ~/Scripts/vm.sh"
-alias home="sh ~/Scripts/home.sh"
+alias work="sh ~/Scripts/linux/work.sh"
 
 # Start an instance of firefox with no profile
 alias fx='firefox --new-instance --profile $(mktemp -d)'
 
-# Check what users are online on twitch for given user"
-alias online="python3 ~/Scripts/check_online.py"
-
-# Connect to workVPN
-alias workvpn="sh ~/Scripts/workvpn.sh"
-
-# Simple screenkey alias with some sane defaults
-alias skey="screenkey -p fixed -g 20%x10%+40%-10%"
+# Detect the Operating System
+if [[ "$OSTYPE" == "darwin"* ]]; then
+    # macOS: Open KeyCastr
+    alias sk="open -a KeyCastr"
+else
+    # Linux: Run screenkey with defaults
+    alias sk="screenkey -p fixed -g 20%x10%+40%-10%"
+fi
 
 # Simpler access to lazydocker
 alias lzd="lazydocker"
 
 # Aliases for cleaning up $HOME
-alias weechat="weechat -d '$HOME/.config/weechat'"
-alias wget="wget --hsts-file='$HOME/.cache/wget-hsts'"
-
-# Create new floating scratchpad for i3
-alias scratch="alacritty --title scratch -e zsh -i -c tmux> /dev/null 2>&1 & disown"
+alias weechat='weechat -d "$HOME/.config/weechat"'
+alias wget='wget --hsts-file="$HOME/.cache/wget-hsts"'

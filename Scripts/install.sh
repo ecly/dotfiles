@@ -1,16 +1,13 @@
 #!/bin/bash
 set -e
 
-
 if [ "$(uname)" == "Darwin" ]; then
     echo "Installing for macOS"
 
-    if ! command -v brew > /dev/null; then
+    if ! command -v brew >/dev/null; then
         /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-        source ~/.zprofile
+        source "$HOME/.zprofile"
     fi
-
-    brew install koekeishiya/formulae/skhd
 
     brew install antidote
     brew install betterdisplay
@@ -19,32 +16,39 @@ if [ "$(uname)" == "Darwin" ]; then
     brew install cmake
     brew install direnv
     brew install discord
-    brew install --cask docker
     brew install docker-compose
     brew install fd
-    brew install --cask firefox
     brew install fzf
     brew install git-delta
     brew install gnu-sed
+    brew install highlight
+    brew install keycastr
+    brew install lazydocker
+    brew install lazygit
     brew install ncdu
     brew install neovim
     brew install neovim-remote
-    brew install nvm
     brew install npm
+    brew install nvm
     brew install protobuf
     brew install pyenv
     brew install ripgrep
-    brew install --cask signal
-    brew install --cask spotify
+    brew install skhd
     brew install tmux
     brew install tmuxinator
+    brew install tmuxinator-completion
     brew install tree-sitter
-    brew install --cask tresorit
+    brew install treesitter
     brew install universal-ctags
-    brew install --cask unnaturalscrollwheels
-    brew install --cask wezterm
     brew install wget
-    brew install highlight
+    brew install wget
+    brew install yabai
+
+    brew install --cask docker
+    brew install --cask signal
+    brew install --cask unnaturalscrollwheels
+    brew install --cask betterdisplay
+    brew install --cask wezterm
 
     brew tap homebrew/cask-fonts
     brew install font-terminess-ttf-nerd-font
@@ -56,14 +60,13 @@ else
     echo "Installing for macOS"
 
     # install yay if not already installed
-    if ! command -v yay > /dev/null; then
+    if ! command -v yay >/dev/null; then
         git clone https://aur.archlinux.org/yay.git
         cd yay
         makepkg -si
         cd ..
         rm -rf yay
     fi
-
 
     yay -Syyu --noconfirm \
         alacritty \
@@ -93,7 +96,7 @@ else
         mpv \
         mullvad-vpn-bin \
         ncdu
-        neomutt \
+    neomutt \
         neovim \
         neovim-remote \
         nerd-fonts-terminus \
@@ -154,7 +157,6 @@ else
             texlive
     fi
 fi
-
 
 # Handle Python specific installs with pipx
 pyenv install 3.11.5
