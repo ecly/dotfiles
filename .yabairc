@@ -75,6 +75,7 @@ yabai -m rule --add title='Preferences$' manage=off
 # float certain applications
 yabai -m rule --add app='^Cisco' manage=off
 yabai -m rule --add app="^Bitwarden$" sticky=on manage=off
+yabai -m rule --add app='^Loom$' manage=off
 
 # Web browsers
 yabai -m rule --add app="^(Firefox|Zen)$" space=^1
