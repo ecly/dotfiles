@@ -40,6 +40,7 @@ if [ "$(uname)" == "Darwin" ]; then
     brew install tree-sitter
     brew install treesitter
     brew install universal-ctags
+    brew install uv
     brew install wget
     brew install wget
     brew install yabai
@@ -95,8 +96,8 @@ else
         mons \
         mpv \
         mullvad-vpn-bin \
-        ncdu
-    neomutt \
+        ncdu \
+        neomutt \
         neovim \
         neovim-remote \
         nerd-fonts-terminus \
@@ -125,6 +126,7 @@ else
         tmuxinator \
         unzip \
         urlscan \
+        uv \
         w3m \
         wget \
         xbanish \
@@ -158,16 +160,8 @@ else
     fi
 fi
 
-# Handle Python specific installs with pipx
-pyenv install 3.11.5
-pyenv global 3.11.5
-pyenv shell 3.11.5
-pip3 install pipx
-pipx install poetry
-pipx install pywal
-pipx install vint
-pipx install pywal
-pipx install ranger-fm
+uv tool install pywal
+uv tool install ranger-fm
 
 # apply theme
 wal --theme base16-gruvbox-medium
