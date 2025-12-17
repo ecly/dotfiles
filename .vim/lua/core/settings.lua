@@ -11,8 +11,7 @@ M.treesitter_ensure_installed = {
 M.mason_lspconfig_installer_ensure_installed = {
     -- LSP
     "bashls", "dockerls", "elixirls", "jsonls", "marksman", "vtsls", "texlab",
-    "lua_ls", "basedpyright", "terraformls", "gopls", "protols", "yamlls",
-    "vint"
+    "lua_ls", "basedpyright", "terraformls", "gopls", "protols", "yamlls"
 }
 
 return M
