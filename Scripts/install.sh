@@ -50,6 +50,8 @@ if [ "$(uname)" == "Darwin" ]; then
     brew install --cask unnaturalscrollwheels
     brew install --cask betterdisplay
     brew install --cask wezterm
+    brew install --cask spotmenu
+    brew install --cask jordanbaird-ice
 
     brew tap homebrew/cask-fonts
     brew install font-terminess-ttf-nerd-font
