@@ -161,6 +161,54 @@ fi
 # fix poetry nonsense: https://github.com/python-poetry/poetry/issues/2692
 export PYTHON_KEYRING_BACKEND="keyring.backends.null.Keyring"
 
+# Git worktree shortcuts
+# Usage: gwn new-feature-name
+function gwn() {
+  local BRANCH_NAME="$1"
+  local NEW_DIR="../$(basename "$BRANCH_NAME")"
+
+  echo "🚀 Creating worktree for '$BRANCH_NAME'..."
+  git worktree add -b "$BRANCH_NAME" "$NEW_DIR" || return 1
+
+  local FILES_TO_COPY=(".env" ".secrets.env" "app.config.local")
+  echo "📂 Copying configuration files..."
+  for file in "${FILES_TO_COPY[@]}"; do
+    if [ -f "$file" ]; then
+      cp "$file" "$NEW_DIR/"
+      echo "   └── ✅ Copied $file"
+    fi
+  done
+
+  cd "$NEW_DIR" || return 1
+  echo "📍 Switched to $NEW_DIR"
+
+  # 1. Create the worktree in a sibling directory (../name)
+  git worktree add -b "$1" "../$1"
+
+  # 2. Copy .env from the current directory to the new one (if it exists)
+  if [ -f .env ]; then
+    cp .env "../$1/.env"
+    echo "✅ Copied .env to ../$1/"
+  fi
+  if [ -f .env ]; then
+    cp .secrets.env "../$1/.secrets.env"
+    echo "✅ Copied .secrets.env to ../$1/"
+  fi
+
+  # 3. Move into the new directory
+  cd "../$1"
+}
+
+function gwd() {
+  # 1. Remove the worktree pointer
+  git worktree remove "../$1"
+
+  # 2. Force delete the actual directory (cleans up node_modules etc)
+  rm -rf "../$1"
+
+  # 3. Prune any stale links in git
+  git worktree prune
+}
 
 # support direnv for local envvar loading
 eval "$(direnv hook zsh)"
