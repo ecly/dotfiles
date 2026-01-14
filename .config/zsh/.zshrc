@@ -101,12 +101,6 @@ if [ -f "${HOME}/.profile" ]; then source "${HOME}/.profile"; fi
 # Import colorscheme from 'wal'
 (cat "$HOME/.cache/wal/sequences" &)
 
-# If folder fzf is present with pacman, source binds and completion
-if [ -e /usr/share/fzf/key-bindings.zsh ]; then
-    source /usr/share/fzf/key-bindings.zsh
-    source /usr/share/fzf/completion.zsh
-fi
-
 # NVM sourcing: https://aur.archlinux.org/packages/nvm
 if [ -e /usr/share/nvm/init-nvm.sh ]; then
   source /usr/share/nvm/init-nvm.sh
@@ -116,6 +110,10 @@ fi
   export NVM_DIR="$HOME/.nvm"
 [ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"  # This loads nvm
 [ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"  #
+
+if _has fzf; then
+    source <(fzf --zsh)
+fi
 
 # Use ag for fzf
 # Uses same command for all binds - could make this for ALT_C
