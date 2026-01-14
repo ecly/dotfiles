@@ -165,12 +165,21 @@ export PYTHON_KEYRING_BACKEND="keyring.backends.null.Keyring"
 # Usage: gwn new-feature-name
 function gwn() {
   local BRANCH_NAME="$1"
-  local NEW_DIR="../$(basename "$BRANCH_NAME")"
+  local DIR_NAME="$(basename "$BRANCH_NAME")"
+  local NEW_DIR="../$DIR_NAME"
 
-  echo "🚀 Creating worktree for '$BRANCH_NAME'..."
-  git worktree add -b "$BRANCH_NAME" "$NEW_DIR" || return 1
+  # 1. Check if the branch already exists locally
+  if git show-ref --verify --quiet "refs/heads/$BRANCH_NAME"; then
+    echo "🔄 Branch '$BRANCH_NAME' already exists. Linking to it..."
+    # Add worktree pointing to existing branch (no -b flag)
+    git worktree add "$NEW_DIR" "$BRANCH_NAME" || return 1
+  else
+    echo "🆕 Branch '$BRANCH_NAME' not found. Creating new branch..."
+    # Create new branch and worktree (use -b flag)
+    git worktree add -b "$BRANCH_NAME" "$NEW_DIR" || return 1
+  fi
 
-  local FILES_TO_COPY=(".env" ".secrets.env" "app.config.local")
+  local FILES_TO_COPY=(".secrets.env" ".env")
   echo "📂 Copying configuration files..."
   for file in "${FILES_TO_COPY[@]}"; do
     if [ -f "$file" ]; then
@@ -179,24 +188,15 @@ function gwn() {
     fi
   done
 
+  if command -v direnv &> /dev/null; then
+    if [ -f "$NEW_DIR/.envrc" ] || [ -f "$NEW_DIR/.env" ]; then
+      echo "🛡️  Approving direnv..."
+      (cd "$NEW_DIR" && direnv allow)
+    fi
+  fi
+
   cd "$NEW_DIR" || return 1
   echo "📍 Switched to $NEW_DIR"
-
-  # 1. Create the worktree in a sibling directory (../name)
-  git worktree add -b "$1" "../$1"
-
-  # 2. Copy .env from the current directory to the new one (if it exists)
-  if [ -f .env ]; then
-    cp .env "../$1/.env"
-    echo "✅ Copied .env to ../$1/"
-  fi
-  if [ -f .env ]; then
-    cp .secrets.env "../$1/.secrets.env"
-    echo "✅ Copied .secrets.env to ../$1/"
-  fi
-
-  # 3. Move into the new directory
-  cd "../$1"
 }
 
 function gwd() {
