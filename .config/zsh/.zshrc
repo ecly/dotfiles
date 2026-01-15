@@ -191,7 +191,7 @@ function gwn() {
   if command -v direnv &> /dev/null; then
     if [ -f "$NEW_DIR/.envrc" ] || [ -f "$NEW_DIR/.env" ]; then
       echo "🛡️  Approving direnv..."
-      (cd "$NEW_DIR" && direnv allow)
+      direnv allow "$NEW_DIR"
     fi
   fi
 
