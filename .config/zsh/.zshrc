@@ -170,44 +170,84 @@ function gwn() {
 
   # 1. Check if the branch already exists locally
   if git show-ref --verify --quiet "refs/heads/$BRANCH_NAME"; then
-    echo "🔄 Branch '$BRANCH_NAME' already exists. Linking to it..."
+    echo "Branch '$BRANCH_NAME' already exists. Linking to it..."
     # Add worktree pointing to existing branch (no -b flag)
     git worktree add "$NEW_DIR" "$BRANCH_NAME" || return 1
   else
-    echo "🆕 Branch '$BRANCH_NAME' not found. Creating new branch..."
+    echo "Branch '$BRANCH_NAME' not found. Creating new branch..."
     # Create new branch and worktree (use -b flag)
     git worktree add -b "$BRANCH_NAME" "$NEW_DIR" || return 1
   fi
 
   local FILES_TO_COPY=(".secrets.env" ".env")
-  echo "📂 Copying configuration files..."
+  echo "Copying configuration files..."
   for file in "${FILES_TO_COPY[@]}"; do
     if [ -f "$file" ]; then
       cp "$file" "$NEW_DIR/"
-      echo "   └── ✅ Copied $file"
+      echo "   └── Copied $file"
     fi
   done
 
   if command -v direnv &> /dev/null; then
     if [ -f "$NEW_DIR/.envrc" ] || [ -f "$NEW_DIR/.env" ]; then
-      echo "🛡️  Approving direnv..."
+      echo "Approving direnv..."
       direnv allow "$NEW_DIR"
     fi
   fi
 
   cd "$NEW_DIR" || return 1
-  echo "📍 Switched to $NEW_DIR"
+  echo "Switched to $NEW_DIR"
 }
 
 function gwd() {
-  # 1. Remove the worktree pointer
-  git worktree remove "../$1"
+  if [ -z "$1" ]; then
+  # No argument - Delete CURRENT worktree (if it is a worktree)
 
-  # 2. Force delete the actual directory (cleans up node_modules etc)
-  rm -rf "../$1"
+    local WORKTREE_ROOT
+    WORKTREE_ROOT="$(git rev-parse --show-toplevel 2>/dev/null)"
 
-  # 3. Prune any stale links in git
-  git worktree prune
+    if [ -z "$WORKTREE_ROOT" ]; then
+      echo "Error: Not inside a git repository."
+      return 1
+    fi
+
+    if [ -d "$WORKTREE_ROOT/.git" ]; then
+      echo "Error: This looks like a primary repository (has .git folder)."
+      return 1
+    fi
+
+    # 1. Get the path to the git dir (usually points to .bare)
+    local GIT_COMMON_DIR
+    GIT_COMMON_DIR="$(git rev-parse --git-common-dir)"
+
+    # 2. Resolve it to an absolute path (so it works after we cd ..)
+    local ABS_GIT_DIR
+    ABS_GIT_DIR="$(cd "$GIT_COMMON_DIR" && pwd)"
+
+    local DIR_NAME="$(basename "$WORKTREE_ROOT")"
+    echo "Deleting CURRENT worktree: $DIR_NAME..."
+
+    # 3. Move out of the folder
+    cd "$(dirname "$WORKTREE_ROOT")" || return 1
+
+    # 4. Run remove using the explicit git-dir we captured earlier
+    git --git-dir="$ABS_GIT_DIR" worktree remove "$WORKTREE_ROOT" --force
+
+    # 5. Delete the folder
+    rm -rf "$WORKTREE_ROOT"
+
+    # 6. Prune using the explicit git-dir
+    git --git-dir="$ABS_GIT_DIR" worktree prune
+
+  else
+    # Argument provided - Delete SIBLING worktree
+    local TARGET="../$1"
+    echo " Deleting sibling worktree: $1..."
+
+    git worktree remove "$TARGET" --force
+    command rm -rf "$TARGET"
+    git worktree prune
+  fi
 }
 
 # support direnv for local envvar loading
