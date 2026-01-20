@@ -168,11 +168,21 @@ function gwn() {
   local DIR_NAME="$(basename "$BRANCH_NAME")"
   local NEW_DIR="../$DIR_NAME"
 
+  echo "Fetching latest updates from remote..."
+  git fetch origin -q
+
   # 1. Check if the branch already exists locally
   if git show-ref --verify --quiet "refs/heads/$BRANCH_NAME"; then
     echo "Branch '$BRANCH_NAME' already exists. Linking to it..."
     # Add worktree pointing to existing branch (no -b flag)
     git worktree add "$NEW_DIR" "$BRANCH_NAME" || return 1
+  # 2. Check if the branch exists on REMOTE (The new fix)
+  elif git show-ref --verify --quiet "refs/remotes/origin/$BRANCH_NAME"; then
+    echo "Remote branch 'origin/$BRANCH_NAME' found. Checking it out..."
+    # We purposefully OMIT the -b flag here.
+    # This triggers Git's auto-tracking behavior (DWIM).
+    git worktree add "$NEW_DIR" "$BRANCH_NAME" || return 1
+  # 3. Create new branch
   else
     echo "Branch '$BRANCH_NAME' not found. Creating new branch..."
     # Create new branch and worktree (use -b flag)
@@ -196,6 +206,8 @@ function gwn() {
   fi
 
   cd "$NEW_DIR" || return 1
+  # Reload the shell and variables
+  reload && direnv reload
   echo "Switched to $NEW_DIR"
 }
 
