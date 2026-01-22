@@ -206,9 +206,30 @@ function gwn() {
   fi
 
   cd "$NEW_DIR" || return 1
-  # Reload the shell and variables
-  reload && direnv reload
+
+ # Clear the sticky variable so Poetry doesn't lie to us
+  unset VIRTUAL_ENV
+  # Force direnv to load config (secrets/.env) IMMEDIATELY
+  if command -v direnv &> /dev/null; then
+      eval "$(direnv export zsh)"
+  fi
+
+  # Reload the shell config
+  # This re-runs 'poetry env info', which now correctly sees the new folder
+  # and exports the new VIRTUAL_ENV and PATH.
+  reload
+
   echo "Switched to $NEW_DIR"
+
+# Interactive Prompt
+  # 'read -q' reads a single character. If it's 'y' or 'Y', it returns true.
+  echo -n "Would you like to run 'make install'? [y/N] "
+  if read -q; then
+    echo "\n\n Running make install..."
+    make install
+  else
+    echo "\nSkipping install."
+  fi
 }
 
 function gwd() {
