@@ -55,18 +55,8 @@ windows:
       layout: even-horizontal
       panes:
         -
-  - twain:
-      root: ~/Programming/work/twain
-      layout: even-horizontal
-      panes:
-        -
-  - twain-2:
-      root: ~/Programming/work/twain_2nd
-      layout: even-horizontal
-      panes:
-        -
-  - fe:
-      root: ~/Programming/work/twain_2nd
+  - main:
+      root: ~/Programming/work/twain/main
       layout: even-horizontal
       panes:
         -
