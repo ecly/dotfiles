@@ -214,11 +214,6 @@ function gwn() {
       eval "$(direnv export zsh)"
   fi
 
-  # Reload the shell config
-  # This re-runs 'poetry env info', which now correctly sees the new folder
-  # and exports the new VIRTUAL_ENV and PATH.
-  reload
-
   echo "Switched to $NEW_DIR"
 
 # Interactive Prompt
