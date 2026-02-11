@@ -198,6 +198,13 @@ function gwn() {
     fi
   done
 
+  # Symlink .claude settings from main worktree
+  local MAIN_CLAUDE_DIR="$(realpath "$(git rev-parse --git-common-dir)/../.claude" 2>/dev/null)"
+  if [ -d "$MAIN_CLAUDE_DIR" ] && [ ! -e "$NEW_DIR/.claude" ]; then
+    ln -s "$(cd "$MAIN_CLAUDE_DIR" && pwd)" "$NEW_DIR/.claude"
+    echo "   └── Linked .claude settings"
+  fi
+
   if command -v direnv &> /dev/null; then
     if [ -f "$NEW_DIR/.envrc" ] || [ -f "$NEW_DIR/.env" ]; then
       echo "Approving direnv..."
@@ -222,6 +229,7 @@ function gwn() {
   if read -q; then
     echo "\n\n Running make install..."
     make install
+    direnv reload
   else
     echo "\nSkipping install."
   fi
