@@ -47,16 +47,6 @@ vim.lsp.config("yamlls", {
     settings = {yaml = {keyOrdering = false}}
 })
 
-local lsputil = require("lspconfig/util")
-local venv = utils.exists("./.venv/") and "./.venv" or nil
-local cmd_env = {}
-if venv then
-    cmd_env = {
-        VIRTUAL_ENV = venv,
-        PATH = lsputil.path.join(venv, "bin") .. ":" .. vim.env.PATH
-    }
-end
-
 vim.lsp.config("protols", {
     capabilities = capabilities,
     on_attach = function(client, _)
@@ -66,29 +56,25 @@ vim.lsp.config("protols", {
     init_options = {include_paths = {"proto/vendor", "proto/schemas"}}
 })
 
-vim.lsp.config("basedpyright", {
+vim.lsp.config("ty", {
+    cmd = {"ty", "server"},
+    root_dir = vim.fs.root(0, {"pyproject.toml", "ty.toml", ".git"}),
     capabilities = capabilities,
     on_attach = function(client, _)
+        -- Disable formatting since I'm using ruff for it.
         client.server_capabilities.documentFormattingProvider = false
         client.server_capabilities.documentRangeFormattingProvider = false
     end,
-    cmd_env = cmd_env,
-    enable = false,
     settings = {
-        venvPath = venv,
-        -- Settings available here:
-        -- https://docs.basedpyright.com/latest/configuration/language-server-settings/
-        basedpyright = {
-            analysis = {
-                typeCheckingMode = "basic",
-                ignore = {"./proto/gen/pydantic", "pkgs/py/twain/models.py"},
-                extraPaths = {
-                    "./dags", "./pkgs/py/", "./apps", "./proto/gen/pydantic"
-                }
-            }
+        ty = {
+            -- You can override TOML settings here if needed
+            -- diagnosticMode = "openFilesOnly"
         }
     }
 })
+
+-- 2. Enable the server
+vim.lsp.enable("ty")
 
 vim.lsp.handlers["textDocument/publishDiagnostics"] =
     vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, {
