@@ -5,7 +5,7 @@ local M = {
         require("conform").setup({
             formatters_by_ft = {
                 lua = {"lua-format", "stylua", stop_after_first = true},
-                python = {"isort", "black"},
+                python = {"ruff_format", "ruff_organize_imports"},
                 -- run only first available
                 javascript = {"prettierd", "prettier", stop_after_first = true},
                 yaml = {"prettierd", "prettier", stop_after_first = true},
