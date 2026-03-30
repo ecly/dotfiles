@@ -20,7 +20,7 @@ local M = {
                 -- override keyword.operator which otherwise isn't highlighted with gruvbox.nvim/TS combination
                 custom_captures = {["keyword.operator"] = "Tag"}
             },
-            refactor = {highlight_definitions = {enable = true}},
+            refactor = {highlight_definitions = {enable = false}},
             indent = {enable = true, disable = {"python"}},
             context_commentstring = {enable = true, enable_autocmd = false},
             incremental_selection = {
