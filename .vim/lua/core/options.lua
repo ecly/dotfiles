@@ -54,6 +54,9 @@ vim.o.splitright = true
 vim.o.showtabline = 2 -- Always show tabline
 vim.o.shortmess = vim.o.shortmess .. 'c' -- Don't give ins-completion-menu messages
 vim.o.signcolumn = 'yes' -- Always show signcolumn
+--- Keeps folds open by default
+vim.opt.foldlevel = 99
+vim.opt.foldlevelstart = 99
 
 -- Use virtual text for diagnostics
 vim.diagnostic.config({ virtual_text = true })
