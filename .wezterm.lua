@@ -54,7 +54,13 @@ config.keys = {
         key = '-',
         mods = 'CTRL',
         action = wezterm.action_callback(decrease_font_size)
-    }, {key = '0', mods = 'CTRL', action = act.ResetFontSize}
+    }, {key = '0', mods = 'CTRL', action = act.ResetFontSize}, {
+        key = 'Enter',
+        mods = 'SHIFT',
+        -- This sends the CSI u escape sequence for Shift+Enter literally
+        -- which is required for Claude Code with Tmux in WezTerm
+        action = act.SendString '\x1b[13;2u'
+    }
 }
 
 -- and finally, return the configuration to wezterm
