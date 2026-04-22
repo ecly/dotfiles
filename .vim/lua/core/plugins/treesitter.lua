@@ -25,15 +25,17 @@ local M = {
         vim.api.nvim_create_autocmd('FileType', {
             group = vim.api.nvim_create_augroup('NativeTreesitter', { clear = true }),
             callback = function(args)
-                -- 1. Start Highlighting
-                local lang = vim.treesitter.language.get_lang(vim.bo[args.buf].filetype)
+                local bufnr = args.buf
+                local lang = vim.treesitter.language.get_lang(vim.bo[bufnr].filetype)
                 if lang then
-                    pcall(vim.treesitter.start, args.buf, lang)
+                    -- Use pcall to prevent errors if a parser is missing
+                    local ok, _ = pcall(vim.treesitter.start, bufnr, lang)
+                    if ok then
+                        -- Set folding only if treesitter started successfully
+                        vim.wo.foldmethod = 'expr'
+                        vim.wo.foldexpr = 'v:lua.vim.treesitter.foldexpr()'
+                    end
                 end
-
-                -- 2. Enable Native Folds
-                vim.wo[0][0].foldexpr = 'v:lua.vim.treesitter.foldexpr()'
-                vim.wo[0][0].foldmethod = 'expr'
             end,
         })
 

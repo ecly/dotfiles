@@ -64,6 +64,8 @@ vim.lsp.config("ty", {
         -- Disable formatting since I'm using ruff for it.
         client.server_capabilities.documentFormattingProvider = false
         client.server_capabilities.documentRangeFormattingProvider = false
+        -- Disable semantic tokens, let's rely on treesitter instead
+        client.server_capabilities.semanticTokensProvider = nil
     end,
     settings = {
         ty = {
