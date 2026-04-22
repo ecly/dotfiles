@@ -75,15 +75,16 @@ yabai -m rule --add title='Preferences$' manage=off
 yabai -m rule --add app='^Cisco' manage=off
 yabai -m rule --add app="^Bitwarden$" sticky=on manage=off
 yabai -m rule --add app='^Loom$' manage=off
+yabai -m rule --add app='^Supercut$' manage=off
 
 # Web browsers
 yabai -m rule --add app="^(Firefox|Zen)$" space=^1
-yabai -m rule --add app="^(Wezterm|WezTerm|Terminal)$" space=^2
-yabai -m rule --add app="^(Spotify|Music|Apple Music)$" space=^3
-yabai -m rule --add app="^(Slack|Mail|Calendar|Google Chrome|Chrome)$" space=^4
-yabai -m rule --add app="^(Signal|Messages|Messenger)$" space=^5
+yabai -m rule --add app="^(Wezterm|WezTerm|Terminal|Ghostty|Alacritty)$" space=^2
+yabai -m rule --add app="^(Google Chrome|Chrome|Chromium|Safari)$" space=^3
+yabai -m rule --add app="^(Slack|Signal|Messages|Messenger|Mail|Teams|Microsoft Teams|Zoom)$" space=^4
+yabai -m rule --add app="^(Notes|Reminders|Calendar)$" space=^5
+yabai -m rule --add app="^(Spotify|Music|Apple Music)$" space=^6
 yabai -m rule --add app="^(Discord|Battle.net|World of Warcraft|Hearthstone|Riot Client|League of Legends|League of Legends (TM) Client)$" space=^7
-yabai -m rule --add app="^(Safari)$" space=^8
 
 
 
