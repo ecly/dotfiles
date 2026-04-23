@@ -1,99 +1,84 @@
--- treesitter for wonderful coloring and navigation of textobjects
-local M = {
-    -- 1. The new lightweight manager replacing nvim-treesitter
-    'romus204/tree-sitter-manager.nvim',
-    dependencies = {
-        'nvim-treesitter/nvim-treesitter-textobjects',
-        'nvim-treesitter/nvim-treesitter-context',
-        -- Note: 'nvim-treesitter-refactor' is removed. It's unmaintained and
-        -- mostly replaced by native LSP features (like vim.lsp.buf.rename).
-    },
-    config = function()
-        local settings = require("core.settings")
+local settings = require("core.settings")
 
-        -----------------------------------------------------------------------
-        -- A. PARSER INSTALLATION
-        -----------------------------------------------------------------------
-        require("tree-sitter-manager").setup({
-            -- It uses standard data paths by default. You install languages
-            -- via the `:TSManager` TUI command.
-        })
+return {
+    {
+        "nvim-treesitter/nvim-treesitter",
+        branch = "master", -- CRITICAL: Forces the stable API
+        lazy = false,      -- Load immediately on boot
+        priority = 1000,
+        build = ":TSUpdate",
+        dependencies = {
+            { "nvim-treesitter/nvim-treesitter-textobjects", branch = "master" },
+            { "nvim-treesitter/nvim-treesitter-context", branch = "master" },
+        },
+        config = function()
+            -----------------------------------------------------------------------
+            -- 1. PLUGIN CONFIGURATION (Parsers & Textobjects)
+            -----------------------------------------------------------------------
+            -- Because we pinned to "master", this module actually exists again!
+            require("nvim-treesitter.configs").setup({
+                ensure_installed = settings.treesitter_ensure_installed or "all",
+                sync_install = false,
+                auto_install = true,
 
-        -----------------------------------------------------------------------
-        -- B. NATIVE HIGHLIGHTING & FOLDING (Neovim 0.12+)
-        -----------------------------------------------------------------------
-        vim.api.nvim_create_autocmd('FileType', {
-            group = vim.api.nvim_create_augroup('NativeTreesitter', { clear = true }),
-            callback = function(args)
-                local bufnr = args.buf
-                local lang = vim.treesitter.language.get_lang(vim.bo[bufnr].filetype)
-                if lang then
-                    -- Use pcall to prevent errors if a parser is missing
-                    local ok, _ = pcall(vim.treesitter.start, bufnr, lang)
-                    if ok then
-                        -- Set folding only if treesitter started successfully
-                        vim.wo.foldmethod = 'expr'
-                        vim.wo.foldexpr = 'v:lua.vim.treesitter.foldexpr()'
-                    end
-                end
-            end,
-        })
+                -- Keep these false so native Neovim 0.12 takes over
+                highlight = { enable = false },
+                indent = { enable = false },
 
-        -----------------------------------------------------------------------
-        -- C. CUSTOM CAPTURES -> NATIVE HIGHLIGHT GROUPS
-        -----------------------------------------------------------------------
-        -- Overriding keyword.operator (Replaces `custom_captures`)
-        vim.api.nvim_set_hl(0, "@keyword.operator", { link = "Tag" })
-
-        -----------------------------------------------------------------------
-        -- D. CONTEXT (Sticky Headers)
-        -----------------------------------------------------------------------
-        require('treesitter-context').setup({
-            max_lines = 3,
-            multiline_threshold = 1,
-            min_window_height = 20
-        })
-
-        -----------------------------------------------------------------------
-        -- E. TEXTOBJECTS
-        -----------------------------------------------------------------------
-        -- Even though the base plugin is archived, the textobjects extension
-        -- still hooks into the legacy configs module for now.
-        require('nvim-treesitter.configs').setup({
-            textobjects = {
-                select = {
-                    enable = true,
-                    lookahead = true,
-                    keymaps = {
-                        ['af'] = '@function.outer',
-                        ['if'] = '@function.inner',
-                        ['ac'] = '@class.outer',
-                        ['ic'] = '@class.inner'
-                    }
-                },
-                move = {
-                    enable = true,
-                    set_jumps = true,
-                    goto_next_start = {
-                        [']m'] = '@function.outer',
-                        [']]'] = '@class.outer'
+                textobjects = {
+                    select = {
+                        enable = true,
+                        lookahead = true,
+                        keymaps = {
+                            ['af'] = '@function.outer',
+                            ['if'] = '@function.inner',
+                            ['ac'] = '@class.outer',
+                            ['ic'] = '@class.inner'
+                        }
                     },
-                    goto_next_end = {
-                        [']M'] = '@function.outer',
-                        [']['] = '@class.outer'
-                    },
-                    goto_previous_start = {
-                        ['[m'] = '@function.outer',
-                        ['[['] = '@class.outer'
-                    },
-                    goto_previous_end = {
-                        ['[M'] = '@function.outer',
-                        ['[]'] = '@class.outer'
+                    move = {
+                        enable = true,
+                        set_jumps = true,
+                        goto_next_start = { [']m'] = '@function.outer', [']]'] = '@class.outer' },
+                        goto_next_end = { [']M'] = '@function.outer', [']['] = '@class.outer' },
+                        goto_previous_start = { ['[m'] = '@function.outer', ['[['] = '@class.outer' },
+                        goto_previous_end = { ['[M'] = '@function.outer', ['[]'] = '@class.outer' }
                     }
                 }
-            }
-        })
-    end
-}
+            })
 
-return M
+            -----------------------------------------------------------------------
+            -- 2. NATIVE 0.12 HIGHLIGHTING & FOLDING
+            -----------------------------------------------------------------------
+            local ts_group = vim.api.nvim_create_augroup('NativeTreesitter', { clear = true })
+            vim.api.nvim_create_autocmd('FileType', {
+                group = ts_group,
+                callback = function(args)
+                    local bufnr = args.buf
+                    local ft = vim.bo[bufnr].filetype
+                    local lang = vim.treesitter.language.get_lang(ft)
+
+                    if lang then
+                        -- Prevent the 'white text' fallback
+                        vim.bo[bufnr].syntax = 'off'
+
+                        -- Start native Treesitter safely
+                        local ok = pcall(vim.treesitter.start, bufnr, lang)
+
+                        -- Apply folding only to real files (ignores hover windows)
+                        if ok and vim.bo[bufnr].buftype == "" then
+                            vim.wo.foldmethod = 'expr'
+                            vim.wo.foldexpr = 'v:lua.vim.treesitter.foldexpr()'
+                        end
+                    end
+                end,
+            })
+
+            -----------------------------------------------------------------------
+            -- 3. EXTRAS (Context & Captures)
+            -----------------------------------------------------------------------
+            require('treesitter-context').setup({ max_lines = 3 })
+            vim.api.nvim_set_hl(0, "@keyword.operator", { link = "Tag" })
+        end
+    }
+}
