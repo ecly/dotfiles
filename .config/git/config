@@ -15,7 +15,12 @@
     navigate = True # use n and N to move between diff sections
     features = side-by-side line-numbers decorations
     whitespace-error-style = 22 reverse
+    wrap-max-lines = unlimited
+    # 0 means unlimited. Delta will read the entire LLM prompt,
+    # even if it's 10,000 characters long. Default is 512.
+    max-line-length = 0
 [delta "decorations"]
+
     commit-decoration-style = bold yellow box ul
     file-style = bold yellow ul
 [diff]
