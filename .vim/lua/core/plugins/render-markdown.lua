@@ -6,10 +6,13 @@ local M = {
         latex = { enabled = false },
         render_modes = { 'n', 'c', 'i' },
         anti_conceal = { enabled = false },
-        -- CRITICAL: This stops the 'range (nil value)' crash when pressing K
-        exclude = {
-            buftypes = { 'nofile' },
-        },
+
+        -- THE V6.0 FIX: Safely ignore hover windows
+        overrides = {
+            buftype = {
+                nofile = { enabled = false }
+            }
+        }
     },
 }
 
