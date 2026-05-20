@@ -59,7 +59,7 @@ config.keys = {
         mods = 'SHIFT',
         -- This sends the CSI u escape sequence for Shift+Enter literally
         -- which is required for Claude Code with Tmux in WezTerm
-        action = act.SendString '\x1b[13;2u'
+        action = act.SendString("\x1b\r")
     }
 }
 
