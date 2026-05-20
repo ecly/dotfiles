@@ -198,6 +198,26 @@ function gwn() {
     fi
   done
 
+
+  local REPO_ROOT="$(git rev-parse --show-toplevel)"
+  local PARENT_DIR="$(dirname "$REPO_ROOT")"
+
+  local SYMLINK_PAIRS=(
+    ".env.website.local:apps/website/.env.local"
+  )
+  echo "Linking shared env files..."
+  for pair in "${SYMLINK_PAIRS[@]}"; do
+    local src_name="${pair%%:*}"
+    local dest_rel="${pair#*:}"
+    local src_abs="$PARENT_DIR/$src_name"
+    if [ -f "$src_abs" ]; then
+      ln -sfn "$src_abs" "$NEW_DIR/$dest_rel"
+      echo "   └── Linked $dest_rel -> $src_abs"
+    else
+      echo "   └── Skipped $dest_rel ($src_abs not found)"
+    fi
+  done
+
   # Symlink .claude settings from main worktree
   local MAIN_CLAUDE_DIR="$(realpath "$(git rev-parse --git-common-dir)/../.claude" 2>/dev/null)"
   if [ -d "$MAIN_CLAUDE_DIR" ] && [ ! -e "$NEW_DIR/.claude" ]; then
