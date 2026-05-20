@@ -14,4 +14,8 @@ M.mason_lspconfig_installer_ensure_installed = {
     "lua_ls", "ty",  "terraformls", "gopls", "protols", "yamlls"
 }
 
+-- Use the background of the terminal
+vim.api.nvim_set_hl(0, "Normal", {bg = "none"})
+vim.api.nvim_set_hl(0, "NormalFloat", {bg = "none"})
+
 return M

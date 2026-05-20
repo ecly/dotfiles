@@ -23,3 +23,4 @@ else
         config = function() require("core.plugins.themes.gruvbox") end
     }
 end
+

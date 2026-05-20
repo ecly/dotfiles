@@ -12,6 +12,7 @@ require("gruvbox").setup({
     contrast = "", -- can be "hard", "soft" or empty string
     palette_overrides = {},
     dim_inactive = false,
-    transparent_mode = false
+    -- we use same colorscheme in terminal/tmux
+    transparent_mode = true
 })
 vim.cmd([[colorscheme gruvbox]])
