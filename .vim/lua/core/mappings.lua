@@ -181,11 +181,11 @@ wk.add({
     {"<Tab>", "<Plug>(cokeline-focus-next)", desc = "Go to next buffer"},
     {"K", "<cmd>lua vim.lsp.buf.hover()<CR>", desc = "Hover documentation"}, {
         "[d",
-        "<cmd>lua vim.diagnostic.goto_prev()<CR>",
+        function() vim.diagnostic.jump({count = -1, float = true}) end,
         desc = "Go to previous diagnostic"
     }, {
         "]d",
-        "<cmd>lua vim.diagnostic.goto_next()<CR>",
+        function() vim.diagnostic.jump({count = 1, float = true}) end,
         desc = "Go to next diagnostic"
     }, {"g", group = "Go to"},
     {"gD", "<cmd>lua vim.lsp.buf.declaration()<CR>", desc = "Go to declaration"},
