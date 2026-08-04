@@ -1,25 +1,10 @@
 local M = {
-    -- add blink.compat
     {
-        'saghen/blink.compat',
-        -- use the latest release, via version = '*', if you also use the latest release for blink.cmp
-        version = '1.*',
-        -- lazy.nvim will automatically load the plugin when it's required by blink.cmp
-        lazy = true,
-        -- make sure to set opts so that lazy.nvim calls blink.compat's setup
-        opts = {}
-    }, {
         "saghen/blink.cmp",
         version = '*',
         enabled = true,
-        -- allows extending the providers array elsewhere in your config
-        -- without having to redefine it
         dependencies = {
-            "rafamadriz/friendly-snippets", -- add blink.compat to dependencies
-            {"saghen/blink.compat", opts = {}}, "hrsh7th/cmp-buffer",
-            "hrsh7th/cmp-nvim-lua", "lukas-reineke/cmp-under-comparator",
-            "onsails/lspkind-nvim", "hrsh7th/cmp-calc",
-            "hrsh7th/cmp-nvim-lsp-signature-help"
+            "rafamadriz/friendly-snippets"
             -- "fang2hou/blink-copilot",
             -- {
             --     "zbirenbaum/copilot.lua",
@@ -53,25 +38,13 @@ local M = {
                 -- Set to 'mono' for 'Nerd Font Mono' or 'normal' for 'Nerd Font'
                 -- Adjusts spacing to ensure icons are aligned
                 nerd_font_variant = 'mono',
-                kind_icons = {Copilot = ""}
+                kind_icons = {Copilot = ""}
             },
-            -- experimental signature help support
-            -- -- signature = {enabled = true},
+            signature = {enabled = true},
             cmdline = {enabled = true},
             sources = {
-                default = {
-                    "lsp", "path", "snippets", "buffer", "nvim_lua",
-                    "nvim_lsp_signature_help"
-                },
+                default = {"lsp", "path", "snippets", "buffer"},
                 providers = {
-                    nvim_lua = {
-                        name = "nvim_lua",
-                        module = "blink.compat.source"
-                    },
-                    nvim_lsp_signature_help = {
-                        name = "nvim_lsp_signature_help",
-                        module = "blink.compat.source"
-                    }
                     -- copilot = {
                     --     name = "copilot",
                     --     module = "blink-copilot",
