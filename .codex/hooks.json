@@ -17,7 +17,7 @@
           {
             "type": "command",
             "command": "/Users/ecly/.claude/hooks/tmux-busy.sh off",
-            "timeout": 5
+            "timeout": 3
           }
         ]
       }
