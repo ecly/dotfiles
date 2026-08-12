@@ -21,7 +21,6 @@
       "Bash(git show:*)"
     ]
   },
-  "model": "claude-opus-4-8[1m]",
   "hooks": {
     "SessionStart": [
       {
@@ -145,8 +144,9 @@
     "code-simplifier@claude-plugins-official": true,
     "superpowers@claude-plugins-official": false
   },
-  "effortLevel": "high",
+  "effortLevel": "xhigh",
   "tui": "default",
   "editorMode": "vim",
-  "skipAutoPermissionPrompt": true
+  "skipAutoPermissionPrompt": true,
+  "model": "claude-fable-5[1m]"
 }
