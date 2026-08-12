@@ -1,0 +1,44 @@
+personality = "pragmatic"
+model = "gpt-5.6-sol"
+model_reasoning_effort = "high"
+
+[projects."/Users/ecly/Programming/work/twain"]
+trust_level = "trusted"
+
+[sandbox_workspace_write]
+network_access = true
+web_search = "live"
+
+[notice.model_migrations]
+"gpt-5.2-codex" = "gpt-5.3-codex"
+"gpt-5.1-codex-max" = "gpt-5.4"
+
+[tui.model_availability_nux]
+"gpt-5.5" = 4
+"gpt-5.6-sol" = 4
+
+[mcp_servers.sentry]
+url = "https://mcp.sentry.dev/mcp"
+
+[mcp_servers.openaiDeveloperDocs]
+url = "https://developers.openai.com/mcp"
+
+[hooks.state]
+
+[hooks.state."/Users/ecly/.codex/hooks.json:permission_request:0:0"]
+trusted_hash = "sha256:bc895505bcf180d2a5de3b0c296ef4a861ad2ac97006bab9037e4c7d44d140a0"
+
+[hooks.state."/Users/ecly/.codex/hooks.json:session_start:0:0"]
+trusted_hash = "sha256:09feec9d0e7ec6f102a8e2318213e2d1f1da4899be6be3ef498537107b67909f"
+
+[hooks.state."/Users/ecly/.codex/hooks.json:session_end:0:0"]
+trusted_hash = "sha256:1e8c38b44a711af07baa87928628fcd87525d57040853ae57c04caf2021ec99a"
+
+[hooks.state."/Users/ecly/.codex/hooks.json:user_prompt_submit:0:0"]
+trusted_hash = "sha256:d3910a79b20e71701e451bdc20a85590109a31bcf5e18c26bfe42a3789930a60"
+
+[hooks.state."/Users/ecly/.codex/hooks.json:stop:0:0"]
+trusted_hash = "sha256:fea54a392343664e3d97eb87eb0a3f0964f9c5ce3e33ba026752cbb5bd16a348"
+
+[hooks.state."/Users/ecly/.codex/hooks.json:stop:0:1"]
+trusted_hash = "sha256:510a5a26c3c2f953f845c9c51c579356da02d0d491769f91a89736fae7b87269"

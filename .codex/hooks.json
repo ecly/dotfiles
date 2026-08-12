@@ -1,0 +1,64 @@
+{
+  "hooks": {
+    "SessionStart": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "/Users/ecly/.claude/hooks/tmux-busy.sh off",
+            "timeout": 5
+          }
+        ]
+      }
+    ],
+    "SessionEnd": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "/Users/ecly/.claude/hooks/tmux-busy.sh off",
+            "timeout": 5
+          }
+        ]
+      }
+    ],
+    "UserPromptSubmit": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "/Users/ecly/.claude/hooks/tmux-busy.sh on",
+            "timeout": 5
+          }
+        ]
+      }
+    ],
+    "Stop": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "/Users/ecly/.claude/hooks/tmux-bell.sh",
+            "timeout": 5
+          },
+          {
+            "type": "command",
+            "command": "/Users/ecly/.claude/hooks/tmux-busy.sh off",
+            "timeout": 5
+          }
+        ]
+      }
+    ],
+    "PermissionRequest": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "/Users/ecly/.claude/hooks/tmux-bell.sh",
+            "timeout": 5
+          }
+        ]
+      }
+    ]
+  }
+}
