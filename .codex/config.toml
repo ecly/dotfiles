@@ -16,6 +16,9 @@ trust_level = "trusted"
 [projects."/Users/ecly/Programming/work/twain/idle-dev-stands"]
 trust_level = "trusted"
 
+[projects."/Users/ecly/Programming/work/twain/main"]
+trust_level = "trusted"
+
 [sandbox_workspace_write]
 network_access = true
 web_search = "live"
