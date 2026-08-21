@@ -1,8 +1,19 @@
 personality = "pragmatic"
 model = "gpt-5.6-sol"
 model_reasoning_effort = "high"
+approval_policy = "on-request"
+sandbox_mode = "workspace-write"
 
 [projects."/Users/ecly/Programming/work/twain"]
+trust_level = "trusted"
+
+[projects."/Users/ecly/Programming/work/twain/backfill-agent-knowledge"]
+trust_level = "trusted"
+
+[projects."/Users/ecly/Programming/work/twain/introduce-modes"]
+trust_level = "trusted"
+
+[projects."/Users/ecly/Programming/work/twain/idle-dev-stands"]
 trust_level = "trusted"
 
 [sandbox_workspace_write]
