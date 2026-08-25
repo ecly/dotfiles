@@ -19,6 +19,42 @@ trust_level = "trusted"
 [projects."/Users/ecly/Programming/work/twain/main"]
 trust_level = "trusted"
 
+[projects."/Users/ecly/Programming/work/twain/harden-gemini-afc-timeouts"]
+trust_level = "trusted"
+
+[projects."/Users/ecly/Programming/work/twain/onboarding-bug"]
+trust_level = "trusted"
+
+[projects."/Users/ecly/Programming/work/twain/tim-credit-cap"]
+trust_level = "trusted"
+
+[projects."/Users/ecly/Programming/work/twain/public-api-endpoint"]
+trust_level = "trusted"
+
+[projects."/Users/ecly/Programming/work/twain/slow-integration-tests"]
+trust_level = "trusted"
+
+[projects."/Users/ecly/Programming/work/twain/diverge-buckets"]
+trust_level = "trusted"
+
+[projects."/Users/ecly/Programming/work/twain/slow-kb"]
+trust_level = "trusted"
+
+[projects."/Users/ecly/Programming/work/twain/parallel-429"]
+trust_level = "trusted"
+
+[projects."/Users/ecly/Programming/work/twain/no-insights-found"]
+trust_level = "trusted"
+
+[projects."/Users/ecly/Programming/work/twain/mcp-campaign-and-workflow-pricing"]
+trust_level = "trusted"
+
+[projects."/private/tmp/claude-501/-Users-ecly/ace8ff8d-0316-4f77-9496-68535e097783/scratchpad"]
+trust_level = "trusted"
+
+[projects."/Users/ecly/Programming/work/twain/relationship-partial"]
+trust_level = "trusted"
+
 [sandbox_workspace_write]
 network_access = true
 web_search = "live"
