@@ -55,6 +55,84 @@ trust_level = "trusted"
 [projects."/Users/ecly/Programming/work/twain/relationship-partial"]
 trust_level = "trusted"
 
+[projects."/Users/ecly/Programming/work/twain/missing-context-for-warning"]
+trust_level = "trusted"
+
+[projects."/Users/ecly/Programming/work/twain/mcp-improvements"]
+trust_level = "trusted"
+
+[projects."/Users/ecly/Programming/work/twain/bad-provided-name"]
+trust_level = "trusted"
+
+[projects."/Users/ecly/Programming/work/twain/workflow-job-event"]
+trust_level = "trusted"
+
+[projects."/Users/ecly/Programming/work/twain/auto-feature-flag"]
+trust_level = "trusted"
+
+[projects."/Users/ecly/Programming/work/twain/integration-test-speedup"]
+trust_level = "trusted"
+
+[projects."/Users/ecly/Programming/work/twain/batch-individual-lead-event"]
+trust_level = "trusted"
+
+[projects."/Users/ecly/Programming/work/twain/wrong-website"]
+trust_level = "trusted"
+
+[projects."/Users/ecly/Programming/work/twain/level-alignment-issues"]
+trust_level = "trusted"
+
+[projects."/Users/ecly/Programming/work/twain/monitor-feature"]
+trust_level = "trusted"
+
+[projects."/Users/ecly/Programming/work/twain/outreach-transient-transport-retries"]
+trust_level = "trusted"
+
+[projects."/Users/ecly/Programming/work/twain/linkedin-found-tag"]
+trust_level = "trusted"
+
+[projects."/Users/ecly/Programming/work/twain/better-concurrency"]
+trust_level = "trusted"
+
+[projects."/Users/ecly/Programming/work/twain/better-ultra-social-proof-section"]
+trust_level = "trusted"
+
+[projects."/Users/ecly/Programming/work/twain/ashby-kb-test"]
+trust_level = "trusted"
+
+[projects."/Users/ecly/Programming/work/twain/email-name-mismatch-surname-scoring"]
+trust_level = "trusted"
+
+[projects."/Users/ecly/Programming/work/twain/company-website-miss-noise"]
+trust_level = "trusted"
+
+[projects."/Users/ecly/Programming/work/twain/search-fallbacks"]
+trust_level = "trusted"
+
+[projects."/Users/ecly/Programming/work/twain/wrong-insight-format"]
+trust_level = "trusted"
+
+[projects."/Users/ecly/Programming/work/twain/recover-li"]
+trust_level = "trusted"
+
+[projects."/Users/ecly/Programming/work/twain/fixmonitor"]
+trust_level = "trusted"
+
+[projects."/Users/ecly/Programming/work/twain/auto-triage-and-monitor-credit-fields"]
+trust_level = "trusted"
+
+[projects."/Users/ecly/Programming/work/twain/slack-notification-monitor"]
+trust_level = "trusted"
+
+[projects."/Users/ecly/Programming/work/twain/mcp-fixes"]
+trust_level = "trusted"
+
+[projects."/Users/ecly/Programming/work/twain/account-feature-flags"]
+trust_level = "trusted"
+
+[projects."/Users/ecly/Programming/work/twain/refactor-be"]
+trust_level = "trusted"
+
 [sandbox_workspace_write]
 network_access = true
 web_search = "live"
